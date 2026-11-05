@@ -1,0 +1,167 @@
+/* Asistente de Simple.sv (asistente.js): botón flotante, panel lateral y mensajes del chat.
+   Lo usan Indexlogin.html y la landing (index.html); se carga antes del <style> de cada página.
+   Usa .l2-nav-btn y .l2-pager del catálogo de cada página para paginar las listas largas. */
+
+/* Pasos: círculo numerado, línea vertical y tarjeta-mensaje (también los usa "Cómo funciona" en Indexlogin.html) */
+.l2-pasos-titulo { margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-blue-primary); }
+.l2-paso { position: relative; display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; padding: 0; border: 2px solid var(--border-active); border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue-primary); font: inherit; font-size: 14px; font-weight: 800; cursor: default; box-shadow: 0 2px 8px rgba(14, 20, 40, 0.14); transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease; }
+.l2-paso::before { content: ''; position: absolute; inset: -7px; border-radius: 50%; }
+.l2-paso::after { content: ''; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--color-blue-primary); opacity: 0; pointer-events: none; }
+.l2-paso.hecho { background: var(--color-blue-primary); border-color: var(--sky, #9FD8FF); color: #FFFFFF; box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.18), 0 0 14px rgba(0, 102, 255, 0.45); }
+.l2-paso-card-num { display: inline-block; margin-bottom: 6px; padding: 2px 10px; border-radius: var(--radius-pill); background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 12px; font-weight: 800; }
+.l2-paso-card-texto { display: block; font-size: 13.5px; line-height: 1.45; color: var(--text-secondary); }
+.l2-pasos-accion { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 12.5px; font-weight: 800; transition: background 0.2s, color 0.2s; }
+.l2-pasos-accion i { font-size: 18px; transition: transform 0.25s ease; }
+.l2-pasos-toggle:hover .l2-pasos-accion { background: var(--color-blue-primary); color: #FFFFFF; }
+.l2-pasos-vert { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.l2-pasos-vert li { position: relative; display: flex; align-items: flex-start; gap: 8px; }
+.l2-pasos-vert li:not(:last-child)::after { content: ''; position: absolute; left: 11px; top: 32px; bottom: -8px; width: 2px; border-radius: 2px; background: var(--color-blue-primary); opacity: 0.35; }
+.l2-pasos-vert .l2-paso { flex-shrink: 0; width: 24px; height: 24px; margin-top: 6px; font-size: 12px; }
+.l2-paso-msg { position: relative; flex: 1; min-width: 0; padding: 8px 10px 9px; border: 1px solid var(--border-subtle); border-radius: 12px; border-top-left-radius: 4px; background: #FFFFFF; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); text-align: left; }
+.l2-paso-msg::before { content: ''; position: absolute; top: 11px; left: -6px; width: 10px; height: 10px; border-radius: 2px; background: #FFFFFF; border-left: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); transform: rotate(45deg); }
+.l2-paso-msg .l2-paso-card-num { margin-bottom: 3px; padding: 1px 8px; font-size: 11px; }
+.l2-paso-msg .l2-paso-card-texto { font-size: 12.5px; line-height: 1.35; }
+.l2-paso-msg strong { display: block; margin-bottom: 1px; font-size: 14px; font-weight: 800; color: var(--color-blue-primary); }
+
+/* Asistente lateral */
+.l2-fab { position: fixed; right: 16px; bottom: 16px; z-index: 60; min-height: 52px; padding: 8px 18px 8px 10px; border-radius: var(--radius-pill); border: none; background: var(--color-blue-primary); color: #FFFFFF; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: var(--shadow-hover); }
+.l2-fab-robot { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+/* Landing e Indexlogin: el asistente y WhatsApp en una fila, abajo a la derecha (WhatsApp en la orilla). El asistente
+   es un círculo con el robot que se abre hacia la izquierda al pasar el cursor (o con el foco) y dice "¿Necesitas ayuda?" */
+.l2-flotantes { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: flex; align-items: center; gap: 12px; }
+.l2-flotantes .l2-fab { position: static; }
+.l2-fab:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+.l2-fab-circulo { height: 56px; min-height: 56px; padding: 0 10px; gap: 0; transition: padding 0.3s ease, gap 0.3s ease; }
+.l2-fab-texto { max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; transition: max-width 0.35s ease, opacity 0.25s ease; }
+.l2-fab-circulo:hover, .l2-fab-circulo:focus-visible, .presentando .l2-fab-circulo { padding-right: 18px; gap: 8px; }
+.l2-fab-circulo:hover .l2-fab-texto, .l2-fab-circulo:focus-visible .l2-fab-texto, .presentando .l2-fab-texto { max-width: 180px; opacity: 1; }
+/* WhatsApp: pide iniciar sesión y lleva al chat de WhatsApp. Igual que el asistente: un círculo con el logo que se abre
+   hacia la izquierda al pasar el cursor (o con el foco) y dice "Realizar trámite en WhatsApp" */
+.l2-fab-wa { display: inline-flex; align-items: center; flex-shrink: 0; height: 56px; padding: 0 13px; gap: 0; border-radius: var(--radius-pill); background: #00A884; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 12px 28px rgba(0, 168, 132, 0.35); transition: padding 0.3s ease, gap 0.3s ease, background 0.2s ease; }
+.l2-fab-wa i { flex-shrink: 0; font-size: 30px; }
+.l2-fab-wa:hover { background: #008F70; }
+.l2-fab-wa:hover, .l2-fab-wa:focus-visible, .presentando .l2-fab-wa { padding-right: 18px; gap: 8px; }
+.l2-fab-wa:hover .l2-fab-texto, .l2-fab-wa:focus-visible .l2-fab-texto, .presentando .l2-fab-wa .l2-fab-texto { max-width: 260px; opacity: 1; }
+.l2-fab-wa:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+
+/* Presentación al entrar a la landing (.presentando): la página se oscurece, el asistente y WhatsApp se abren (los dos
+   con su texto) y el asistente saluda en un globo; el halo lo lleva la miniatura del video (index.html), para que resalte
+   más que los botones. Se queda así hasta que se toca fuera */
+.l2-foco { position: fixed; inset: 0; z-index: 59; background: rgba(10, 14, 40, 0.72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s linear 0.4s; }
+.l2-foco.visible { opacity: 1; visibility: visible; transition: opacity 0.4s ease; }
+/* El globo sale sobre el asistente, alineado con su borde izquierdo (WhatsApp, abierto, queda a su derecha) */
+.l2-fab-globo { position: absolute; left: 0; bottom: calc(100% + 14px); width: max-content; margin: 0; max-width: min(290px, calc(100vw - 100px)); padding: 14px 16px; border-radius: 18px 18px 18px 4px; background: #FFFFFF; color: var(--text-secondary); font-size: 15px; line-height: 1.45; box-shadow: 0 20px 40px rgba(10, 14, 40, 0.3); opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.96); transform-origin: bottom left; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; }
+.l2-fab-globo strong { display: block; margin-bottom: 2px; color: var(--color-blue-primary); font-size: 16px; }
+.presentando .l2-fab-globo { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease 0.25s, transform 0.3s ease 0.25s; }
+/* En el celular los dos abiertos no caben en una fila: durante la presentación van uno sobre otro, del mismo ancho,
+   y el globo se alinea con el borde derecho */
+@media (max-width: 560px) {
+  .l2-flotantes.presentando { flex-direction: column; align-items: stretch; }
+  .presentando .l2-fab-circulo, .presentando .l2-fab-wa { justify-content: center; }
+  .l2-fab-globo { left: auto; right: 0; border-radius: 18px 18px 4px 18px; transform-origin: bottom right; }
+}
+.l2-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 80; width: min(400px, 100%); background: #FFFFFF; box-shadow: -20px 0 50px rgba(14, 20, 40, 0.18); display: flex; flex-direction: column; transform: translateX(105%); transition: transform 0.3s ease; visibility: hidden; }
+.l2-panel.open { transform: translateX(0); visibility: visible; }
+.l2-panel-head { background: var(--color-navy-deep); color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.l2-panel-head strong { display: block; font-size: 16px; }
+.l2-panel-head span { font-size: 13px; color: #CBD5E1; }
+.l2-panel-title { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.l2-robot { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: block; }
+.l2-panel-close { width: 44px; height: 44px; border-radius: 50%; border: none; background: transparent; color: #FFFFFF; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.l2-msgs { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 12px; background: var(--bg-subtle); }
+.l2-bot, .l2-me { padding: 12px 16px; border-radius: 18px; max-width: 88%; font-size: 15px; line-height: 1.5; }
+.l2-bot { background: #FFFFFF; border: 1px solid var(--border-subtle); align-self: flex-start; border-bottom-left-radius: 4px; }
+.l2-fila-bot { display: flex; align-items: flex-end; gap: 8px; align-self: flex-start; max-width: 100%; }
+.l2-fila-bot .l2-bot { min-width: 0; }
+.l2-avatar-bot { width: 36px; height: 36px; border-radius: 50%; background: var(--color-blue-soft); padding: 3px; flex-shrink: 0; display: block; }
+.l2-me { background: var(--color-navy-deep); color: #FFFFFF; align-self: flex-end; border-bottom-right-radius: 4px; }
+/* Opciones del chat: una debajo de otra y todas del mismo ancho, sin huecos (.l2-options-grid las pone en columnas) */
+.l2-options { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 10px; }
+.l2-option { min-height: 44px; padding: 8px 14px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-active); background: #FFFFFF; color: var(--color-blue-primary); font-weight: 700; font-size: 14px; cursor: pointer; }
+.l2-option:hover { background: var(--color-blue-soft); }
+.l2-form { display: flex; gap: 8px; padding: 14px 16px; border-top: 1px solid var(--border-subtle); background: #FFFFFF; }
+.l2-form input { flex: 1; min-width: 0; min-height: 44px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); padding: 8px 16px; font-size: 16px; outline: none; }
+.l2-form input:focus { border-color: var(--color-blue-primary); }
+.l2-form .l2-btn { min-width: 44px; padding: 8px 14px; }
+/* Chat: resultados, opciones de canal, WhatsApp y audio */
+.l2-chat-tramites { display: grid; gap: 8px; margin-top: 10px; }
+.l2-chat-tramite { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-subtle); border-radius: 14px; background: #FFFFFF; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+.l2-chat-tramite:hover { border-color: var(--border-active); background: var(--color-blue-soft); }
+.l2-chat-tramite:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+.l2-chat-tramite span { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.l2-chat-tramite strong { color: var(--color-blue-primary); font-size: 14px; line-height: 1.3; }
+.l2-chat-tramite small { color: var(--text-muted); font-size: 12px; }
+.l2-chat-tramite > i { color: var(--color-blue-primary); }
+.l2-options .l2-option { display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-align: center; text-decoration: none; font-size: 14px; cursor: pointer; }
+.l2-option:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+.l2-option-principal { border-color: var(--color-blue-primary); background: var(--color-blue-primary); color: #FFFFFF; }
+.l2-option-principal:hover { background: var(--color-blue-hover); }
+.l2-option-wa { border-color: #25D366; color: #0B7A55; }
+/* Volver al paso anterior: discreto, para que no compita con las opciones del mensaje */
+.l2-volver { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle); }
+.l2-option-volver { border-color: transparent; background: transparent; color: var(--text-secondary); }
+.l2-option-volver:hover { background: var(--bg-subtle); color: var(--color-blue-primary); }
+.l2-option-wa:hover { background: #E9FBF0; }
+.l2-chat-nota { margin: 8px 0 0; color: var(--text-muted); font-size: 12.5px; line-height: 1.4; }
+/* Chat: opciones en cuadrícula (categorías, temas, días y horas), alineadas y sin huecos */
+.l2-options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.l2-options-grid .l2-option { justify-content: flex-start; min-width: 0; padding: 10px 12px; border-radius: 14px; line-height: 1.25; text-align: left; }
+.l2-options-grid .l2-option i { flex-shrink: 0; font-size: 18px; }
+.l2-options-grid.l2-options-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.l2-options-3 .l2-option { justify-content: center; padding-inline: 6px; text-align: center; }
+/* Chat: listas largas de trámites, de 4 en 4 con el paginador del catálogo */
+.l2-chat-lista .l2-chat-tramites[hidden] { display: none; }
+.l2-chat-paginador { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+.l2-chat-paginador .l2-pager { min-width: 0; font-size: 13.5px; }
+/* Chat: pasos a seguir de un trámite, desplegables y con el mismo diseño que "Cómo funciona" */
+.l2-chat-pasos { margin: 10px 0 0; }
+.l2-chat-pasos summary { display: flex; align-items: center; gap: 10px; padding: 9px 10px 9px 14px; border: 1px solid var(--border-active); border-radius: 12px; background: #FFFFFF; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); cursor: pointer; list-style: none; }
+.l2-chat-pasos summary::-webkit-details-marker { display: none; }
+.l2-chat-pasos summary:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+.l2-chat-pasos summary:hover .l2-pasos-accion { background: var(--color-blue-primary); color: #FFFFFF; }
+.l2-chat-pasos .l2-pasos-titulo { margin: 0; font-size: 13px; white-space: nowrap; }
+.l2-chat-pasos summary small { margin-left: auto; color: var(--text-muted); font-size: 12.5px; font-weight: 700; }
+.l2-chat-pasos:not([open]) .l2-pasos-accion i { transform: rotate(180deg); }
+.l2-chat-pasos .l2-pasos-vert { margin-top: 10px; }
+.l2-chat-pregunta { margin: 10px 0 0; }
+/* Chat: resumen de la cita en la institución */
+.l2-cita { display: grid; gap: 6px; margin: 10px 0 0; padding: 12px 14px; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-subtle); }
+.l2-cita div { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 8px; }
+.l2-cita dt { color: var(--text-muted); font-size: 12.5px; font-weight: 700; line-height: 1.5; }
+.l2-cita dd { margin: 0; color: var(--text-primary); font-size: 14px; font-weight: 700; line-height: 1.4; }
+.l2-cita-titulo { margin: 12px 0 4px; color: var(--color-blue-primary); font-size: 13px; font-weight: 800; }
+.l2-cita-llevar { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.45; }
+.l2-cita-llevar li::marker { color: var(--color-blue-primary); }
+.l2-me-audio .l2-audio-cab { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 12px; font-weight: 800; opacity: 0.85; }
+.l2-mic { position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border: 1.5px solid var(--border-active); border-radius: 50%; background: #FFFFFF; color: var(--color-blue-primary); font-size: 20px; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+.l2-mic:hover { background: var(--color-blue-soft); }
+.l2-mic:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+.l2-form.grabando .l2-mic { border-color: #DC2626; background: #DC2626; color: #FFFFFF; }
+.l2-form.grabando .l2-mic::before, .l2-form.grabando .l2-mic::after { content: ''; position: absolute; inset: -2px; border: 2px solid #DC2626; border-radius: 50%; animation: l2-mic-onda 1.6s ease-out infinite; pointer-events: none; }
+.l2-form.grabando .l2-mic::after { animation-delay: 0.8s; }
+@keyframes l2-mic-onda { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.9); opacity: 0; } }
+.l2-grabando { display: none; flex: 1; align-items: center; gap: 10px; min-width: 0; min-height: 44px; padding: 0 14px; border-radius: var(--radius-pill); background: #FEF2F2; color: #991B1B; font-size: 14px; font-weight: 700; }
+.l2-form.grabando input { display: none; }
+.l2-form.grabando .l2-grabando { display: flex; animation: l2-aparece 0.25s ease both; }
+.l2-grabando-punto { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: #DC2626; animation: l2-parpadeo 1s ease-in-out infinite; }
+.l2-ondas { display: flex; align-items: center; gap: 3px; flex-shrink: 0; height: 20px; }
+.l2-ondas i { width: 3px; height: 6px; border-radius: 3px; background: #DC2626; animation: l2-ondita 0.9s ease-in-out infinite; }
+.l2-ondas i:nth-child(2) { animation-delay: 0.15s; }
+.l2-ondas i:nth-child(3) { animation-delay: 0.3s; }
+.l2-ondas i:nth-child(4) { animation-delay: 0.45s; }
+.l2-ondas i:nth-child(5) { animation-delay: 0.6s; }
+@keyframes l2-ondita { 0%, 100% { height: 5px; } 50% { height: 20px; } }
+@keyframes l2-parpadeo { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+@keyframes l2-aparece { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+#grabando-texto { flex: 1; min-width: 0; overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+#grabando-tiempo { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .l2-form.grabando .l2-mic::before, .l2-form.grabando .l2-mic::after, .l2-grabando-punto, .l2-ondas i, .l2-form.grabando .l2-grabando { animation: none; }
+}
+/* Enlace de texto dentro de una nota del chat ("¿No la tienes?") */
+.l2-chat-enlace { padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+.l2-chat-enlace:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  .l2-panel, .l2-paso, .l2-fab-wa, .l2-fab-circulo, .l2-fab-texto, .l2-fab-globo, .l2-foco { transition: none; }
+  .l2-fab-globo { transform: none; }
+}

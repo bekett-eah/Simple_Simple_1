@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>WhatsApp de Simple.sv — Simulación</title>
+  <meta name="description" content="Simulación del chat oficial de WhatsApp de Simple.sv para hacer un trámite: pide los datos de la solicitud, envía el enlace de pago y avisa cuando finaliza.">
+  <meta name="theme-color" content="#0B141A">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <style>
+    /* Simulación del chat oficial de WhatsApp de Simple.sv (modo oscuro de WhatsApp, como en la referencia).
+       En escritorio, un teléfono junto a la explicación; en móvil ocupa toda la pantalla. */
+    :root {
+      --wa-fondo: #0B141A; --wa-barra: #1F2C34; --wa-entrante: #202C33; --wa-saliente: #005C4B; --wa-campo: #2A3942;
+      --wa-texto: #E9EDEF; --wa-secundario: #8696A0; --wa-verde: #00A884; --wa-visto: #53BDEB; --wa-chip: #182229;
+      --wa-linea: rgba(134, 150, 160, 0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: radial-gradient(1200px 600px at 80% -10%, rgba(0, 102, 255, 0.35), transparent 60%), linear-gradient(160deg, var(--color-navy-deep), #0E102F); color: var(--wa-texto); font-family: var(--font-family, 'Manrope', sans-serif); }
+    .wa-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .wa-escena { display: flex; align-items: center; justify-content: center; gap: 56px; min-height: 100%; padding: 24px; }
+    .wa-explica { display: none; max-width: 380px; color: #FFFFFF; }
+    .wa-explica-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--radius-pill); background: rgba(255, 255, 255, 0.12); font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .wa-explica h1 { margin: 16px 0 10px; font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; }
+    .wa-explica p { margin: 0 0 12px; color: rgba(255, 255, 255, 0.82); font-size: 16px; line-height: 1.55; }
+    .wa-explica .wa-explica-nota { color: rgba(255, 255, 255, 0.62); font-size: 14px; }
+    .wa-volver { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0 18px; border: 1.5px solid rgba(255, 255, 255, 0.35); border-radius: var(--radius-pill); color: #FFFFFF; font-weight: 700; text-decoration: none; }
+    .wa-volver:hover { background: rgba(255, 255, 255, 0.12); }
+    .wa-volver:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+
+    /* Teléfono */
+    .wa-telefono { position: relative; display: flex; flex-direction: column; width: min(400px, 100%); height: min(860px, calc(100dvh - 48px)); overflow: hidden; border: 10px solid #0A0A0A; border-radius: 46px; background: var(--wa-fondo); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .wa-cabecera { display: flex; align-items: center; gap: 10px; padding: 12px 12px 10px; background: rgba(31, 44, 52, 0.96); border-bottom: 1px solid var(--wa-linea); }
+    .wa-atras { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; color: var(--wa-texto); font-size: 24px; text-decoration: none; }
+    .wa-atras:hover { background: rgba(255, 255, 255, 0.08); }
+    .wa-atras:focus-visible, .wa-entrada button:focus-visible, .wa-adjuntar:focus-within, .wa-boton:focus-visible, .wa-hoja button:focus-visible { outline: 2px solid var(--wa-verde); outline-offset: 2px; }
+    .wa-avatar { width: 40px; height: 40px; flex-shrink: 0; padding: 4px; border-radius: 50%; background: #FFFFFF; }
+    .wa-contacto { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.25; }
+    .wa-contacto strong { display: inline-flex; align-items: center; gap: 5px; font-size: 17px; font-weight: 600; }
+    .wa-contacto strong i { color: var(--wa-verde); font-size: 17px; }
+    .wa-contacto span { overflow: hidden; color: var(--wa-secundario); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+    .wa-acciones { display: flex; gap: 18px; padding: 8px 14px; border-radius: var(--radius-pill); background: rgba(255, 255, 255, 0.06); color: var(--wa-texto); font-size: 22px; }
+
+    /* Conversación: fondo con el patrón tenue de WhatsApp */
+    .wa-mensajes { display: flex; flex: 1; flex-direction: column; gap: 3px; overflow-y: auto; padding: 12px 12px 16px; background-color: var(--wa-fondo); background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1.2px, transparent 1.4px), radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1.2px); background-size: 26px 26px, 13px 13px; background-position: 0 0, 6px 9px; scrollbar-width: thin; scrollbar-color: #374248 transparent; }
+    .wa-fecha, .wa-aviso { align-self: center; max-width: 88%; margin: 6px 0; padding: 6px 12px; border-radius: 8px; background: var(--wa-chip); color: var(--wa-secundario); font-size: 12.5px; line-height: 1.4; text-align: center; }
+    .wa-fecha { font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+    .wa-aviso { color: #FFD279; }
+    .wa-aviso i { margin-right: 4px; }
+    .wa-fila { display: flex; }
+    .wa-fila.cola { margin-top: 8px; }
+    .wa-mia { justify-content: flex-end; }
+    .wa-grupo { display: flex; flex-direction: column; gap: 2px; max-width: 84%; }
+    .wa-burbuja { position: relative; padding: 6px 9px 8px; border-radius: 8px; background: var(--wa-entrante); font-size: 15.5px; line-height: 1.38; overflow-wrap: anywhere; box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13); }
+    .wa-mia .wa-burbuja { background: var(--wa-saliente); }
+    .wa-fila.cola .wa-burbuja { border-top-left-radius: 0; }
+    .wa-mia.cola .wa-burbuja { border-top-left-radius: 8px; border-top-right-radius: 0; }
+    .wa-fila.cola .wa-burbuja::before { content: ''; position: absolute; top: 0; left: -8px; border-top: 0 solid transparent; border-right: 8px solid var(--wa-entrante); border-bottom: 10px solid transparent; }
+    .wa-mia.cola .wa-burbuja::before { left: auto; right: -8px; border-right: 0; border-left: 8px solid var(--wa-saliente); }
+    .wa-con-botones .wa-burbuja { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    /* Hora (y vistos) abajo a la derecha, como en WhatsApp: el texto deja el hueco al final de su última línea */
+    .wa-texto::after { content: ''; display: inline-block; width: 66px; }
+    .wa-mia .wa-texto::after { width: 84px; }
+    .wa-hora { position: absolute; right: 8px; bottom: 4px; display: inline-flex; align-items: center; gap: 3px; color: rgba(233, 237, 239, 0.6); font-size: 11px; white-space: nowrap; }
+    .wa-hora i { font-size: 16px; color: rgba(233, 237, 239, 0.6); transition: color 0.3s ease; }
+    .wa-hora i.visto { color: var(--wa-visto); }
+    .wa-texto strong { font-weight: 700; }
+    .wa-archivo { display: flex; align-items: center; gap: 10px; min-width: 210px; padding: 8px 10px; border-radius: 6px; background: rgba(0, 0, 0, 0.18); }
+    .wa-archivo i { font-size: 30px; }
+    .wa-archivo span { display: flex; flex-direction: column; min-width: 0; font-size: 14px; }
+    .wa-archivo small { color: rgba(233, 237, 239, 0.65); }
+    .wa-foto { display: block; max-width: 220px; max-height: 220px; margin-bottom: 4px; border-radius: 6px; }
+    .wa-puntos { display: inline-flex; gap: 4px; padding: 4px 2px; }
+    .wa-puntos i { width: 7px; height: 7px; border-radius: 50%; background: var(--wa-secundario); animation: wa-punto 1.2s ease-in-out infinite; }
+    .wa-puntos i:nth-child(2) { animation-delay: 0.15s; }
+    .wa-puntos i:nth-child(3) { animation-delay: 0.3s; }
+    .wa-escribiendo .wa-texto::after { display: none; }
+    @keyframes wa-punto { 0%, 60%, 100% { opacity: 0.35; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+
+    /* Botones de respuesta y de enlace: debajo del mensaje, del mismo ancho, uno por fila */
+    .wa-botones { display: grid; gap: 2px; }
+    .wa-boton { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 12px; border: 0; background: var(--wa-entrante); color: var(--wa-verde); font: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; }
+    .wa-boton-atras { color: var(--wa-secundario); font-weight: 500; }
+    .wa-boton:last-child { border-radius: 0 0 8px 8px; }
+    .wa-boton i { font-size: 18px; }
+    .wa-boton:hover:not(:disabled) { background: #26353D; }
+    .wa-boton:disabled { color: var(--wa-secundario); cursor: default; }
+    .wa-boton.elegido { color: var(--wa-texto); }
+    /* Enlace de pago ya usado: queda como texto */
+    a.wa-boton:not([href]) { color: var(--wa-secundario); cursor: default; }
+    a.wa-boton.elegido:not([href]) { color: var(--wa-texto); }
+    a.wa-enlace:not([href]) { cursor: default; }
+
+    /* Enlace de pago con vista previa */
+    .wa-enlace { display: block; margin: -2px -5px 6px; overflow: hidden; border-radius: 6px; background: rgba(0, 0, 0, 0.2); color: inherit; text-decoration: none; }
+    .wa-enlace-banda { display: flex; align-items: center; gap: 10px; padding: 12px; background: linear-gradient(135deg, var(--color-navy-deep), var(--color-blue-primary)); color: #FFFFFF; }
+    .wa-enlace-banda i { font-size: 28px; }
+    .wa-enlace-banda strong { display: block; font-size: 15px; }
+    .wa-enlace-banda small { color: rgba(255, 255, 255, 0.8); font-size: 12.5px; }
+    .wa-enlace-pie { padding: 8px 12px; color: var(--wa-secundario); font-size: 12.5px; }
+
+    /* Barra para escribir */
+    .wa-entrada { display: flex; align-items: center; gap: 8px; padding: 8px 10px calc(10px + env(safe-area-inset-bottom)); background: var(--wa-barra); }
+    .wa-entrada button, .wa-adjuntar { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--wa-texto); font-size: 24px; cursor: pointer; }
+    .wa-adjuntar input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    .wa-adjuntar.espera { color: var(--wa-verde); animation: wa-latido 1.4s ease-in-out infinite; }
+    .wa-campo { display: flex; flex: 1; align-items: center; min-width: 0; min-height: 44px; padding: 0 12px 0 16px; border-radius: 24px; background: var(--wa-campo); }
+    .wa-campo input { flex: 1; min-width: 0; border: 0; outline: none; background: none; color: var(--wa-texto); font: inherit; font-size: 16px; }
+    .wa-campo input::placeholder { color: var(--wa-secundario); }
+    .wa-campo i { color: var(--wa-secundario); font-size: 22px; }
+    .wa-entrada .wa-enviar { background: var(--wa-verde); color: #0B141A; font-size: 22px; }
+    .wa-enviar.listo { animation: wa-latido 1.4s ease-in-out infinite; }
+    @keyframes wa-latido { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 132, 0.55); } 70% { box-shadow: 0 0 0 10px rgba(0, 168, 132, 0); } }
+
+    /* Hoja de opciones (mensajes de lista de WhatsApp) */
+    .wa-hoja { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; justify-content: flex-end; }
+    .wa-hoja[hidden] { display: none; }
+    .wa-hoja-fondo { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); }
+    .wa-hoja-panel { position: relative; display: flex; flex-direction: column; max-height: 78%; padding: 8px 0 calc(14px + env(safe-area-inset-bottom)); border-radius: 18px 18px 0 0; background: var(--wa-barra); animation: wa-sube 0.25s ease-out; }
+    .wa-hoja-panel::before { content: ''; align-self: center; width: 40px; height: 5px; margin-bottom: 6px; border-radius: 3px; background: #3B4A54; }
+    .wa-hoja-cabeza { display: flex; align-items: center; gap: 8px; padding: 0 12px 8px; border-bottom: 1px solid var(--wa-linea); }
+    .wa-hoja-cabeza h2 { flex: 1; margin: 0; font-size: 17px; font-weight: 600; text-align: center; }
+    .wa-hoja-cabeza button { width: 40px; height: 40px; border: 0; border-radius: 50%; background: none; color: var(--wa-texto); font-size: 22px; cursor: pointer; }
+    .wa-hoja-cabeza span { width: 40px; }
+    .wa-hoja-opciones { overflow-y: auto; padding: 4px 0; }
+    .wa-hoja-opcion { display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 10px 18px; border-bottom: 1px solid var(--wa-linea); cursor: pointer; }
+    .wa-hoja-opcion span { display: flex; flex: 1; flex-direction: column; min-width: 0; font-size: 16px; }
+    .wa-hoja-opcion small { margin-top: 2px; color: var(--wa-secundario); font-size: 13.5px; }
+    .wa-hoja-opcion input { width: 22px; height: 22px; flex-shrink: 0; margin: 0; accent-color: var(--wa-verde); cursor: pointer; }
+    .wa-hoja-opcion:has(input:focus-visible) { outline: 2px solid var(--wa-verde); outline-offset: -2px; }
+    .wa-hoja-enviar { align-self: center; min-width: 180px; min-height: 44px; margin-top: 12px; padding: 0 24px; border: 0; border-radius: var(--radius-pill); background: var(--wa-verde); color: #0B141A; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; }
+    .wa-hoja-enviar:disabled { opacity: 0.4; cursor: default; }
+    @keyframes wa-sube { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* Notificación del teléfono al llegar el aviso de trámite finalizado; baja desde arriba y se va sola */
+    .wa-push { position: absolute; top: 10px; left: 10px; right: 10px; z-index: 6; display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: 18px; background: rgba(42, 57, 66, 0.97); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); font-size: 14px; line-height: 1.35; animation: wa-baja 0.35s ease-out; transition: opacity 0.4s ease, transform 0.4s ease; }
+    .wa-push.saliendo { opacity: 0; transform: translateY(-16px); }
+    .wa-push img { width: 36px; height: 36px; flex-shrink: 0; padding: 3px; border-radius: 50%; background: #FFFFFF; }
+    .wa-push span { display: -webkit-box; min-width: 0; overflow: hidden; color: var(--wa-texto); -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+    .wa-push small { display: block; color: var(--wa-secundario); font-size: 12px; }
+    .wa-push strong { display: block; font-weight: 700; }
+    @keyframes wa-baja { from { transform: translateY(-24px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    @media (min-width: 960px) {
+      .wa-explica { display: block; }
+    }
+    @media (max-width: 560px) {
+      .wa-escena { padding: 0; }
+      .wa-telefono { width: 100%; height: 100dvh; border: 0; border-radius: 0; box-shadow: none; }
+      .wa-cabecera { padding-top: calc(10px + env(safe-area-inset-top)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wa-puntos i, .wa-adjuntar.espera, .wa-enviar.listo, .wa-hoja-panel, .wa-push { animation: none; }
+      .wa-push { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wa-escena">
+    <aside class="wa-explica">
+      <span class="wa-explica-chip"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Simulación</span>
+      <h1>Tu trámite, por WhatsApp</h1>
+      <p>Así se vería el chat oficial de Simple.sv: te pide los datos de la solicitud uno por uno, te envía el enlace para pagar y te avisa cuando tu trámite finaliza. También puedes preguntarle por tus trámites en proceso</p>
+      <p class="wa-explica-nota">Vista de diseño: no se envía nada a WhatsApp ni a la institución. Tu identidad ya se confirmó al iniciar sesión</p>
+      <a class="wa-volver" href="../index.html"><i class="ph ph-arrow-left" aria-hidden="true"></i>Volver a Simple.sv</a>
+    </aside>
+
+    <main class="wa-telefono" aria-label="Chat de WhatsApp con Simple.sv">
+      <header class="wa-cabecera">
+        <a class="wa-atras" href="../index.html" aria-label="Volver a Simple.sv"><i class="ph ph-caret-left" aria-hidden="true"></i></a>
+        <img class="wa-avatar" src="../src/assets/brand/simple-robot-asistente.svg" alt="" width="40" height="40">
+        <div class="wa-contacto">
+          <strong>Simple.sv <i class="ph ph-seal-check" aria-label="Cuenta oficial verificada"></i></strong>
+          <span id="estado" aria-live="polite">Cuenta oficial de empresa</span>
+        </div>
+        <span class="wa-acciones" aria-hidden="true"><i class="ph ph-video-camera"></i><i class="ph ph-phone"></i></span>
+      </header>
+
+      <div class="wa-mensajes" id="mensajes" role="log" aria-live="polite" aria-label="Mensajes">
+        <div class="wa-fecha">Hoy</div>
+        <div class="wa-aviso"><i class="ph ph-lock-simple" aria-hidden="true"></i>Simulación: los mensajes no salen de este navegador<span id="aviso-enviar">. Toca enviar para empezar</span></div>
+      </div>
+
+      <form class="wa-entrada" id="entrada">
+        <label class="wa-adjuntar" id="adjuntar" title="Adjuntar archivo">
+          <span class="wa-sr">Adjuntar archivo</span>
+          <i class="ph ph-plus" aria-hidden="true"></i>
+          <input type="file" id="archivo">
+        </label>
+        <div class="wa-campo">
+          <label class="wa-sr" for="texto">Mensaje</label>
+          <input type="text" id="texto" value="Hola" placeholder="Mensaje" autocomplete="off">
+          <i class="ph ph-sticker" aria-hidden="true"></i>
+        </div>
+        <button type="submit" class="wa-enviar listo" id="enviar" aria-label="Enviar"><i class="ph ph-paper-plane-right" aria-hidden="true"></i></button>
+      </form>
+
+      <!-- Hoja de opciones: los mensajes con muchas opciones (como las listas de WhatsApp) -->
+      <div class="wa-hoja" id="hoja" hidden>
+        <div class="wa-hoja-fondo" data-cerrar></div>
+        <section class="wa-hoja-panel" role="dialog" aria-modal="true" aria-labelledby="hoja-titulo">
+          <div class="wa-hoja-cabeza">
+            <button type="button" data-cerrar aria-label="Cerrar opciones"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <h2 id="hoja-titulo">Opciones</h2>
+            <span></span>
+          </div>
+          <div class="wa-hoja-opciones" id="hoja-opciones" role="radiogroup" aria-labelledby="hoja-titulo"></div>
+          <button type="button" class="wa-hoja-enviar" id="hoja-enviar" disabled>Enviar</button>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="formularios.js"></script>
+  <script src="citas.js"></script>
+  <script src="ciudadano.js"></script>
+  <script src="pasos-tramite.js?v=2"></script>
+  <script src="canales.js"></script>
+  <script src="mis-tramites.js"></script>
+  <script src="radios.js"></script>
+  <script>
+    /* El bot de Simple.sv en WhatsApp (?n=número del trámite). Se llega después de iniciar sesión, así que la identidad
+       ya está confirmada (ciudadano.js). El "Hola" viene escrito, como al abrir un enlace de WhatsApp: al enviarlo,
+       el bot muestra los pasos (pasos-tramite.js) y pide uno por uno los datos del formulario del trámite (formularios.js):
+       opciones con botones (hasta 3) o con lista, textos validados y archivos con el botón +. Si eligen la cita
+       presencial (citas.js), la agenda aquí mismo. Al final: resumen, el método de pago (tarjeta) e "Ir a pagar", que abre la pasarela de
+       Simple.sv (pago.html, el mismo modal de los demás trámites); al volver,
+       la confirmación, la solicitud en proceso y, simulado, el aviso de que finalizó.
+       En cualquier momento se puede preguntar por los trámites en proceso ("Mis trámites"). */
+    (() => {
+      const {
+        pasosDe, costoDe, horaLegible, horarioDe, horarioLargo, horarioCorto,
+        capitalizar, fechaDe, isoDe, fechaLarga, diasDisponibles, horariosLibres, queLlevar
+      } = window.PASOS_TRAMITE;
+      const CUENTA = window.CIUDADANO || {};
+      const CITAS = window.CITAS_TRAMITES || {};
+      const CATALOGO = Object.fromEntries((window.CATALOGO_TRAMITES || []).map(t => [t.numero, t]));
+      const NIVELES_WA = window.CANAL_WHATSAPP?.niveles || {};
+      const JUDICIALES = new Set(window.CANAL_WHATSAPP?.judiciales || []);
+      const parametros = new URLSearchParams(location.search);
+      // Sin ?n= (botón de WhatsApp de la landing) la persona elige el trámite en el chat
+      const ELIGE_TRAMITE = !parametros.get('n');
+      let numero = Number(parametros.get('n'));
+      let tramite = CATALOGO[numero];
+      let formulario = (window.FORMULARIOS_TRAMITES || {})[numero];
+
+      const mensajes = document.getElementById('mensajes');
+      const estado = document.getElementById('estado');
+      const entrada = document.getElementById('entrada');
+      const campoTexto = document.getElementById('texto');
+      const enviarBoton = document.getElementById('enviar');
+      const adjuntar = document.getElementById('adjuntar');
+      const archivo = document.getElementById('archivo');
+      const hoja = document.getElementById('hoja');
+      const hojaOpciones = document.getElementById('hoja-opciones');
+      const hojaEnviar = document.getElementById('hoja-enviar');
+      const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const espera = ms => new Promise(r => setTimeout(r, ms));
+
+      const escapar = texto => String(texto).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+      // Formato de WhatsApp: *negrita*, _cursiva_ y saltos de línea
+      const formato = texto => escapar(texto)
+        .replace(/\*([^*\n]+)\*/g, '<strong>$1</strong>')
+        .replace(/(^|\s)_([^_\n]+)_(?=\s|$)/g, '$1<em>$2</em>')
+        .replace(/\n/g, '<br>');
+      const ahora = () => { const d = new Date(); return horaLegible(`${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`); };
+      const primerNombre = (CUENTA.nombres || '').split(' ')[0];
+
+      /* ----- Mensajes ----- */
+      let ultimoEmisor = null;
+
+      // Agrega una fila de mensaje; 'el' = Simple.sv, 'yo' = la persona. La primera de cada seguidilla lleva la "cola".
+      function fila(emisor, html) {
+        const f = document.createElement('div');
+        f.className = `wa-fila ${emisor === 'yo' ? 'wa-mia' : 'wa-de-el'}${emisor !== ultimoEmisor ? ' cola' : ''}`;
+        ultimoEmisor = emisor;
+        const vistos = emisor === 'yo' ? '<i class="ph ph-checks" aria-label="Enviado"></i>' : '';
+        f.innerHTML = `<div class="wa-grupo"><div class="wa-burbuja"><div class="wa-texto">${html}</div><span class="wa-hora">${ahora()}${vistos}</span></div></div>`;
+        mensajes.append(f);
+        mensajes.scrollTop = mensajes.scrollHeight;
+        return f;
+      }
+
+      function yo(texto) {
+        return fila('yo', formato(texto));
+      }
+
+      /* ----- Volver al paso anterior -----
+         Cada respuesta que la persona da a una pregunta queda anotada en orden (registro). Con "Atrás" se descarta la última
+         y la conversación se vuelve a recorrer desde el principio en silencio, dando por buenas las respuestas anotadas, hasta
+         llegar a la pregunta anterior, que se vuelve a hacer. Lo ya escrito en el chat se queda: el bot avisa "Volvemos al
+         paso anterior" y repite la pregunta, como lo haría una conversación real de WhatsApp. */
+      const ATRAS = Symbol('atras');
+      let registro = [];       // respuestas dadas, en orden: { v: valor }
+      let cola = [];           // respuestas que se repiten en silencio en esta pasada
+      let posicion = 0;
+      let aislado = 0;         // dentro de un paso que se anota como una sola respuesta (elegir el trámite)
+      let volviendo = false;   // el próximo mensaje visible avisa que se volvió
+      let enSilencio = false;  // al volver, nada se repite en el chat hasta llegar a la pregunta a la que se vuelve
+      let respondidas = 0;     // respuestas del recorrido en curso (repetidas en silencio y nuevas), en el orden de la conversación
+      const reproduciendo = () => posicion < cola.length;
+      const anotar = valor => { if (!aislado) { registro.push({ v: valor }); respondidas++; } };
+      // Si hay una respuesta anotada para esta pregunta, la devuelve sin mostrar nada (ni el encabezado del paso)
+      const reproducida = () => { if (aislado || !reproduciendo()) return null; respondidas++; encabezado = ''; return cola[posicion++]; };
+      const filaSilenciosa = () => { const f = document.createElement('div'); f.innerHTML = '<div class="wa-grupo"></div>'; return f; };
+
+      // El título del paso del formulario no va solo: encabeza el siguiente mensaje (una nota o la primera pregunta)
+      let encabezado = '';
+
+      // Simple.sv "escribe" un momento y responde; los mensajes de la persona pasan a leídos (vistos azules)
+      async function bot(texto, extra = '') {
+        if (encabezado) { texto = `${encabezado}\n\n${texto}`; encabezado = ''; }
+        if (reproduciendo() || enSilencio) return filaSilenciosa();
+        if (volviendo) { volviendo = false; await botVisible('Volvemos al paso anterior'); }
+        return botVisible(texto, extra);
+      }
+
+      async function botVisible(texto, extra = '') {
+        mensajes.querySelectorAll('.wa-hora i:not(.visto)').forEach(i => { i.classList.add('visto'); i.setAttribute('aria-label', 'Leído'); });
+        estado.textContent = 'escribiendo…';
+        const escribiendo = fila('el', '<span class="wa-puntos" aria-label="Escribiendo"><i></i><i></i><i></i></span>');
+        escribiendo.classList.add('wa-escribiendo');
+        await espera(sinMovimiento ? 120 : Math.min(1300, 450 + texto.length * 6));
+        const eraCola = escribiendo.classList.contains('cola');
+        escribiendo.remove();
+        ultimoEmisor = eraCola ? null : 'el';
+        estado.textContent = 'en línea';
+        return fila('el', formato(texto) + extra);
+      }
+
+      // Botones debajo del último mensaje (respuesta o enlace); al elegir uno, el grupo queda desactivado
+      function ponerBotones(f, opciones) {
+        const caja = document.createElement('div');
+        caja.className = 'wa-botones';
+        opciones.forEach(o => {
+          const b = document.createElement(o.href ? 'a' : 'button');
+          b.className = `wa-boton${o.clase ? ` ${o.clase}` : ''}`;
+          if (o.href) { b.href = o.href; } else { b.type = 'button'; }
+          if (o.pago) b.dataset.pago = '';
+          b.innerHTML = `${o.icono ? `<i class="ph ${o.icono}" aria-hidden="true"></i>` : ''}${escapar(o.texto)}`;
+          if (o.accion) b.addEventListener('click', () => o.accion(b));
+          caja.append(b);
+        });
+        f.classList.add('wa-con-botones');
+        f.querySelector('.wa-grupo').append(caja);
+        mensajes.scrollTop = mensajes.scrollHeight;
+        return caja;
+      }
+
+      /* ----- Respuestas de la persona ----- */
+      // Lo que el bot está esperando: { tipo: 'elegir' | 'texto' | 'archivo', resolver, campo, botones }
+      let pendiente = null;
+
+      function cerrarBotones(caja, elegido) {
+        caja?.querySelectorAll('button').forEach(b => { b.disabled = true; });
+        elegido?.classList.add('elegido');
+      }
+
+      function resolver(valor, eco, elegido) {
+        if (!pendiente) return;
+        const { resolver: fin, botones } = pendiente;
+        pendiente = null;
+        cerrarBotones(botones, elegido);
+        adjuntar.classList.remove('espera');
+        campoTexto.placeholder = 'Mensaje';
+        campoTexto.inputMode = 'text';
+        if (eco) yo(eco);
+        fin(valor);
+      }
+
+      // "Atrás" debajo de la pregunta, salvo en la primera (no hay nada que deshacer)
+      const botonAtras = () => (registro.length && !aislado ? [{ texto: 'Atrás', icono: 'ph-arrow-u-up-left', clase: 'wa-boton-atras', accion: b => volverAtras(b) }] : []);
+
+      // Descarta la última respuesta y vuelve a recorrer la conversación hasta esa pregunta
+      function volverAtras(boton, eco = 'Atrás') {
+        if (!pendiente?.rechazar) return;
+        const { rechazar, botones } = pendiente;
+        pendiente = null;
+        cerrarBotones(botones, boton);
+        adjuntar.classList.remove('espera');
+        campoTexto.placeholder = 'Mensaje';
+        campoTexto.inputMode = 'text';
+        yo(eco);
+        registro.pop();
+        volviendo = true;
+        rechazar(ATRAS);
+      }
+
+      // Una opción entre varias: hasta 3, botones; más, una lista que se abre en una hoja (como en WhatsApp).
+      // Los detalles de cada opción van en el mensaje (con botones) o debajo de cada opción (en la lista).
+      async function elegir(pregunta, opciones) {
+        const antes = reproducida();
+        if (antes) return antes.v;
+        enSilencio = false;
+        const conDetalles = opciones.length <= 3 && opciones.some(o => o.detalle);
+        const texto = conDetalles ? `${pregunta}\n\n${opciones.map(o => `• *${o.texto}*${o.detalle ? `: ${o.detalle}` : ''}`).join('\n')}` : pregunta;
+        const f = await bot(texto);
+        const valor = await new Promise((fin, rechazar) => {
+          const elegirOpcion = (o, boton) => resolver(o.valor, o.texto, boton);
+          const atras = botonAtras();
+          const botones = opciones.length <= 3
+            ? ponerBotones(f, [...opciones.map(o => ({ texto: o.texto, accion: b => elegirOpcion(o, b) })), ...atras])
+            : ponerBotones(f, [{ texto: 'Ver opciones', icono: 'ph-list-bullets', accion: b => abrirHoja(pregunta, opciones, o => elegirOpcion(o), b) }, ...atras]);
+          pendiente = { tipo: 'elegir', resolver: fin, rechazar, botones, puedeVolver: atras.length > 0 };
+        });
+        // Consultar los trámites en proceso no es una respuesta de la solicitud: no se anota
+        if (valor !== 'consultar') anotar(valor);
+        return valor;
+      }
+
+      // Un texto que la persona escribe; con sugerencias como botones (por ejemplo, el dato de su cuenta) u "Omitir"
+      async function escribir(pregunta, campo, sugerencias = []) {
+        const antes = reproducida();
+        if (antes) return antes.v;
+        enSilencio = false;
+        const f = await bot(pregunta);
+        const atras = botonAtras();
+        const valor = await new Promise((fin, rechazar) => {
+          const botones = sugerencias.length || atras.length
+            ? ponerBotones(f, [...sugerencias.map(s => ({ texto: s.texto, accion: b => resolver(s.valor, s.eco ?? s.texto, b) })), ...atras])
+            : null;
+          pendiente = { tipo: 'texto', resolver: fin, rechazar, campo, botones, puedeVolver: atras.length > 0 };
+          campoTexto.placeholder = campo?.placeholder || campo?.etiqueta || 'Mensaje';
+          campoTexto.inputMode = campo?.modo === 'numeric' ? 'numeric' : campo?.modo === 'email' ? 'email' : 'text';
+          campoTexto.focus({ preventScroll: true });
+        });
+        anotar(valor);
+        return valor;
+      }
+
+      // Un archivo con el botón +; "Omitir" si es opcional
+      async function pedirArchivo(pregunta, campo) {
+        const antes = reproducida();
+        if (antes) return antes.v;
+        enSilencio = false;
+        const f = await bot(pregunta);
+        const atras = botonAtras();
+        const valor = await new Promise((fin, rechazar) => {
+          const botones = campo.opcional || atras.length
+            ? ponerBotones(f, [...(campo.opcional ? [{ texto: 'Omitir', accion: b => resolver(null, 'Omitir', b) }] : []), ...atras])
+            : null;
+          pendiente = { tipo: 'archivo', resolver: fin, rechazar, campo, botones, puedeVolver: atras.length > 0 };
+          archivo.accept = campo.acepta || '';
+          adjuntar.classList.add('espera');
+        });
+        anotar(valor);
+        return valor;
+      }
+
+      // Un paso que se anota como una sola respuesta aunque por dentro tenga varias preguntas (elegir el trámite)
+      async function comoUnaRespuesta(paso) {
+        const antes = reproducida();
+        if (antes) return antes.v;
+        enSilencio = false;
+        aislado++;
+        let valor;
+        try { valor = await paso(); } finally { aislado--; }
+        anotar(valor);
+        return valor;
+      }
+
+      /* ----- Hoja de opciones ----- */
+      let alElegir = null;
+      let botonQueAbrio = null;
+
+      function abrirHoja(titulo, opciones, cuandoElija, boton) {
+        document.getElementById('hoja-titulo').textContent = titulo.replace(/\*/g, '').split('\n')[0];
+        hojaOpciones.innerHTML = opciones.map((o, i) => `
+          <label class="wa-hoja-opcion">
+            <span>${escapar(o.texto)}${o.detalle ? `<small>${escapar(o.detalle)}</small>` : ''}</span>
+            <input type="radio" name="hoja-opcion" value="${i}">
+          </label>`).join('');
+        hojaEnviar.disabled = true;
+        alElegir = () => {
+          const marcada = hojaOpciones.querySelector('input:checked');
+          if (!marcada) return;
+          cerrarHoja();
+          cuandoElija(opciones[Number(marcada.value)]);
+        };
+        botonQueAbrio = boton;
+        hoja.hidden = false;
+        hojaOpciones.querySelector('input')?.focus();
+      }
+
+      function cerrarHoja() {
+        hoja.hidden = true;
+        alElegir = null;
+        if (botonQueAbrio && !botonQueAbrio.disabled) botonQueAbrio.focus();
+      }
+
+      hojaOpciones.addEventListener('change', () => { hojaEnviar.disabled = !hojaOpciones.querySelector('input:checked'); });
+      hojaEnviar.addEventListener('click', () => alElegir?.());
+      hoja.addEventListener('click', e => { if (e.target.closest('[data-cerrar]')) cerrarHoja(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && !hoja.hidden) cerrarHoja(); });
+
+      /* ----- Formulario del trámite ----- */
+      const respuestas = {};
+
+      // Condición del campo (formularios.js): 'campo=valor' o 'campo!=valor'; 'campo=a|b', cualquiera de los valores
+      function aplica(campo) {
+        if (!campo.si) return true;
+        const [, nombre, distinto, valor] = campo.si.match(/^(\w+)(!?)=(.+)$/);
+        const actual = respuestas[nombre]?.valor;
+        const coincide = valor.split('|').some(v => (Array.isArray(actual) ? actual.includes(v) : actual === v));
+        return distinto ? !coincide : coincide;
+      }
+
+      function guardar(campo, valor, texto) {
+        respuestas[campo.nombre] = { valor, texto: texto ?? valor ?? 'Omitido', etiqueta: campo.etiqueta };
+      }
+
+      // Una nota que en el formulario empieza con "¡Hola!" no vuelve a saludar: el chat ya saludó al empezar
+      const textoDeNota = c => [c.titulo && !/^¡?hola!?$/i.test(c.titulo) ? `*${c.titulo}*` : '', ...(c.lineas || []).map(l => (l.startsWith('- ') ? `• ${l.slice(2)}` : l.startsWith('## ') ? `*${l.slice(3)}*` : l))]
+        .filter(Boolean).join('\n');
+      const preguntaDe = c => `*${c.etiqueta}*${c.ayuda ? `\n_${c.ayuda}_` : ''}${c.opcional ? '\n_Es opcional_' : ''}`;
+
+      // Para comparar con las respuestas que no se aceptan: mayúsculas, sin tildes ni puntuación al final
+      const paraComparar = texto => texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().replace(/\s+/g, ' ').replace(/[\s.,;:]+$/, '').trim();
+
+      function validar(campo, valor) {
+        if (!valor) return campo.opcional ? '' : 'Escribe una respuesta para seguir';
+        if (campo.min && valor.length < campo.min) return `Escribe al menos ${campo.min} caracteres`;
+        if (campo.max && valor.length > campo.max) return `Escribe como máximo ${campo.max} caracteres`;
+        if (campo.prohibidos?.includes(paraComparar(valor))) return campo.mensaje || 'Revisa este dato e inténtalo de nuevo';
+        if (campo.modo === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) return campo.mensaje || 'Escribe un correo válido, por ejemplo nombre@correo.com';
+        if (campo.patron && !new RegExp(`^(?:${campo.patron})$`).test(valor)) return campo.mensaje || 'Revisa el formato e inténtalo de nuevo';
+        if (campo.igualA && valor !== respuestas[campo.igualA]?.valor) return campo.mensaje || 'No coincide con lo que escribiste antes';
+        return '';
+      }
+
+      // Pide los campos uno por uno, paso por paso; devuelve 'cita' si eligen la cita presencial.
+      // La revisión y el pago del formulario (pasos con tipo) los hace este chat a su manera, al terminar.
+      async function pedirCampos() {
+        // Una revisión aporta solo los datos de la cuenta que muestra (de solo lectura): su resumen y sus notas los hace el chat
+        const pasosConDatos = [formulario, ...(formulario.pasos || [])]
+          .filter(p => !p.tipo || (p.tipo === 'revision' && p.campos.some(c => c.soloLectura)))
+          .map(p => (p.tipo ? { si: p.si, campos: p.campos.filter(c => c.soloLectura) } : p));
+        // Lo que ya viene elegido por el trámite (por ejemplo, el servicio o el tipo de trámite) no se pregunta, esté en el paso que esté
+        Object.entries(formulario.preseleccion || {}).forEach(([nombre, valor]) => {
+          const campo = pasosConDatos.flatMap(p => p.campos).find(c => c.nombre === nombre);
+          const opcion = campo?.opciones?.find(o => o.valor === valor);
+          respuestas[nombre] = { valor, texto: opcion?.texto || valor, etiqueta: campo?.etiqueta || nombre };
+        });
+        for (const paso of pasosConDatos) {
+          if (!aplica(paso)) continue;
+          const resultado = await pedirCamposDe(paso);
+          if (resultado !== true) { encabezado = ''; return resultado; }
+        }
+        // Un último paso sin nada que preguntar no deja su título encima del resumen
+        encabezado = '';
+        return true;
+      }
+
+      // Por WhatsApp no se pide ningún número de cuenta: el único medio de pago es la tarjeta, al final, en Simple.sv
+      const NO_SE_PIDEN = new Set(['n_cuenta', 'numero_de_cuenta']);
+
+      // En el formulario todos los campos se ven a la vez; aquí se preguntan en orden. Un campo que depende de otro
+      // ("si") se pregunta después de ese, aunque en el formulario esté más abajo
+      function ordenarPorDependencias(campos) {
+        const orden = [];
+        const puestos = new Set();
+        const poner = c => {
+          if (puestos.has(c)) return;
+          puestos.add(c);
+          const dependeDe = campos.find(x => x.nombre && x.nombre === c.si?.match(/^(\w+)!?=/)?.[1]);
+          if (dependeDe && campos.indexOf(dependeDe) > campos.indexOf(c)) poner(dependeDe);
+          orden.push(c);
+        };
+        campos.forEach(poner);
+        return orden;
+      }
+
+      async function pedirCamposDe(paso) {
+        // Si el paso anterior no tuvo nada que preguntar, su título se descarta
+        encabezado = paso.titulo ? `*${paso.titulo}*${paso.subtitulo ? `\n${paso.subtitulo}` : ''}` : '';
+        const campos = ordenarPorDependencias(paso.campos);
+        const porPreguntar = c => aplica(c) && !(c.nombre && respuestas[c.nombre]) && !NO_SE_PIDEN.has(c.nombre);
+        for (let i = 0; i < campos.length; i++) {
+          const c = campos[i];
+          if (!porPreguntar(c)) continue;
+          if (c.tipo === 'nota') {
+            await bot(textoDeNota(c));
+          } else if (c.tipo === 'seccion') {
+            // Un título sin nada que preguntar debajo (sus campos ya se preguntaron antes) no se envía
+            const fin = campos.findIndex((x, j) => j > i && x.tipo === 'seccion');
+            const siguientes = campos.slice(i + 1, fin < 0 ? undefined : fin);
+            if (siguientes.some(porPreguntar)) await bot(`*${c.titulo}*`);
+          } else if (c.tipo === 'texto' && c.soloLectura) {
+            // Los datos de la Identidad Digital seguidos van en un solo mensaje
+            const grupo = [c];
+            while (campos[i + 1]?.tipo === 'texto' && campos[i + 1].soloLectura && aplica(campos[i + 1])) grupo.push(campos[++i]);
+            grupo.forEach(g => guardar(g, CUENTA[g.nombre] || '—'));
+            await bot(`Usaremos estos datos de tu Identidad Digital:\n${grupo.map(g => `• *${g.etiqueta}:* ${CUENTA[g.nombre] || '—'}`).join('\n')}`);
+          } else if (c.tipo === 'opciones' || c.tipo === 'lista') {
+            // Con depende, las opciones de lo elegido antes (los municipios del departamento); si se omitió, no se pregunta
+            const deLista = c.depende ? c.opcionesPor[respuestas[c.depende]?.valor] : c.opciones;
+            if (c.tipo === 'lista' && !deLista) continue;
+            const opciones = c.tipo === 'lista' ? deLista.map(([valor, texto]) => ({ valor, texto })) : c.opciones.map(o => ({ valor: o.valor, texto: o.texto, detalle: o.detalle }));
+            if (c.opcional) opciones.push({ valor: null, texto: 'Omitir' });
+            // La nota que en el formulario va como icono de información se envía antes de la pregunta
+            if (c.info) await bot(textoDeNota(c.info));
+            const valor = await elegir(preguntaDe(c), opciones);
+            guardar(c, c.multiple && valor !== null ? [valor] : valor, opciones.find(o => o.valor === valor)?.texto);
+            if (valor === 'cita' && CITAS[numero]) return 'cita';
+          } else if (c.tipo === 'texto') {
+            // Confirmar un dato que se tomó de la cuenta (el correo) no hace falta: se copia sin preguntar y no se repite
+            // en el resumen. Si la persona lo escribió, sí se le pide confirmarlo
+            const original = c.igualA && respuestas[c.igualA];
+            if (original && CUENTA[c.igualA] && original.valor === CUENTA[c.igualA]) {
+              guardar(c, original.valor);
+              respuestas[c.nombre].repetido = true;
+              continue;
+            }
+            const sugerencias = [];
+            if (CUENTA[c.nombre]) sugerencias.push({ valor: CUENTA[c.nombre], texto: `Usar ${CUENTA[c.nombre]}`, eco: CUENTA[c.nombre] });
+            if (c.opcional) sugerencias.push({ valor: null, texto: 'Omitir' });
+            const valor = await escribir(`${preguntaDe(c)}\nEscríbelo abajo`, c, sugerencias);
+            guardar(c, valor);
+          } else if (c.tipo === 'archivo') {
+            const adjunto = await pedirArchivo(`${preguntaDe(c)}\nEnvíalo con el botón *+*, como foto o documento`, c);
+            guardar(c, adjunto, adjunto ? `Archivo: ${adjunto}` : 'Omitido');
+          }
+        }
+        return true;
+      }
+
+      // Cita presencial: sede, día y hora, con los horarios de atención de la institución
+      async function agendarCita() {
+        const cita = CITAS[numero];
+        const sede = await elegir('¿En qué sede te queda mejor?', cita.sedes.map((s, i) => ({ valor: i, texto: s.nombre, detalle: `${s.detalle} · ${horarioCorto(horarioDe(cita, s))}` })));
+        const s = cita.sedes[sede];
+        const fecha = await elegir(`¿Qué día prefieres? Atienden ${horarioLargo(horarioDe(cita, s))}`, diasDisponibles().map(f => ({ valor: isoDe(f), texto: capitalizar(fechaLarga(f)) })));
+        const hora = await elegir(`¿A qué hora el *${fechaLarga(fechaDe(fecha))}*?`, horariosLibres(cita, sede, fecha).map(h => ({ valor: h, texto: horaLegible(h) })));
+        return { s, fecha, hora, cita };
+      }
+
+      /* ----- La solicitud: pago, en proceso y aviso de finalizado ----- */
+      // Al salir a pagar, la conversación se guarda en el navegador y la dirección del chat lleva el N.º de solicitud:
+      // al volver de pago.html (o con Atrás, o al recargar) el chat sigue donde quedó. La solicitud pagada se guarda
+      // también en CLAVE_TRAMITES, de donde la lee Mis documentos (mis-tramites.html).
+      const CLAVE_CHAT = 'simple-whatsapp-chat';
+      const CLAVE_TRAMITES = 'simple-tramites-nuevos';
+      const LOGIN = '../SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html';
+      // Mis documentos pide iniciar sesión; con el N.º, el trámite sale resaltado
+      const enSimple = id => `${LOGIN}?destino=documentos${id ? `&tramite=${id}` : ''}`;
+      const reservado = n => NIVELES_WA[n] === 'r' || JUDICIALES.has(n);
+      const ahoraISO = () => { const d = new Date(); return `${isoDe(d)}T${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; };
+      // Sin almacenamiento (navegación privada o bloqueado) el chat funciona igual, pero no se puede retomar
+      const leer = (clave, porDefecto) => { try { return JSON.parse(localStorage.getItem(clave)) ?? porDefecto; } catch { return porDefecto; } };
+      const guardarEn = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch { /* sin almacenamiento */ } };
+      const tramitesGuardados = () => { const lista = leer(CLAVE_TRAMITES, []); return Array.isArray(lista) ? lista : []; };
+
+      // La solicitud de esta conversación: { codigo, total }
+      let solicitud = null;
+
+      function guardarChat(s, fase) {
+        guardarEn(CLAVE_CHAT, { numero, codigo: s.codigo, total: s.total, fase, html: mensajes.innerHTML });
+        history.replaceState(null, '', `whatsapp.html?n=${numero}&solicitud=${s.codigo}`);
+      }
+
+      // En Mis documentos: en proceso al pagar, finalizada cuando llega el aviso
+      function registrarTramite(s, estado) {
+        const lista = tramitesGuardados();
+        const antes = lista.find(t => t.id === s.codigo);
+        const nuevo = { id: s.codigo, numero, estado, fecha: antes?.fecha || ahoraISO(), canal: 'whatsapp' };
+        guardarEn(CLAVE_TRAMITES, [nuevo, ...lista.filter(t => t !== antes)].slice(0, 20));
+      }
+
+      // Mensaje con el método de pago (tarjeta, el único) y el enlace (vista previa y "Ir a pagar"): abre en esta misma pestaña
+      // pago.html, el sitio de Simple.sv con la pasarela de los demás trámites. Por el chat no se pide ningún dato de pago
+      async function pedirPago(texto) {
+        const s = solicitud;
+        const enlace = `pago.html?n=${numero}&solicitud=${s.codigo}`;
+        const vistaPrevia = `<a class="wa-enlace" href="${enlace}" data-pago aria-label="Enlace de pago seguro de Simple.sv">
+            <span class="wa-enlace-banda"><i class="ph ph-lock-key" aria-hidden="true"></i><span><strong>Pago seguro · Simple.sv</strong><small>simple.sv/pagos</small></span></span>
+            <span class="wa-enlace-pie">Tarjeta de crédito o débito</span>
+          </a>`;
+        const f = await bot(texto, vistaPrevia);
+        ponerBotones(f, [{ texto: 'Ir a pagar', icono: 'ph-credit-card', href: enlace, pago: true }]);
+        guardarChat(s, 'pagando');
+      }
+
+      // Ya pagado: los enlaces de pago del chat quedan como texto y el último botón, como respondido
+      function cerrarPago() {
+        const enlaces = [...mensajes.querySelectorAll('[data-pago]')];
+        enlaces.forEach(a => a.removeAttribute('href'));
+        enlaces.filter(a => a.classList.contains('wa-boton')).at(-1)?.classList.add('elegido');
+      }
+
+      // De vuelta de pago.html: aprobado (con autorización y referencia) o cancelado
+      async function alVolverDelPago(resultado) {
+        if (resultado !== 'aprobado') {
+          await pedirPago('No se completó el pago. Inténtalo de nuevo con *Ir a pagar*');
+          return;
+        }
+        cerrarPago();
+        const autorizacion = /^\d{6}$/.test(parametros.get('aut') || '') ? parametros.get('aut') : '';
+        const referencia = /^\d{12}$/.test(parametros.get('ref') || '') ? parametros.get('ref') : '';
+        await bot(`✅ Recibimos tu pago de *${solicitud.total}*${autorizacion && referencia ? `\nAutorización: ${autorizacion} · Referencia: ${referencia}` : ''}\n_Vista de diseño: el pago es simulado_`);
+        await enProceso();
+      }
+
+      async function enProceso() {
+        const s = solicitud;
+        registrarTramite(s, 'proceso');
+        const f = await bot(`✅ ¡Listo! Tu solicitud N.º ${s.codigo} de *${tramite.nombre}* está *en proceso*\nTe avisamos por aquí y por correo cuando finalice\n_Vista de diseño: no se envió nada a la institución_`);
+        ponerBotones(f, [{ texto: 'Ver mi trámite en Simple.sv', icono: 'ph-arrow-square-out', href: enSimple(s.codigo) }]);
+        guardarChat(s, 'en-proceso');
+        await avisarFinalizado(s);
+      }
+
+      // Simulación del aviso de trámite finalizado: llega "unos días después", con la notificación del teléfono.
+      // En los trámites sensibles (nivel r) y judiciales de canales.js el aviso no nombra el trámite.
+      async function avisarFinalizado(s) {
+        await espera(sinMovimiento ? 2000 : 6000);
+        mensajes.insertAdjacentHTML('beforeend', '<div class="wa-fecha">Unos días después</div><div class="wa-aviso"><i class="ph ph-bell-ringing" aria-hidden="true"></i>Simulación: así te llega el aviso cuando tu trámite finaliza</div>');
+        ultimoEmisor = null;
+        const titulo = reservado(numero) ? 'Tienes un trámite finalizado' : 'Tu trámite finalizó';
+        const texto = reservado(numero)
+          ? `Tu solicitud N.º ${s.codigo} terminó. Por tu privacidad no decimos cuál es: mírala en *Mis documentos* de Simple.sv`
+          : `Tu solicitud N.º ${s.codigo} de *${tramite.nombre}* está lista. Descarga tu documento en *Mis documentos* de Simple.sv`;
+        notificar(titulo, texto.replace(/\*/g, ''));
+        estado.textContent = 'en línea';
+        const f = fila('el', formato(`🔔 *${titulo}*\n${texto}`));
+        // Dos caminos: descargarlo en el sitio o abrir el correo del aviso (correo.html simula la app de Gmail)
+        ponerBotones(f, [
+          reservado(numero)
+            ? { texto: 'Ver el detalle en Simple.sv', icono: 'ph-arrow-square-out', href: enSimple(s.codigo) }
+            : { texto: 'Descargar en Simple.sv', icono: 'ph-download-simple', href: enSimple(s.codigo) },
+          { texto: 'Ver en mi correo', icono: 'ph-envelope-simple', href: `correo.html?n=${numero}&solicitud=${s.codigo}` }
+        ]);
+        registrarTramite(s, 'finalizado');
+        guardarChat(s, 'finalizado');
+      }
+
+      // Notificación del teléfono (como cuando el chat no está abierto); se va sola. El mensaje ya queda en el chat
+      function notificar(titulo, texto) {
+        const aviso = document.createElement('div');
+        aviso.className = 'wa-push';
+        aviso.setAttribute('aria-hidden', 'true');
+        aviso.innerHTML = `<img src="../src/assets/brand/simple-robot-asistente.svg" alt="" width="36" height="36"><span><small>WhatsApp · ahora</small><strong>Simple.sv: ${escapar(titulo)}</strong>${escapar(texto)}</span>`;
+        document.querySelector('.wa-telefono').append(aviso);
+        setTimeout(() => aviso.classList.add('saliendo'), 5000);
+        setTimeout(() => aviso.remove(), 5500);
+      }
+
+      // Vuelta al chat con ?solicitud=N.º: desde pago.html (con el resultado del pago), con Atrás o al recargar
+      function retomarChat(codigo) {
+        const resultado = parametros.get('pago');
+        const guardado = leer(CLAVE_CHAT, null);
+        const conHistorial = guardado?.codigo === codigo && guardado.numero === numero && typeof guardado.html === 'string';
+        if (!conHistorial && !resultado) { history.replaceState(null, '', `whatsapp.html?n=${numero}`); return; }
+        // Sin el resultado en la dirección: al recargar no se repite
+        history.replaceState(null, '', `whatsapp.html?n=${numero}&solicitud=${codigo}`);
+        solicitud = { codigo, total: conHistorial ? guardado.total : costoDe(tramite).pago?.replace('desde ', '') };
+        iniciado = true;
+        campoTexto.value = '';
+        enviarBoton.classList.remove('listo');
+        estado.textContent = 'en línea';
+        if (conHistorial) {
+          // Las fotos adjuntas solo vivían en esta página (blob:): al volver de pagar quedan como archivo adjunto.
+          // Se cambian en un template, antes de pintarlas, para que el navegador no intente cargarlas
+          const copia = document.createElement('template');
+          copia.innerHTML = guardado.html;
+          copia.content.querySelectorAll('img.wa-foto[src^="blob:"]').forEach(img => {
+            img.outerHTML = `<span class="wa-archivo"><i class="ph ph-image" aria-hidden="true"></i><span>${escapar(img.dataset.nombre || 'Foto adjunta')}<small>${escapar(img.dataset.tamano || '')}</small></span></span>`;
+          });
+          mensajes.replaceChildren(copia.content);
+          ultimoEmisor = mensajes.lastElementChild?.classList.contains('wa-mia') ? 'yo' : 'el';
+          mensajes.scrollTop = mensajes.scrollHeight;
+        }
+        const fase = conHistorial ? guardado.fase : 'pagando';
+        if (fase === 'pagando' && resultado) alVolverDelPago(resultado);
+        else if (fase === 'en-proceso') avisarFinalizado(solicitud);
+      }
+
+      /* ----- Mis trámites en proceso ----- */
+      // La identidad ya está confirmada: se muestran los trámites en proceso de la cuenta (mis-tramites.js) y los
+      // pedidos por WhatsApp en este navegador. Los finalizados no: están en Mis documentos.
+      // Los sensibles (nivel r) y judiciales de canales.js no se nombran por WhatsApp.
+      const PIDE_CONSULTA = ['mis tramites', 'mis solicitudes', 'mis documentos', 'en proceso', 'estado de mi', 'como va', 'consultar', 'seguimiento'];
+      const sinTildes = texto => texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      const pideConsulta = texto => PIDE_CONSULTA.some(c => sinTildes(texto).includes(c));
+      const siglaDe = institucion => institucion.replace(/.*\(([^)]+)\).*/, '$1');
+      const fechaCortaDe = new Intl.DateTimeFormat('es-SV', { day: 'numeric', month: 'short', year: 'numeric' });
+
+      function tramitesEnProceso() {
+        const guardados = tramitesGuardados();
+        const ids = new Set(guardados.map(t => t.id));
+        return [...guardados, ...(window.MIS_TRAMITES || []).filter(t => !ids.has(t.id))]
+          .filter(t => t.estado === 'proceso' && CATALOGO[t.numero] && typeof t.fecha === 'string')
+          .sort((a, b) => b.fecha.localeCompare(a.fecha));
+      }
+
+      async function consultarTramites() {
+        const lista = tramitesEnProceso();
+        if (!lista.length) {
+          await bot('No tienes trámites en proceso');
+          return;
+        }
+        const lineas = lista.map(t => {
+          const c = CATALOGO[t.numero];
+          return `⏳ *${reservado(t.numero) ? 'Trámite reservado' : c.nombre}*\nN.º ${t.id} · ${siglaDe(c.institucion)} · desde el ${fechaCortaDe.format(new Date(t.fecha))}`;
+        });
+        const nota = lista.some(t => reservado(t.numero)) ? '\n\n_Por tu privacidad, los trámites sensibles no se nombran aquí; los ves en Simple.sv_' : '';
+        const f = await bot(`${lista.length === 1 ? 'Tienes 1 trámite en proceso' : `Tienes ${lista.length} trámites en proceso`}:\n\n${lineas.join('\n\n')}${nota}`);
+        ponerBotones(f, [{ texto: 'Ver en Simple.sv', icono: 'ph-arrow-square-out', href: enSimple(lista.length === 1 ? lista[0].id : '') }]);
+      }
+
+      /* ----- Elegir el trámite (sin ?n=, desde el botón de WhatsApp de la landing) ----- */
+      // Por WhatsApp se hacen los trámites que tienen formulario en el nuevo diseño (formularios.js)
+      const DISPONIBLES = Object.keys(window.FORMULARIOS_TRAMITES || {}).map(n => CATALOGO[n]).filter(Boolean)
+        .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+      const PALABRAS_VACIAS = new Set(['tramite', 'tramites', 'quiero', 'hacer', 'sacar', 'necesito', 'solicitar', 'pedir', 'para', 'una', 'uno', 'del', 'las', 'los', 'por', 'con', 'mis', 'que']);
+      const opcionDe = t => ({ valor: t.numero, texto: t.nombre, detalle: siglaDe(t.institucion) });
+
+      // Los que tienen más palabras del mensaje en su nombre o institución ("antecedentes" encuentra "antecedente")
+      function buscarDisponibles(texto) {
+        const palabras = sinTildes(texto).split(/[^a-z0-9ñ]+/).filter(p => p.length >= 3 && !PALABRAS_VACIAS.has(p))
+          .map(p => (p.length > 5 ? p.replace(/es$/, '') : p).replace(/s$/, ''));
+        if (!palabras.length) return [];
+        const puntos = t => palabras.filter(p => sinTildes(`${t.nombre} ${t.institucion}`).includes(p)).length;
+        const mejor = Math.max(0, ...DISPONIBLES.map(puntos));
+        return mejor ? DISPONIBLES.filter(t => puntos(t) === mejor) : [];
+      }
+
+      // Se escribe el trámite o se elige de la lista; también se puede consultar antes los que están en proceso
+      async function preguntarTramite() {
+        let pregunta = '¿Qué trámite quieres hacer? Escríbelo, por ejemplo *antecedentes penales*, o toca *Ver trámites*';
+        for (;;) {
+          const f = await bot(pregunta);
+          const respuesta = await new Promise(fin => {
+            const botones = ponerBotones(f, [
+              { texto: 'Ver trámites', icono: 'ph-list-bullets', accion: b => abrirHoja('Trámites por WhatsApp', DISPONIBLES.map(opcionDe), o => resolver(o.valor, o.texto, b), b) },
+              { texto: 'Mis trámites en proceso', icono: 'ph-hourglass-medium', accion: b => resolver('consultar', 'Mis trámites en proceso', b) }
+            ]);
+            pendiente = { tipo: 'tramite', resolver: fin, botones };
+          });
+          if (typeof respuesta === 'number') return CATALOGO[respuesta];
+          if (respuesta === 'consultar' || pideConsulta(respuesta.busqueda)) {
+            await consultarTramites();
+            pregunta = '¿Qué trámite quieres hacer? Escríbelo o toca *Ver trámites*';
+            continue;
+          }
+          const encontrados = buscarDisponibles(respuesta.busqueda);
+          if (encontrados.length === 1) return encontrados[0];
+          if (encontrados.length) {
+            const elegido = await elegir('¿Cuál de estos quieres hacer?', [...encontrados.map(opcionDe), { valor: 0, texto: 'Ninguno de estos' }]);
+            if (elegido) return CATALOGO[elegido];
+            pregunta = 'Está bien. Escríbelo con otras palabras o toca *Ver trámites*';
+            continue;
+          }
+          pregunta = 'No lo encontré entre los trámites por WhatsApp. Prueba con otras palabras o toca *Ver trámites*';
+        }
+      }
+
+      /* ----- Conversación ----- */
+      // Una conversación nueva empieza sin respuestas anotadas. Con "Atrás" (o "Empezar de nuevo") el flujo se vuelve a correr
+      // desde el principio, repitiendo en silencio las respuestas que siguen anotadas
+      async function conversar() {
+        registro = [];
+        volviendo = false;
+        await correr();
+      }
+
+      async function correr() {
+        for (;;) {
+          cola = registro.slice();
+          posicion = 0;
+          respondidas = 0;
+          enSilencio = volviendo;
+          try { await flujo(); return; } catch (e) { if (e !== ATRAS) throw e; }
+        }
+      }
+
+      async function flujo() {
+        Object.keys(respuestas).forEach(k => delete respuestas[k]);
+        encabezado = '';
+        if (!ELIGE_TRAMITE && (!tramite || !formulario)) {
+          const f = await bot('¡Hola! Ese trámite aún no se puede hacer por WhatsApp. Búscalo en Simple.sv o escribe *Mis trámites* para ver los que tienes en proceso');
+          ponerBotones(f, [{ texto: 'Ir a Simple.sv', icono: 'ph-arrow-square-out', href: '../index.html' }]);
+          return;
+        }
+        await bot(`¡Hola${primerNombre ? `, ${primerNombre}` : ''}! 👋 Soy el asistente de *Simple.sv*. Ya confirmamos tu identidad`);
+        if (ELIGE_TRAMITE) {
+          tramite = CATALOGO[await comoUnaRespuesta(async () => (await preguntarTramite()).numero)];
+          numero = tramite.numero;
+          formulario = window.FORMULARIOS_TRAMITES[numero];
+        }
+        // El trámite y sus pasos en un solo mensaje, un paso por línea
+        const pasos = pasosDe(tramite, 'whatsapp');
+        await bot(`Tu solicitud de *${tramite.nombre}* tiene ${pasos.length} pasos:\n\n${pasos.map((p, i) => `*${i + 1}. ${p.titulo}:* ${p.texto}`).join('\n')}`);
+        // También se puede consultar primero cómo van los trámites en proceso
+        let empezar;
+        while ((empezar = await elegir('¿Empezamos?', [
+          { valor: 'si', texto: 'Empezar' }, { valor: 'consultar', texto: 'Mis trámites en proceso' }, { valor: 'no', texto: 'Ahora no' }
+        ])) === 'consultar') await consultarTramites();
+        if (empezar === 'no') {
+          await bot('Está bien. Escribe *Hola* cuando quieras seguir');
+          return;
+        }
+
+        // Lo anotado hasta aquí: al empezar de nuevo se conserva y se descartan las respuestas del formulario
+        const base = respondidas;
+        const resultado = await pedirCampos();
+        const cita = resultado === 'cita' ? await agendarCita() : null;
+
+        // Lo que se omitió o se copió (la confirmación del correo) no se repite en el resumen
+        const lineas = Object.values(respuestas).filter(r => r.valor !== null && !r.repetido).map(r => `• *${r.etiqueta}:* ${r.texto}`);
+        if (cita) lineas.push(`• *Sede:* ${cita.s.nombre} · ${cita.s.detalle}`, `• *Fecha:* ${capitalizar(fechaLarga(fechaDe(cita.fecha)))}`, `• *Hora:* ${horaLegible(cita.hora)}`);
+        // Los datos y la pregunta van en un solo mensaje
+        if (await elegir(`Revisa tu ${cita ? 'cita' : 'solicitud'} de *${tramite.nombre}*:\n\n${lineas.join('\n')}`, [{ valor: 'si', texto: cita ? 'Confirmar cita' : 'Enviar solicitud' }, { valor: 'no', texto: 'Empezar de nuevo' }]) === 'no') {
+          registro.length = base;
+          await bot('Listo, empezamos de nuevo');
+          throw ATRAS;
+        }
+        await terminar(cita);
+      }
+
+      async function terminar(cita) {
+        const codigo = String(Date.now()).slice(-7);
+        if (cita) {
+          const llevar = queLlevar(tramite, cita.cita).map(x => `• ${x}`).join('\n');
+          await bot(`✅ ¡Listo! Tu cita N.º ${codigo} está confirmada\n*${capitalizar(fechaLarga(fechaDe(cita.fecha)))}, ${horaLegible(cita.hora)}* en ${cita.s.nombre}\n\n*Qué llevar:*\n${llevar}\n\nTe la recordamos un día antes por aquí\n_Vista de diseño: la cita no se registró en la institución_`);
+          return;
+        }
+        const costo = costoDe(tramite);
+        // El monto del paso de pago del formulario (puede depender de lo respondido) o el del catálogo
+        const pago = (formulario.pasos || []).find(p => p.tipo === 'pago')?.monto;
+        const fijo = Array.isArray(pago) ? pago.find(([si]) => aplica({ si }))?.[1] : pago;
+        solicitud = { codigo, total: fijo || costo.pago?.replace('desde ', '') };
+        // Sin costo queda en proceso de una vez; con costo, al volver de pagar (retomarChat)
+        if (!solicitud.total) { await enProceso(); return; }
+        const monto = !fijo && costo.pago.startsWith('desde') ? `el monto de tu solicitud (${costo.pago})` : solicitud.total;
+        await pedirPago(`Para terminar, paga *${monto}* con tarjeta de crédito o débito en *Ir a pagar*\n_Por este chat nunca te pediremos datos de tu tarjeta_`);
+      }
+
+      /* ----- Escribir y adjuntar ----- */
+      let iniciado = false;
+
+      campoTexto.addEventListener('input', () => enviarBoton.classList.toggle('listo', !iniciado && campoTexto.value.trim() !== ''));
+
+      entrada.addEventListener('submit', async e => {
+        e.preventDefault();
+        const texto = campoTexto.value.trim();
+        if (!texto) return;
+        campoTexto.value = '';
+        enviarBoton.classList.remove('listo');
+        if (!iniciado) {
+          iniciado = true;
+          yo(texto);
+          conversar();
+          return;
+        }
+        // "Atrás" escrito vuelve a la pregunta anterior, igual que el botón
+        if (pendiente?.puedeVolver && /^(atras|volver|regresar)$/i.test(texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[\s.!¡]+$/g, ''))) { volverAtras(null, texto); return; }
+        // ¿Qué trámite quieres hacer?: lo escrito se busca entre los que se pueden hacer por WhatsApp
+        if (pendiente?.tipo === 'tramite') { resolver({ busqueda: texto }, texto); return; }
+        if (pendiente?.tipo === 'texto') {
+          const error = validar(pendiente.campo || {}, texto);
+          if (!error) { resolver(texto, texto); return; }
+          yo(texto);
+          await bot(error);
+          return;
+        }
+        yo(texto);
+        if (pendiente?.tipo === 'archivo') { await bot('Aquí necesito un archivo: envíalo con el botón *+*'); return; }
+        // Preguntar por los trámites en proceso no interrumpe la solicitud: después se sigue donde iba
+        if (pideConsulta(texto)) {
+          await consultarTramites();
+          if (pendiente) await bot('Para seguir, elige una opción del mensaje anterior');
+          return;
+        }
+        if (pendiente) { await bot('Para seguir, elige una opción del mensaje anterior'); return; }
+        if (/\bhola\b/i.test(texto)) { conversar(); return; }
+        await bot('Escribe *Hola* para empezar o *Mis trámites* para ver los que tienes en proceso');
+      });
+
+      archivo.addEventListener('change', async () => {
+        const elegido = archivo.files[0];
+        archivo.value = '';
+        if (!elegido || !iniciado) return;
+        const tamano = elegido.size > 1048576 ? `${(elegido.size / 1048576).toFixed(1)} MB` : `${Math.max(1, Math.round(elegido.size / 1024))} KB`;
+        const vista = elegido.type.startsWith('image/')
+          ? `<img class="wa-foto" src="${URL.createObjectURL(elegido)}" alt="Foto adjunta" data-nombre="${escapar(elegido.name)}" data-tamano="${tamano}">`
+          : `<span class="wa-archivo"><i class="ph ph-file-text" aria-hidden="true"></i><span>${escapar(elegido.name)}<small>${tamano}</small></span></span>`;
+        if (pendiente?.tipo === 'archivo') {
+          const { resolver: fin, botones } = pendiente;
+          pendiente = null;
+          cerrarBotones(botones);
+          adjuntar.classList.remove('espera');
+          fila('yo', vista);
+          fin(elegido.name);
+          return;
+        }
+        fila('yo', vista);
+        await bot('Gracias, pero ahora no necesito un archivo');
+      });
+
+      const codigoGuardado = parametros.get('solicitud') || '';
+      if (tramite && formulario && /^\d{7}$/.test(codigoGuardado)) retomarChat(codigoGuardado);
+      // Desde el botón de WhatsApp de la landing (?hola=1) el "Hola" se envía solo, como un enlace de WhatsApp
+      else if (parametros.has('hola')) {
+        document.getElementById('aviso-enviar').remove();
+        setTimeout(() => entrada.requestSubmit(), sinMovimiento ? 0 : 700);
+      }
+    })();
+  </script>
+</body>
+</html>

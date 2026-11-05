@@ -1,0 +1,174 @@
+{
+  "base": "http://127.0.0.1:8765/nuevoDise%C3%B1o/",
+  "total": 25,
+  "urls": [
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/index.html",
+      "status": 200,
+      "tipo": "pagina"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/Indexlogin.html",
+      "status": 200,
+      "tipo": "pagina"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/mis-documentos.html",
+      "status": 200,
+      "tipo": "pagina"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/contactanos.html",
+      "status": 200,
+      "tipo": "pagina"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html",
+      "status": 200,
+      "tipo": "pagina"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=48",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[48]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=49",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[49]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=50",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[50]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=51",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[51]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=52",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[52]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=53",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[53]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=54",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[54]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=55",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[55]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=61",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[61]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=62",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[62]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=63",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[63]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=64",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[64]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=71",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[71]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=73",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[73]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=74",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[74]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=75",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[75]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=99",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[99]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=100",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[100]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=101",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[101]"
+    },
+    {
+      "url": "http://127.0.0.1:8765/nuevoDise%C3%B1o/tramite.html?n=113",
+      "status": 200,
+      "tipo": "tramite_con_formulario",
+      "fuente": "formularios.js F[113]"
+    }
+  ],
+  "excluidos": {
+    "fuera_de_alcance": [
+      "/SIMPLE%20ACTUAL/*"
+    ],
+    "externos": [
+      "login.gob.sv",
+      "wa.me",
+      "mailto"
+    ],
+    "recursos_no_html": [
+      "canales.js",
+      "formularios.js",
+      "terminos.js",
+      "transicion-vistas.js",
+      "img/",
+      "usuario-avatar.png"
+    ],
+    "fallback": [
+      "tramite.html?n=9999 (sin formulario)",
+      "tramite.html sin n"
+    ]
+  },
+  "errores_crawl": 0
+}

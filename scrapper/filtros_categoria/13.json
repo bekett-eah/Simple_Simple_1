@@ -1,0 +1,496 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "rnt_id": 2119,
+                "institucion_id": 1,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de no servicio de agua potable y\/o alcantarillado",
+                "slug": "constancia-de-no-servicio-de-agua-potable-yo-alcantarillado",
+                "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                "descripcion_busqueda": "Hace constar que el usuario no tiene cuentas de agua potable y\/o alcantarillado en su inmueble con la instituci\u00f3n.\r\nLo puede solicitar una persona natural o jur\u00eddica",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-24 at 2.04.40 PM.jpeg",
+                "institucion": {
+                    "id": 1,
+                    "nombre": "Administraci\u00f3n Nacional de Acueductos y Alcantarillados",
+                    "siglas": "ANDA"
+                },
+                "modalidades": [
+                    {
+                        "id": 1,
+                        "tramite_id": 1,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Hace constar que el usuario no cuenta con servicio de agua potable y\/o alcantarillado p\u00fablico en su inmueble. Lo puede solicitar una persona natural o jur\u00eddica",
+                        "descripcion": "Documento que hace constar que el usuario no tiene servicio de agua potable y\/o alcantarillado p&uacute;blico en su inmueble. Lo puede solicitar una persona natural o jur&iacute;dica",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "$3.39",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/20&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 43,
+                                "modalidad_id": 1,
+                                "costo": "3.39",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "tramite_id": 1,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial - Comercio",
+                        "slug": "empresarial-comercio",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Empresa solicita constancia de no servicio de agua potable y\/o alcantarillado de su inmueble",
+                        "descripcion": "Hace constar que el usuario no tiene cuentas de agua potable y\/o alcantarillado en su inmueble con la instituci&oacute;n. Lo puede solicitar una persona natural o jur&iacute;dica",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "$3.39",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/20&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 434,
+                                "modalidad_id": 9,
+                                "costo": "3.39",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 881,
+                "rnt_id": null,
+                "institucion_id": 1,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Cambio de nombre del titular de la cuenta",
+                "slug": "solicitud-de-tramites-de-cambio-de-nombre-del-titular-de-la-cuenta",
+                "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y\/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la informaci\u00f3n del titular del servicio asociado a un inmueble",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-24 at 2.29.05 PM.jpeg",
+                "institucion": {
+                    "id": 1,
+                    "nombre": "Administraci\u00f3n Nacional de Acueductos y Alcantarillados",
+                    "siglas": "ANDA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2052,
+                        "tramite_id": 881,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y\/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la informaci\u00f3n del titular del servicio asociado a un inmueble",
+                        "descripcion": "Este tr&aacute;mite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y\/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la informaci&oacute;n del titular del servicio asociado a un inmueble",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$2.26",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/17&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 205,
+                                "modalidad_id": 2052,
+                                "costo": "2.26",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2053,
+                        "tramite_id": 881,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial - Comercio",
+                        "slug": "empresarial-comercio",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y\/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la informaci\u00f3n del titular del servicio asociado a un inmueble",
+                        "descripcion": "Este tr&aacute;mite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y\/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la informaci&oacute;n del titular del servicio asociado a un inmueble",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$2.26",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/17&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 204,
+                                "modalidad_id": 2053,
+                                "costo": "2.26",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1008,
+                "rnt_id": null,
+                "institucion_id": 35,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia m\u00e9dica",
+                "slug": "solicitud-de-constancia-medica",
+                "sub_titulo": "Trabajo Social",
+                "descripcion_busqueda": "Constancia otorgada por el Centro del ISRI que brindo la atenci\u00f3n al usuario que permite informarse del diagn\u00f3stico m\u00e9dico",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e7123ebe58.png",
+                "institucion": {
+                    "id": 35,
+                    "nombre": "Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral",
+                    "siglas": "ISRI"
+                },
+                "modalidades": [
+                    {
+                        "id": 2251,
+                        "tramite_id": 1008,
+                        "institucion_id": 35,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Trabajo Social",
+                        "descripcion_busqueda": "Constancia otorgada por el Centro del ISRI que brindo la atenci\u00f3n al usuario que permite informarse del diagn\u00f3stico m\u00e9dico",
+                        "descripcion": "<br \/>Constancia otorgada por el Centro del ISRI que brindo la atenci&oacute;n al usuario que permite informarse del diagn&oacute;stico m&eacute;dico",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isri.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isri.ventanilla.simple.sv\/tramites\/iniciar\/60&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 880,
+                "rnt_id": null,
+                "institucion_id": 1,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Factibilidad para una vivienda",
+                "slug": "solicitud-de-tramites-de-factibilidad-para-una-vivienda",
+                "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar la evaluaci\u00f3n de factibilidad t\u00e9cnica para la conexi\u00f3n de su inmueble a los servicios de agua potable y\/o alcantarillado. A trav\u00e9s de esta gesti\u00f3n, se determinar\u00e1 si es posible realizar la conexi\u00f3n a la red existente, considerando aspectos t\u00e9cnicos y de cobertura en la zona donde se encuentra ubicado el inmueble",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-24 at 2.27.36 PM.jpeg",
+                "institucion": {
+                    "id": 1,
+                    "nombre": "Administraci\u00f3n Nacional de Acueductos y Alcantarillados",
+                    "siglas": "ANDA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2050,
+                        "tramite_id": 880,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar la evaluaci\u00f3n de factibilidad t\u00e9cnica para la conexi\u00f3n de su inmueble a los servicios de agua potable y\/o alcantarillado. A trav\u00e9s de esta gesti\u00f3n, se determinar\u00e1 si es posible realizar la conexi\u00f3n a la red existente, considerando aspectos t\u00e9cnicos y de cobertura en la zona donde se encuentra ubicado el inmueble",
+                        "descripcion": "Este tr&aacute;mite permite al usuario solicitar la evaluaci&oacute;n de factibilidad t&eacute;cnica para la conexi&oacute;n de su inmueble a los servicios de agua potable y\/o alcantarillado. A trav&eacute;s de esta gesti&oacute;n, se determinar&aacute; si es posible realizar la conexi&oacute;n a la red existente, considerando aspectos t&eacute;cnicos y de cobertura en la zona donde se encuentra ubicado el inmueble",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "15 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$13.56",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/17&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 207,
+                                "modalidad_id": 2050,
+                                "costo": "13.56",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2051,
+                        "tramite_id": 880,
+                        "institucion_id": 1,
+                        "tipo_tramite": 0,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial - Comercio",
+                        "slug": "empresarial-comercio",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite al usuario solicitar la evaluaci\u00f3n de factibilidad t\u00e9cnica para la conexi\u00f3n de su inmueble a los servicios de agua potable y\/o alcantarillado. A trav\u00e9s de esta gesti\u00f3n, se determinar\u00e1 si es posible realizar la conexi\u00f3n a la red existente, considerando aspectos t\u00e9cnicos y de cobertura en la zona donde se encuentra ubicado el inmueble",
+                        "descripcion": "Este tr&aacute;mite permite al usuario solicitar la evaluaci&oacute;n de factibilidad t&eacute;cnica para la conexi&oacute;n de su inmueble a los servicios de agua potable y\/o alcantarillado. A trav&eacute;s de esta gesti&oacute;n, se determinar&aacute; si es posible realizar la conexi&oacute;n a la red existente, considerando aspectos t&eacute;cnicos y de cobertura en la zona donde se encuentra ubicado el inmueble",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "15 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$13.56",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/17&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 206,
+                                "modalidad_id": 2051,
+                                "costo": "13.56",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "rnt_id": 2120,
+                "institucion_id": 1,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia de cuenta de agua potable y\/o alcantarillados",
+                "slug": "solvencia-de-cuenta-de-agua-potable-yo-alcantarillados",
+                "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                "descripcion_busqueda": "Hace constar que el usuario no presenta saldos pendientes con la instituci\u00f3n a la fecha de la emisi\u00f3n.\r\nLo puede solicitar una persona natural o jur\u00eddica",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-24 at 2.18.06 PM.jpeg",
+                "institucion": {
+                    "id": 1,
+                    "nombre": "Administraci\u00f3n Nacional de Acueductos y Alcantarillados",
+                    "siglas": "ANDA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2,
+                        "tramite_id": 2,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Usuario solicita solvencia de cuenta al d\u00eda para presentar ante otras Instituciones. Este documento hace constar que el usuario no posee saldos pendientes a la fecha de emisi\u00f3n con la instituci\u00f3n",
+                        "descripcion": "Usuario solicita solvencia de cuenta al d&iacute;a para presentar ante otras Instituciones. Este documento hace constar que el usuario no posee saldos pendientes a la fecha de emisi&oacute;n con la instituci&oacute;n",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "$3.39",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/18&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 45,
+                                "modalidad_id": 2,
+                                "costo": "3.39",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "tramite_id": 2,
+                        "institucion_id": 1,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial - Comercio",
+                        "slug": "empresarial-comercio",
+                        "sub_titulo": "Direcci\u00f3n de Ingresos y Comercializaci\u00f3n",
+                        "descripcion_busqueda": "Sociedad solicita solvencia de pago de cuenta al d\u00eda, para presenta ante otras Instituciones. Este documento hace constar que el usuario no presenta saldos pendientes a la fecha de la emisi\u00f3n con la instituci\u00f3n",
+                        "descripcion": "Hace constar que el usuario no presenta saldos pendientes a la fecha de la emisi&oacute;n con la instituci&oacute;n, para presentarla ante otras instituciones, lo puede solicitar una persona natural o jur&iacute;dica",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "$3.39",
+                        "url_sitio": "https:\/\/anda.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/anda.ventanilla.simple.sv\/tramites\/iniciar\/18&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 44,
+                                "modalidad_id": 10,
+                                "costo": "3.39",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1010,
+                "rnt_id": null,
+                "institucion_id": 35,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de horarios de atenci\u00f3n en los servicios de rehabilitaci\u00f3n",
+                "slug": "solicitud-de-constancia-horarios-de-atencion-en-los-servicios-de-rehabilitacion",
+                "sub_titulo": "Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral",
+                "descripcion_busqueda": "Constancia otorgada por el Centro del ISRI que brinda la atenci\u00f3n al usuario que permite informarse de los horarios y programas que son requeridos para su atenci\u00f3n en rehabilitaci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e7172b5543.png",
+                "institucion": {
+                    "id": 35,
+                    "nombre": "Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral",
+                    "siglas": "ISRI"
+                },
+                "modalidades": [
+                    {
+                        "id": 2253,
+                        "tramite_id": 1010,
+                        "institucion_id": 35,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "ISRI",
+                        "descripcion_busqueda": "Constancia otorgada por el Centro del ISRI que brinda la atenci\u00f3n al usuario que permite informarse de los horarios y programas que son requeridos para su atenci\u00f3n en rehabilitaci\u00f3n",
+                        "descripcion": "Constancia otorgada por el Centro del ISRI que brinda la atenci&oacute;n al usuario que permite informarse de los horarios y programas que son requeridos para su atenci&oacute;n en rehabilitaci&oacute;n",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isri.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isri.ventanilla.simple.sv\/tramites\/iniciar\/71&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1092,
+                "rnt_id": null,
+                "institucion_id": 35,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Otorgamiento de cita m\u00e9dica",
+                "slug": "otorgamiento-de-cita-medica",
+                "sub_titulo": "RECEPCION ISRI",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar cita m\u00e9dica de manera digital en cualquier centro de habilitaci\u00f3n y rehabilitaci\u00f3n del Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral, quedando agendada la persona para el servicio de consultas m\u00e9dicas del Instituto",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e71cdec6bd.png",
+                "institucion": {
+                    "id": 35,
+                    "nombre": "Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral",
+                    "siglas": "ISRI"
+                },
+                "modalidades": [
+                    {
+                        "id": 2350,
+                        "tramite_id": 1092,
+                        "institucion_id": 35,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "RECEPCI\u00d3N ISRI",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar cita m\u00e9dica de manera digital en cualquier centro de habilitaci\u00f3n y rehabilitaci\u00f3n del Instituto Salvadore\u00f1o de Rehabilitaci\u00f3n Integral, quedando agendada la persona para el servicio de consultas m\u00e9dicas del Instituto",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Gesti&oacute;n que se realiza para solicitar cita m&eacute;dica de manera digital en cualquier centro de habilitaci&oacute;n y rehabilitaci&oacute;n del Instituto Salvadore&ntilde;o de Rehabilitaci&oacute;n Integral, quedando agendada la persona para el servicio de consultas m&eacute;dicas del Instituto<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isri.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isri.ventanilla.simple.sv\/tramites\/iniciar\/328&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1100,
+                "rnt_id": null,
+                "institucion_id": 48,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Ingreso a programas de rehabilitaci\u00f3n",
+                "slug": "persona-natural",
+                "sub_titulo": "Unidad de Rehabilitaci\u00f3n",
+                "descripcion_busqueda": "La solicitud de ingreso a programas de la unidad de rehabilitaci\u00f3n, son servicios exclusivos para personas sobrevivientes lesionadas por siniestros viales en el territorio nacional, cuyo plazo m\u00e1ximo no haya excedido los 3 a\u00f1os tras ocurrido el evento. Se aclara que este tr\u00e1mite no es para solicitar prestaciones econ\u00f3micas por lesiones o fallecimiento, ni para personas cuya discapacidad no derive de un siniestro vial",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/Don Rommel SI.jpg",
+                "institucion": {
+                    "id": 48,
+                    "nombre": "Fondo para la Atenci\u00f3n a V\u00edctimas de Accidentes de Tr\u00e1nsito",
+                    "siglas": "FONAT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2363,
+                        "tramite_id": 1100,
+                        "institucion_id": 48,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Unidad de Rehabilitaci\u00f3n",
+                        "descripcion_busqueda": "La solicitud de ingreso a programas de la unidad de rehabilitaci\u00f3n, son servicios exclusivos para personas sobrevivientes lesionadas por siniestros viales en el territorio nacional, cuyo plazo m\u00e1ximo no haya excedido los 3 a\u00f1os tras ocurrido el evento. Se aclara que este tr\u00e1mite no es para solicitar prestaciones econ\u00f3micas por lesiones o fallecimiento, ni para personas cuya discapacidad no derive de un siniestro vial",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>La solicitud de ingreso a programas de la unidad de rehabilitaci&oacute;n, son servicios exclusivos para personas sobrevivientes lesionadas por siniestros viales en el territorio nacional, cuyo plazo m&aacute;ximo no haya excedido los 3 a&ntilde;os tras ocurrido el evento. Se aclara que este tr&aacute;mite no es para solicitar prestaciones econ&oacute;micas por lesiones o fallecimiento, ni para personas cuya discapacidad no derive de un siniestro vial<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "30 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/fonat.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/fonat.ventanilla.simple.sv\/tramites\/iniciar\/342&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 8,
+        "total": 8
+    },
+    "categoria": {
+        "id": 1,
+        "nombre": "Salud, agua y saneamiento",
+        "icono": "public\/Salud_agua_y_saneamiento.svg",
+        "img_1": "public\/50_625e0f7a61c28.png",
+        "img_2": "public\/50_625e0f7a7052c.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:23:19.000000Z",
+        "updated_at": "2022-04-19T01:25:14.000000Z",
+        "icono_header": "public\/Salud_agua_y_saneamiento_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 8,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

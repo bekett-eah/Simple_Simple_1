@@ -1,0 +1,401 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1071,
+                "rnt_id": null,
+                "institucion_id": 38,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de estudios",
+                "slug": "solicitud-de-constancias-de-estudios",
+                "sub_titulo": "Coordinaci\u00f3n acad\u00e9mica",
+                "descripcion_busqueda": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr\u00e1mites como: pensiones, solicitud de vi\u00e1ticos y seguros",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b1d2440bd8.jpg",
+                "institucion": {
+                    "id": 38,
+                    "nombre": "Escuela Nacional de Agricultura",
+                    "siglas": "ENA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2324,
+                        "tramite_id": 1071,
+                        "institucion_id": 38,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de Constancias de Estudios",
+                        "slug": "solicitud-de-constancias-de-estudios",
+                        "sub_titulo": "Coordinaci\u00f3n acad\u00e9mica",
+                        "descripcion_busqueda": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr\u00e1mites como: pensiones, solicitud de vi\u00e1ticos y seguros",
+                        "descripcion": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr&aacute;mites como: pensiones, solicitud de vi&aacute;ticos y seguros",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$5.00",
+                        "url_sitio": "https:\/\/ena.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/ena.ventanilla.simple.sv\/tramites\/iniciar\/270&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 65,
+                                "modalidad_id": 2324,
+                                "costo": "5.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1006,
+                "rnt_id": null,
+                "institucion_id": 2,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Nota de exoneraci\u00f3n de visado de importaci\u00f3n de productos agr\u00edcola",
+                "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-agricola",
+                "sub_titulo": "Ministerio de Agricultura y Ganader\u00eda",
+                "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Divisi\u00f3n de Registro y Fiscalizaci\u00f3n Agr\u00edcola",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e72b42a342.png",
+                "institucion": {
+                    "id": 2,
+                    "nombre": "Ministerio de Agricultura y Ganader\u00eda",
+                    "siglas": "MAG"
+                },
+                "modalidades": [
+                    {
+                        "id": 2249,
+                        "tramite_id": 1006,
+                        "institucion_id": 2,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Ministerio de Agricultura y Ganader\u00eda",
+                        "descripcion_busqueda": "Tr\u00e1mite que se realiza para solicitar importaci\u00f3n de productos que de acuerdo al c\u00f3digo arancelario requieren factura visada de agroqu\u00edmicos, pero dichos productos no son sujetos a registro por parte de la Oficina de Registro y Fiscalizaci\u00f3n de Insumos y Productos de Uso Agropecuario",
+                        "descripcion": "<p align=\"justify\">Tr&aacute;mite que se realiza para solicitar importaci&oacute;n de productos que de acuerdo al c&oacute;digo arancelario requieren factura visada de agroqu&iacute;micos, pero dichos productos no son sujetos a registro por parte de la Oficina de Registro y Fiscalizaci&oacute;n de Insumos y Productos de Uso Agropecuario<\/p>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mag.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mag.ventanilla.simple.sv\/tramites\/iniciar\/58&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1007,
+                "rnt_id": null,
+                "institucion_id": 2,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Nota de exoneraci\u00f3n de visado de importaci\u00f3n de productos utilizados en alimentaci\u00f3n animal",
+                "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-veterinarios",
+                "sub_titulo": "Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e733960d6d.png",
+                "institucion": {
+                    "id": 2,
+                    "nombre": "Ministerio de Agricultura y Ganader\u00eda",
+                    "siglas": "MAG"
+                },
+                "modalidades": [
+                    {
+                        "id": 2250,
+                        "tramite_id": 1007,
+                        "institucion_id": 2,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                        "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Oficina de Registro y Fiscalizaci\u00f3n de Insumo y Productos de Uso Agropecuario",
+                        "descripcion": "Tr&aacute;mite para la facilitaci&oacute;n de importaci&oacute;n de productos que seg&uacute;n c&oacute;digo arancelario requieren visado del Ministerio de Agricultura y Ganader&iacute;a, pero los cuales no son sujetos de control por parte de la Oficina de Registro y Fiscalizaci&oacute;n de Insumo y Productos de Uso Agropecuario",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mag.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mag.ventanilla.simple.sv\/tramites\/iniciar\/58&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 922,
+                "rnt_id": null,
+                "institucion_id": 14,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Informaci\u00f3n LIDAR para la investigaci\u00f3n cient\u00edfica y el desarrollo experimental para los sectores de educaci\u00f3n superior y gobierno",
+                "slug": "productos-lidar-tecnica-de-teledeteccion-optica-que-utiliza-la-luz-de-laser-para-obtener-una-muestra-densa-de-la-superficie-de-la-tierra-produciendo-mediciones-exactas-de-x-y-y-z",
+                "sub_titulo": "(Direcci\u00f3n General de Observatorio Ambiental y Amenazas)",
+                "descripcion_busqueda": "Este tr\u00e1mite digital permite solicitar productos geoambientales derivados de tecnolog\u00eda LIDAR (Light Detection and Ranging), orientados al an\u00e1lisis y desarrollo de investigaciones cient\u00edficas o proyectos t\u00e9cnicos. Est\u00e1 dirigido a instituciones de educaci\u00f3n superior y entidades gubernamentales que requieran esta informaci\u00f3n para fines de investigaci\u00f3n, planificaci\u00f3n territorial, estudios ambientales u otras aplicaciones t\u00e9cnicas",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-04-04 at 2.53.24 PM.jpeg",
+                "institucion": {
+                    "id": 14,
+                    "nombre": "Ministerio de Medio Ambiente y Recursos Naturales",
+                    "siglas": "MARN"
+                },
+                "modalidades": [
+                    {
+                        "id": 2122,
+                        "tramite_id": 922,
+                        "institucion_id": 14,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n General de Observatorio de Amenazas y Recursos Naturales",
+                        "descripcion_busqueda": "Este tr\u00e1mite digital permite solicitar productos geoambientales derivados de tecnolog\u00eda LIDAR (Light Detection and Ranging), orientados al an\u00e1lisis y desarrollo de investigaciones cient\u00edficas o proyectos t\u00e9cnicos. Est\u00e1 dirigido a instituciones de educaci\u00f3n superior y entidades gubernamentales que requieran esta informaci\u00f3n para fines de investigaci\u00f3n, planificaci\u00f3n territorial, estudios ambientales u otras aplicaciones t\u00e9cnicas",
+                        "descripcion": "<p data-pm-slice=\"1 1 []\">Este tr&aacute;mite digital permite solicitar productos geoambientales derivados de tecnolog&iacute;a LIDAR (Light Detection and Ranging), orientados al an&aacute;lisis y desarrollo de investigaciones cient&iacute;ficas o proyectos t&eacute;cnicos. Est&aacute; dirigido a instituciones de educaci&oacute;n superior y entidades gubernamentales que requieran esta informaci&oacute;n para fines de investigaci&oacute;n, planificaci&oacute;n territorial, estudios ambientales u otras aplicaciones t&eacute;cnicas<\/p>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 10 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/marn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/marn.ventanilla.simple.sv\/tramites\/iniciar\/224&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1014,
+                "rnt_id": null,
+                "institucion_id": 38,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificaci\u00f3n de notas para graduados de ENA",
+                "slug": "emision-de-certificacion-de-notas-para-graduados-de-ena",
+                "sub_titulo": "Registro Acad\u00e9mico",
+                "descripcion_busqueda": "Este tr\u00e1mite permite a los graduados de la Escuela Nacional de Agricultura (ENA) solicitar la emisi\u00f3n oficial de su certificaci\u00f3n de notas. Este documento detalla el historial acad\u00e9mico del solicitante y puede ser requerido para fines laborales, acad\u00e9micos o de validaci\u00f3n de estudios en otras instituciones",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e6fe7ed9f8.png",
+                "institucion": {
+                    "id": 38,
+                    "nombre": "Escuela Nacional de Agricultura",
+                    "siglas": "ENA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2259,
+                        "tramite_id": 1014,
+                        "institucion_id": 38,
+                        "tipo_tramite": 0,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Registro Acad\u00e9mico",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite a los graduados de la Escuela Nacional de Agricultura (ENA) solicitar la emisi\u00f3n oficial de su certificaci\u00f3n de notas. Este documento detalla el historial acad\u00e9mico del solicitante y puede ser requerido para fines laborales, acad\u00e9micos o de validaci\u00f3n de estudios en otras instituciones",
+                        "descripcion": "Este tr&aacute;mite permite a los graduados de la Escuela Nacional de Agricultura (ENA) solicitar la emisi&oacute;n oficial de su certificaci&oacute;n de notas. Este documento detalla el historial acad&eacute;mico del solicitante y puede ser requerido para fines laborales, acad&eacute;micos o de validaci&oacute;n de estudios en otras instituciones",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$10.00",
+                        "url_sitio": "https:\/\/ena.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/ena.ventanilla.simple.sv\/tramites\/iniciar\/83&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 52,
+                                "modalidad_id": 2259,
+                                "costo": "10.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 313,
+                "rnt_id": 555,
+                "institucion_id": 14,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Permiso de incubaci\u00f3n y recolecci\u00f3n de huevos de tortuga marina",
+                "slug": "permiso-para-la-incubacion-de-huevos-de-tortugas-marinas-en-condiciones-controladas",
+                "sub_titulo": "Direcci\u00f3n General de Ecosistemas y Biodiversidad",
+                "descripcion_busqueda": "Regular las actividades, obras y proyectos relacionados con la incubaci\u00f3n en condiciones controladas de huevos de tortugas marinas e incubaci\u00f3n in situ de huevos de tortugas marinas por medio de la protecci\u00f3n de playa para permitir la incubaci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-04-03 at 9.14.58 AM (1).jpeg",
+                "institucion": {
+                    "id": 14,
+                    "nombre": "Ministerio de Medio Ambiente y Recursos Naturales",
+                    "siglas": "MARN"
+                },
+                "modalidades": [
+                    {
+                        "id": 577,
+                        "tramite_id": 313,
+                        "institucion_id": 14,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Direcci\u00f3n General de Ecosistemas y Biodiversidad",
+                        "descripcion_busqueda": "Regular las actividades, obras y proyectos relacionados con la incubaci\u00f3n en condiciones controladas de huevos de tortugas marinas e incubaci\u00f3n in situ de huevos de tortugas marinas por medio de la protecci\u00f3n de playa para permitir la incubaci\u00f3n",
+                        "descripcion": "Regular las actividades, obras y proyectos relacionados con la incubaci&oacute;n en condiciones controladas de huevos de tortugas marinas e incubaci&oacute;n in situ de huevos de tortugas marinas por medio de la protecci&oacute;n de playa para permitir la incubaci&oacute;n",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "30 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/marn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/marn.ventanilla.simple.sv\/tramites\/iniciar\/332&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    },
+                    {
+                        "id": 591,
+                        "tramite_id": 313,
+                        "institucion_id": 14,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Direcci\u00f3n General de Ecosistemas y Biodiversidad",
+                        "descripcion_busqueda": "Regular las actividades, obras y proyectos relacionados con la incubaci\u00f3n en condiciones controladas de huevos de tortugas marinas e incubaci\u00f3n in situ de huevos de tortugas marinas por medio de la protecci\u00f3n de playa para permitir la incubaci\u00f3n",
+                        "descripcion": "Regular las actividades, obras y proyectos relacionados con la incubaci&oacute;n en condiciones controladas de huevos de tortugas marinas e incubaci&oacute;n in situ de huevos de tortugas marinas por medio de la protecci&oacute;n de playa para permitir la incubaci&oacute;n",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "30 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/marn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/marn.ventanilla.simple.sv\/tramites\/iniciar\/332&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1051,
+                "rnt_id": null,
+                "institucion_id": 14,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Informaci\u00f3n gratuita de fen\u00f3menos naturales",
+                "slug": "solicitud-de-informacion-gratuita-de-fenomenos-naturales",
+                "sub_titulo": "Direcci\u00f3n de Observatorio de Amenazas y Recursos Naturales.",
+                "descripcion_busqueda": "Este tr\u00e1mite permite a la ciudadan\u00eda solicitar de forma gratuita informaci\u00f3n t\u00e9cnica relacionada con fen\u00f3menos naturales, a trav\u00e9s del Observatorio de Amenazas y Recursos Naturales",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-04-04 at 2.53.32 PM.jpeg",
+                "institucion": {
+                    "id": 14,
+                    "nombre": "Ministerio de Medio Ambiente y Recursos Naturales",
+                    "siglas": "MARN"
+                },
+                "modalidades": [
+                    {
+                        "id": 2295,
+                        "tramite_id": 1051,
+                        "institucion_id": 14,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de Informaci\u00f3n Gratuita de Fen\u00f3menos Naturales",
+                        "slug": "solicitud-de-informacion-gratuita-de-fenomenos-naturales",
+                        "sub_titulo": "Direcci\u00f3n de Observatorio de Amenazas y Recursos Naturales",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite a la ciudadan\u00eda solicitar de forma gratuita informaci\u00f3n t\u00e9cnica relacionada con fen\u00f3menos naturales, a trav\u00e9s del Observatorio de Amenazas y Recursos Naturales",
+                        "descripcion": "Este tr&aacute;mite permite a la ciudadan&iacute;a solicitar de forma gratuita informaci&oacute;n t&eacute;cnica relacionada con fen&oacute;menos naturales, a trav&eacute;s del Observatorio de Amenazas y Recursos Naturales",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/marn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/marn.ventanilla.simple.sv\/tramites\/iniciar\/118&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1099,
+                "rnt_id": null,
+                "institucion_id": 38,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Reingreso para la carrera de agr\u00f3nomo en grado t\u00e9cnico",
+                "slug": "solicitud-de-reingreso-para-la-carrera-de-agronomo-en-grado-tecnico",
+                "sub_titulo": "Coordinaci\u00f3n Acad\u00e9mica",
+                "descripcion_busqueda": "Proceso que se realiza para volver a ser estudiante activo de la instituci\u00f3n despu\u00e9s de haber estado retirado voluntariamente o por haber reprobado materias",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b11b120d3c.jpeg",
+                "institucion": {
+                    "id": 38,
+                    "nombre": "Escuela Nacional de Agricultura",
+                    "siglas": "ENA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2361,
+                        "tramite_id": 1099,
+                        "institucion_id": 38,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Coordinaci\u00f3n Acad\u00e9mica",
+                        "descripcion_busqueda": "Proceso que se realiza para volver a ser estudiante activo de la instituci\u00f3n despu\u00e9s de haber estado retirado voluntariamente o por haber reprobado materias",
+                        "descripcion": "<div style=\"text-align: justify;\">Proceso que se realiza para volver a ser estudiante activo de la instituci&oacute;n despu&eacute;s de haber estado retirado voluntariamente o por haber reprobado materias<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$5.00",
+                        "url_sitio": "https:\/\/ena.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/ena.ventanilla.simple.sv\/tramites\/iniciar\/339&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 88,
+                                "modalidad_id": 2361,
+                                "costo": "5.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 8,
+        "total": 8
+    },
+    "categoria": {
+        "id": 3,
+        "nombre": "Medio Ambiente y agro",
+        "icono": "public\/Medio_Ambiente_y_agro.svg",
+        "img_1": "public\/7_62193fc22339d.png",
+        "img_2": "public\/7_62193fc2233f6.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:23:30.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Medio_Ambiente_y_agro_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 8,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

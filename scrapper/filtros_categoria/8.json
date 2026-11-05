@@ -1,0 +1,429 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1006,
+                "rnt_id": null,
+                "institucion_id": 2,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Nota de exoneraci\u00f3n de visado de importaci\u00f3n de productos agr\u00edcola",
+                "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-agricola",
+                "sub_titulo": "Ministerio de Agricultura y Ganader\u00eda",
+                "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Divisi\u00f3n de Registro y Fiscalizaci\u00f3n Agr\u00edcola",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e72b42a342.png",
+                "institucion": {
+                    "id": 2,
+                    "nombre": "Ministerio de Agricultura y Ganader\u00eda",
+                    "siglas": "MAG"
+                },
+                "modalidades": [
+                    {
+                        "id": 2249,
+                        "tramite_id": 1006,
+                        "institucion_id": 2,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Ministerio de Agricultura y Ganader\u00eda",
+                        "descripcion_busqueda": "Tr\u00e1mite que se realiza para solicitar importaci\u00f3n de productos que de acuerdo al c\u00f3digo arancelario requieren factura visada de agroqu\u00edmicos, pero dichos productos no son sujetos a registro por parte de la Oficina de Registro y Fiscalizaci\u00f3n de Insumos y Productos de Uso Agropecuario",
+                        "descripcion": "<p align=\"justify\">Tr&aacute;mite que se realiza para solicitar importaci&oacute;n de productos que de acuerdo al c&oacute;digo arancelario requieren factura visada de agroqu&iacute;micos, pero dichos productos no son sujetos a registro por parte de la Oficina de Registro y Fiscalizaci&oacute;n de Insumos y Productos de Uso Agropecuario<\/p>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mag.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mag.ventanilla.simple.sv\/tramites\/iniciar\/58&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1000,
+                "rnt_id": null,
+                "institucion_id": 30,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n y registro de agentes mar\u00edtimos",
+                "slug": "autorizacion-y-registro-de-agentes-maritimos",
+                "sub_titulo": "Gerencia de Regulaci\u00f3n Mar\u00edtima",
+                "descripcion_busqueda": "Este tr\u00e1mite sirve para que las personas jur\u00eddicas, se inscriban en la secci\u00f3n correspondiente del registro mar\u00edtimo Salvadore\u00f1o (REMS) para ser designado por el armador, propietario o capit\u00e1n, para realizar ante las Autoridades Mar\u00edtimas, Portuarias y aduaneras las gestiones relacionadas con la atenci\u00f3n de un buque en puerto Salvadore\u00f1o",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e44ae9c14f.png",
+                "institucion": {
+                    "id": 30,
+                    "nombre": "Autoridad Mar\u00edtima Portuaria",
+                    "siglas": "AMP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2241,
+                        "tramite_id": 1000,
+                        "institucion_id": 30,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Gerencia de Regulaci\u00f3n Mar\u00edtima",
+                        "descripcion_busqueda": "Este tr\u00e1mite sirve para que las personas jur\u00eddicas, se inscriben en la secci\u00f3n correspondiente del registro mar\u00edtimo Salvadore\u00f1o (REMS) para ser designado por el armador, propietario o capit\u00e1n, para realizar ante las Autoridades mar\u00edtimas, Portuarias y aduaneras las gestiones relacionadas con la atenci\u00f3n de un buque en puerto Salvadore\u00f1o",
+                        "descripcion": "<br \/>Este tr&aacute;mite sirve para que las personas jur&iacute;dicas, se inscriben en la secci&oacute;n correspondiente del registro mar&iacute;timo Salvadore&ntilde;o (REMS) para ser designado por el armador, propietario o capit&aacute;n, para realizar ante las Autoridades mar&iacute;timas, Portuarias y aduaneras las gestiones relacionadas con la atenci&oacute;n de un buque en puerto Salvadore&ntilde;o",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/simple.sv\/tramite\/autorizacion-y-registro-de-agentes-maritimos\/modalidad-unica",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1007,
+                "rnt_id": null,
+                "institucion_id": 2,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Nota de exoneraci\u00f3n de visado de importaci\u00f3n de productos utilizados en alimentaci\u00f3n animal",
+                "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-veterinarios",
+                "sub_titulo": "Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e733960d6d.png",
+                "institucion": {
+                    "id": 2,
+                    "nombre": "Ministerio de Agricultura y Ganader\u00eda",
+                    "siglas": "MAG"
+                },
+                "modalidades": [
+                    {
+                        "id": 2250,
+                        "tramite_id": 1007,
+                        "institucion_id": 2,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Divisi\u00f3n de Registro y Fiscalizaci\u00f3n de Productos Veterinarios",
+                        "descripcion_busqueda": "Tr\u00e1mite para la facilitaci\u00f3n de importaci\u00f3n de productos que seg\u00fan c\u00f3digo arancelario requieren visado del Ministerio de Agricultura y Ganader\u00eda, pero los cuales no son sujetos de control por parte de la Oficina de Registro y Fiscalizaci\u00f3n de Insumo y Productos de Uso Agropecuario",
+                        "descripcion": "Tr&aacute;mite para la facilitaci&oacute;n de importaci&oacute;n de productos que seg&uacute;n c&oacute;digo arancelario requieren visado del Ministerio de Agricultura y Ganader&iacute;a, pero los cuales no son sujetos de control por parte de la Oficina de Registro y Fiscalizaci&oacute;n de Insumo y Productos de Uso Agropecuario",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mag.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mag.ventanilla.simple.sv\/tramites\/iniciar\/58&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1069,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para comercializar reguladores de baja presi\u00f3n para GLP",
+                "slug": "comercializacion-local-de-reguladores-de-baja-presion-para-glp",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda comercializar en el mercado nacional reguladores de baja presi\u00f3n para GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e55e7c1d33.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2322,
+                        "tramite_id": 1069,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda comercializar en el mercado nacional reguladores de baja presi\u00f3n para GLP",
+                        "descripcion": "<br \/>Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona jur&iacute;dica pueda comercializar en el mercado nacional reguladores de baja presi&oacute;n para GLP",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1072,
+                "rnt_id": null,
+                "institucion_id": 24,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Servicio extraordinario en el Puerto de Acajutla",
+                "slug": "solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla",
+                "sub_titulo": "Comisi\u00f3n Ejecutiva Portuaria Aut\u00f3noma (CEPA) \u2013 Puerto de Acajutla",
+                "descripcion_busqueda": "Servicios portuarios que sean requeridos en horarios no administrativos, fines de semana y d\u00edas festivos, por las agencias navieras, consignatarios, consolidadores, almacenadoras y usuarios en general",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e45b13924b.png",
+                "institucion": {
+                    "id": 24,
+                    "nombre": "Comisi\u00f3n Ejecutiva Portuaria Aut\u00f3noma (CEPA)",
+                    "siglas": "CEPA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2325,
+                        "tramite_id": 1072,
+                        "institucion_id": 24,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de Servicio Extraordinario en el Puerto de Acajutla - Persona Natural",
+                        "slug": "solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla-persona-natural",
+                        "sub_titulo": "Puerto de Acajutla",
+                        "descripcion_busqueda": "Solicitud de Servicio Extraordinario en el Puerto de Acajutla",
+                        "descripcion": "Servicios portuarios que sean requeridos en horarios no administrativos, fines de semana y d&iacute;as festivos, por las agencias navieras, consignatarios, consolidadores, almacenadoras y usuarios en general",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 hora",
+                        "costo_tramite": "Var\u00eda seg\u00fan el servicio solicitado",
+                        "url_sitio": "https:\/\/cepa.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/cepa.ventanilla.simple.sv\/tramites\/iniciar\/280&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    },
+                    {
+                        "id": 2329,
+                        "tramite_id": 1072,
+                        "institucion_id": 24,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de Servicio Extraordinario en el Puerto de Acajutla - Persona Jur\u00eddica",
+                        "slug": "solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla-persona-juridica",
+                        "sub_titulo": "Puerto de Acajutla",
+                        "descripcion_busqueda": "Solicitud de Servicio Extraordinario en el Puerto de Acajutla.",
+                        "descripcion": "Servicios portuarios que sean requeridos en horarios no administrativos, fines de semana y d&iacute;as festivos, por las agencias navieras, consignatarios, consolidadores, almacenadoras y usuarios en general",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "Presencial \/ En l\u00ednea",
+                        "duracion_promedio": "1 hora",
+                        "costo_tramite": "Var\u00eda seg\u00fan el servicio solicitado",
+                        "url_sitio": "https:\/\/cepa.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/cepa.ventanilla.simple.sv\/tramites\/iniciar\/280&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1066,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para comercializar cilindros port\u00e1tiles para envasado de GLP",
+                "slug": "utilizar-en-el-mercado-nacional-cilindros-portatiles-para-envasado-de-glp",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda utilizar en el mercado nacional los cilindros port\u00e1tiles para el envasado del GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e51d1c6b0a.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2316,
+                        "tramite_id": 1066,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda utilizar en el mercado nacional los cilindros port\u00e1tiles para el envasado del GLP",
+                        "descripcion": "Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona jur&iacute;dica pueda utilizar en el mercado nacional los cilindros port&aacute;tiles para el envasado del GLP",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/rnpn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1056,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para exportar cilindros port\u00e1tiles para envasado de GLP",
+                "slug": "exportar-cilindros-portatiles-para-envasado-de-glp",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas- Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda exportar cilindros port\u00e1tiles para envasado de GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e4fc4bba03.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2302,
+                        "tramite_id": 1056,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda Exportar cilindros port\u00e1tiles para envasado de GLP",
+                        "descripcion": "<span style=\"font-weight: 400;\">Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda exportar cilindros port&aacute;tiles para envasado de GLP<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1065,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para importar reguladores de baja presi\u00f3n para GLP",
+                "slug": "importar-reguladores-de-baja-presion-para-glp-juridico",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, mediante la cual se autoriza a la persona natural la importaci\u00f3n de reguladores de baja presi\u00f3n destinados al uso de GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e5186420f3.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2312,
+                        "tramite_id": 1065,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Importaci\u00f3n de reguladores de baja presi\u00f3n para GLP",
+                        "descripcion": "Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, mediante la cual se autoriza a la persona natural la importaci&oacute;n de reguladores de baja presi&oacute;n destinados al uso de GLP",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "9 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1055,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para importaci\u00f3n de v\u00e1lvulas para cilindros de GLP",
+                "slug": "importacion-de-valvulas-para-cilindros-portatiles-para-glp",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica importe v\u00e1lvulas para GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e4f64d7a72.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2300,
+                        "tramite_id": 1055,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas- Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Tr\u00e1mite mediante el cual la Direcci\u00f3n de Hidrocarburos y Minas emite una resoluci\u00f3n que autoriza a una persona jur\u00eddica a importar v\u00e1lvulas destinadas al manejo, control o distribuci\u00f3n de Gas Licuado de Petr\u00f3leo (GLP). Esta autorizaci\u00f3n garantiza que los productos importados cumplen con los est\u00e1ndares t\u00e9cnicos y de seguridad establecidos por la normativa vigente en el sector de hidrocarburos",
+                        "descripcion": "Tr&aacute;mite mediante el cual la Direcci&oacute;n de Hidrocarburos y Minas emite una resoluci&oacute;n que autoriza a una persona jur&iacute;dica a importar v&aacute;lvulas destinadas al manejo, control o distribuci&oacute;n de Gas Licuado de Petr&oacute;leo (GLP). Esta autorizaci&oacute;n garantiza que los productos importados cumplen con los est&aacute;ndares t&eacute;cnicos y de seguridad establecidos por la normativa vigente en el sector de hidrocarburos",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "9 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=1",
+        "from": 1,
+        "last_page": 3,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=3",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=importaciones-y-exportaciones&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 21
+    },
+    "categoria": {
+        "id": 4,
+        "nombre": "Importaciones y exportaciones",
+        "icono": "public\/Importaciones_y_exportaciones.svg",
+        "img_1": "public\/7_62193fa105562.png",
+        "img_2": "public\/7_62193fa1055bc.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:23:37.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Importaciones_y_exportaciones_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 21,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=importaciones-y-exportaciones&amp;page=2\">2<\/a><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=importaciones-y-exportaciones&amp;page=3\">3<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=importaciones-y-exportaciones&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

@@ -1,0 +1,16 @@
+{
+  "tramites_unicos": 118,
+  "total_declarado": 118,
+  "paginas_html": 129,
+  "errores": 6,
+  "coincide_total": true,
+  "salidas": [
+    "simple_sv_completo.json",
+    "simple_sv_documentacion.txt",
+    "simple_sv_documentacion.md",
+    "indice_instituciones.json",
+    "indice_instituciones.txt",
+    "indice_instituciones.md",
+    "scraper.log"
+  ]
+}

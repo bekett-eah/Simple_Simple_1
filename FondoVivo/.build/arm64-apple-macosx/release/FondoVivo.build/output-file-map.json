@@ -1,0 +1,92 @@
+{
+  "": {
+    "dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/FondoVivo.d",
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/FondoVivo.o",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/master.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/AppDelegate.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppDelegate.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppDelegate~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppDelegate.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/DebugSnapshot.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/DebugSnapshot.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/DebugSnapshot~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/DebugSnapshot.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/MainMenu.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/MainMenu.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/MainMenu~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/MainMenu.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Model/AppSettings.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppSettings.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppSettings~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/AppSettings.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Model/VideoItem.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoItem.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoItem~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoItem.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Model/VideoLibrary.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoLibrary.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoLibrary~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/VideoLibrary.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/StatusItemController.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/StatusItemController.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/StatusItemController~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/StatusItemController.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/Components.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/Components.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/Components~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/Components.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/LibraryView.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryView.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryView.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/LibraryWindowController.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryWindowController.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryWindowController~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/LibraryWindowController.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/RootView.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/RootView.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/RootView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/RootView.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/ScreensView.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/ScreensView.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/ScreensView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/ScreensView.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/UI/SettingsView.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/SettingsView.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Wallpaper/WallpaperManager.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperManager.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperManager.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Wallpaper/WallpaperPlayerView.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperPlayerView.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperPlayerView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperPlayerView.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/Wallpaper/WallpaperWindow.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperWindow.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperWindow~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/WallpaperWindow.swiftdeps"
+  },
+  "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/Sources/FondoVivo/main.swift": {
+    "object": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/main.swift.o",
+    "swiftmodule": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/usuario/Documents/SIMPLE_SV/FondoVivo/.build/arm64-apple-macosx/release/FondoVivo.build/main.swiftdeps"
+  }
+}

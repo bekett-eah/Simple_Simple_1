@@ -1,0 +1,126 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 999,
+                "rnt_id": null,
+                "institucion_id": 31,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia patronal de r\u00e9gimen salud",
+                "slug": "solvencias-y-constancias-patronales",
+                "sub_titulo": "Secci\u00f3n administraci\u00f3n cuentas por cobrar y secci\u00f3n aseguramiento",
+                "descripcion_busqueda": "Este tr\u00e1mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore\u00f1o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d\u00eda en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b0f93b1462.jpeg",
+                "institucion": {
+                    "id": 31,
+                    "nombre": "Instituto Salvadore\u00f1o del Seguro Social",
+                    "siglas": "ISSS"
+                },
+                "modalidades": [
+                    {
+                        "id": 2239,
+                        "tramite_id": 999,
+                        "institucion_id": 31,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de solvencia patronal de r\u00e9gimen salud",
+                        "slug": "solicitud-de-solvencia-patronal-de-regimen-salud",
+                        "sub_titulo": "Secci\u00f3n Administraci\u00f3n Cuentas por Cobrar",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore\u00f1o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d\u00eda en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci\u00f3n",
+                        "descripcion": "Este tr&aacute;mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore&ntilde;o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d&iacute;a en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci&oacute;n",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 minutos",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isss.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isss.ventanilla.simple.sv\/tramites\/iniciar\/22&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1114,
+                "rnt_id": null,
+                "institucion_id": 31,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                "slug": "solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss",
+                "sub_titulo": "Secci\u00f3n administraci\u00f3n cuentas por cobrar y secci\u00f3n aseguramiento",
+                "descripcion_busqueda": "Generaci\u00f3n de constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b1e4f0df5e.jpg",
+                "institucion": {
+                    "id": 31,
+                    "nombre": "Instituto Salvadore\u00f1o del Seguro Social",
+                    "siglas": "ISSS"
+                },
+                "modalidades": [
+                    {
+                        "id": 2379,
+                        "tramite_id": 1114,
+                        "institucion_id": 31,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                        "slug": "solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss",
+                        "sub_titulo": "Secci\u00f3n Aseguramiento",
+                        "descripcion_busqueda": "Generaci\u00f3n de constancia de no inscrito como patrono para persona natural o jur\u00eddica, Instituto Salvadore\u00f1o del Seguro Social, ISSS, constancia, patrono, patronal",
+                        "descripcion": "Generaci&oacute;n de constancia de no inscrito para persona natural o jur&iacute;dica como patrono en el ISSS",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 minutos",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isss.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isss.ventanilla.simple.sv\/tramites\/iniciar\/39&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    },
+    "categoria": {
+        "id": 15,
+        "nombre": "Trabajo y obligaciones patronales",
+        "icono": "public\/Trabajo_y_obligaciones_patronales.svg",
+        "img_1": "public\/50_626177556a58e.png",
+        "img_2": "public\/50_6261775586dba.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:29:53.000000Z",
+        "updated_at": "2022-04-21T15:25:09.000000Z",
+        "icono_header": "public\/Trabajo_y_obligaciones_patronales_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 2,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

@@ -1,0 +1,126 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1073,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Acreditaci\u00f3n de programas y registro de miembros de la REA",
+                "slug": "acreditacion-de-programas-y-registro-de-miembros-de-la-rea",
+                "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA.",
+                "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento. \r\nTodo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7bc5f589.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2326,
+                        "tramite_id": 1073,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "CONAPINA - Acreditaci\u00f3n de Programas y Registro de miembros de la REA (Administrativo)",
+                        "slug": "conapina-acreditacion-de-programas-y-registro-de-miembros-de-la-rea-administrativo",
+                        "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA",
+                        "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento Todo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                        "descripcion": "<h5>La acreditaci&oacute;n de los programas constituye la autorizaci&oacute;n administrativa para su ejecuci&oacute;n y funcionamiento todo programa en materia de primera infancia, ni&ntilde;ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber&aacute;n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser&aacute;n registradas para formar parte de la REA<\/h5>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "50 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/297&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1074,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Registro de proyectos de atenci\u00f3n de primera infancia, ni\u00f1ez y adolescencia",
+                "slug": "registro-de-proyectos-de-atencion-de-primera-infancia-ninez-y-adolescencia",
+                "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA.",
+                "descripcion_busqueda": "El registro de los proyectos es una autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento. \r\nTodas las instituciones p\u00fablicas, privadas y organizaciones de la sociedad civil que desarrollen proyectos cuya poblaci\u00f3n objetivo sean las ni\u00f1as, ni\u00f1os y adolescentes, deber\u00e1n informar al Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia una vez iniciada su ejecuci\u00f3n, el detalle de las intervenciones a realizar y otros aspectos relevantes del proyecto a fin de articular acciones con el Sistema Nacional de Protecci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7dbeef4e.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2327,
+                        "tramite_id": 1074,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "CONAPINA - (Administrativo)",
+                        "slug": "conapina-administrativo",
+                        "sub_titulo": "CONAPINA \u2013 Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA.",
+                        "descripcion_busqueda": "Registro de Proyectos de Atenci\u00f3n de Primera Infancia, Ni\u00f1ez y Adolescencia",
+                        "descripcion": "<h5 style=\"text-align: justify;\"><span style=\"font-size: 18pt;\">El registro de los proyectos es una autorizaci&oacute;n administrativa para su ejecuci&oacute;n y funcionamiento<\/span><br \/><br \/><\/h5>\r\n<h5 style=\"text-align: justify;\"><span style=\"font-size: 18pt;\">Todas las instituciones p&uacute;blicas, privadas y organizaciones de la sociedad civil que desarrollen proyectos cuya poblaci&oacute;n objetivo sean las ni&ntilde;as, ni&ntilde;os y adolescentes, deber&aacute;n informar al Consejo Nacional de la Primera Infancia, Ni&ntilde;ez y Adolescencia una vez iniciada su ejecuci&oacute;n, el detalle de las intervenciones a realizar y otros aspectos relevantes del proyecto a fin de articular acciones con el Sistema Nacional de Protecci&oacute;n<\/span><\/h5>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/281&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    },
+    "categoria": {
+        "id": 16,
+        "nombre": "Programas sociales",
+        "icono": "public\/Programas_sociales.svg",
+        "img_1": "public\/50_625e0d6c1e129.png",
+        "img_2": "public\/50_625e0d6c2c0e0.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:32:55.000000Z",
+        "updated_at": "2022-04-19T01:16:28.000000Z",
+        "icono_header": "public\/Programas_sociales_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 2,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

@@ -1,0 +1,605 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1084,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Registro de transportista de carga nacional e internacional",
+                "slug": "registro-de-transportista-de-carga-nacional-e-internacional",
+                "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                "descripcion_busqueda": "Inscripci\u00f3n en registro con el objeto de identificar a las personas naturales o jur\u00eddicas que presten el servicio de transporte de carga por carretera",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/carga.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2338,
+                        "tramite_id": 1084,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                        "descripcion_busqueda": "Inscripci\u00f3n en registro con el objeto de identificar a las personas naturales que presten el servicio de transporte de carga por carretera",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Inscripci&oacute;n en registro con el objeto de identificar a las personas naturales que presten el servicio de transporte de carga por carretera<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda en horas h\u00e1biles",
+                        "costo_tramite": "$28.25",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/341&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 380,
+                                "modalidad_id": 2338,
+                                "costo": "28.25",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2339,
+                        "tramite_id": 1084,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                        "descripcion_busqueda": "Inscripci\u00f3n en registro con el objeto de identificar a las personas naturales o jur\u00eddicas que presten el servicio de transporte de carga por carretera",
+                        "descripcion": "<div style=\"text-align: justify;\">Inscripci&oacute;n en registro con el objeto de identificar a las personas naturales o jur&iacute;dicas que presten el servicio de transporte de carga por carretera<\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda en horas h\u00e1biles",
+                        "costo_tramite": "$28.25",
+                        "url_sitio": "https:\/\/simple.sv\/tramite\/registro-de-transportista-de-carga-nacional-e-internacional\/persona-natural",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 238,
+                                "modalidad_id": 2339,
+                                "costo": "28.25",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1047,
+                "rnt_id": null,
+                "institucion_id": 24,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Servicio VIP en el Aeropuerto Internacional de El Salvador",
+                "slug": "solicitud-del-servicio-vip-en-el-aeropuerto-internacional-de-el-salvador",
+                "sub_titulo": "Central de Anuncios \/ Edecanes",
+                "descripcion_busqueda": "Nuestro servicio VIP en el Aeropuerto Internacional de El Salvador, San \u00d3scar Arnulfo Romero y Gald\u00e1mez (AIES-SOARG), est\u00e1 disponible para pasajeros que arriban o salen de El Salvador por esta v\u00eda a\u00e9rea, incluye asistencia y acompa\u00f1amiento personalizado por edecanes para realizar tr\u00e1mites migratorios y retiro de equipaje, entre otros",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e49eee21ca.jpg",
+                "institucion": {
+                    "id": 24,
+                    "nombre": "Comisi\u00f3n Ejecutiva Portuaria Aut\u00f3noma (CEPA)",
+                    "siglas": "CEPA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2292,
+                        "tramite_id": 1047,
+                        "institucion_id": 24,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Central de Anuncios \/ Edecanes",
+                        "descripcion_busqueda": "Nuestro servicio VIP en el Aeropuerto Internacional de El Salvador, San \u00d3scar Arnulfo Romero y Gald\u00e1mez (AIES-SOARG), est\u00e1 disponible para pasajeros que arriban o salen de El Salvador por esta v\u00eda a\u00e9rea, incluye asistencia y acompa\u00f1amiento personalizado por edecanes para realizar tr\u00e1mites migratorios y retiro de equipaje, entre otros",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Nuestro servicio VIP en el Aeropuerto Internacional de El Salvador, San &Oacute;scar Arnulfo Romero y Gald&aacute;mez (AIES-SOARG), est&aacute; disponible para pasajeros que arriban o salen de El Salvador por esta v&iacute;a a&eacute;rea, incluye asistencia y acompa&ntilde;amiento personalizado por edecanes para realizar tr&aacute;mites migratorios y retiro de equipaje, entre otros<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 hora",
+                        "costo_tramite": "$55.00 Por cada servicio requerido\/por persona \u2265 de 3 a\u00f1os",
+                        "url_sitio": "https:\/\/cepa.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/cepa.ventanilla.simple.sv\/tramites\/iniciar\/190&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 431,
+                                "modalidad_id": 2292,
+                                "costo": "55.00",
+                                "descripcion": "Por cada servicio requerido\/por persona \u2265 de 3 a\u00f1os"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1094,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Modificaci\u00f3n f\u00edsica de veh\u00edculo de transporte de carga",
+                "slug": "modificacion-fisica-de-vehiculo-de-transporte-de-carga",
+                "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                "descripcion_busqueda": "Contribuir al control de datos vehiculares en cuanto al tipo y\/o clase los cuales han sido modificados, asegurando que estas modificaciones cumplen o se han realizado dentro del peso o dimensiones permitidas reglamentariamente, es decir, en veh\u00edculos especiales por su n\u00famero de ejes longitudinales para una distribuci\u00f3n correcta del peso o volumen de la carga a transportar, velando por el cumplimiento de las condiciones de seguridad y\/o requisitos en el transporte en la modificaci\u00f3n f\u00edsica a los veh\u00edculos de carga",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/682f820804c66.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2352,
+                        "tramite_id": 1094,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                        "descripcion_busqueda": "Contribuir al control de datos vehiculares en cuanto al tipo y\/o clase los cuales han sido modificados, asegurando que estas modificaciones cumplen o se han realizado dentro del peso o dimensiones permitidas reglamentariamente, es decir, en veh\u00edculos especiales por su n\u00famero de ejes longitudinales para una distribuci\u00f3n correcta del peso o volumen de la carga a transportar, velando por el cumplimiento de las condiciones de seguridad y\/o requisitos en el transporte en la modificaci\u00f3n f\u00edsica a los veh\u00edculos de carga",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Determinar el tipo de estructura en la carrocer&iacute;a del veh&iacute;culo al que ha sido modificado, la clase si fuese el caso, peso de la tara (peso vac&iacute;o), capacidad de carga y capacidad m&aacute;xima permitida, dimensiones y dem&aacute;s caracter&iacute;sticas de este, como resultado de una revisi&oacute;n t&eacute;cnica completa, garantizando de esta manera que cualquier modificaci&oacute;n realizada, cumpla con los par&aacute;metros t&eacute;cnicos definidos por la Direcci&oacute;n. En ese sentido se autorizar&aacute;n los veh&iacute;culos que est&eacute;n habilitados para circular por la red vial nacional en condiciones f&iacute;sicas y mec&aacute;nicas de manera &oacute;ptima<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 5 d\u00edas h\u00e1biles despu\u00e9s de aprobada la inspecci\u00f3n t\u00e9cnica en la b\u00e1scula seleccionada",
+                        "costo_tramite": "$40.00",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/320&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 386,
+                                "modalidad_id": 2352,
+                                "costo": "40.00",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2353,
+                        "tramite_id": 1094,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                        "descripcion_busqueda": "Contribuir al control de datos vehiculares en cuanto al tipo y\/o clase los cuales han sido modificados, asegurando que estas modificaciones cumplen o se han realizado dentro del peso o dimensiones permitidas reglamentariamente, es decir, en veh\u00edculos especiales por su n\u00famero de ejes longitudinales para una distribuci\u00f3n correcta del peso o volumen de la carga a transportar, velando por el cumplimiento de las condiciones de seguridad y\/o requisitos en el transporte en la modificaci\u00f3n f\u00edsica a los veh\u00edculos de carga",
+                        "descripcion": "<div style=\"text-align: justify;\">Determinar el tipo de estructura en la carrocer&iacute;a del veh&iacute;culo al que ha sido modificado, la clase si fuese el caso, peso de la tara (peso vac&iacute;o), capacidad de carga y capacidad m&aacute;xima permitida, dimensiones y dem&aacute;s caracter&iacute;sticas de este, como resultado de una revisi&oacute;n t&eacute;cnica completa, garantizando de esta manera que cualquier modificaci&oacute;n realizada, cumpla con los par&aacute;metros t&eacute;cnicos definidos por la Direcci&oacute;n. En ese sentido, se autorizar&aacute;n los veh&iacute;culos que est&eacute;n habilitados para circular por la red vial nacional en condiciones f&iacute;sicas y mec&aacute;nicas de manera &oacute;ptima<\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 5 d\u00edas h\u00e1biles despu\u00e9s de aprobada la inspecci\u00f3n t\u00e9cnica en la b\u00e1scula seleccionada",
+                        "costo_tramite": "$40.00",
+                        "url_sitio": "https:\/\/simple.sv\/tramite\/modificacion-fisica-de-vehiculo-de-transporte-de-carga\/persona-natural",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 240,
+                                "modalidad_id": 2353,
+                                "costo": "40.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1096,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de capacidad",
+                "slug": "constancia-de-capacidad",
+                "sub_titulo": "Unidad Jur\u00eddica de Transporte de Carga",
+                "descripcion_busqueda": "Determinar el peso de la tara (peso vac\u00edo), capacidad de carga y capacidad m\u00e1xima permitida, dimensiones y dem\u00e1s caracter\u00edsticas de los veh\u00edculos destinados al transporte de carga nuevos o usados, para ser inscritos en el Registro P\u00fablico de Veh\u00edculos Automotores o por existir tarjetas de circulaci\u00f3n desactualizadas, con el objeto de que la referida informaci\u00f3n sea incorporada en la tarjeta de circulaci\u00f3n que a tal efecto emita el ente autorizado. En ese sentido se autorizar\u00e1n los veh\u00edculos que est\u00e9n habilitados para circular por la red vial nacional en condiciones f\u00edsicas y mec\u00e1nicas de manera \u00f3ptima y\/o requisitos en el transporte de carga",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/682f81950efc9.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2356,
+                        "tramite_id": 1096,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Unidad Jur\u00eddica de Transporte de Carga",
+                        "descripcion_busqueda": "Determinar el peso de la tara (peso vac\u00edo), capacidad de carga y capacidad m\u00e1xima permitida, dimensiones y dem\u00e1s caracter\u00edsticas de los veh\u00edculos destinados al transporte de carga nuevos o usados, para ser inscritos en el Registro P\u00fablico de Veh\u00edculos Automotores o por existir tarjetas de circulaci\u00f3n desactualizadas, con el objeto de que la referida informaci\u00f3n sea incorporada en la tarjeta de circulaci\u00f3n que a tal efecto emita el ente autorizado. En ese sentido se autorizar\u00e1n los veh\u00edculos que est\u00e9n habilitados para circular por la red vial nacional en condiciones f\u00edsicas y mec\u00e1nicas de manera \u00f3ptima y\/o requisitos en el transporte de carga",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Determinar el peso de la tara (peso vac&iacute;o), capacidad de carga y capacidad m&aacute;xima permitida, dimensiones y dem&aacute;s caracter&iacute;sticas de los veh&iacute;culos destinados al transporte de carga nuevos o usados, para ser inscritos en el Registro P&uacute;blico de Veh&iacute;culos Automotores o por existir tarjetas de circulaci&oacute;n desactualizadas, con el objeto de que la referida informaci&oacute;n sea incorporada en la tarjeta de circulaci&oacute;n que a tal efecto emita el ente autorizado. En ese sentido se autorizar&aacute;n los veh&iacute;culos que est&eacute;n habilitados para circular por la red vial nacional en condiciones f&iacute;sicas y mec&aacute;nicas de manera &oacute;ptima y\/o requisitos en el transporte de carga<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 5 d\u00edas h\u00e1biles despu\u00e9s de aprobada la inspecci\u00f3n t\u00e9cnica en la B\u00e1scula seleccionada",
+                        "costo_tramite": "$39.55",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/320&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 387,
+                                "modalidad_id": 2356,
+                                "costo": "39.55",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2357,
+                        "tramite_id": 1096,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Unidad Jur\u00eddica de Transporte de Carga",
+                        "descripcion_busqueda": "Determinar el peso de la tara (peso vac\u00edo), capacidad de carga y capacidad m\u00e1xima permitida, dimensiones y dem\u00e1s caracter\u00edsticas de los veh\u00edculos destinados al transporte de carga nuevos o usados, para ser inscritos en el Registro P\u00fablico de Veh\u00edculos Automotores o por existir tarjetas de circulaci\u00f3n desactualizadas, con el objeto de que la referida informaci\u00f3n sea incorporada en la tarjeta de circulaci\u00f3n que a tal efecto emita el ente autorizado. En ese sentido se autorizar\u00e1n los veh\u00edculos que est\u00e9n habilitados para circular por la red vial nacional en condiciones f\u00edsicas y mec\u00e1nicas de manera \u00f3ptima y\/o requisitos en el transporte de carga",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Determinar el peso de la tara (peso vac&iacute;o), capacidad de carga y capacidad m&aacute;xima permitida, dimensiones y dem&aacute;s caracter&iacute;sticas de los veh&iacute;culos destinados al transporte de carga nuevos o usados, para ser inscritos en el Registro P&uacute;blico de Veh&iacute;culos Automotores o por existir tarjetas de circulaci&oacute;n desactualizadas, con el objeto de que la referida informaci&oacute;n sea incorporada en la tarjeta de circulaci&oacute;n que a tal efecto emita el ente autorizado. En ese sentido se autorizar&aacute;n los veh&iacute;culos que est&eacute;n habilitados para circular por la red vial nacional en condiciones f&iacute;sicas y mec&aacute;nicas de manera &oacute;ptima y\/o requisitos en el transporte de carga<\/span><\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 5 d\u00edas h\u00e1biles despu\u00e9s de aprobada la inspecci\u00f3n t\u00e9cnica en la B\u00e1scula seleccionada",
+                        "costo_tramite": "$39.55",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/320&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 84,
+                                "modalidad_id": 2357,
+                                "costo": "39.55",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1086,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Permiso especial para el transporte de objetos que sobrepasen el peso y\/o dimensiones establecidas en la ley nacional e internacional, (autorizaci\u00f3n de transporte de cargas mayores a las permitidas)",
+                "slug": "permiso-especial-para-el-transporte-de-objetos-que-sobrepasen-el-peso-yo-dimensiones-establecidas-en-la-ley-nacional-e-internacional-autorizacion-de-transporte-de-cargas-mayores-a-las-permitidas",
+                "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                "descripcion_busqueda": "Solicitud requerida cuando un veh\u00edculo de transporte de carga se dedica al traslado de objetos indivisibles que sobrepasan el peso y dimensiones establecidas en la ley",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/10226_65ba89ca5145e.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2342,
+                        "tramite_id": 1086,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                        "descripcion_busqueda": "Solicitud requerida cuando un veh\u00edculo de transporte de carga se dedica al traslado de objetos indivisibles que sobrepasan el peso y dimensiones establecidas en la ley",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Solicitud requerida cuando un veh&iacute;culo de transporte de carga se dedica al traslado de objetos indivisibles que sobrepasan el peso y dimensiones establecidas en la ley<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 2 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$39.55",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/309&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 385,
+                                "modalidad_id": 2342,
+                                "costo": "39.55",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2343,
+                        "tramite_id": 1086,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                        "descripcion_busqueda": "Solicitud requerida cuando un veh\u00edculo de transporte de carga se dedica al traslado de objetos indivisibles que sobrepasan el peso y dimensiones establecidas en la ley",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Solicitud requerida cuando un veh&iacute;culo de transporte de carga se dedica al traslado de objetos indivisibles que sobrepasan el peso y dimensiones establecidas en la ley<\/strong><\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 2 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$39.55",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/309&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 78,
+                                "modalidad_id": 2343,
+                                "costo": "39.55",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1085,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Permiso especial para el transporte de materiales peligrosos nacional e internacional",
+                "slug": "permiso-especial-para-el-transporte-de-materiales-peligrosos-nacional-e-internacional",
+                "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                "descripcion_busqueda": "Solicitud en relaci\u00f3n cuando un veh\u00edculo de transporte de carga se dedica al transporte de materiales peligrosos, clasificado de acuerdo a la clase",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/10226_65ba87a9d7544.jpg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2340,
+                        "tramite_id": 1085,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Direcci\u00f3n General de Transporte de Carga",
+                        "descripcion_busqueda": "Solicitud en relaci\u00f3n cuando un veh\u00edculo de transporte de carga se dedica al transporte de materiales peligrosos, clasificado de acuerdo a la clase",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Solicitud en relaci&oacute;n cuando un veh&iacute;culo de transporte de carga se dedica al transporte de materiales peligrosos, clasificado de acuerdo a la clase<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 2 d\u00edas h\u00e1biles",
+                        "costo_tramite": "<b>Clase:<\/b> Cami\u00f3n, Panel o Pick Up $39.55 <br>\r\n<b>Clase:<\/b> Combinaci\u00f3n de Cabezal y Remolque $56.50",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/232&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 383,
+                                "modalidad_id": 2340,
+                                "costo": "39.55",
+                                "descripcion": "Cami\u00f3n, Panel o Pick Up"
+                            },
+                            {
+                                "id": 384,
+                                "modalidad_id": 2340,
+                                "costo": "56.50",
+                                "descripcion": "Combinaci\u00f3n de Cabezal y Remolque"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2341,
+                        "tramite_id": 1085,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Direcci\u00f3n Jur\u00eddica de Transporte de Carga",
+                        "descripcion_busqueda": "Solicitud en relaci\u00f3n cuando un veh\u00edculo de transporte de carga se dedica al transporte de materiales peligrosos, clasificado de acuerdo a la clase",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Solicitud en relaci&oacute;n cuando un veh&iacute;culo de transporte de carga se dedica al transporte de materiales peligrosos, clasificado de acuerdo a la clase<\/strong><\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 2 d\u00edas h\u00e1biles",
+                        "costo_tramite": "<b>Clase:<\/b> Cami\u00f3n, Panel o Pick Up $39.55 <br>\r\n<b>Clase:<\/b> Combinaci\u00f3n de Cabezal y Remolque $56.50",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/232&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 74,
+                                "modalidad_id": 2341,
+                                "costo": "39.55",
+                                "descripcion": "Cami\u00f3n, Panel o Pick Up"
+                            },
+                            {
+                                "id": 75,
+                                "modalidad_id": 2341,
+                                "costo": "56.50",
+                                "descripcion": "Combinaci\u00f3n de Cabezal y Remolque"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1102,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Apostillado de certificaci\u00f3n de licencia de conducir",
+                "slug": "apostillado-de-certificacion-de-licencia-de-conducir",
+                "sub_titulo": "Unidad Jur\u00eddica de Tr\u00e1nsito, Direcci\u00f3n General de Tr\u00e1nsito",
+                "descripcion_busqueda": "Solicitud de Apostillado electr\u00f3nico de Certificaci\u00f3n de Licencia de Conducir emitida por la\r\nDirecci\u00f3n General de Tr\u00e1nsito, con el objeto de certificar la autenticidad de la firma, la\r\ncalidad en que el signatario del documento haya actuado y, en su caso, la identidad del\r\nsello o timbre del que el documento p\u00fablico est\u00e9 revestido",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e7a7cccd5d.png",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2365,
+                        "tramite_id": 1102,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Unidad Jur\u00eddica de Tr\u00e1nsito, Direcci\u00f3n General de Tr\u00e1nsito",
+                        "descripcion_busqueda": "Solicitud de Apostillado electr\u00f3nico de Constancia de R\u00e9cord de Licencia de Conducir\r\nemitida por la Direcci\u00f3n General de Tr\u00e1nsito, con el objeto de certificar la autenticidad de la\r\nfirma, la calidad en que el signatario del documento haya actuado y, en su caso, la\r\nidentidad del sello o timbre del que el documento p\u00fablico est\u00e9 revestido",
+                        "descripcion": "<div style=\"text-align: justify;\">Solicitud de Apostillado electr&oacute;nico de Certificaci&oacute;n de Licencia de Conducir emitida por la Direcci&oacute;n General de Tr&aacute;nsito, con el objeto de certificar la autenticidad de la firma, la calidad en que el signatario del documento haya actuado y, en su caso, la identidad del sello o timbre del que el documento p&uacute;blico est&eacute; revestido<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "72 horas",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/351&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1103,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Apostillado de constancia de r\u00e9cord de licencia de conducir",
+                "slug": "apostillado-de-constancia-de-record-de-licencia-de-conducir",
+                "sub_titulo": "Unidad Jur\u00eddica de Tr\u00e1nsito, Direcci\u00f3n General de Tr\u00e1nsito",
+                "descripcion_busqueda": "Solicitud de Apostillado electr\u00f3nico de Constancia de R\u00e9cord de Licencia de Conducir\r\nemitida por la Direcci\u00f3n General de Tr\u00e1nsito, con el objeto de certificar la autenticidad de la\r\nfirma, la calidad en que el signatario del documento haya actuado y, en su caso, la\r\nidentidad del sello o timbre del que el documento p\u00fablico est\u00e9 revestido",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e7ac38798c.png",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2366,
+                        "tramite_id": 1103,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Unidad Jur\u00eddica de Tr\u00e1nsito, Direcci\u00f3n General de Tr\u00e1nsito",
+                        "descripcion_busqueda": "Solicitud de Apostillado electr\u00f3nico de Constancia de R\u00e9cord de Licencia de Conducir\r\nemitida por la Direcci\u00f3n General de Tr\u00e1nsito, con el objeto de certificar la autenticidad de la\r\nfirma, la calidad en que el signatario del documento haya actuado y, en su caso, la\r\nidentidad del sello o timbre del que el documento p\u00fablico est\u00e9 revestido",
+                        "descripcion": "<div style=\"text-align: justify;\">Solicitud de Apostillado electr&oacute;nico de Constancia de R&eacute;cord de Licencia de Conducir emitida por la Direcci&oacute;n General de Tr&aacute;nsito, con el objeto de certificar la autenticidad de la firma, la calidad en que el signatario del documento haya actuado y, en su caso, la identidad del sello o timbre del que el documento p&uacute;blico est&eacute; revestido<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "72 horas",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/351&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1062,
+                "rnt_id": null,
+                "institucion_id": 26,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificaci\u00f3n extractada de documentos anotados\/inscritos",
+                "slug": "solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos",
+                "sub_titulo": "Registro de Aviaci\u00f3n Civil Salvadore\u00f1o",
+                "descripcion_busqueda": "Extracto de los asientos que incluyen las marginaciones que constan en el documento inscrito",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/12 Solicitud de certificaci\u00f3n extractada de documentos anotadosinscritos.jpg",
+                "institucion": {
+                    "id": 26,
+                    "nombre": "Autoridad de Aviaci\u00f3n Civil (AAC)",
+                    "siglas": "AAC"
+                },
+                "modalidades": [
+                    {
+                        "id": 2307,
+                        "tramite_id": 1062,
+                        "institucion_id": 26,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de certificaci\u00f3n extractada de documentos anotados\/inscritos",
+                        "slug": "solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos",
+                        "sub_titulo": "Autoridad de Aviaci\u00f3n Civil - (Departamento de Registro Aviaci\u00f3n Civil Salvadore\u00f1o)",
+                        "descripcion_busqueda": "Extracto de los asientos que incluyen las marginaciones que constan en el documento inscrito",
+                        "descripcion": "<span style=\"font-weight: 400;\">Extracto de los asientos que incluyen las marginaciones que constan en el documento inscrito<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$20.00",
+                        "url_sitio": "https:\/\/aac.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/aac.ventanilla.simple.sv\/tramites\/iniciar\/131&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 64,
+                                "modalidad_id": 2307,
+                                "costo": "20.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=1",
+        "from": 1,
+        "last_page": 3,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=3",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=3",
+                "label": "3",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=transporte-puertos-y-aeropuertos&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 20
+    },
+    "categoria": {
+        "id": 6,
+        "nombre": "Transporte, puertos y aeropuertos",
+        "icono": "public\/Transporte_puertos_y_aeropuertos.svg",
+        "img_1": "public\/10226_677c3bed3939f.jpeg",
+        "img_2": "public\/10226_677c3bed395f9.jpeg",
+        "descripcion": "Transporte, puertos y aeropuertos",
+        "created_at": "2022-02-11T01:23:45.000000Z",
+        "updated_at": "2025-01-06T20:24:13.000000Z",
+        "icono_header": "public\/Transporte_puertos_y_aeropuertos_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 20,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=transporte-puertos-y-aeropuertos&amp;page=2\">2<\/a><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=transporte-puertos-y-aeropuertos&amp;page=3\">3<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=transporte-puertos-y-aeropuertos&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

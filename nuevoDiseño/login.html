@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es" data-lt-installed="true"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gobierno de El Salvador</title>
+    <script src="login_files/3.4_hygv.17"></script>
+    <script defer="defer" src="login_files/cdn.min_hygv.js"></script>
+    <style>
+        @import  url('https://fonts.googleapis.com/css2?family=Onest:wght@700&display=swap');
+    </style>
+
+    <meta name="csrf-token" content="YpXdnaN2LPd5u9pRh3AvBOr2edyVBUyNMNxzPIOn">
+
+    
+    <script src="login_files/jquery-3.6.0.min_hygv.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="login_files/bootstrap.min_hygv.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="login_files/bootstrap.bundle.min_hygv.js"></script>
+
+
+    
+    <script src="login_files/jquery.mask.min_hygv.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="login_files/toastr_hygv.css">
+    <script src="login_files/toastr.min_hygv.js"></script>
+
+
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.absolute{position:absolute}.relative{position:relative}.inset-\[-1px\]{inset:-1px}.right-3{right:0.75rem}.top-1\/2{top:50%}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-8{margin-bottom:2rem}.mb-\[0\.8rem\]{margin-bottom:0.8rem}.ml-1{margin-left:0.25rem}.mt-0{margin-top:0px}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-\[10rem\]{margin-top:10rem}.mt-\[1rem\]{margin-top:1rem}.box-border{box-sizing:border-box}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-\[44px\]{height:44px}.h-\[45px\]{height:45px}.h-\[50px\]{height:50px}.h-\[55px\]{height:55px}.h-full{height:100%}.h-screen{height:100vh}.min-h-screen{min-height:100vh}.w-20{width:5rem}.w-40{width:10rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-full{width:100%}.min-w-\[500px\]{min-width:500px}.min-w-\[600px\]{min-width:600px}.max-w-\[405px\]{max-width:405px}.max-w-\[420px\]{max-width:420px}.max-w-\[500px\]{max-width:500px}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-flow-col{grid-auto-flow:column}.grid-rows-3{grid-template-rows:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.place-items-center{place-items:center}.items-center{align-items:center}.justify-center{justify-content:center}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-\[0px\]{gap:0px}.gap-\[5px\]{gap:5px}.gap-\[6px\]{gap:6px}.gap-\[8px\]{gap:8px}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-\[4px\]{border-radius:4px}.rounded-\[5px\]{border-radius:5px}.rounded-\[6px\]{border-radius:6px}.rounded-t-\[20px\]{border-top-left-radius:20px;border-top-right-radius:20px}.border{border-width:1px}.border-none{border-style:none}.border-\[\#bababa\]{--tw-border-opacity:1;border-color:rgb(186 186 186 / var(--tw-border-opacity, 1))}.border-\[\#cccccc\]{--tw-border-opacity:1;border-color:rgb(204 204 204 / var(--tw-border-opacity, 1))}.bg-\[\#1313aa\]{--tw-bg-opacity:1;background-color:rgb(19 19 170 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.px-4{padding-left:1rem;padding-right:1rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-\[12px\]{padding-left:12px;padding-right:12px}.px-\[24px\]{padding-left:24px;padding-right:24px}.px-\[31px\]{padding-left:31px;padding-right:31px}.px-\[4px\]{padding-left:4px;padding-right:4px}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-\[12px\]{padding-top:12px;padding-bottom:12px}.py-\[4px\]{padding-top:4px;padding-bottom:4px}.pb-20{padding-bottom:5rem}.pr-\[48px\]{padding-right:48px}.pr-\[50px\]{padding-right:50px}.pt-3{padding-top:0.75rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-\[\'Museo_Sans\:500\'\2c sans-serif\]{font-family:'Museo Sans:500',sans-serif}.font-\[\'Museo_Sans\:700\'\2c sans-serif\]{font-family:'Museo Sans:700',sans-serif}.font-\[\'Museo_Sans\:800\'\2c sans-serif\]{font-family:'Museo Sans:800',sans-serif}.font-\[\'Museo_Sans\:900\'\2c sans-serif\]{font-family:'Museo Sans:900',sans-serif}.text-\[0\.75rem\]{font-size:0.75rem}.text-\[0\.85rem\]{font-size:0.85rem}.text-\[0\.95rem\]{font-size:0.95rem}.text-\[0\.9rem\]{font-size:0.9rem}.text-\[1\.05rem\]{font-size:1.05rem}.text-\[1\.30rem\]{font-size:1.30rem}.text-\[1\.5rem\]{font-size:1.5rem}.text-\[14px\]{font-size:14px}.text-\[16px\]{font-size:16px}.text-\[17px\]{font-size:17px}.text-\[18px\]{font-size:18px}.text-\[1rem\]{font-size:1rem}.text-\[22px\]{font-size:22px}.text-\[36px\]{font-size:36px}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.not-italic{font-style:normal}.leading-\[1\.1rem\]{line-height:1.1rem}.leading-\[1\.4\]{line-height:1.4}.leading-\[normal\]{line-height:normal}.leading-none{line-height:1}.tracking-normal{letter-spacing:0em}.tracking-tight{letter-spacing:-0.025em}.text-\[\#050e5b\]{--tw-text-opacity:1;color:rgb(5 14 91 / var(--tw-text-opacity, 1))}.text-\[\#1313aa\]{--tw-text-opacity:1;color:rgb(19 19 170 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.placeholder\:text-\[\#bababa\]::placeholder{--tw-text-opacity:1;color:rgb(186 186 186 / var(--tw-text-opacity, 1))}.hover\:bg-\[\#0d0d88\]:hover{--tw-bg-opacity:1;background-color:rgb(13 13 136 / var(--tw-bg-opacity, 1))}.hover\:text-\[\#0d0d88\]:hover{--tw-text-opacity:1;color:rgb(13 13 136 / var(--tw-text-opacity, 1))}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:bg-gray-400:disabled{--tw-bg-opacity:1;background-color:rgb(156 163 175 / var(--tw-bg-opacity, 1))}</style></head>
+
+<body>
+
+            <div x-data="{ isMobile: window.innerWidth &lt; 1024 }" x-init="window.addEventListener('resize', () =&gt; { isMobile = window.innerWidth &lt; 1024 })" class="min-h-screen">
+
+            <!-- Mobile View -->
+            <div x-show="isMobile" style="display: none;">
+                <div x-data="{ selectedDoc: 'dui' }" class="min-h-screen bg-[#1313aa] flex flex-col">
+
+    <!-- Video Banner -->
+    
+    <!-- Logo -->
+    <div class="pt-3 flex justify-center">
+        <img src="login_files/login2025_hygv.svg" class="w-20">
+    </div>
+
+    <!-- CONTENEDOR CENTRAL NUEVO (limita ancho y centra) -->
+    <div class="w-full max-w-[420px] mx-auto">
+
+        <!-- Contenedor blanco -->
+        <div class="bg-white mt-6 flex-1 rounded-t-[20px] px-7 py-10 flex flex-col">
+
+            <!-- Títulos -->
+            <div>
+                <p class="font-['Museo_Sans:900',sans-serif] font-black text-[1.5rem] text-[#1313aa] leading-none">
+                    Bienvenido/a
+                </p>
+                                    <p class="font-['Museo_Sans:700',sans-serif] font-bold text-[14px] text-[#1313aa] mt-1">
+                        Elige cómo iniciar sesión
+                    </p>
+                            </div>
+
+            <!-- Selector de Documento -->
+            <div x-data="{
+                selectedDoc: 'dui',
+                selectedDocValue: '1',
+                docNumber: '',
+
+                formatDocument() {
+                    let v = this.docNumber.replace(/[^0-9A-Za-z]/g, '');
+
+                    if (this.selectedDoc === 'dui') {
+                        v = v.replace(/[^0-9]/g, '').slice(0, 9);
+                        if (v.length &gt; 8) v = v.slice(0, 8) + '-' + v.slice(8);
+                    }
+
+                    if (this.selectedDoc === 'pasaporte') {
+                        v = v.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 9);
+                    }
+
+                    if (this.selectedDoc === 'carnet') {
+                        v = v.replace(/[^0-9]/g, '').slice(0, 11);
+                    }
+
+                    this.docNumber = v;
+                }
+            }" class="w-full">
+
+                <!-- Selector de Documento -->
+                <div class="mt-2">
+                    <div class="flex gap-2">
+
+                        <!-- DUI -->
+                        <button @click="selectedDoc = 'dui'; selectedDocValue = '1'; docNumber = ''" :class="selectedDoc === 'dui'
+                                ? 'bg-[#1313aa] text-white'
+                                : 'border border-[#cccccc] text-[#050e5b]'" class="py-[4px] px-[12px] rounded-[6px] font-['Museo_Sans:700',sans-serif] font-bold text-[0.75rem] transition bg-[#1313aa] text-white">
+                            DUI
+                        </button>
+
+                                                    <!-- Pasaporte -->
+                            <button @click="selectedDoc = 'pasaporte'; selectedDocValue = '2'; docNumber = ''" :class="selectedDoc === 'pasaporte'
+                                            ? 'bg-[#1313aa] text-white'
+                                            : 'border border-[#cccccc] text-[#050e5b]'" class="py-[4px] px-[12px] rounded-[6px] font-['Museo_Sans:700',sans-serif] font-bold text-[0.75rem] transition border border-[#cccccc] text-[#050e5b]">
+                                Pasaporte
+                            </button>
+
+                            <!-- Carnet de residente -->
+                            <button @click="selectedDoc = 'carnet'; selectedDocValue = '3'; docNumber = ''" :class="selectedDoc === 'carnet'
+                                            ? 'bg-[#1313aa] text-white'
+                                            : 'border border-[#cccccc] text-[#050e5b]'" class="py-[4px] px-[12px] rounded-[6px] font-['Museo_Sans:700',sans-serif] font-bold text-[0.75rem] transition text-center border border-[#cccccc] text-[#050e5b]">
+                                Carnet de residente
+                            </button>
+                                            </div>
+                </div>
+
+
+                <!-- Formulario -->
+                <form method="POST" action="#" class="mt-6 flex flex-col gap-4" onsubmit="event.preventDefault(); irADestino();">
+                    <input type="hidden" name="_token" value="YpXdnaN2LPd5u9pRh3AvBOr2edyVBUyNMNxzPIOn">                    <input type="hidden" name="tipo_doc" x-model="selectedDocValue" value="1">
+                    <div>
+                        <label class="font-['Museo_Sans:700',sans-serif] font-bold text-[#050e5b] text-[14px]">
+                            Ingresa tus datos
+                        </label>
+                    </div>
+
+                    <!-- Documento -->
+                    <div class="relative">
+                        <input type="text" name="email" value="06245097-8" placeholder="número de documento" x-model="docNumber" @input="formatDocument()" class="w-full h-[44px] border border-[#bababa] rounded-[5px] px-4 font-['Museo_Sans:700',sans-serif] font-bold text-[#050e5b] placeholder:text-[#bababa]">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="relative w-full">
+                        <input id="mobilePasswordInput" type="password" name="password" value="Maria2026!" placeholder="contraseña" class="w-full h-[44px] border border-[#bababa] rounded-[5px]
+                            px-4 pr-[48px] font-['Museo_Sans:700',sans-serif] font-bold
+                            text-[#050e5b] placeholder:text-[#bababa]">
+
+                        <button type="button" onclick="toggleMobilePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-[#050e5b]">
+
+                            <!-- Ojo abierto -->
+                            <svg id="mobileEyeOpen" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064
+                                    7-9.542 7-4.478 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+
+                            <!-- Ojo cerrado -->
+                            <svg id="mobileEyeClosed" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7
+                                    0.563-1.79 1.607-3.345 2.958-4.542"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M6.228 6.228A9.967 9.967 0 0112 5c4.478 0 8.268 2.943
+                                    9.542 7a10.056 10.056 0 01-4.132 5.411"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15 12a3 3 0 00-3-3M9.88 9.88A3 3 0 0012 15c.43 0 .84-.086
+                                    1.216-.242"></path>
+                                <line x1="4" y1="4" x2="20" y2="20" stroke-width="2" stroke="currentColor"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+
+                    
+                    
+                    <div class="grid grid-flow-col grid-rows-3 gap-1 justify-left mb-4">
+                        <a href="https://login.gob.sv/password/reset" class="font-['Museo_Sans:700',sans-serif] font-medium text-[#1313aa] underline text-[14px] hover:text-[#0d0d88]">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+
+                        <!-- Forgot Email -->
+                        <a href="https://login.gob.sv/email/forgot" class="font-['Museo_Sans:700',sans-serif] font-medium text-[#1313aa] underline text-[14px] hover:text-[#0d0d88]">
+                            ¿Olvidaste tu correo?
+                        </a>
+                        <a href="https://login.gob.sv/document/forgot" class="font-['Museo_Sans:700',sans-serif] font-medium text-[#1313aa] underline text-[14px] hover:text-[#0d0d88]">
+                            ¿Olvidaste tu número de dui?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="bg-[#1313aa] text-white
+                            font-['Museo_Sans:700',sans-serif] font-bold text-[18px]
+                            rounded-[4px] h-[45px] w-full
+                            hover:bg-[#0d0d88] transition
+                            disabled:bg-gray-400 disabled:cursor-not-allowed">
+
+                        Iniciar sesión
+                    </button>
+
+                    <div class="mt-6 mb-4">
+                        <div class="flex justify-center text-[16px] mt-1 mb-2 font-['Museo_Sans:700',sans-serif] font-bold">
+                            <p class="text-[#050e5b] text-[0.9rem]">¿Aún no tienes cuenta?</p>
+                            <a href="https://login.gob.sv/verificar-dui" class="ml-1 text-[#1313aa] text-[0.9rem] underline hover:text-[#0d0d88]">
+                                Regístrate aquí
+                            </a>
+                        </div>
+
+                        <p class="text-center text-[#050e5b] font-normal mt-0 text-[0.85rem] tracking-normal">
+                            Si tienes problemas para crear tu cuenta puedes comunicarte al correo:
+                            <span class="font-semibold">contacto@login.gob.sv</span>
+                        </p>
+
+                    </div>
+
+                    <div class="image-bottom" style="text-align: center; width: 100%;">
+                        <img src="login_files/RNPN_GOES_hygv.svg" style="display: block; margin: 0 auto; width: 50%; height: auto;">
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+            </div>
+
+            <!-- Desktop/Web View -->
+            <div x-show="!isMobile">
+                <!-- resources/views/auth/partials/login-web.blade.php -->
+<div x-data="{ selectedDoc: 'dui' }" class="bg-white min-h-screen w-full overflow-hidden">
+    <div class="flex h-screen overflow-hidden">
+
+
+        <!-- Left Section - Blue Background -->
+        <div class="flex-1 bg-[#1313aa] grid place-items-center min-w-[500px] overflow-hidden">
+
+            <!-- LOGO LOGIN -->
+            <img src="login_files/login2025_hygv.svg" class="w-40 mt-[10rem]">
+
+            <!-- CONTENEDOR TEXTO + CUADRITOS -->
+            <div class="mt-10 flex flex-col items-center">
+
+                <!-- Texto descriptivo -->
+                <div class="max-w-[500px] text-center text-white leading-[1.4]">
+
+                    <span class="text-[1.30rem] font-semibold font-['Museo_Sans',sans-serif']">
+                        Bienvenidos al portal del Gobierno de El Salvador,<br>
+                    </span>
+
+                    <span class="text-[1.05rem] font-semibold font-['Museo_Sans',sans-serif']">
+                        donde podrás crear tu perfil digital. Tu usuario te dará acceso a:
+                    </span>
+
+
+
+                </div>
+
+                <div class="mt-4 flex flex-wrap justify-center gap-3 px-4">
+                    <span class="bg-white/20 text-white font-semibold text-[0.9rem] leading-[1.1rem] font-['Museo_Sans',sans-serif'] px-4 py-2 rounded">
+                        Trámites en línea
+                    </span>
+
+                    <span class="bg-white/20 text-white font-semibold text-[0.9rem] leading-[1.1rem] font-['Museo_Sans',sans-serif'] px-4 py-2 rounded">
+                        Pagos en línea
+                    </span>
+
+                    <span class="bg-white/20 text-white font-semibold text-[0.9rem] leading-[1.1rem] font-['Museo_Sans',sans-serif'] px-4 py-2 rounded">
+                        Portales virtuales
+                    </span>
+
+                    <span class="bg-white/20 text-white font-semibold text-[0.9rem] leading-[1.1rem] font-['Museo_Sans',sans-serif'] px-4 py-2 rounded">
+                        Credenciales seguras
+                    </span>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Right Section - Login Form -->
+        <div class="flex-1 bg-white flex flex-col items-center justify-center min-w-[600px] overflow-hidden h-screen">
+
+            <div class="flex-1 flex flex-col w-full max-w-[405px] justify-center pb-20 px-4">
+                <!-- Video Banner -->
+                <div class="w-full mb-8 pt-8">
+                    
+                </div>
+                <!-- Header -->
+                <div class="flex flex-col gap-[0px] mb-[0.8rem]">
+                    <p class="font-['Museo_Sans:800',sans-serif] leading-[normal] not-italic text-[#1313aa] text-[36px] font-black">
+                        Bienvenido/a
+                    </p>
+                                            <p class="font-['Museo_Sans:700',sans-serif] leading-[normal] not-italic text-[#1313aa] text-[17px]">
+                            Elige cómo iniciar sesión
+                        </p>
+                                    </div>
+                <form method="POST" action="#" onsubmit="event.preventDefault(); irADestino();">
+                    <input type="hidden" name="_token" value="YpXdnaN2LPd5u9pRh3AvBOr2edyVBUyNMNxzPIOn">
+                    <div x-data="{
+            selectedDoc: 'dui',
+            selectedDocValue: '1',
+
+            maskDocument(value) {
+                let raw = value.replace(/[^a-zA-Z0-9]/g, '');
+
+                if (this.selectedDoc === 'dui') {
+                    // DUI ########-#
+                    raw = raw.replace(/[^0-9]/g, '').slice(0, 9);
+                    return raw.length &gt; 8
+                        ? raw.slice(0, 8) + '-' + raw.slice(8)
+                        : raw;
+                }
+
+                if (this.selectedDoc === 'pasaporte') {
+                    // Pasaporte A12345678 (alfanumérico)
+                    return raw.slice(0, 9).toUpperCase();
+                }
+
+                if (this.selectedDoc === 'carnet') {
+                    // CARNET — SOLO 11 DÍGITOS, SIN GUIONES
+                    return raw.replace(/[^0-9]/g, '').slice(0, 11);
+                }
+
+                return value;
+            }
+        }">
+
+                        <!-- Botones -->
+                        <div class="flex gap-[8px] w-full">
+
+                            <!-- DUI -->
+                            <div @click="selectedDoc = 'dui'; selectedDocValue = '1'; $refs.doc.value = ''" :class="selectedDoc === 'dui'
+                    ? 'bg-[#1313aa] text-white'
+                    : 'border border-[#cccccc] text-[#050e5b]'" class="flex-shrink-0 px-[31px] py-[4px] rounded-[5px] cursor-pointer transition-all bg-[#1313aa] text-white">
+                                <p class="font-['Museo_Sans:700',sans-serif] text-[14px] ">DUI</p>
+                            </div>
+
+                                                            <!-- Pasaporte -->
+                                <div @click="selectedDoc = 'pasaporte'; selectedDocValue = '2'; $refs.doc.value = ''" :class="selectedDoc === 'pasaporte'
+                                            ? 'bg-[#1313aa] text-white'
+                                            : 'border border-[#cccccc] text-[#050e5b]'" class="flex-shrink-0 px-[12px] py-[4px] rounded-[5px] cursor-pointer transition-all border border-[#cccccc] text-[#050e5b]">
+                                    <p class="font-['Museo_Sans:700',sans-serif] text-[14px] ">Pasaporte</p>
+                                </div>
+
+                                <!-- Carnet de residente -->
+                                <div @click="selectedDoc = 'carnet'; selectedDocValue = '3'; $refs.doc.value = ''" :class="selectedDoc === 'carnet'
+                                            ? 'bg-[#1313aa] text-white'
+                                            : 'border border-[#cccccc] text-[#050e5b]'" class="flex-1 px-[4px] py-[4px] rounded-[5px] cursor-pointer transition-all border border-[#cccccc] text-[#050e5b]">
+                                    <p class="font-['Museo_Sans:700',sans-serif] text-[14px]  text-center">
+                                        Carnet de residente</p>
+                                </div>
+                            
+                        </div>
+
+                        <!-- Se envía al backend -->
+                        <input type="hidden" name="tipo_doc" x-model="selectedDocValue" value="1">
+
+
+                        <!-- Inputs -->
+                        <div class="flex flex-col gap-[6px] mb-5">
+
+
+
+                            <p class="font-['Museo_Sans:700',sans-serif] text-[#050e5b] text-[17px] mt-8">
+                                Ingresa tus datos
+                            </p>
+
+
+
+                            <!-- Document Number -->
+                            <div class="h-[50px] relative rounded-[5px] w-full">
+                                <div class="absolute border border-[#bababa] inset-[-1px] pointer-events-none rounded-[6px]">
+                                </div>
+
+                                <input x-ref="doc" type="text" name="email" value="06245097-8" placeholder="número de documento" @input="$event.target.value = maskDocument($event.target.value)" @blur="$event.target.value = maskDocument($event.target.value)" class="box-border font-['Museo_Sans:700',sans-serif] text-[#050e5b] text-[17px]
+                        px-[24px] py-[12px] w-full h-full bg-transparent border-none outline-none
+                        placeholder:text-[#bababa] rounded-[5px]">
+                            </div>
+
+
+                            <!-- Password -->
+                            <div class="h-[50px] relative rounded-[5px] w-full">
+                                <!-- Borde decorativo -->
+                                <div class="absolute border border-[#bababa] inset-[-1px] pointer-events-none rounded-[6px]">
+                                </div>
+
+                                <!-- Input -->
+                                <input id="passwordInput" type="password" name="password" value="Maria2026!" placeholder="contraseña" class="box-border font-['Museo_Sans:700',sans-serif] text-[#050e5b] text-[17px]
+               px-[24px] pr-[50px] py-[12px] w-full h-full bg-transparent border-none outline-none
+               placeholder:text-[#bababa] rounded-[5px]">
+
+                                <!-- Botón ver/ocultar -->
+                                <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-[#050e5b]">
+
+                                    <!-- Ojo abierto -->
+                                    <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064
+                7-9.542 7-4.478 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+
+                                    <!-- Ojo cerrado -->
+                                    <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7
+                0.563-1.79 1.607-3.345 2.958-4.542"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6.228 6.228A9.967 9.967 0 0112 5c4.478 0 8.268 2.943
+                9.542 7a10.056 10.056 0 01-4.132 5.411"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 00-3-3M9.88 9.88A3 3 0 0012 15c.43 0 .84-.086
+                1.216-.242"></path>
+                                        <line x1="4" y1="4" x2="20" y2="20" stroke-width="2" stroke="currentColor"></line>
+                                    </svg>
+
+                                </button>
+                            </div>
+                        </div>
+
+                        
+                        
+
+
+                        <div class="grid grid-flow-col grid-rows-3 gap-1">
+                            <!-- Forgot Password -->
+                            <a href="https://login.gob.sv/password/reset" class="underline text-[#1313aa] hover:text-[#0d0d88] transition-colors
+                font-['Museo_Sans:500',sans-serif] text-[17px] text-underline-offset-[25%]">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+
+                            <!-- Forgot Email -->
+                            <a href="https://login.gob.sv/email/forgot" class="underline text-[#1313aa] hover:text-[#0d0d88] transition-colors
+                font-['Museo_Sans:500',sans-serif] text-[17px] text-underline-offset-[25%]">
+                                ¿Olvidaste tu correo?
+                            </a>
+                            <a href="https://login.gob.sv/document/forgot" class="underline text-[#1313aa] hover:text-[#0d0d88] transition-colors
+                font-['Museo_Sans:500',sans-serif] text-[17px] text-underline-offset-[25%]">
+                                ¿Olvidaste tu número de dui?
+                            </a>
+
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="mt-8 bg-[#1313aa] flex items-center justify-center h-[55px]
+               rounded-[5px] w-full cursor-pointer
+               hover:bg-[#0d0d88] transition-colors
+               disabled:bg-gray-400 disabled:cursor-not-allowed">
+
+                            <p class="font-['Museo_Sans:700',sans-serif] text-[22px] text-white">
+                                Iniciar sesión
+                            </p>
+                        </button>
+
+                    </div>
+                </form>
+
+
+                <!-- Register -->
+                <div class="mt-6 mb-8">
+                    <div class="flex gap-[5px] items-center justify-center font-['Museo_Sans:700',sans-serif] text-[18px] mt-[1rem]">
+                        <p class="text-[#050e5b] text-[1rem] font-bold tracking-tight">¿Aún no tienes cuenta?</p>
+                        <a href="https://login.gob.sv/verificar-dui" class="ml-1 text-[#1313aa] underline hover:text-[#0d0d88] text-[1rem] font-bold">
+                            Regístrate aquí
+                        </a>
+                    </div>
+
+                    <p class="text-center text-[#050e5b] font-normal mt-0 text-[0.95rem] tracking-normal">
+                        Si tienes problemas para crear tu cuenta puedes comunicarte al correo:
+                        <span class="font-semibold">contacto@login.gob.sv</span>
+                    </p>
+
+                </div>
+
+
+                <div class="image-bottom" style="text-align: center; width: 100%;">
+                    <img src="login_files/RNPN_GOES_hygv.svg" style="display: block; margin: 0 auto; width: 50%; height: auto;">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('loginForm', () => ({
+                selectedDoc: 'dui',
+                selectedDocValue: '',
+                documentValue: '',
+
+                maskInput(e) {
+                    let value = e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+
+                    if (this.selectedDoc === 'dui') {
+                        // DUI: ########-#
+                        value = value.slice(0, 9);
+                        if (value.length > 8) {
+                            value = value.slice(0, 8) + '-' + value.slice(8);
+                        }
+                    }
+
+                    if (this.selectedDoc === 'pasaporte') {
+                        // PASAPORTE: A1234567
+                        value = value.replace(/[^A-Z0-9]/g, '').slice(0, 8);
+                        if (value.length > 0) {
+                            value = value[0].toUpperCase().replace(/[^A-Z]/, '');
+                            value += e.target.value.replace(/[^0-9]/g, '').slice(0, 7);
+                        }
+                    }
+
+                    if (this.selectedDoc === 'carnet') {
+                        // CARNET: ######-#####
+                        value = value.slice(0, 11);
+                        if (value.length > 6) {
+                            value = value.slice(0, 6) + '-' + value.slice(6);
+                        }
+                    }
+
+                    this.documentValue = value;
+                    e.target.value = value;
+                }
+            }));
+        });
+    </script>
+
+
+    <script>
+        // alertas
+        let alerta_top = (mensaje, tipo = 'success', tiempo = '10000') => {
+            toastr.options = {
+                "closeButton": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "timeOut": tiempo,
+            }
+            toastr[tipo](mensaje);
+        }
+
+        // Toggle contraseña - Desktop
+        function togglePassword() {
+            const input = document.getElementById('passwordInput');
+            const eyeOpen = document.getElementById('eyeOpen');
+            const eyeClosed = document.getElementById('eyeClosed');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeOpen.classList.add('hidden');
+                eyeClosed.classList.remove('hidden');
+            } else {
+                input.type = 'password';
+                eyeOpen.classList.remove('hidden');
+                eyeClosed.classList.add('hidden');
+            }
+        }
+
+        // Toggle contraseña - Mobile
+        function toggleMobilePassword() {
+            const input = document.getElementById('mobilePasswordInput');
+            const eyeOpen = document.getElementById('mobileEyeOpen');
+            const eyeClosed = document.getElementById('mobileEyeClosed');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeOpen.classList.add('hidden');
+                eyeClosed.classList.remove('hidden');
+            } else {
+                input.type = 'password';
+                eyeOpen.classList.remove('hidden');
+                eyeClosed.classList.add('hidden');
+            }
+        }
+            </script>
+
+
+
+
+
+
+<protonpass-root-c97f data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-c97f><script>
+    // Maqueta: no envía credenciales; solo lleva a la vista elegida en index.html (?destino=tramites | documentos)
+    // o, desde un trámite del inicio (?destino=tramite | whatsapp | cita &n=número), a ese trámite: su formulario,
+    // el chat de WhatsApp de Simple.sv o el asistente con sesión listo para agendar la cita.
+    // Sin número, ?destino=whatsapp (botón de WhatsApp de la landing) abre el asistente para confirmar el celular;
+    // ?destino=documentos&tramite=N.º (enlaces de los avisos de WhatsApp) abre Mis documentos con ese trámite resaltado
+    function irADestino() {
+        try { localStorage.setItem('simple-sesion', '1'); } catch (e) {}
+        const destinos = { tramites: 'Indexlogin.html', documentos: 'mis-tramites.html', whatsapp: 'Indexlogin.html?whatsapp=1' };
+        const conNumero = { tramite: 'tramite.html?n=', whatsapp: 'whatsapp.html?n=', cita: 'Indexlogin.html?cita=' };
+        const parametros = new URLSearchParams(location.search);
+        const destino = parametros.get('destino');
+        const numero = parametros.get('n') || '';
+        const solicitud = parametros.get('tramite') || '';
+        // Solo números: así el enlace no puede mandar a otra página
+        if (Object.hasOwn(conNumero, destino) && /^\d{1,4}$/.test(numero)) {
+            location.href = conNumero[destino] + numero;
+            return;
+        }
+        if (destino === 'documentos' && /^\d{7}$/.test(solicitud)) {
+            location.href = `${destinos.documentos}?tramite=${solicitud}`;
+            return;
+        }
+        location.href = (Object.hasOwn(destinos, destino) && destinos[destino]) || destinos.tramites;
+    }
+</script>
+</body></html>

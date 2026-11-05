@@ -1,0 +1,93 @@
+/* Navegación entre módulos (Trámites · Mis documentos).
+   Botones dentro del banner del trámite (tramite.html), con la transición de banner (transicion-vistas.js);
+   en Trámites y Mis documentos las vistas van en dos cards (al final de este archivo).
+   Móvil: tarjetas compactas debajo del texto. Tableta: tarjetas en fila debajo del texto.
+   Escritorio: el texto a la izquierda y las tarjetas a la derecha. Se carga después del <style> de cada página. */
+.l2-banner-texto { position: relative; z-index: 1; min-width: 0; }
+
+.l2-modulos { position: relative; z-index: 1; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; margin-top: 18px; }
+.l2-modulo { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; padding: 10px 6px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 16px; background: rgba(255, 255, 255, 0.12); color: #FFFFFF; text-align: center; text-decoration: none; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+.l2-modulo[hidden] { display: none; }
+a.l2-modulo:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.55); box-shadow: 0 10px 30px rgba(10, 42, 140, 0.35); }
+a.l2-modulo:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+.l2-modulo-icono { position: relative; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; border-radius: 11px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 19px; }
+/* Aviso rojo sobre el icono: trámites en curso que esperan algo del usuario */
+.l2-modulo-alerta { position: absolute; top: -7px; right: -7px; min-width: 20px; height: 20px; padding: 0 5px; border: 2px solid #FFFFFF; border-radius: var(--radius-pill); background: #DC2626; color: #FFFFFF; font-size: 11px; font-weight: 800; line-height: 16px; text-align: center; }
+.l2-modulo-texto { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; }
+.l2-modulo-texto strong { font-size: 13.5px; font-weight: 800; }
+.l2-modulo-texto small { display: none; font-size: 12.5px; color: rgba(255, 255, 255, 0.82); }
+
+/* Módulo actual: tarjeta blanca, sin enlace */
+.l2-modulo[aria-current="page"] { border-color: #FFFFFF; background: #FFFFFF; color: var(--color-navy-deep); box-shadow: 0 10px 30px rgba(10, 42, 140, 0.3); }
+.l2-modulo[aria-current="page"] .l2-modulo-icono { background: var(--color-blue-primary); color: #FFFFFF; }
+.l2-modulo[aria-current="page"] .l2-modulo-texto small { color: var(--color-blue-primary); font-weight: 700; }
+
+@media (min-width: 720px) {
+  .l2-modulo { flex-direction: row; gap: 10px; padding: 8px 12px 8px 8px; text-align: left; }
+  .l2-modulo-texto strong { font-size: 15px; }
+  .l2-modulo-texto strong, .l2-modulo-texto small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+@media (min-width: 1200px) {
+  .l2-catalog-intro:has(> .l2-modulos) { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+  .l2-catalog-intro:has(> .l2-modulos) > .l2-banner-texto { flex: 1 1 auto; }
+  .l2-modulos { flex: 0 0 auto; grid-auto-columns: auto; margin-top: 0; }
+  .l2-modulo { padding-right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .l2-modulo { transition: none; }
+}
+
+/* ===== Trámites y Mis documentos en dos cards =====
+   La card de la vista actual es grande y lleva el fondo animado (es el banner de la página); la de la otra vista es
+   azul oscuro, con las líneas y los nodos del banner más lentos y tenues, pero sin el rayo que lo recorre.
+   Las dos van siempre en el mismo orden (Trámites primero): al tocar la quieta, crece en su lugar y toma el degradado
+   azul, mientras la actual se encoge y pasa a azul oscuro; después se abre la otra vista (cambio-vista.js).
+   Móvil: una encima de la otra. Desde 720 px: lado a lado. */
+.l2-vistas { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.l2-vistas > .l2-catalog-intro { margin: 0; }
+.l2-vista {
+  position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; gap: 14px; min-width: 0; padding: 14px 18px;
+  border: 1.5px solid rgba(159, 216, 255, 0.18); border-radius: var(--radius-card);
+  background: linear-gradient(135deg, var(--color-navy-deep) 35%, var(--color-blue-sapphire) 140%);
+  color: #FFFFFF; text-decoration: none; box-shadow: 0 10px 30px rgba(28, 30, 77, 0.18);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  /* Ritmo de las líneas (.l2-linea y .l2-nodo, en el <style> de cada página): más calmado que el banner */
+  --speed-flow: 26s; --speed-breath: 9s; --speed-node: 5.5s;
+  --line-opacity-min: 0.4; --line-opacity-max: 0.75; --line-opacity-static: 0.55;
+  --node-halo: 0.3; --node-halo-hover: 0.8; --node-scale: 1.12; --hover-time: 600ms;
+}
+.l2-vista:hover { border-color: rgba(159, 216, 255, 0.45); box-shadow: 0 20px 40px rgba(10, 42, 140, 0.3); transform: translateY(-2px); }
+.l2-vista:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+/* Capa de líneas: debajo del contenido, dentro de la card */
+.l2-vista-lineas { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; opacity: 0.85; pointer-events: none; transition: opacity 0.25s ease; }
+.l2-vista:hover .l2-vista-lineas, .l2-vista:focus-visible .l2-vista-lineas { opacity: 1; }
+.l2-vista:hover .l2-nodo-halo, .l2-vista:focus-visible .l2-nodo-halo { opacity: var(--node-halo-hover); }
+.l2-vistas:has(> .l2-en-pausa) .l2-vista :is(.l2-linea, .l2-nodo) { animation-play-state: paused; }
+.l2-vista-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 16px; background: rgba(255, 255, 255, 0.12); color: #FFFFFF; font-size: 24px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background 0.25s ease, color 0.25s ease; }
+.l2-vista:hover .l2-vista-icono, .l2-vista:focus-visible .l2-vista-icono { background: #FFFFFF; color: var(--color-blue-primary); }
+.l2-vista-texto { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.25; }
+.l2-vista-texto strong { color: #FFFFFF; font-size: 18px; font-weight: 800; }
+.l2-vista-texto small { margin-top: 2px; color: rgba(255, 255, 255, 0.78); font-size: 14px; font-weight: 600; }
+.l2-vista-flecha { flex-shrink: 0; color: #FFFFFF; font-size: 22px; transition: transform 0.25s ease; }
+.l2-vista:hover .l2-vista-flecha, .l2-vista:focus-visible .l2-vista-flecha { transform: translateX(4px); }
+.l2-vista:hover .l2-vista-flecha.ph-arrow-left, .l2-vista:focus-visible .l2-vista-flecha.ph-arrow-left { transform: translateX(-4px); }
+@media (min-width: 720px) {
+  .l2-vistas { flex-direction: row; align-items: stretch; gap: 16px; }
+  .l2-vistas > .l2-catalog-intro { flex: 1 1 0; min-width: 0; }
+  /* Card quieta: icono arriba, nombre abajo y la flecha en la esquina */
+  .l2-vista { flex: 0 1 320px; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 22px 24px; }
+  .l2-vista-texto { flex: 0 0 auto; }
+  .l2-vista-texto strong { font-size: 20px; }
+  .l2-vista-flecha { position: absolute; top: 24px; right: 24px; }
+}
+
+/* Cambio entre las dos cards (cambio-vista.js): dentro de cada card que cambia de tamaño, la capa con el aspecto
+   que tendrá en la otra vista; y la entrada a la otra vista, donde lo de abajo espera oculto hasta su animación */
+.cv-capa { position: absolute !important; inset: 0; z-index: 2; width: auto !important; height: auto !important; margin: 0 !important; border-radius: inherit; box-shadow: none !important; transform: none !important; pointer-events: none; }
+html.cv-entrando .l2-vistas ~ *, html.cv-entrando [data-transicion-contenido] { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .l2-vista, .l2-vista-icono, .l2-vista-flecha, .l2-vista-lineas { transition: none; }
+}

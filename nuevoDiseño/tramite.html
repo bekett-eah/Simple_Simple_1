@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Trámite — Simple.sv</title>
+  <meta name="description" content="Formulario del trámite en Simple.sv.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <script src="transicion-vistas.js"></script>
+  <script src="terminos.js" defer></script>
+
+  <style>
+    /* Formulario de trámite · Simple.sv. Pinta los pasos de cada trámite desde formularios.js, con la base visual de Indexlogin.html */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-family); font-size: 16px; line-height: 1.5; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    .l2-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .l2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Botones: un principal por pantalla, tamaño táctil de 44 px o más */
+    .l2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: var(--radius-pill); border: 1.5px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-btn-primary { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-btn-primary:hover { background: var(--color-blue-hover); }
+    .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
+    .l2-btn-outline:hover { background: var(--color-blue-soft); }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Encabezado */
+    .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
+    .l2-header-inner { max-width: none; }
+    .l2-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .l2-logo { display: inline-flex; align-items: center; min-height: 44px; }
+    .l2-logo svg { width: 110px; height: auto; }
+    .l2-nav { display: flex; flex: 1; justify-content: flex-start; gap: 28px; margin-left: 28px; }
+    .l2-nav a, .l2-nav button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; }
+    .l2-nav i { font-size: 20px; }
+    .l2-nav a:hover, .l2-nav button:hover { color: var(--color-blue-primary); }
+    .l2-nav a:focus-visible, .l2-nav button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+    .l2-nav [aria-current="page"] { color: var(--color-blue-primary); border-bottom-color: var(--color-blue-primary); }
+    /* Pantallas chicas: el menú pasa a una hamburguesa que despliega las opciones bajo el encabezado */
+    .l2-header-actions > .l2-menu-toggle { display: none; }
+    @media (max-width: 999px) {
+      .l2-header-actions > .l2-menu-toggle { display: inline-flex; }
+      .l2-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 60; flex: none; flex-direction: column; gap: 2px; margin: 0; padding: 8px 16px 12px; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); }
+      .l2-nav.abierto { display: flex; }
+      .l2-nav a, .l2-nav button { width: 100%; min-height: 48px; padding: 0 12px; border-bottom: 0; border-radius: 10px; }
+      .l2-nav [aria-current="page"] { background: var(--color-blue-soft); }
+    }
+    .l2-header-actions { display: flex; gap: 12px; align-items: center; }
+    .l2-notifications, .l2-profile-trigger { position: relative; }
+    .l2-icon-button, .l2-profile-trigger > button { border: 1.5px solid transparent; background: transparent; color: var(--color-blue-primary); cursor: pointer; }
+    .l2-icon-button { position: relative; width: 44px; height: 44px; border-radius: 50%; font-size: 22px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+    .l2-icon-button[aria-current="page"] { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:hover, .l2-profile-trigger > button:hover { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:focus-visible, .l2-profile-trigger > button:focus-visible, .l2-menu-item:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-notification-dot { position: absolute; top: 1px; right: 0; min-width: 18px; height: 18px; padding: 0 4px; border: 2px solid #F4F8FE; border-radius: var(--radius-pill); background: #DC2626; color: #FFFFFF; font-size: 11px; font-weight: 800; line-height: 14px; text-align: center; }
+    .l2-notification-panel, .l2-profile-menu { position: absolute; top: calc(100% + 10px); right: 0; z-index: 70; width: min(320px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--border-subtle); border-radius: 16px; background: #FFFFFF; box-shadow: var(--shadow-card); visibility: hidden; opacity: 0; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+    .l2-notification-panel.open, .l2-profile-menu.open { visibility: visible; opacity: 1; transform: translateY(0); }
+    @media (max-width: 560px) { .l2-notification-panel { position: fixed; top: 72px; left: 16px; right: 16px; width: auto; } }
+    .l2-notification-panel h2 { margin: 8px 10px 6px; font-size: 16px; }
+    .l2-notification { display: flex; gap: 10px; padding: 12px 10px; border-radius: 10px; background: var(--color-blue-soft); color: var(--text-primary); font-size: 14px; }
+    .l2-notification i { color: var(--color-blue-primary); font-size: 20px; flex-shrink: 0; }
+    .l2-notification p { margin: 0; }
+    .l2-profile-trigger > button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 3px 8px 3px 3px; border-radius: var(--radius-pill); font-weight: 700; }
+    .l2-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .l2-profile-chevron { font-size: 16px; }
+    .l2-menu-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 12px; border: none; border-radius: 10px; background: transparent; color: var(--text-primary); font: inherit; text-decoration: none; text-align: left; cursor: pointer; }
+    .l2-menu-item:hover { background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-menu-item i { width: 20px; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-menu-divider { height: 1px; margin: 6px 4px; background: var(--border-subtle); }
+
+    /* Catálogo */
+    .l2-section { padding: 56px 0 8px; }
+    .l2-section h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
+    .l2-section > .l2-wrap > p { color: var(--text-secondary); margin: 0 0 24px; }
+
+    .l2-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; scrollbar-width: none; }
+    .l2-tabs::-webkit-scrollbar { display: none; }
+    .l2-tab { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); background: #FFFFFF; color: var(--text-secondary); font-weight: 700; font-size: 15px; cursor: pointer; }
+    .l2-tab i { font-size: 16px; line-height: 1; }
+    .l2-tab[aria-selected="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tab[aria-pressed="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tab:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+
+    /* Formulario + resumen lateral */
+    .l2-tramite { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+    .l2-form-card, .l2-lateral { min-width: 0; }
+    /* Columna de al lado: "Sobre este trámite" y, debajo, el desplegable de requisitos, detalles y leyes */
+    .l2-lateral { display: grid; gap: 24px; align-content: start; }
+    .l2-lateral > .l2-aviso { order: -1; margin-top: 0; }
+    .l2-form-card { padding: 24px; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-paso-cab { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .l2-paso-num { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 48px; height: 48px; border-radius: 16px; background: var(--color-blue-primary); color: #FFFFFF; font-size: 15px; font-weight: 800; box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25); }
+    .l2-paso-cab h3 { margin: 0; color: var(--color-blue-primary); font-size: 22px; font-weight: 800; line-height: 1.2; }
+    .l2-paso-cab p { margin: 2px 0 0; color: var(--text-secondary); font-size: 15px; }
+
+    .l2-pregunta { position: relative; margin: 28px 0 0; padding: 0; border: 0; min-width: 0; }
+    /* Icono de información junto a la etiqueta de una pregunta; su nota se ve con el cursor encima o con un clic */
+    .l2-pista-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin: -14px -8px -14px 0; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--color-blue-primary); font-size: 22px; vertical-align: middle; cursor: pointer; }
+    .l2-pista-btn:hover { background: var(--color-blue-soft); }
+    .l2-pista-btn:focus-visible { outline: 3px solid var(--border-focus); outline-offset: -2px; }
+    .l2-pregunta > .l2-pista-panel { display: none; margin-top: 4px; }
+    .l2-pregunta.pista-abierta > .l2-pista-panel { display: flex; }
+    @media (hover: hover) and (min-width: 720px) {
+      .l2-pregunta > .l2-pista-panel { position: absolute; z-index: 5; top: 34px; left: 0; width: min(520px, 100%); margin: 0; border: 1px solid var(--border-active); box-shadow: var(--shadow-hover); }
+      .l2-pregunta:has(.l2-pista-btn:hover) > .l2-pista-panel, .l2-pregunta:has(.l2-pista-btn:focus-visible) > .l2-pista-panel { display: flex; }
+    }
+    .l2-pregunta legend { padding: 0; color: var(--text-muted); font-size: 16px; font-weight: 800; }
+    .l2-req { color: var(--color-blue-primary); }
+    .l2-ayuda { margin: 2px 0 0; color: var(--text-muted); font-size: 14px; }
+    .l2-opciones { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 12px; }
+    .l2-opcion { position: relative; display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 12px 14px; border: 1.5px solid #64748B; border-radius: 16px; background: #FFFFFF; cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease; }
+    .l2-opcion:hover { border-color: var(--border-active); transform: translateY(-1px); }
+    .l2-opcion input { position: absolute; opacity: 0; pointer-events: none; }
+    .l2-opcion-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 20px; transition: background 0.2s ease, color 0.2s ease; }
+    .l2-opcion-texto { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.3; }
+    .l2-opcion-texto strong { color: var(--text-primary); font-size: 15px; font-weight: 700; }
+    .l2-opcion-texto small { margin-top: 2px; color: var(--text-muted); font-size: 13px; }
+    .l2-opcion-check { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 22px; height: 22px; border: 1.5px solid var(--border-subtle); border-radius: 50%; color: transparent; font-size: 13px; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .l2-opcion:has(input:checked) { border-color: var(--color-blue-primary); background: var(--color-blue-soft); box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12); }
+    .l2-opcion:has(input:checked) .l2-opcion-icono { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-opcion:has(input:checked) .l2-opcion-check { border-color: var(--color-blue-primary); background: var(--color-blue-primary); color: #FFFFFF; animation: l2-pop 0.25s ease; }
+    .l2-opcion:has(input:focus-visible) { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    @keyframes l2-pop { from { transform: scale(0.4); } to { transform: scale(1); } }
+    /* Sedes una debajo de otra; días, horas y cantidades en una cuadrícula de columnas iguales, como en el asistente */
+    .l2-opciones-columna { grid-template-columns: minmax(0, 1fr); }
+    .l2-opciones-dos { grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 720px) { .l2-opciones-dos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .l2-opciones-compactas { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .l2-opciones-compactas .l2-opcion { justify-content: center; min-height: 52px; padding: 10px 6px; text-align: center; }
+    .l2-opciones-compactas .l2-opcion-texto { align-items: center; }
+    .l2-opciones-compactas .l2-opcion-check { display: none; }
+    /* Con más ancho, los cinco días hábiles en una fila */
+    @media (min-width: 720px) { .l2-opciones-compactas { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+
+    /* Campos que aparecen según la opción elegida */
+    .l2-condicional { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 0.35s ease, opacity 0.3s ease; }
+    .l2-condicional.abierto { grid-template-rows: 1fr; opacity: 1; }
+    .l2-condicional > div { overflow: hidden; }
+    /* En una fila de columnas, el cerrado no ocupa celda (si no, deja un hueco: pasaporte o carnet, el que no se eligió) */
+    :is(.l2-campos-dos, .l2-campos-tres) > .l2-condicional:not(.abierto) { display: none; }
+    .l2-campo { padding-top: 16px; }
+    .l2-campo > label:not(.l2-archivo) { display: block; margin-bottom: 6px; color: var(--text-muted); font-size: 15px; font-weight: 800; }
+    .l2-input { width: 100%; min-height: 52px; padding: 0 16px; border: 1.5px solid #64748B; border-radius: 14px; background: #FFFFFF; color: var(--text-primary); font: inherit; font-size: 16px; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .l2-input:focus { border-color: var(--color-blue-primary); box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12); }
+
+    .l2-error { display: none; align-items: center; gap: 6px; margin: 8px 0 0; color: #DC2626; font-size: 14px; font-weight: 700; }
+    .l2-pregunta.con-error > .l2-error, .l2-campo.con-error > .l2-error { display: flex; }
+    .l2-pregunta.con-error .l2-opcion { border-color: #FCA5A5; }
+    .l2-input[aria-invalid="true"] { border-color: #DC2626; }
+
+    .l2-aviso { display: flex; gap: 12px; margin-top: 24px; padding: 14px 16px; border-radius: 16px; background: var(--color-blue-soft); color: var(--text-secondary); font-size: 14px; }
+    .l2-aviso i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 22px; }
+    .l2-aviso strong { color: var(--color-blue-hover); }
+    .l2-acciones { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+    .l2-btn i { font-size: 18px; }
+    .l2-listo { display: none; gap: 12px; margin-top: 20px; padding: 16px; border-radius: 16px; background: var(--color-emerald-soft); color: var(--text-secondary); font-size: 14px; animation: l2-aparece 0.35s ease both; }
+    .l2-listo.visible { display: flex; }
+    .l2-listo i { flex-shrink: 0; color: var(--color-emerald); font-size: 24px; }
+    .l2-listo strong { display: block; color: var(--text-primary); font-size: 15px; }
+    @keyframes l2-aparece { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* Resumen del trámite */
+    .l2-resumen { padding: 22px; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: var(--bg-subtle); }
+    .l2-resumen h3 { margin: 0; color: var(--color-blue-primary); font-size: 17px; font-weight: 800; }
+    .l2-resumen-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .l2-resumen-cuerpo { margin-top: 6px; }
+    .l2-resumen-cuerpo > p { margin: 0; color: var(--text-secondary); font-size: 14px; text-align: justify; }
+    /* Plegar la información: solo en celular y tablet (en escritorio siempre se ve) */
+    .l2-resumen-toggle { display: none; align-items: center; gap: 6px; min-height: 44px; margin: -10px -4px; padding: 0 4px; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .l2-resumen-toggle i { font-size: 18px; }
+    .l2-resumen-toggle:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 8px; }
+    @media (max-width: 999px) {
+      .l2-resumen-toggle { display: inline-flex; }
+      .l2-resumen.cerrado .l2-resumen-cuerpo { display: none; }
+    }
+    .l2-resumen h3 { display: flex; align-items: center; gap: 12px; }
+    .l2-resumen-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-resumen dl { display: grid; gap: 14px; margin: 18px 0 0; }
+    .l2-resumen dl > div { display: flex; align-items: flex-start; gap: 12px; }
+    .l2-resumen dl i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-resumen dt { color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .l2-resumen dd { margin: 0; color: var(--text-primary); font-size: 15px; font-weight: 700; }
+
+    @media (min-width: 1000px) {
+      .l2-tramite { grid-template-columns: minmax(0, 1fr) 340px; }
+      /* En el HTML el resumen va primero (arriba en celular); en escritorio, a la derecha */
+      .l2-tramite > .l2-form-card { grid-column: 1; grid-row: 1; }
+      .l2-lateral { position: sticky; top: 92px; grid-column: 2; grid-row: 1; }
+      /* Con el desplegable abierto la columna puede ser más alta que la pantalla: deja de acompañar el scroll */
+      .l2-lateral:has(.l2-info[open]) { position: static; }
+      .l2-lateral > .l2-aviso { order: 99; }
+      /* Desde el paso 2 la información se oculta y el aviso queda solo, arriba del formulario */
+      .l2-tramite.sin-resumen > .l2-lateral { position: static; grid-column: 1; grid-row: 1; }
+      .l2-tramite.sin-resumen > .l2-form-card { grid-row: 2; }
+      .l2-form-card { padding: 32px; }
+    }
+    @media (max-width: 719px) {
+      .l2-acciones .l2-btn { flex: 1 1 100%; }
+      .l2-acciones .l2-btn-primary { order: -1; }
+    }
+
+    .l2-footer { margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 14px; }
+    /* El pie ocupa el mismo ancho que el contenido, para que sus enlaces queden siempre a la izquierda, bajo las tarjetas */
+    .l2-footer > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-footer-enlaces { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+    .l2-footer-enlaces a, .l2-footer-enlaces button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .l2-footer-enlaces a:hover, .l2-footer-enlaces button:hover { text-decoration: underline; }
+    .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+
+    @media (min-width: 720px) { .l2-logo svg { width: 132px; } }
+    @media (max-width: 560px) {
+      .l2-profile-chevron { display: none; }
+      .l2-profile-trigger > button { padding-right: 3px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-opcion, .l2-opcion-icono, .l2-opcion-check, .l2-condicional, .l2-input { transition: none; }
+      .l2-opcion:has(input:checked) .l2-opcion-check, .l2-listo { animation: none; }
+    }
+
+    /* Campos que se generan desde formularios.js */
+    .l2-opcion-texto small:empty, .l2-opcion-icono:empty { display: none; }
+    .l2-opcion-multiple .l2-opcion-check { border-radius: 7px; }
+    .l2-opcional { margin-left: 6px; padding: 2px 8px; border-radius: var(--radius-pill); background: var(--bg-card-elevated); color: var(--text-muted); font-size: 12px; font-weight: 700; vertical-align: middle; }
+    .l2-campo .l2-ayuda { margin: -2px 0 8px; }
+    .l2-campo-solo { position: relative; }
+    .l2-campo-solo .l2-input { padding-right: 44px; background: var(--bg-subtle); color: var(--text-secondary); }
+    .l2-campo-solo i { position: absolute; top: 50%; right: 16px; color: var(--text-muted); font-size: 18px; transform: translateY(-50%); }
+    .l2-select { appearance: none; -webkit-appearance: none; padding-right: 44px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 256 256'%3E%3Cpath fill='%230066FF' d='M213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; cursor: pointer; }
+    .l2-select[aria-invalid="true"] { border-color: #DC2626; }
+    .l2-archivo { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1.5px dashed var(--color-blue-primary); border-radius: 16px; background: var(--color-blue-soft); cursor: pointer; transition: border-color 0.2s ease, background 0.2s ease; }
+    .l2-archivo:hover { border-color: var(--color-blue-primary); }
+    .l2-archivo:has(input:focus-visible) { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-archivo input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+    .l2-archivo > i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 22px; }
+    .l2-archivo span { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; overflow-wrap: anywhere; }
+    .l2-archivo strong { color: var(--color-blue-primary); font-size: 15px; }
+    .l2-archivo small { overflow: hidden; color: var(--text-muted); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+    .l2-campo.con-error .l2-archivo { border-color: #DC2626; }
+    .l2-seccion { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--border-subtle); color: var(--color-blue-primary); font-size: 18px; font-weight: 800; }
+    .l2-nota { display: flex; gap: 14px; margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: var(--color-blue-soft); color: var(--text-secondary); font-size: 15px; line-height: 1.55; }
+    .l2-nota > i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 24px; }
+    /* Aviso: card clara como el resto de la página; el ámbar queda solo en el icono, como señal */
+    .l2-nota-aviso { align-items: flex-start; border: 1px solid var(--border-subtle); background: var(--bg-subtle); }
+    .l2-nota-aviso > i { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--color-amber-soft); color: var(--color-amber); font-size: 22px; }
+    .l2-nota-requisitos { display: block; padding: 20px 22px; border: 1px solid var(--border-subtle); background: var(--bg-subtle); }
+    .l2-nota-requisitos > i { display: none; }
+    .l2-nota-cuerpo { min-width: 0; }
+    .l2-nota-cuerpo strong.l2-nota-titulo { display: block; margin-bottom: 4px; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-nota-requisitos strong.l2-nota-titulo { font-size: 18px; }
+    .l2-nota-cuerpo p, .l2-nota-cuerpo ul { margin: 0 0 8px; }
+    .l2-nota-cuerpo p:last-child, .l2-nota-cuerpo ul:last-child { margin-bottom: 0; }
+    .l2-nota-cuerpo ul { padding-left: 20px; }
+    .l2-nota-cuerpo li { margin-bottom: 4px; }
+    .l2-nota-cuerpo li::marker { color: var(--color-blue-primary); }
+    .l2-nota-cuerpo h4 { margin: 18px 0 8px; color: var(--color-blue-sapphire); font-size: 14px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .l2-nota-requisitos .l2-nota-cuerpo { max-height: min(520px, 70vh); overflow-y: auto; padding-right: 8px; scrollbar-width: thin; scrollbar-color: #64748B transparent; }
+    .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar { width: 8px; }
+    .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar-thumb { border-radius: 8px; background: #64748B; }
+    .l2-nota-requisitos .l2-nota-cuerpo:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 4px; }
+    .l2-no-disponible { padding: 40px 24px; border: 1.5px dashed var(--border-subtle); border-radius: var(--radius-card); text-align: center; color: var(--text-secondary); }
+    .l2-no-disponible i { font-size: 40px; color: var(--border-active); }
+    .l2-no-disponible .l2-btn { margin: 14px 6px 0; }
+    .l2-no-disponible h3 { margin: 10px 0 6px; color: var(--color-blue-primary); font-size: 20px; }
+    .l2-no-disponible p { margin: 0 0 18px; }
+
+    /* Trámite que aún no tiene formulario aquí: misma card del formulario, con la guía para seguir en el portal de la institución */
+    .l2-paso-num i { font-size: 24px; }
+    .l2-guia { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .l2-guia li { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border-subtle); border-radius: 16px; background: var(--bg-subtle); }
+    .l2-guia-num { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--color-blue-primary); color: #FFFFFF; font-size: 15px; font-weight: 800; }
+    .l2-guia-texto { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+    .l2-guia-texto strong { color: var(--text-primary); font-size: 15px; }
+    .l2-guia-texto small { color: var(--text-muted); font-size: 13.5px; }
+    .l2-acciones .l2-volver { margin-right: auto; }
+    @media (max-width: 719px) { .l2-acciones .l2-volver { margin-right: 0; order: 1; } }
+
+    /* Trámite en varios pasos: "Paso 2 de 6", barra de avance y un paso visible a la vez */
+    .l2-btn[hidden], .l2-paso-de[hidden], .l2-progreso[hidden], .l2-acciones[hidden], .l2-aviso[hidden] { display: none; }
+    .l2-paso-de { margin: 0 0 2px; color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .l2-paso-cab h3:focus { outline: none; }
+    .l2-paso-cab.con-progreso { margin-bottom: 0; border-bottom: 0; }
+    .l2-progreso { height: 4px; margin-bottom: 8px; border-radius: var(--radius-pill); background: var(--border-subtle); overflow: hidden; }
+    .l2-progreso span { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--color-blue-primary); transition: width 0.35s ease; }
+    .l2-paso-campos { animation: l2-aparece 0.35s ease both; }
+    /* Desde el paso 2 se oculta "Sobre este trámite" y el formulario ocupa todo el ancho */
+    .l2-tramite.sin-resumen { grid-template-columns: minmax(0, 1fr); }
+    .l2-tramite.sin-resumen .l2-lateral > :not(.l2-aviso) { display: none; }
+    .l2-campos-dos, .l2-campos-tres { display: grid; grid-template-columns: minmax(0, 1fr); column-gap: 16px; }
+    @media (min-width: 720px) {
+      .l2-campos-dos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .l2-campos-tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    /* Revisión y pago: filas dato · respuesta */
+    .l2-revision { display: grid; gap: 16px; margin-top: 22px; }
+    .l2-revision-grupo, .l2-pago { padding: 16px 20px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--bg-subtle); }
+    .l2-pago { margin-top: 22px; }
+    .l2-revision-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .l2-revision-cab h4 { margin: 0; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-editar { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .l2-editar:hover { text-decoration: underline; }
+    .l2-editar:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+    /* Desplegables de un paso (tus datos, resumen de la solicitud) */
+    .l2-desp { margin-top: 16px; border: 1px solid var(--border-subtle); border-radius: 18px; background: #FFFFFF; }
+    .l2-desp > summary { display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 12px 18px; border-radius: 18px; list-style: none; cursor: pointer; }
+    .l2-desp > summary::-webkit-details-marker { display: none; }
+    .l2-desp > summary:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-desp-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 18px; }
+    .l2-desp-titulo { flex: 1; min-width: 0; color: var(--color-blue-primary); font-size: 17px; font-weight: 800; }
+    .l2-desp-caret { flex-shrink: 0; color: var(--color-blue-primary); font-size: 20px; transition: transform 0.2s ease; }
+    .l2-desp[open] > summary .l2-desp-caret { transform: rotate(180deg); }
+    .l2-desp-cuerpo { padding: 0 18px 18px; }
+    .l2-desp-cuerpo > .l2-nota:first-child { margin-top: 0; }
+    .l2-desp .l2-revision { margin-top: 0; }
+    /* Los campos de lectura de un desplegable "comoFilas" no se ven: se muestran como filas */
+    .l2-desp[data-como-filas] .l2-campo, .l2-desp[data-como-filas] .l2-campos-dos { display: none; }
+    .l2-desp-cuerpo > .l2-filas { margin-top: 8px; }
+    .l2-desp-cuerpo > .l2-filas > div:first-child { border-top: 0; }
+    .l2-desp .l2-revision-grupo { padding: 0; border: 0; background: none; }
+    .l2-desp .l2-revision-cab { justify-content: flex-end; }
+    .l2-desp .l2-revision-cab + .l2-filas > div:first-child { border-top: 0; }
+    @media (prefers-reduced-motion: reduce) { .l2-desp-caret { transition: none; } }
+    .l2-filas { margin: 0; }
+    .l2-filas > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 16px; padding: 10px 0; border-top: 1px solid var(--border-subtle); }
+    .l2-revision-cab + .l2-filas > div:first-child { margin-top: 4px; }
+    .l2-revision-sub { margin: 14px 0 2px; color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .l2-pago .l2-filas > div:first-child { border-top: 0; }
+    .l2-filas dt { color: var(--text-muted); font-size: 14px; }
+    .l2-filas dd { margin: 0 0 0 auto; color: var(--text-primary); font-size: 15px; font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+    .l2-filas dd.sin-dato { color: var(--text-muted); font-weight: 600; }
+    .l2-pago-total { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; padding: 16px 20px; border-radius: 16px; background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-deep) 65%, var(--color-blue-primary) 100%); color: #FFFFFF; }
+    .l2-pago-total span { font-weight: 700; }
+    .l2-pago-total strong { font-size: 28px; font-weight: 800; line-height: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-paso-campos { animation: none; }
+      .l2-progreso span { transition: none; }
+    }
+
+    /* Solicitud enviada (después del pago) */
+    .l2-enviada { display: flex; gap: 14px; margin-top: 22px; padding: 18px 20px; border-radius: 18px; background: var(--color-emerald-soft); color: var(--text-secondary); font-size: 15px; }
+    .l2-enviada > i { flex-shrink: 0; color: var(--color-emerald); font-size: 28px; }
+    .l2-enviada strong { display: block; color: var(--text-primary); font-size: 17px; }
+    .l2-enviada p { margin: 2px 0 0; }
+    .l2-simulado { margin: 16px 0 0; color: var(--text-muted); font-size: 13px; }
+
+    /* Pasarela de pago SERFINSA (simulada): modal con el diseño de Simple.sv (como Términos y condiciones).
+       Encabezado azul oscuro con el total; la tarjeta, la medalla de "procesando" y la de "aprobado" montan sobre él */
+    .l2-pasarela { width: min(460px, calc(100% - 32px)); max-height: min(94dvh, 920px); margin: auto; padding: 0; border: none; border-radius: var(--radius-card); background: #FFFFFF; color: var(--text-primary); box-shadow: 0 30px 60px rgba(14, 20, 40, 0.25); overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; }
+    .l2-pasarela[open] { animation: l2-pasarela-entra 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .l2-pasarela::backdrop { background: rgba(14, 20, 40, 0.55); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+    @keyframes l2-pasarela-entra { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+    .l2-pasarela-cab { position: relative; isolation: isolate; overflow: hidden; padding: 20px 20px 92px 24px; background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-deep) 58%, var(--color-blue-primary) 100%); color: #FFFFFF; }
+    .l2-pasarela-cab svg { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
+    .l2-pasarela-marca { display: flex; align-items: center; gap: 12px; }
+    .l2-pasarela-marca > i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; color: var(--color-navy-deep); font-size: 22px; }
+    .l2-pasarela-marca > div { flex: 1; min-width: 0; line-height: 1.25; }
+    .l2-pasarela-marca strong { display: block; font-size: 17px; font-weight: 800; }
+    .l2-pasarela-marca small { color: rgba(255, 255, 255, 0.78); font-size: 13px; font-weight: 600; }
+    .l2-pasarela-cerrar { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border: none; border-radius: 50%; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; font-size: 20px; cursor: pointer; }
+    .l2-pasarela-cerrar:hover { background: rgba(255, 255, 255, 0.26); }
+    .l2-pasarela-cerrar[hidden] { display: none; }
+    .l2-pasarela-cerrar:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+    .l2-pasarela-monto { margin-top: 22px; }
+    .l2-pasarela-monto-etiqueta { margin: 0; color: rgba(255, 255, 255, 0.78); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .l2-pasarela-monto strong { display: block; margin-top: 2px; font-size: 42px; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+    .l2-pasarela-monto-detalle { margin: 6px 0 0; color: rgba(255, 255, 255, 0.86); font-size: 14px; line-height: 1.4; }
+
+    .l2-pasarela-vista { padding: 0 24px 24px; }
+    .l2-pasarela-vista h2 { margin: 22px 0 0; color: var(--color-blue-primary); font-size: 20px; font-weight: 800; line-height: 1.25; }
+    .l2-pasarela-vista h2:focus { outline: none; }
+    .l2-pasarela-vista > p { margin: 4px 0 0; color: var(--text-secondary); font-size: 15px; }
+
+    /* Vista previa de la tarjeta */
+    .l2-tarjeta { position: relative; z-index: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; width: min(100%, 320px); aspect-ratio: 1.586; margin: -72px auto 0; padding: 18px 20px; border-radius: 18px; background: radial-gradient(120% 140% at 100% 0%, rgba(159, 216, 255, 0.5) 0%, rgba(159, 216, 255, 0) 55%), linear-gradient(135deg, #2A2D6E 0%, var(--color-blue-sapphire) 55%, var(--color-blue-primary) 100%); color: #FFFFFF; box-shadow: 0 18px 40px rgba(0, 62, 170, 0.35); }
+    .l2-tarjeta::before, .l2-tarjeta::after { content: ''; position: absolute; border: 1.5px solid rgba(255, 255, 255, 0.16); border-radius: 50%; pointer-events: none; }
+    .l2-tarjeta::before { right: -50px; bottom: -80px; width: 200px; height: 200px; }
+    .l2-tarjeta::after { right: -10px; bottom: -40px; width: 120px; height: 120px; }
+    .l2-tarjeta-arriba, .l2-tarjeta-abajo { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .l2-tarjeta-chip { width: 40px; height: 30px; border-radius: 7px; background: linear-gradient(135deg, #E9F6FF 0%, #9FD8FF 100%); box-shadow: inset 0 0 0 1px rgba(28, 30, 77, 0.15); }
+    .l2-tarjeta-red { font-size: 20px; font-style: italic; font-weight: 800; letter-spacing: 0.04em; }
+    .l2-tarjeta-numero { position: relative; font-size: clamp(16px, 5vw, 20px); font-weight: 700; letter-spacing: 0.12em; white-space: nowrap; }
+    .l2-tarjeta-abajo { align-items: flex-end; }
+    .l2-tarjeta-abajo span { display: flex; flex-direction: column; min-width: 0; }
+    .l2-tarjeta-abajo small { color: rgba(255, 255, 255, 0.72); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .l2-tarjeta-abajo strong { overflow: hidden; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-overflow: ellipsis; white-space: nowrap; }
+    .l2-pasarela-fila { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; }
+
+    /* Botones del mismo ancho: en columna en celular (pagar primero), lado a lado desde 480 px */
+    .l2-pasarela-acciones { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 24px; }
+    .l2-pasarela-acciones .l2-btn { width: 100%; }
+    .l2-pasarela-acciones .l2-btn-primary { order: -1; }
+    @media (min-width: 480px) {
+      .l2-pasarela-acciones:not(.una) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .l2-pasarela-acciones .l2-btn-primary { order: 0; }
+    }
+
+    /* Procesando y aprobado: medalla sobre el encabezado */
+    .l2-pasarela-estado { text-align: center; }
+    .l2-pasarela-medalla { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 112px; height: 112px; margin: -60px auto 0; border-radius: 50%; background: #FFFFFF; box-shadow: var(--shadow-hover); }
+    .l2-pasarela-medalla::before { content: ''; position: absolute; inset: 12px; border: 5px solid var(--color-blue-soft); border-top-color: var(--color-blue-primary); border-radius: 50%; animation: l2-gira 0.9s linear infinite; }
+    .l2-pasarela-medalla i { position: relative; color: var(--color-blue-primary); font-size: 36px; }
+    .l2-pasarela-medalla.exito::before { border: 0; background: var(--color-emerald); animation: l2-medalla-pop 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .l2-pasarela-medalla.exito::after { content: ''; position: absolute; inset: 12px; border-radius: 50%; animation: l2-medalla-halo 1.2s 0.3s ease-out both; }
+    .l2-pasarela-medalla.exito i { color: #FFFFFF; font-size: 44px; animation: l2-medalla-pop 0.45s 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    @keyframes l2-gira { to { transform: rotate(360deg); } }
+    @keyframes l2-medalla-pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
+    @keyframes l2-medalla-halo { from { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4); } to { box-shadow: 0 0 0 22px rgba(5, 150, 105, 0); } }
+    .l2-pasarela-estado h2 { color: var(--text-primary); font-size: 22px; }
+    .l2-pasarela-estado .l2-pago { text-align: left; }
+
+    /* Etapas del pago: pendiente, en curso (gira) y lista (check) */
+    .l2-pasarela-pasos { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; text-align: left; }
+    .l2-pasarela-pasos li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-subtle); color: var(--text-muted); font-size: 15px; font-weight: 700; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .l2-pasarela-pasos .punto { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 26px; height: 26px; border: 2.5px solid var(--border-subtle); border-radius: 50%; color: transparent; font-size: 14px; }
+    .l2-pasarela-pasos li.activo { border-color: var(--border-active); background: var(--color-blue-soft); color: var(--text-primary); }
+    .l2-pasarela-pasos li.activo .punto { border-color: var(--border-active); border-top-color: var(--color-blue-primary); animation: l2-gira 0.8s linear infinite; }
+    .l2-pasarela-pasos li.hecho { color: var(--text-primary); }
+    .l2-pasarela-pasos li.hecho .punto { border-color: var(--color-emerald); background: var(--color-emerald); color: #FFFFFF; animation: l2-pop 0.25s ease; }
+
+    .l2-pasarela-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 10px; margin: 0; padding: 14px 20px; border-top: 1px solid var(--border-subtle); background: var(--bg-subtle); color: var(--text-muted); font-size: 13px; font-weight: 600; }
+    .l2-pasarela-pie > i { color: var(--color-emerald); font-size: 17px; }
+    .l2-pasarela-red { padding: 2px 8px; border: 1px solid var(--border-subtle); border-radius: var(--radius-badge); background: #FFFFFF; color: var(--color-navy-deep); font-size: 11px; font-weight: 800; letter-spacing: 0.04em; }
+    @media (max-width: 420px) {
+      .l2-pasarela-cab { padding-left: 20px; }
+      .l2-pasarela-vista { padding: 0 18px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-pasarela[open], .l2-pasarela-medalla.exito::before, .l2-pasarela-medalla.exito::after, .l2-pasarela-medalla.exito i, .l2-pasarela-pasos li.hecho .punto { animation: none; }
+      .l2-pasarela-medalla::before, .l2-pasarela-pasos li.activo .punto { animation-duration: 3s; }
+      .l2-pasarela-pasos li { transition: none; }
+    }
+    /* Contáctanos y Términos y condiciones van en el menú del encabezado */
+    .l2-footer-enlaces, .l2-header-actions > a.l2-icon-button[href="contactanos.html"] { display: none; }
+    .l2-footer:not(:has(> .l2-wrap > p)) { display: none; }
+  </style>
+  <link rel="stylesheet" href="modulos.css">
+  <script src="sesion.js"></script>
+  <script src="menu-movil.js" defer></script>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="l2-header">
+    <div class="l2-wrap l2-header-inner">
+      <a href="Indexlogin.html" class="l2-logo" aria-label="Simple.sv, volver a Trámites">
+        <svg viewBox="0 0 252 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <path d="M2.02 35.92C4.19 38.02 7.08 39.2 10.1 39.2C13.02 39.2 15.55 37.75 15.55 34.89C15.55 28.95 0.93 30.41 0.93 21.56C0.93 16.71 5.3 14.06 10.2 14.06C15.92 14.06 18.56 17.03 18.56 17.03L16.9 19.85C16.9 19.85 14.58 17.37 10.1 17.37C7.35 17.37 4.71 18.55 4.71 21.57C4.71 27.56 19.33 25.94 19.33 34.9C19.33 39.32 15.5 42.5 10.06 42.5C3.48 42.5 0.02 38.56 0.02 38.56L2.02 35.92Z" fill="#1C1E4D"/>
+          <path d="M25.56 3.92H29.39V8.51H25.56V3.92ZM25.66 14.71H29.33V41.85H25.66V14.71Z" fill="#1C1E4D"/>
+          <path d="M37.68 14.71H41.29V18.75C41.29 19.94 41.18 20.91 41.18 20.91H41.29C42.59 17.24 46.9 14.06 51.11 14.06C56.13 14.06 58.72 16.38 59.53 20.86H59.64C61.09 17.19 65.03 14.06 69.62 14.06C76.2 14.06 78.63 17.89 78.63 24.58V41.84H74.96V25.5C74.96 21.08 74.04 17.41 69.08 17.41C64.92 17.41 61.53 21.08 60.5 25.08C60.12 26.26 60.03 27.56 60.03 29.01V41.85H56.35V25.5C56.35 21.4 55.75 17.41 50.63 17.41C46.2 17.41 42.86 21.24 41.72 25.39C41.46 26.58 41.33 27.79 41.35 29.01V41.84H37.68V14.71Z" fill="#1C1E4D"/>
+          <path d="M86.89 14.71H90.4V17.36C90.4 18.06 90.37 18.76 90.29 19.46H90.4C90.4 19.46 92.61 14.06 99.79 14.06C107.07 14.06 111.6 19.89 111.6 28.31C111.6 36.89 106.48 42.5 99.46 42.5C92.94 42.5 90.56 37.32 90.56 37.32H90.46C90.46 37.32 90.56 38.29 90.56 39.7V52.65H86.89V14.71ZM99.09 39.26C103.89 39.26 107.83 35.22 107.83 28.31C107.83 21.67 104.32 17.41 99.25 17.41C94.72 17.41 90.45 20.65 90.45 28.36C90.46 33.81 93.48 39.26 99.09 39.26Z" fill="#1C1E4D"/>
+          <path d="M118.42 3.92H122.08V34.62C122.08 38.19 123.7 38.72 125.1 38.72C125.41 38.72 125.72 38.7 126.02 38.67V41.95C125.58 42.02 125.12 42.06 124.67 42.06C122.41 42.06 118.42 41.36 118.42 35.42V3.92Z" fill="#1C1E4D"/>
+          <path d="M142.75 14.06C150.25 14.06 154.08 19.84 154.08 26.58C154.08 27.23 153.97 28.47 153.97 28.47H133.14C133.3 35.43 138.05 39.21 143.66 39.21C148.62 39.21 151.91 35.92 151.91 35.92L153.58 38.72C150.79 41.13 147.23 42.47 143.54 42.5C135.45 42.5 129.35 36.67 129.35 28.31C129.37 19.4 135.42 14.06 142.75 14.06ZM150.36 25.45C150.14 19.78 146.69 17.14 142.65 17.14C138.11 17.14 134.17 19.99 133.31 25.46L150.36 25.45Z" fill="#1C1E4D"/>
+          <path d="M160.81 37.53H165.07V41.85H160.81V37.53Z" fill="#1C1E4D"/>
+          <path d="M173.79 35.92C175.95 38.02 178.85 39.2 181.87 39.2C184.78 39.2 187.32 37.75 187.32 34.89C187.32 28.95 172.69 30.41 172.69 21.56C172.69 16.71 177.07 14.06 181.97 14.06C187.68 14.06 190.33 17.03 190.33 17.03L188.66 19.84C188.66 19.84 186.35 17.36 181.87 17.36C179.11 17.36 176.47 18.54 176.47 21.56C176.47 27.55 191.09 25.93 191.09 34.89C191.09 39.31 187.26 42.5 181.82 42.5C175.24 42.5 171.79 38.56 171.79 38.56L173.79 35.92Z" fill="#1C1E4D"/>
+          <path d="M194.45 14.71H198.34L205.89 34.62C206.25 35.68 206.55 36.76 206.81 37.86H206.91C207.18 36.76 207.5 35.68 207.88 34.62L215.38 14.71H219.22L208.86 41.85H204.86L194.45 14.71Z" fill="#1C1E4D"/>
+          <path d="M251.96 14.61V23.78H223.44L226.83 14.61H251.96Z" fill="#0066FF"/>
+          <path d="M251.97 32.74V41.91H216.73L220.13 32.74H251.97Z" fill="#0066FF"/>
+          <path d="M223.44 23.78L220.13 32.74H251.96V23.78H223.44Z" fill="#E2E8F0"/>
+        </svg>
+      </a>
+
+      <nav class="l2-nav" id="menu-principal" aria-label="Menú principal">
+        <a href="Indexlogin.html" aria-current="page"><i class="ph ph-files" aria-hidden="true"></i>Trámites</a>
+        <a href="mis-tramites.html"><i class="ph ph-folder-open" aria-hidden="true"></i>Mis documentos</a>
+        <a href="contactanos.html"><i class="ph ph-headset" aria-hidden="true"></i>Contáctanos</a>
+      </nav>
+
+      <div class="l2-header-actions">
+        <a class="l2-icon-button" href="contactanos.html" aria-label="Contáctanos" title="Contáctanos"><i class="ph ph-headset" aria-hidden="true"></i></a>
+        <div class="l2-notifications">
+          <button class="l2-icon-button" id="notificaciones-boton" type="button" aria-label="Ver notificaciones" aria-controls="notificaciones-panel" aria-expanded="false">
+            <i class="ph ph-bell" aria-hidden="true"></i>
+            <span class="l2-notification-dot" aria-label="1 notificación nueva">1</span>
+          </button>
+          <div class="l2-notification-panel" id="notificaciones-panel" role="region" aria-label="Notificaciones">
+            <h2>Notificaciones</h2>
+            <div class="l2-notification">
+              <i class="ph ph-check-circle" aria-hidden="true"></i>
+              <p><strong>Tu trámite está listo</strong><br>Revisa el estado de tu gestión reciente</p>
+            </div>
+          </div>
+        </div>
+        <div class="l2-profile-trigger">
+          <button id="perfil-boton" type="button" aria-label="Abrir menú de usuario" aria-haspopup="menu" aria-controls="perfil-menu" aria-expanded="false">
+            <img class="l2-avatar" src="usuario-avatar.png" alt="Foto de perfil de usuario">
+            <i class="ph ph-caret-down l2-profile-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="l2-profile-menu" id="perfil-menu" role="menu" aria-label="Menú de usuario">
+            <a class="l2-menu-item" href="../SIMPLE ACTUAL/Identidad digital.html" role="menuitem"><i class="ph ph-user-circle" aria-hidden="true"></i>Mi cuenta</a>
+            <div class="l2-menu-divider" role="separator"></div>
+            <a class="l2-menu-item" href="../index.html" role="menuitem"><i class="ph ph-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
+          </div>
+        </div>
+        <button class="l2-icon-button l2-menu-toggle" type="button" aria-label="Abrir el menú" aria-controls="menu-principal" aria-expanded="false"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="l2-section" id="tramites">
+      <div class="l2-wrap">
+        <h1 class="l2-sr" id="tramite-nombre">Trámite</h1>
+
+        <div class="l2-tramite" id="tramite">
+          <!-- Sobre este trámite: a la derecha en escritorio; en celular y tablet va arriba del formulario y se puede plegar -->
+          <div class="l2-lateral" id="lateral">
+          <aside class="l2-resumen" id="resumen" aria-labelledby="resumen-titulo">
+            <div class="l2-resumen-cab">
+              <h3 id="resumen-titulo"><span class="l2-resumen-icono"><i class="ph ph-info" aria-hidden="true"></i></span>Sobre este trámite</h3>
+              <button type="button" class="l2-resumen-toggle" id="resumen-toggle" aria-expanded="true" aria-controls="resumen-cuerpo" aria-label="Ocultar la información del trámite"><span>Ocultar</span><i class="ph ph-caret-up" aria-hidden="true"></i></button>
+            </div>
+            <div class="l2-resumen-cuerpo" id="resumen-cuerpo">
+              <p id="resumen-descripcion"></p>
+              <dl id="resumen-datos"></dl>
+            </div>
+          </aside>
+          <!-- Aviso de no cerrar la página: en celular va arriba del todo para que se vea; en escritorio, debajo de la información -->
+          <div class="l2-aviso" role="note">
+            <i class="ph ph-info" aria-hidden="true"></i>
+            <p style="margin: 0;"><strong>Importante:</strong> no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura</p>
+          </div>
+          </div>
+
+          <!-- Pasos copiados del portal de la institución (campos, opciones y condiciones); se pintan desde formularios.js -->
+          <form class="l2-form-card" id="formulario" novalidate>
+            <div class="l2-paso-cab" id="paso-cab">
+              <span class="l2-paso-num" id="paso-num">1</span>
+              <div>
+                <p class="l2-paso-de" id="paso-de" hidden></p>
+                <h3 id="paso-titulo" tabindex="-1"></h3>
+                <p id="paso-subtitulo"></p>
+              </div>
+            </div>
+            <div class="l2-progreso" id="progreso" aria-hidden="true" hidden><span id="progreso-barra"></span></div>
+
+            <div id="campos"></div>
+
+            <div class="l2-listo" id="listo" role="status" aria-live="polite">
+              <i class="ph ph-check-circle" aria-hidden="true"></i>
+              <div><strong id="listo-titulo">Primer paso completo</strong><span id="listo-texto"></span></div>
+            </div>
+
+            <div class="l2-acciones">
+              <a class="l2-btn l2-btn-outline" id="volver" href="Indexlogin.html"><i class="ph ph-arrow-left" aria-hidden="true"></i>Volver a trámites</a>
+              <button class="l2-btn l2-btn-outline" id="anterior" type="button" hidden><i class="ph ph-arrow-left" aria-hidden="true"></i>Anterior</button>
+              <button class="l2-btn l2-btn-primary" id="siguiente" type="submit">Siguiente<i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l2-footer" data-transicion-contenido>
+    <div class="l2-wrap">
+      <nav class="l2-footer-enlaces" aria-label="Ayuda y términos">
+        <a href="contactanos.html"><i class="ph ph-headset" aria-hidden="true"></i>Contáctanos</a>
+        <button type="button" data-terminos><i class="ph ph-scroll" aria-hidden="true"></i>Términos y condiciones</button>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Pasarela de pago SERFINSA (simulada), con el diseño de Simple.sv. Es la misma para todos los trámites:
+       usa una tarjeta de prueba y no envía nada ni cobra -->
+  <dialog class="l2-pasarela" id="pasarela" aria-labelledby="pasarela-titulo">
+    <header class="l2-pasarela-cab">
+      <!-- Líneas decorativas, como en el banner -->
+      <svg viewBox="0 0 460 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <path d="M-10,190 C 90,190 130,120 220,120 C 310,120 340,70 470,58" fill="none" stroke="#9FD8FF" stroke-opacity="0.35" stroke-width="1.6"/>
+        <path d="M-10,222 C 120,210 210,168 310,176 C 390,182 430,146 470,136" fill="none" stroke="#9FD8FF" stroke-opacity="0.2" stroke-width="1.2"/>
+        <path d="M300,-10 C 340,30 380,40 470,30" fill="none" stroke="#9FD8FF" stroke-opacity="0.25" stroke-width="1.2"/>
+        <circle cx="220" cy="120" r="3.2" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="400" cy="62" r="2.6" fill="#FFFFFF" opacity="0.6"/>
+      </svg>
+      <div class="l2-pasarela-marca">
+        <i class="ph ph-lock-key" aria-hidden="true"></i>
+        <div><strong id="pasarela-titulo">Pago seguro</strong><small>Procesado por SERFINSA</small></div>
+        <button class="l2-pasarela-cerrar" id="pasarela-cerrar" type="button" aria-label="Cerrar el pago"><i class="ph ph-x" aria-hidden="true"></i></button>
+      </div>
+      <div class="l2-pasarela-monto">
+        <p class="l2-pasarela-monto-etiqueta" id="pasarela-total-etiqueta">Total a pagar</p>
+        <strong id="pasarela-total"></strong>
+        <p class="l2-pasarela-monto-detalle"><span id="pasarela-concepto"></span> · <span id="pasarela-comercio"></span></p>
+      </div>
+    </header>
+
+    <section class="l2-pasarela-vista" data-vista="tarjeta">
+      <div class="l2-tarjeta" aria-hidden="true">
+        <div class="l2-tarjeta-arriba"><span class="l2-tarjeta-chip"></span><span class="l2-tarjeta-red">VISA</span></div>
+        <div class="l2-tarjeta-numero">•••• •••• •••• 1111</div>
+        <div class="l2-tarjeta-abajo">
+          <span><small>Titular</small><strong id="pasarela-titular"></strong></span>
+          <span><small>Vence</small><strong>12/30</strong></span>
+        </div>
+      </div>
+      <h2 tabindex="-1">Paga con tu tarjeta</h2>
+      <div class="l2-campo">
+        <label for="pasarela-tarjeta">Número de tarjeta</label>
+        <div class="l2-campo-solo"><input class="l2-input" id="pasarela-tarjeta" value="4111 1111 1111 1111" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+      </div>
+      <div class="l2-pasarela-fila">
+        <div class="l2-campo">
+          <label for="pasarela-vence">Vencimiento</label>
+          <div class="l2-campo-solo"><input class="l2-input" id="pasarela-vence" value="12/30" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+        </div>
+        <div class="l2-campo">
+          <label for="pasarela-cvv">CVV</label>
+          <div class="l2-campo-solo"><input class="l2-input" id="pasarela-cvv" value="123" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+        </div>
+      </div>
+      <div class="l2-campo">
+        <label for="pasarela-nombre">Nombre en la tarjeta</label>
+        <div class="l2-campo-solo"><input class="l2-input" id="pasarela-nombre" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+      </div>
+      <div class="l2-pasarela-acciones">
+        <button class="l2-btn l2-btn-outline" id="pasarela-cancelar" type="button">Cancelar</button>
+        <button class="l2-btn l2-btn-primary" id="pasarela-pagar" type="button"></button>
+      </div>
+    </section>
+
+    <section class="l2-pasarela-vista l2-pasarela-estado" data-vista="procesando" aria-live="polite" hidden>
+      <div class="l2-pasarela-medalla" aria-hidden="true"><i class="ph ph-credit-card"></i></div>
+      <h2 tabindex="-1">Procesando tu pago</h2>
+      <p>No cierres esta ventana; tarda unos segundos</p>
+      <ol class="l2-pasarela-pasos" id="pasarela-pasos">
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Verificando tu tarjeta</li>
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Autorizando con tu banco</li>
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Confirmando el pago</li>
+      </ol>
+    </section>
+
+    <section class="l2-pasarela-vista l2-pasarela-estado" data-vista="aprobado" hidden>
+      <div class="l2-pasarela-medalla exito" aria-hidden="true"><i class="ph ph-check"></i></div>
+      <h2 tabindex="-1">¡Pago aprobado!</h2>
+      <p id="pasarela-aprobado-texto"></p>
+      <div class="l2-pago" id="pasarela-comprobante"></div>
+      <div class="l2-pasarela-acciones una">
+        <button class="l2-btn l2-btn-primary" id="pasarela-continuar" type="button">Continuar en Simple.sv<i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+      </div>
+    </section>
+
+    <p class="l2-pasarela-pie"><i class="ph ph-shield-check" aria-hidden="true"></i>Conexión cifrada · SERFINSA<span class="l2-pasarela-red">VISA</span><span class="l2-pasarela-red">Mastercard</span></p>
+  </dialog>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="formularios.js"></script>
+  <script src="citas.js"></script>
+  <script src="pasos-tramite.js"></script>
+  <script src="ciudadano.js"></script>
+  <script src="radios.js"></script>
+  <script src="requisitos-tramite.js"></script>
+  <script src="pasarela-serfinsa.js"></script>
+  <script>
+    /* ===== Trámite: datos del catálogo + pasos del formulario hasta el pago (no envía ni cobra nada) ===== */
+    const numero = Number(new URLSearchParams(location.search).get('n'));
+    const tramite = (window.CATALOGO_TRAMITES || []).find(t => t.numero === numero);
+    // El catálogo trae la descripción y la dependencia con punto final; aquí se muestran sin él
+    if (tramite) ['descripcion', 'dependencia'].forEach(k => { if (tramite[k]) tramite[k] = tramite[k].replace(/(?<!\.)\.$/, ''); });
+    const definicion = (window.FORMULARIOS_TRAMITES || {})[numero];
+    const ICONO_CATEGORIA = { empleo: 'ph-briefcase', documentos: 'ph-identification-card', vivienda: 'ph-house-line', estudio: 'ph-graduation-cap' };
+    const formulario = document.getElementById('formulario');
+    // Cita presencial del trámite (citas.js): sus sedes, días y horas libres son las opciones con origen
+    const CITA = (window.CITAS_TRAMITES || {})[numero];
+    const {
+      horarioDe, horarioCorto, diasDisponibles, horariosLibres, horaLegible, isoDe, fechaDe, fechaCorta, fechaLarga,
+      capitalizar, queLlevar, descargarCalendario
+    } = window.PASOS_TRAMITE;
+    // El primer paso va en la raíz de la definición; los siguientes, en pasos
+    const pasos = definicion ? [definicion, ...(definicion.pasos || [])] : [];
+    const CAMPOS = {};
+    let actual = 0;
+
+    // Crea un elemento con texto (textContent evita inyectar HTML)
+    function el(tag, clase, texto) {
+      const nodo = document.createElement(tag);
+      if (clase) nodo.className = clase;
+      if (texto !== undefined) nodo.textContent = texto;
+      return nodo;
+    }
+    function icono(nombre) {
+      const i = el('i', `ph ${nombre}`);
+      i.setAttribute('aria-hidden', 'true');
+      return i;
+    }
+    // Quita las notas entre *( )* que trae el catálogo
+    const limpiarTexto = texto => (texto || '').replace(/\s*\*\([^)]*\)\*/g, '').trim();
+    function costoCorto(texto) {
+      const t = texto.toLowerCase();
+      if (t.startsWith('no tiene costo') || t.includes('gratu')) return 'Gratis';
+      const monto = texto.match(/\$\s?[\d.,]+/);
+      return monto ? monto[0].replace(/\s/, '') : 'Ver costo';
+    }
+
+    function pintarBanner() {
+      document.title = `${tramite.nombre} — Simple.sv`;
+      document.getElementById('tramite-nombre').textContent = tramite.nombre;
+
+      document.getElementById('resumen-descripcion').textContent = tramite.descripcion;
+      const dl = document.getElementById('resumen-datos');
+      [['ph-buildings', 'Dependencia', tramite.dependencia], ['ph-currency-dollar', 'Costo', limpiarTexto(tramite.costo)], ['ph-clock', 'Tiempo de respuesta', limpiarTexto(tramite.tiempo)], ['ph-users', 'Dirigido a', tramite.publico]]
+        .filter(([, , valor]) => valor)
+        .forEach(([nombre, titulo, valor]) => {
+          const fila = el('div');
+          const textos = el('div');
+          const dd = el('dd');
+          // Un costo con varios montos se muestra en líneas separadas
+          limpiarTexto(valor).replace(/\.$/, '').split(titulo === 'Costo' ? /\s+(?=\$\d)/ : /\n/).forEach((parte, i) => {
+            if (i) dd.append(el('br'));
+            dd.append(parte);
+          });
+          textos.append(el('dt', '', titulo), dd);
+          fila.append(icono(nombre), textos);
+          dl.append(fila);
+        });
+    }
+
+    /* ----- Campos ----- */
+    function etiquetaCon(texto, campo, para) {
+      const nodo = el(para ? 'label' : 'legend');
+      if (para) nodo.htmlFor = para;
+      nodo.append(texto);
+      if (campo.soloLectura) { /* viene de la Identidad Digital: no lo llena la persona */ }
+      else if (campo.opcional) nodo.append(el('span', 'l2-opcional', 'Opcional'));
+      else { const req = el('span', 'l2-req', ' *'); req.setAttribute('aria-hidden', 'true'); nodo.append(req); }
+      return nodo;
+    }
+    function errorDe(campo, porDefecto, id) {
+      const p = el('p', 'l2-error');
+      p.setAttribute('role', 'alert');
+      if (id) p.id = id;
+      p.append(icono('ph-warning-circle'), campo.mensaje || porDefecto);
+      return p;
+    }
+
+    function crearNota(campo) {
+      const caja = el('div', `l2-nota l2-nota-${campo.estilo || 'info'}`);
+      caja.append(icono(campo.estilo === 'aviso' ? 'ph-warning' : 'ph-info'));
+      const cuerpo = el('div', 'l2-nota-cuerpo');
+      if (campo.titulo) cuerpo.append(el('strong', 'l2-nota-titulo', campo.titulo));
+      let lista = null;
+      (campo.lineas || []).forEach(linea => {
+        if (linea.startsWith('- ')) {
+          if (!lista) { lista = el('ul'); cuerpo.append(lista); }
+          lista.append(el('li', '', linea.slice(2)));
+          return;
+        }
+        lista = null;
+        cuerpo.append(linea.startsWith('## ') ? el('h4', '', linea.slice(3)) : el('p', '', linea));
+      });
+      // Cuadro con scroll interno: alcanzable con teclado y con nombre
+      if (campo.estilo === 'requisitos') {
+        cuerpo.tabIndex = 0;
+        cuerpo.setAttribute('role', 'region');
+        cuerpo.setAttribute('aria-label', campo.titulo || 'Requisitos');
+      }
+      caja.append(cuerpo);
+      return caja;
+    }
+
+    // Opciones de la cita (origen): las sedes de citas.js, los próximos días hábiles y las horas libres de la sede y el día elegidos
+    const nombreConOrigen = origen => Object.values(CAMPOS).find(c => c.origen === origen)?.nombre;
+    function opcionesDe(campo) {
+      if (!campo.origen) return campo.opciones;
+      if (!CITA) return [];
+      if (campo.origen === 'sedes') return CITA.sedes.map((s, i) => ({ valor: String(i), texto: s.nombre, detalle: `${s.detalle} · ${horarioCorto(horarioDe(CITA, s))}`, icono: 'ph-map-pin' }));
+      if (campo.origen === 'dias') return diasDisponibles().map(f => ({ valor: isoDe(f), texto: fechaCorta(f) }));
+      const sede = valorDe(nombreConOrigen('sedes'));
+      const fecha = valorDe(nombreConOrigen('dias'));
+      return sede && fecha ? horariosLibres(CITA, Number(sede), fecha).map(h => ({ valor: h, texto: horaLegible(h) })) : [];
+    }
+
+    // Nota de una pregunta como icono de información junto a la etiqueta: en pantallas con cursor, un tooltip al pasar el cursor
+    // (o al enfocar el icono; el clic lo deja fijo); en celular y tablet, el clic muestra la nota debajo de la etiqueta
+    function crearPista(campo, grupo) {
+      const id = `${campo.nombre}-info`;
+      const boton = el('button', 'l2-pista-btn');
+      boton.type = 'button';
+      boton.setAttribute('aria-expanded', 'false');
+      boton.setAttribute('aria-controls', id);
+      boton.setAttribute('aria-label', `Más información: ${campo.info.titulo || campo.etiqueta}`);
+      boton.append(icono('ph-info'));
+      boton.addEventListener('click', () => {
+        const abierta = grupo.classList.toggle('pista-abierta');
+        boton.setAttribute('aria-expanded', String(abierta));
+      });
+      const panel = crearNota({ estilo: 'info', ...campo.info });
+      panel.classList.add('l2-pista-panel');
+      panel.id = id;
+      panel.setAttribute('role', 'note');
+      return { boton, panel };
+    }
+    const hayCursor = window.matchMedia('(hover: hover) and (min-width: 720px)');
+    function cerrarPistas(excepto) {
+      document.querySelectorAll('.l2-pregunta.pista-abierta').forEach(g => {
+        if (g === excepto) return;
+        g.classList.remove('pista-abierta');
+        g.querySelector('.l2-pista-btn').setAttribute('aria-expanded', 'false');
+      });
+    }
+    // Con tooltip, un clic fuera o Escape lo quitan; en celular queda abierta hasta tocar el icono otra vez
+    document.addEventListener('click', e => { if (hayCursor.matches) cerrarPistas(e.target.closest('.l2-pregunta')); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPistas(); });
+
+    function crearOpciones(campo) {
+      const grupo = el('fieldset', 'l2-pregunta');
+      grupo.dataset.campo = campo.nombre;
+      const etiqueta = etiquetaCon(campo.etiqueta, campo);
+      grupo.append(etiqueta);
+      if (campo.info) {
+        const { boton, panel } = crearPista(campo, grupo);
+        etiqueta.append(boton);
+        grupo.append(panel);
+      }
+      if (campo.ayuda) grupo.append(el('p', 'l2-ayuda', campo.ayuda));
+      grupo.append(cajaDeOpciones(campo), errorDe(campo, 'Elige una opción', `${campo.nombre}-error`));
+      return grupo;
+    }
+
+    // Las opciones de una pregunta; las horas libres se vuelven a pintar al cambiar la sede o el día (refrescarHoras)
+    function cajaDeOpciones(campo) {
+      campo.opciones = opcionesDe(campo);
+      const caja = el('div', `l2-opciones${campo.columna ? ' l2-opciones-columna' : ''}${campo.dosColumnas ? ' l2-opciones-dos' : ''}${campo.compacto ? ' l2-opciones-compactas' : ''}`);
+      campo.opciones.forEach(op => {
+        const opcion = el('label', `l2-opcion${campo.multiple ? ' l2-opcion-multiple' : ''}`);
+        const input = el('input');
+        input.type = campo.multiple ? 'checkbox' : 'radio';
+        input.name = campo.nombre;
+        input.value = op.valor;
+        const cajaIcono = el('span', 'l2-opcion-icono');
+        if (op.icono) cajaIcono.append(icono(op.icono));
+        const texto = el('span', 'l2-opcion-texto');
+        texto.append(el('strong', '', op.texto), el('small', '', op.detalle || ''));
+        const check = el('span', 'l2-opcion-check');
+        check.setAttribute('aria-hidden', 'true');
+        check.append(icono('ph-check'));
+        input.setAttribute('aria-describedby', `${campo.nombre}-error`);
+        opcion.append(input, cajaIcono, texto, check);
+        caja.append(opcion);
+      });
+      return caja;
+    }
+
+    // Otra sede u otro día: otras horas libres; la hora elegida se conserva si sigue libre
+    function refrescarHoras() {
+      Object.values(CAMPOS).filter(c => c.origen === 'horas').forEach(campo => {
+        const elegida = valorDe(campo.nombre);
+        const nueva = cajaDeOpciones(campo);
+        formulario.querySelector(`fieldset[data-campo="${campo.nombre}"] .l2-opciones`).replaceWith(nueva);
+        const marcar = [...nueva.querySelectorAll('input')].find(i => i.value === elegida);
+        if (marcar) marcar.checked = true;
+      });
+    }
+
+    // Opciones de una lista; con depende, las de lo elegido en la otra lista (los municipios del departamento)
+    function llenarLista(control, campo) {
+      const opciones = campo.depende ? campo.opcionesPor[valorDe(campo.depende)] || [] : campo.opciones;
+      const vacia = el('option', '', campo.depende && !opciones.length ? `Elige primero: ${CAMPOS[campo.depende]?.etiqueta.toLowerCase()}` : 'Seleccionar');
+      vacia.value = '';
+      control.replaceChildren(vacia, ...opciones.map(([valor, texto]) => { const o = el('option', '', texto); o.value = valor; return o; }));
+    }
+
+    // Otro departamento: otra lista de municipios; el elegido se conserva si sigue en ella
+    function refrescarDependientes(nombre) {
+      Object.values(CAMPOS).filter(c => c.depende === nombre).forEach(campo => {
+        const control = formulario.querySelector(`select[name="${campo.nombre}"]`);
+        const elegido = control.value;
+        llenarLista(control, campo);
+        control.value = [...control.options].some(o => o.value === elegido) ? elegido : '';
+      });
+    }
+
+    function crearCampo(campo) {
+      const id = `campo-${campo.nombre}`;
+      const caja = el('div', 'l2-campo');
+      caja.dataset.campo = campo.nombre;
+      caja.append(etiquetaCon(campo.etiqueta, campo, id));
+      if (campo.ayuda && campo.tipo !== 'archivo') caja.append(el('p', 'l2-ayuda', campo.ayuda));
+      let control;
+
+      if (campo.tipo === 'lista') {
+        control = el('select', 'l2-input l2-select');
+        llenarLista(control, campo);
+        // Si solo hay una opción, ya viene elegida
+        if (campo.opciones?.length === 1 && !campo.opcional) control.value = campo.opciones[0][0];
+        caja.append(control);
+      } else if (campo.tipo === 'archivo') {
+        const zona = el('label', 'l2-archivo');
+        control = el('input');
+        control.type = 'file';
+        if (campo.acepta) control.accept = campo.acepta;
+        const textos = el('span');
+        const nombreArchivo = el('small', '', campo.ayuda || 'Ningún archivo seleccionado');
+        textos.append(el('strong', '', 'Seleccionar archivo'), nombreArchivo);
+        zona.append(control, icono('ph-upload-simple'), textos);
+        control.addEventListener('change', () => { nombreArchivo.textContent = control.files[0]?.name || campo.ayuda || 'Ningún archivo seleccionado'; });
+        caja.append(zona);
+      } else {
+        control = el('input', 'l2-input');
+        control.type = campo.modo === 'email' ? 'email' : campo.modo === 'tel' ? 'tel' : 'text';
+        // Autocompletado solo donde el dato es de quien llena el formulario
+        control.autocomplete = { correo_notificaciones: 'email', nombres: 'given-name', apellidos: 'family-name', direccion: 'street-address', direccion_de_residencia: 'street-address', telefono_de_contacto: 'tel' }[campo.nombre] || 'off';
+        if (campo.modo === 'numeric') control.inputMode = 'numeric';
+        if (campo.placeholder) control.placeholder = campo.placeholder;
+        control.maxLength = campo.max || (campo.modo === 'email' ? 254 : 200);
+        if (campo.patron) control.pattern = campo.patron;
+        if (campo.igualA) control.dataset.igualA = campo.igualA;
+        if (campo.sugerencias) {
+          const datalist = el('datalist');
+          datalist.id = `${id}-sugerencias`;
+          campo.sugerencias.forEach(s => { const o = el('option'); o.value = s; datalist.append(o); });
+          control.setAttribute('list', datalist.id);
+          caja.append(datalist);
+        }
+        if (campo.soloLectura) {
+          // Lo llena la cuenta (ciudadano.js); si la cuenta no tiene el dato, queda en blanco
+          control.readOnly = true;
+          const envoltura = el('div', 'l2-campo-solo');
+          envoltura.append(control, icono('ph-lock-simple'));
+          caja.append(envoltura);
+        } else {
+          caja.append(control);
+        }
+      }
+
+      control.id = id;
+      control.name = campo.nombre;
+      if (campo.prellenarSi) control.dataset.prellenarSi = campo.prellenarSi;
+      control.setAttribute('aria-describedby', `${id}-error`);
+      if (!campo.opcional && !campo.soloLectura) { control.dataset.requerido = ''; control.setAttribute('aria-required', 'true'); }
+      control.dataset.mensajeVacio = campo.tipo === 'lista' ? 'Selecciona una opción' : campo.tipo === 'archivo' ? 'Adjunta un archivo' : 'Completa este campo';
+      if (campo.mensaje) control.dataset.mensaje = campo.mensaje;
+      caja.append(errorDe(campo, campo.tipo === 'lista' ? 'Selecciona una opción' : campo.tipo === 'archivo' ? 'Adjunta un archivo' : 'Completa este campo', `${id}-error`));
+      return caja;
+    }
+
+    // Desplegable de un paso: se puede ocultar y mostrar; viene abierto o cerrado según el campo
+    function crearDesplegable(campo) {
+      const detalles = el('details', 'l2-desp');
+      detalles.open = !!campo.abierto;
+      if (campo.comoFilas) detalles.dataset.comoFilas = '';
+      const cabecera = el('summary');
+      if (campo.icono) { const cajaIcono = el('span', 'l2-desp-icono'); cajaIcono.append(icono(campo.icono)); cabecera.append(cajaIcono); }
+      cabecera.append(el('span', 'l2-desp-titulo', campo.titulo), icono('ph-caret-down l2-desp-caret'));
+      const cuerpo = el('div', 'l2-desp-cuerpo');
+      detalles.append(cabecera, cuerpo);
+      return { detalles, cuerpo };
+    }
+
+    // Todos los pasos quedan en el formulario; se ve uno a la vez
+    function pintarPasos() {
+      const contenedor = document.getElementById('campos');
+      pasos.forEach((paso, i) => {
+        const caja = el('div', 'l2-paso-campos');
+        caja.dataset.paso = i;
+        caja.hidden = i !== 0;
+        // El resumen (revisión) y el total (pago) se arman al abrir el paso; sus notas van debajo.
+        // En una revisión con un campo "resumen", el resumen va donde está ese campo
+        if (paso.tipo && !paso.campos.some(c => c.tipo === 'resumen')) caja.append(el('div', paso.tipo === 'pago' ? 'l2-pago' : 'l2-revision'));
+        let fila = null;
+        // Un campo "desplegable" abre un grupo: lo que sigue va dentro de él hasta el próximo desplegable o resumen
+        let grupo = null;
+        paso.campos.forEach(campo => {
+          if (campo.tipo === 'finDesplegable') { grupo = null; fila = null; return; }
+          if (campo.tipo === 'desplegable' || campo.tipo === 'resumen') {
+            fila = null;
+            const { detalles, cuerpo } = crearDesplegable(campo);
+            caja.append(detalles);
+            if (campo.tipo === 'resumen') { cuerpo.append(el('div', 'l2-revision')); grupo = null; } else grupo = cuerpo;
+            return;
+          }
+          if (campo.nombre) CAMPOS[campo.nombre] = campo;
+          const nodo = campo.tipo === 'nota' ? crearNota(campo)
+            : campo.tipo === 'seccion' ? el('h4', 'l2-seccion', campo.titulo)
+            : campo.tipo === 'opciones' ? crearOpciones(campo)
+            : crearCampo(campo);
+          // Los campos con media (o tercio) seguidos comparten fila de dos (o tres) columnas
+          const columnas = campo.media ? 'l2-campos-dos' : campo.tercio ? 'l2-campos-tres' : '';
+          if (!columnas) fila = null;
+          else if (fila?.className !== columnas) { fila = el('div', columnas); (grupo || caja).append(fila); }
+          const destino = fila || grupo || caja;
+          if (!campo.si) { destino.append(nodo); return; }
+          // Bloque condicional: se abre cuando se cumple "campo=valor" o "campo!=valor"
+          const bloque = el('div', 'l2-condicional');
+          bloque.dataset.si = campo.si;
+          const interior = el('div');
+          interior.append(nodo);
+          bloque.append(interior);
+          destino.append(bloque);
+        });
+        contenedor.append(caja);
+      });
+
+      Object.entries(definicion.preseleccion || {}).forEach(([nombre, valor]) => {
+        const opcion = formulario.querySelector(`input[name="${nombre}"][value="${valor}"]`);
+        if (opcion) opcion.checked = true;
+      });
+
+      // Lo que viene marcado (por ejemplo "Acepto los términos") ahorra un clic; la persona puede quitarlo y, como la pregunta es obligatoria,
+      // validar() no la deja pasar al siguiente paso hasta que lo vuelva a marcar
+      // (marcado: true marca la única opción; marcado: 'valor', esa opción)
+      Object.values(CAMPOS).filter(c => c.marcado).forEach(campo => {
+        formulario.querySelectorAll(`input[name="${campo.nombre}"]`).forEach(opcion => { opcion.checked = campo.marcado === true || opcion.value === campo.marcado; });
+      });
+
+      prellenar();
+    }
+
+    // Datos de quien inició sesión (ciudadano.js) en los campos que el trámite pide de esa persona. Con prellenarSi, solo
+    // mientras se cumpla: al cumplirse se escriben en los campos vacíos y, al dejar de cumplirse, se borran los que nadie
+    // cambió. Lo que la persona borre a propósito no se vuelve a escribir.
+    function prellenar() {
+      Object.entries(window.CIUDADANO || {}).forEach(([nombre, valor]) => {
+        formulario.querySelectorAll(`input[name="${nombre}"]:not([type="radio"]):not([type="checkbox"]):not([type="file"])`).forEach(control => {
+          const toca = !control.dataset.prellenarSi || cumple(control.dataset.prellenarSi);
+          if (toca === ('prellenado' in control.dataset)) return;
+          if (toca) {
+            if (!control.value) control.value = valor;
+            control.dataset.prellenado = '';
+          } else {
+            if (control.value === valor) control.value = '';
+            delete control.dataset.prellenado;
+          }
+        });
+      });
+    }
+
+    /* ----- Condiciones y validación ----- */
+    function valorDe(nombre) {
+      const controles = [...formulario.querySelectorAll(`[name="${nombre}"]`)].filter(c => !c.disabled);
+      const marcado = controles.find(c => (c.type === 'radio' || c.type === 'checkbox') && c.checked);
+      if (marcado) return marcado.value;
+      const otro = controles.find(c => c.type !== 'radio' && c.type !== 'checkbox');
+      return otro ? otro.value : '';
+    }
+
+    // "campo=valor" o "campo!=valor", con lo que hay respondido; "campo=a|b" se cumple con cualquiera de los dos
+    function cumple(si) {
+      const [, nombre, operador, valor] = si.match(/^(\w+)(!?=)(.*)$/);
+      const respuesta = valorDe(nombre);
+      const coincide = valor.split('|').includes(respuesta);
+      return operador === '=' ? coincide : respuesta !== '' && !coincide;
+    }
+
+    function actualizarCondicionales() {
+      // Varias pasadas para que un campo oculto también oculte a los que dependen de él
+      for (let pasada = 0; pasada < 3; pasada++) {
+        formulario.querySelectorAll('.l2-condicional').forEach(bloque => {
+          const abierto = cumple(bloque.dataset.si);
+          bloque.classList.toggle('abierto', abierto);
+          bloque.querySelectorAll('input, select, textarea').forEach(c => { c.disabled = !abierto; });
+        });
+      }
+    }
+
+    const visible = nodo => !nodo.closest('.l2-condicional:not(.abierto)');
+
+    // Cambia el texto del error de un campo sin perder su ícono
+    function fijarMensaje(error, texto) {
+      if (error && error.lastChild && error.lastChild.textContent !== texto) error.lastChild.textContent = texto;
+    }
+
+    // Para comparar con las respuestas que no se aceptan: mayúsculas, sin tildes ni puntuación al final
+    const paraComparar = texto => texto.normalize('NFD').replace(/[̀-ͯ]/g, '').toUpperCase().replace(/\s+/g, ' ').replace(/[\s.,;:]+$/, '').trim();
+
+    // Valida solo el paso que se ve (ambito)
+    function validar(ambito) {
+      let primero = null;
+      ambito.querySelectorAll('fieldset.l2-pregunta').forEach(grupo => {
+        if (!visible(grupo)) { grupo.classList.remove('con-error'); return; }
+        const requerido = !!grupo.querySelector('legend .l2-req');
+        const marcas = [...grupo.querySelectorAll('input')];
+        const falta = requerido && !marcas.some(m => m.checked);
+        grupo.classList.toggle('con-error', falta);
+        marcas.forEach(m => m.setAttribute('aria-invalid', String(falta)));
+        if (falta && !primero) primero = marcas[0];
+      });
+      ambito.querySelectorAll('.l2-campo').forEach(caja => {
+        const control = caja.querySelector('input, select');
+        if (!visible(caja) || control.readOnly) { caja.classList.remove('con-error'); return; }
+        const valor = control.type === 'file' ? (control.files.length ? 'si' : '') : control.value.trim();
+        const campo = CAMPOS[control.name] || {};
+        let mensaje = '';
+        if ('requerido' in control.dataset && valor === '') mensaje = control.dataset.mensajeVacio;
+        else if (valor && campo.min && valor.length < campo.min) mensaje = `Escribe al menos ${campo.min} caracteres`;
+        else if (valor && campo.prohibidos?.includes(paraComparar(valor))) mensaje = campo.mensaje || 'Revisa este dato';
+        else if (valor && control.pattern && control.type !== 'file' && !new RegExp(`^(?:${control.pattern})$`).test(valor)) mensaje = control.dataset.mensaje || 'Revisa el formato de este campo';
+        else if (valor && control.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) mensaje = 'Escribe un correo válido, por ejemplo nombre@correo.com';
+        else if (valor && control.dataset.igualA && valor !== valorDe(control.dataset.igualA).trim()) mensaje = control.dataset.mensaje || 'Los valores no coinciden';
+        const valido = !mensaje;
+        fijarMensaje(caja.querySelector(':scope > .l2-error'), mensaje);
+        caja.classList.toggle('con-error', !valido);
+        control.setAttribute('aria-invalid', String(!valido));
+        if (!valido && !primero) primero = control;
+      });
+      return primero;
+    }
+
+    /* ----- Pasos: avance, revisión y pago ----- */
+    const sigla = () => tramite.institucion.replace(/.*\(([^)]+)\).*/, '$1');
+    const cajaDe = i => formulario.querySelector(`.l2-paso-campos[data-paso="${i}"]`);
+    // Los pasos que aplican con lo respondido (el primero siempre)
+    const pasosQueAplican = () => pasos.map((_, i) => i).filter(i => i === 0 || !pasos[i].si || cumple(pasos[i].si));
+    const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Total a pagar: el monto del paso de pago (formularios.js), que puede depender de lo respondido, o el del catálogo
+    function totalAPagar() {
+      const monto = pasos.find(p => p.tipo === 'pago')?.monto;
+      return (Array.isArray(monto) ? monto.find(([si]) => cumple(si))?.[1] : monto) || costoCorto(tramite.costo);
+    }
+
+    function actualizarCabecera() {
+      const paso = pasos[actual];
+      const lista = pasosQueAplican();
+      const posicion = lista.indexOf(actual) + 1;
+      const varios = lista.length > 1;
+      document.getElementById('paso-num').textContent = paso.numero || String(posicion);
+      document.getElementById('paso-titulo').textContent = paso.titulo;
+      document.getElementById('paso-subtitulo').textContent = paso.subtitulo || '';
+      const pasoDe = document.getElementById('paso-de');
+      pasoDe.hidden = !varios;
+      pasoDe.textContent = `Paso ${posicion} de ${lista.length}`;
+      document.getElementById('progreso').hidden = !varios;
+      document.getElementById('paso-cab').classList.toggle('con-progreso', varios);
+      document.getElementById('progreso-barra').style.width = `${(posicion / lista.length) * 100}%`;
+      document.getElementById('volver').hidden = posicion > 1;
+      document.getElementById('anterior').hidden = posicion <= 1;
+      const boton = document.getElementById('siguiente');
+      const pago = paso.tipo === 'pago';
+      boton.replaceChildren(pago ? 'Pagar' : paso.boton || 'Siguiente', icono(pago ? 'ph-credit-card' : paso.tipo === 'revision' ? 'ph-check' : 'ph-arrow-right'));
+    }
+
+    // "Sobre este trámite" se ve en el primer paso; en los siguientes, la card del formulario crece hasta todo el ancho
+    function mostrarResumen(ver) {
+      const contenedor = document.getElementById('tramite');
+      if (contenedor.classList.contains('sin-resumen') !== ver) return;
+      const antes = formulario.offsetWidth;
+      contenedor.classList.toggle('sin-resumen', !ver);
+      const despues = formulario.offsetWidth;
+      if (sinMovimiento || antes === despues) return;
+      formulario.animate([{ width: `${antes}px` }, { width: `${despues}px` }], { duration: 350, easing: 'cubic-bezier(0.2, 0, 0, 1)' });
+      // Al volver, el resumen aparece cuando la card ya casi terminó de encogerse
+      if (ver) document.querySelector('.l2-lateral').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, delay: 300, fill: 'backwards' });
+    }
+
+    function mostrarPaso(i, enfocar = true) {
+      actual = i;
+      mostrarResumen(i === 0);
+      const caja = cajaDe(i);
+      formulario.querySelectorAll('.l2-paso-campos').forEach(c => { c.hidden = c !== caja; });
+      if (pasos[i].tipo === 'revision') pintarRevision(caja.querySelector('.l2-revision'));
+      // "Tus datos": los campos de lectura (llenados con la cuenta) se ven como filas, igual que el resumen de la solicitud
+      caja.querySelectorAll('.l2-desp[data-como-filas]').forEach(d => {
+        const cuerpo = d.querySelector('.l2-desp-cuerpo');
+        cuerpo.querySelector(':scope > .l2-filas')?.remove();
+        cuerpo.append(filas([...cuerpo.querySelectorAll('.l2-campo')].map(c => [c.querySelector('label').textContent, c.querySelector('input').value.trim()])));
+      });
+      if (pasos[i].tipo === 'pago') pintarPago(caja.querySelector('.l2-pago'));
+      document.getElementById('listo').classList.remove('visible');
+      actualizarCabecera();
+      if (!enfocar) return;
+      // Sube al inicio de la card si quedó arriba de la pantalla (bajo el encabezado fijo)
+      const arriba = formulario.getBoundingClientRect().top - 92;
+      if (arriba < 0) window.scrollTo({ top: window.scrollY + arriba, behavior: sinMovimiento ? 'auto' : 'smooth' });
+      document.getElementById('paso-titulo').focus({ preventScroll: true });
+    }
+
+    function mostrarListo() {
+      document.getElementById('listo-titulo').textContent = actual === 0 ? 'Primer paso completo' : 'Paso completo';
+      document.getElementById('listo-texto').textContent = ` Esta es una vista del nuevo diseño: no se envió nada a ${sigla()} y los siguientes pasos del trámite aún no están aquí`;
+      document.getElementById('listo').classList.add('visible');
+    }
+
+    /* ----- Pasarela SERFINSA (simulada): pagar, procesar por etapas y aprobar; luego, la solicitud enviada ----- */
+    const pasarela = document.getElementById('pasarela');
+    let estadoPasarela = 'tarjeta';
+    let pagoAprobado = null;
+    const numeroAlAzar = cifras => String(Math.floor(Math.random() * 10 ** cifras)).padStart(cifras, '0');
+    const pausa = ms => new Promise(r => setTimeout(r, ms));
+
+    function vistaPasarela(nombre) {
+      estadoPasarela = nombre;
+      pasarela.querySelectorAll('[data-vista]').forEach(v => { v.hidden = v.dataset.vista !== nombre; });
+      // La pantalla real de SERFINSA va arriba y, debajo, la propuesta de Simple.sv; al procesar y aprobar solo se ve esta
+      PasarelaSerfinsa.mostrar(nombre === 'tarjeta');
+      // Mientras procesa no se puede cerrar
+      document.getElementById('pasarela-cerrar').hidden = nombre === 'procesando';
+      document.getElementById('pasarela-total-etiqueta').textContent = nombre === 'aprobado' ? 'Total pagado' : 'Total a pagar';
+      pasarela.scrollTop = 0;
+      pasarela.querySelector(nombre === 'tarjeta' ? '.l2-sf h2' : `[data-vista="${nombre}"] h2`).focus({ preventScroll: true });
+    }
+
+    function abrirPasarela() {
+      const total = totalAPagar();
+      const titular = ['nombres', 'apellidos'].map(valorDe).join(' ').trim().toUpperCase();
+      document.getElementById('pasarela-total').textContent = total;
+      document.getElementById('pasarela-concepto').textContent = tramite.nombre;
+      document.getElementById('pasarela-comercio').textContent = tramite.dependencia || tramite.institucion;
+      document.getElementById('pasarela-titular').textContent = titular || 'TITULAR';
+      document.getElementById('pasarela-nombre').value = titular;
+      PasarelaSerfinsa.datos({ total, concepto: tramite.nombre, dui: window.CIUDADANO?.numero_de_documento, titular });
+      document.getElementById('pasarela-pagar').replaceChildren(icono('ph-lock-simple'), 'Pagar');
+      document.querySelectorAll('#pasarela-pasos li').forEach(li => { li.className = ''; });
+      pasarela.showModal();
+      vistaPasarela('tarjeta');
+    }
+
+    async function pagarEnPasarela() {
+      vistaPasarela('procesando');
+      for (const etapa of document.querySelectorAll('#pasarela-pasos li')) {
+        etapa.classList.add('activo');
+        await pausa(850);
+        etapa.classList.replace('activo', 'hecho');
+      }
+      await pausa(350);
+      pagoAprobado = {
+        total: totalAPagar(),
+        autorizacion: numeroAlAzar(6),
+        referencia: numeroAlAzar(12),
+        fecha: new Date().toLocaleString('es-SV', { dateStyle: 'long', timeStyle: 'short' }),
+        solicitud: numeroAlAzar(7)
+      };
+      document.getElementById('pasarela-aprobado-texto').textContent = `Se cargaron ${pagoAprobado.total} a tu tarjeta VISA terminada en 1111`;
+      document.getElementById('pasarela-comprobante').replaceChildren(filas([['Autorización', pagoAprobado.autorizacion], ['Referencia', pagoAprobado.referencia], ['Fecha', pagoAprobado.fecha]]));
+      vistaPasarela('aprobado');
+    }
+
+    function continuarDesdePasarela() {
+      pasarela.close();
+      mostrarEnviada(pagoAprobado);
+    }
+
+    // Pantalla final (solicitud enviada o cita agendada): el formulario deja sus pasos y muestra el resultado
+    function mostrarFinal(titulo, subtitulo, ...contenido) {
+      mostrarResumen(false);
+      formulario.querySelectorAll('.l2-paso-campos').forEach(c => { c.hidden = true; });
+      formulario.querySelector('.l2-acciones').hidden = true;
+      document.querySelector('.l2-aviso').hidden = true;
+      document.getElementById('listo').classList.remove('visible');
+      document.getElementById('paso-num').replaceChildren(icono('ph-check'));
+      document.getElementById('paso-titulo').textContent = titulo;
+      document.getElementById('paso-subtitulo').textContent = subtitulo;
+      document.getElementById('paso-de').hidden = true;
+      document.getElementById('progreso-barra').style.width = '100%';
+      const fin = el('div', 'l2-paso-campos');
+      fin.append(...contenido);
+      document.getElementById('campos').append(fin);
+      document.getElementById('paso-titulo').focus({ preventScroll: true });
+      const arriba = formulario.getBoundingClientRect().top - 92;
+      if (arriba < 0) window.scrollTo({ top: window.scrollY + arriba, behavior: sinMovimiento ? 'auto' : 'smooth' });
+    }
+
+    // Aviso verde de la pantalla final
+    function avisoListo(titulo, texto) {
+      const aviso = el('div', 'l2-enviada');
+      aviso.setAttribute('role', 'status');
+      const textos = el('div');
+      textos.append(el('strong', '', titulo), el('p', '', texto));
+      aviso.append(icono('ph-check-circle'), textos);
+      return aviso;
+    }
+
+    // Al volver de la pasarela: la solicitud quedó enviada y pagada
+    function mostrarEnviada(pago) {
+      // "a la Dirección General…", "al Registro…": el artículo sale de la primera palabra del nombre
+      const entidad = tramite.dependencia || tramite.institucion;
+      const femenino = /(a|ion|dad)$/.test(entidad.split(' ')[0].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''));
+      const aviso = avisoListo(`¡Listo! Pagaste ${pago.total}`, `Tu solicitud de ${tramite.nombre} quedó enviada ${femenino ? 'a la' : 'al'} ${entidad}`);
+
+      const detalle = el('div', 'l2-pago');
+      detalle.append(filas([['N.º de solicitud', pago.solicitud], ['Fecha', pago.fecha], ['Total pagado', pago.total], ['Autorización SERFINSA', pago.autorizacion], ['Tarjeta', 'VISA terminada en 1111']]));
+
+      const correo = window.CIUDADANO?.correo_notificaciones;
+      const nota = crearNota({ estilo: 'info', titulo: '¿Qué sigue?', lineas: [`La institución la revisa: tarda ${limpiarTexto(tramite.tiempo).replace(/^./, c => c.toLowerCase())}`, `Te avisamos por correo${correo ? ` a ${correo}` : ''} cuando esté lista, y la descargas en Mis documentos`] });
+
+      const acciones = el('div', 'l2-acciones');
+      const volver = el('a', 'l2-btn l2-btn-outline');
+      volver.href = 'Indexlogin.html';
+      volver.append(icono('ph-arrow-left'), 'Volver a trámites');
+      const documentos = el('a', 'l2-btn l2-btn-primary');
+      documentos.href = 'mis-tramites.html';
+      documentos.append('Ir a Mis documentos', icono('ph-folder-open'));
+      acciones.append(volver, documentos);
+
+      mostrarFinal('Solicitud enviada', 'Pagaste y tu solicitud ya está en revisión',
+        aviso, detalle, nota, el('p', 'l2-simulado', 'Vista del nuevo diseño: el pago es simulado y no se envió nada a la institución'), acciones);
+    }
+
+    // Cita presencial confirmada (paso con fin: 'cita'): sede, día, hora, qué llevar y el calendario, como en el asistente
+    function mostrarCitaAgendada() {
+      const campoCantidad = Object.values(CAMPOS).find(c => c.cantidad);
+      const cita = {
+        sede: Number(valorDe(nombreConOrigen('sedes'))),
+        fecha: valorDe(nombreConOrigen('dias')),
+        hora: valorDe(nombreConOrigen('horas')),
+        cantidad: Number(campoCantidad && valorDe(campoCantidad.nombre)) || 1,
+        codigo: String(Date.now()).slice(-6)
+      };
+      const sede = CITA.sedes[cita.sede];
+      const fecha = capitalizar(fechaLarga(fechaDe(cita.fecha)));
+      const aviso = avisoListo('¡Listo! Tu cita quedó agendada', `Te esperamos en ${sede.nombre} el ${fechaLarga(fechaDe(cita.fecha))}`);
+
+      const datos = [['N.º de cita', cita.codigo], ['Trámite', tramite.nombre], ['Sede', `${sede.nombre} · ${sede.detalle}`],
+        ['Atención', horarioCorto(horarioDe(CITA, sede))], ['Fecha', fecha], ['Hora de llegada', horaLegible(cita.hora)]];
+      if (campoCantidad) datos.push([campoCantidad.etiqueta, respuestaDe(campoCantidad)]);
+      const detalle = el('div', 'l2-pago');
+      detalle.append(filas(datos));
+
+      const nota = crearNota({ estilo: 'info', titulo: 'Qué llevar', lineas: queLlevar(tramite, CITA, cita.cantidad).map(x => `- ${x}`) });
+
+      const acciones = el('div', 'l2-acciones');
+      const volver = el('a', 'l2-btn l2-btn-outline');
+      volver.href = 'Indexlogin.html';
+      volver.append(icono('ph-arrow-left'), 'Volver a trámites');
+      const calendario = el('button', 'l2-btn l2-btn-primary');
+      calendario.type = 'button';
+      calendario.append(icono('ph-calendar-plus'), 'Agregar a mi calendario');
+      calendario.addEventListener('click', () => descargarCalendario(tramite, CITA, cita));
+      acciones.append(volver, calendario);
+
+      mostrarFinal('Cita agendada', 'Llega a la sede el día y a la hora que elegiste',
+        aviso, detalle, nota, el('p', 'l2-simulado', 'El archivo de calendario incluye un recordatorio un día antes. Vista del nuevo diseño: la cita no se registró en la institución'), acciones);
+    }
+
+    PasarelaSerfinsa.montar(pasarela, { alPagar: pagarEnPasarela, alCerrar: () => document.getElementById('pasarela-cerrar').click() });
+    document.getElementById('pasarela-pagar').addEventListener('click', pagarEnPasarela);
+    document.getElementById('pasarela-cancelar').addEventListener('click', () => pasarela.close());
+    document.getElementById('pasarela-continuar').addEventListener('click', continuarDesdePasarela);
+    // Ya pagado, cerrar es lo mismo que continuar
+    document.getElementById('pasarela-cerrar').addEventListener('click', () => (estadoPasarela === 'aprobado' ? continuarDesdePasarela() : pasarela.close()));
+    // Escape: no cierra mientras procesa; ya pagado, continúa
+    pasarela.addEventListener('cancel', e => {
+      if (estadoPasarela === 'tarjeta') return;
+      e.preventDefault();
+      if (estadoPasarela === 'aprobado') continuarDesdePasarela();
+    });
+
+    // Lo que se ve de una respuesta en el resumen
+    function respuestaDe(campo) {
+      if (campo.tipo === 'opciones') {
+        return [...formulario.querySelectorAll(`input[name="${campo.nombre}"]:checked`)]
+          .map(m => campo.opciones.find(o => o.valor === m.value)?.texto).join(', ');
+      }
+      const control = formulario.querySelector(`[name="${campo.nombre}"]`);
+      if (!control) return '';
+      if (campo.tipo === 'lista') return control.value ? control.selectedOptions[0].textContent : '';
+      if (campo.tipo === 'archivo') return control.files[0]?.name || '';
+      return control.value.trim();
+    }
+
+    function filas(datos) {
+      const dl = el('dl', 'l2-filas');
+      datos.forEach(([titulo, valor]) => {
+        const fila = el('div');
+        fila.append(el('dt', '', titulo), el('dd', valor ? '' : 'sin-dato', valor || 'Sin dato'));
+        dl.append(fila);
+      });
+      return dl;
+    }
+
+    // Revisión: lo respondido en cada paso anterior, con "Editar" donde hay algo que la persona llenó.
+    // Las secciones del paso separan sus filas (el nombre de la madre, el del padre…); lo opcional sin llenar no se lista
+    function pintarRevision(destino) {
+      const grupos = pasosQueAplican().filter(i => i < actual && !pasos[i].tipo).map(i => {
+        const campos = pasos[i].campos.filter(c => (c.nombre || c.tipo === 'seccion') && (!c.si || cumple(c.si)));
+        const partes = [{ titulo: '', datos: [] }];
+        campos.forEach(c => {
+          if (c.tipo === 'seccion') { partes.push({ titulo: c.titulo, datos: [] }); return; }
+          const respuesta = respuestaDe(c);
+          if (respuesta || !c.opcional) partes.at(-1).datos.push([c.etiqueta, respuesta]);
+        });
+        const conDatos = partes.filter(p => p.datos.length);
+        if (!conDatos.length) return null;
+        const grupo = el('section', 'l2-revision-grupo');
+        const cabecera = el('div', 'l2-revision-cab');
+        if (!destino.closest('.l2-desp')) cabecera.append(el('h4', '', pasos[i].titulo));
+        if (campos.some(c => c.nombre && !c.soloLectura)) {
+          const editar = el('button', 'l2-editar');
+          editar.type = 'button';
+          editar.setAttribute('aria-label', `Editar ${pasos[i].titulo}`);
+          editar.append(icono('ph-pencil-simple'), 'Editar');
+          editar.addEventListener('click', () => mostrarPaso(i));
+          cabecera.append(editar);
+        }
+        grupo.append(cabecera, ...conDatos.flatMap(p => (p.titulo ? [el('h5', 'l2-revision-sub', p.titulo), filas(p.datos)] : [filas(p.datos)])));
+        return grupo;
+      }).filter(Boolean);
+      destino.replaceChildren(...grupos);
+    }
+
+    // Pago: el trámite, quién lo solicita y el total del catálogo
+    function pintarPago(destino) {
+      const solicitante = ['nombres', 'apellidos'].map(valorDe).join(' ').trim();
+      const datos = [['Trámite', tramite.nombre], ['Institución', tramite.dependencia || tramite.institucion]];
+      if (solicitante) datos.push(['Solicitante', solicitante]);
+      const total = el('div', 'l2-pago-total');
+      total.append(el('span', '', 'Total a pagar'), el('strong', '', totalAPagar()));
+      destino.replaceChildren(filas(datos), total);
+    }
+
+    // Trámite que aún no tiene formulario en el nuevo diseño: la misma card del formulario, con la guía para seguir en el portal
+    function pintarPortal() {
+      const sigla = tramite.institucion.replace(/.*\(([^)]+)\).*/, '$1');
+      const card = el('div', 'l2-form-card');
+      const cabecera = el('div', 'l2-paso-cab');
+      const num = el('span', 'l2-paso-num');
+      num.append(icono('ph-globe'));
+      const titulos = el('div');
+      titulos.append(el('h3', '', 'Este trámite se completa en el portal de la institución'), el('p', '', `Todavía no está en el nuevo diseño de Simple.sv: lo terminas en el portal oficial de ${sigla}`));
+      cabecera.append(num, titulos);
+
+      const guia = el('ol', 'l2-guia');
+      guia.setAttribute('aria-label', 'Cómo seguir');
+      [['Revisa los requisitos', 'Están en la ficha oficial del trámite en Simple.sv'], ['Inicia en el portal oficial', 'Se abre en una pestaña nueva; esta página queda abierta']]
+        .forEach(([titulo, detalle], i) => {
+          const li = el('li');
+          const textos = el('span', 'l2-guia-texto');
+          textos.append(el('strong', '', titulo), el('small', '', detalle));
+          li.append(el('span', 'l2-guia-num', String(i + 1)), textos);
+          guia.append(li);
+        });
+      const nota = crearNota({ estilo: 'aviso', titulo: 'Requisitos', lineas: ['Los requisitos detallados todavía no están cargados en esta página. Revísalos en la ficha oficial antes de empezar'] });
+
+      // Solo enlaces http(s) del catálogo; se abren en otra pestaña
+      const externo = (url, clase, texto, icon) => {
+        if (!/^https?:\/\//i.test(url || '')) return null;
+        const a = el('a', `l2-btn ${clase}`);
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.append(texto, icono(icon));
+        return a;
+      };
+      const acciones = el('div', 'l2-acciones');
+      const volver = el('a', 'l2-btn l2-btn-outline l2-volver');
+      volver.href = 'Indexlogin.html';
+      volver.append(icono('ph-arrow-left'), 'Volver a trámites');
+      acciones.append(volver, ...[
+        externo(tramite.enlace_simple, 'l2-btn-outline', 'Ver ficha en Simple.sv', 'ph-file-text'),
+        externo(tramite.enlace_tramite || tramite.enlace_simple, 'l2-btn-primary', 'Iniciar en el portal', 'ph-arrow-square-out')
+      ].filter(Boolean));
+
+      card.append(cabecera, guia, nota, acciones);
+      formulario.replaceWith(card);
+      document.querySelector('.l2-aviso').hidden = true;
+    }
+
+    // En celular y tablet, "Sobre este trámite" se puede plegar (en escritorio el botón no se muestra)
+    const resumenToggle = document.getElementById('resumen-toggle');
+    function plegarResumen(cerrado) {
+      document.getElementById('resumen').classList.toggle('cerrado', cerrado);
+      resumenToggle.setAttribute('aria-expanded', String(!cerrado));
+      resumenToggle.setAttribute('aria-label', `${cerrado ? 'Ver' : 'Ocultar'} la información del trámite`);
+      resumenToggle.replaceChildren(el('span', '', cerrado ? 'Ver' : 'Ocultar'), icono(cerrado ? 'ph-caret-down' : 'ph-caret-up'));
+    }
+    resumenToggle.addEventListener('click', () => plegarResumen(!document.getElementById('resumen').classList.contains('cerrado')));
+    // En celular entra oculto, para llegar antes al formulario; en tablet y escritorio entra desplegado
+    const esCelular = window.matchMedia('(max-width: 719px)');
+    if (esCelular.matches) plegarResumen(true);
+    esCelular.addEventListener('change', e => { if (e.matches) plegarResumen(true); });
+
+    if (!tramite) {
+      // Trámite inexistente: mensaje claro y salida útil
+      const contenedor = document.getElementById('tramite');
+      contenedor.replaceChildren();
+      const vacio = el('div', 'l2-no-disponible');
+      const volver = el('a', 'l2-btn l2-btn-primary', 'Volver a trámites');
+      volver.href = 'Indexlogin.html';
+      vacio.append(icono('ph-file-dashed'), el('h3', '', 'No encontramos este trámite'), el('p', '', 'Revisa el enlace o elige un trámite del catálogo'), volver);
+      contenedor.append(vacio);
+    } else if (!definicion) {
+      pintarBanner();
+      pintarPortal();
+    } else {
+      pintarBanner();
+      pintarInformacionTramite(definicion.informacion, document.getElementById('lateral'));
+      pintarPasos();
+      actualizarCondicionales();
+      mostrarPaso(0, false);
+
+      formulario.addEventListener('change', e => {
+        if (['sedes', 'dias'].includes(CAMPOS[e.target.name]?.origen)) refrescarHoras();
+        refrescarDependientes(e.target.name);
+        actualizarCondicionales();
+        prellenar();
+        // Una respuesta puede sumar o quitar pasos (por ejemplo, la modalidad)
+        actualizarCabecera();
+        e.target.closest('.con-error')?.classList.remove('con-error');
+      });
+      formulario.addEventListener('input', e => {
+        const caja = e.target.closest('.l2-campo');
+        if (caja) { caja.classList.remove('con-error'); e.target.setAttribute('aria-invalid', 'false'); }
+      });
+      formulario.addEventListener('submit', e => {
+        e.preventDefault();
+        const primero = validar(cajaDe(actual));
+        if (primero) {
+          document.getElementById('listo').classList.remove('visible');
+          primero.focus();
+          return;
+        }
+        // En el pago se abre la pasarela SERFINSA (simulada)
+        if (pasos[actual].tipo === 'pago') { abrirPasarela(); return; }
+        // La cita presencial termina al confirmarla: se paga en la sede
+        if (pasos[actual].fin === 'cita' && CITA) { mostrarCitaAgendada(); return; }
+        const siguiente = pasosQueAplican().find(i => i > actual);
+        if (siguiente === undefined) { mostrarListo(); return; }
+        mostrarPaso(siguiente);
+      });
+      document.getElementById('anterior').addEventListener('click', () => {
+        mostrarPaso(pasosQueAplican().filter(i => i < actual).pop());
+      });
+    }
+
+    /* ===== Menús del encabezado ===== */
+    const notificacionesBoton = document.getElementById('notificaciones-boton');
+    const notificacionesPanel = document.getElementById('notificaciones-panel');
+    const perfilBoton = document.getElementById('perfil-boton');
+    const perfilMenu = document.getElementById('perfil-menu');
+
+    function cerrarMenusEncabezado() {
+      // Si el foco estaba dentro de lo que se cierra, vuelve al botón que lo abrió
+      const foco = document.activeElement;
+      if (perfilMenu.contains(foco)) perfilBoton.focus();
+      else if (notificacionesPanel.contains(foco)) notificacionesBoton.focus();
+      notificacionesPanel.classList.remove('open');
+      perfilMenu.classList.remove('open');
+      notificacionesBoton.setAttribute('aria-expanded', 'false');
+      perfilBoton.setAttribute('aria-expanded', 'false');
+    }
+
+    notificacionesBoton.addEventListener('click', () => {
+      const abierto = notificacionesPanel.classList.toggle('open');
+      perfilMenu.classList.remove('open');
+      notificacionesBoton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+      perfilBoton.setAttribute('aria-expanded', 'false');
+    });
+
+    perfilBoton.addEventListener('click', () => {
+      const abierto = perfilMenu.classList.toggle('open');
+      notificacionesPanel.classList.remove('open');
+      perfilBoton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+      notificacionesBoton.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarMenusEncabezado(); });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.l2-notifications, .l2-profile-trigger')) cerrarMenusEncabezado();
+    });
+  </script>
+</body>
+</html>

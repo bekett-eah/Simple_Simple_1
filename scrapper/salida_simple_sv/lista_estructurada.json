@@ -1,0 +1,668 @@
+{
+  "Ministerio de Justicia y Seguridad Pública (MJSP)": [
+    {
+      "titulo": "Constancia de antecedentes penales",
+      "slug": "emision-de-certificacion-de-antecedentes-penales",
+      "id": 8
+    }
+  ],
+  "Policía Nacional Civil de El Salvador (PNC)": [
+    {
+      "titulo": "Constancia de antecedentes policiales",
+      "slug": "constancia-de-antecedentes-policiales",
+      "id": 34
+    }
+  ],
+  "Registro Nacional de las Personas Naturales (RNPN)": [
+    {
+      "titulo": "Certificación de partidas",
+      "slug": "certificacion-de-partidas",
+      "id": 1034
+    },
+    {
+      "titulo": "Certificación de registro de DUI y no DUI",
+      "slug": "certificacion-de-registro-de-dui-y-no-dui",
+      "id": 1030
+    },
+    {
+      "titulo": "Constancia de homónimo",
+      "slug": "constancia-de-homonimo",
+      "id": 1031
+    }
+  ],
+  "Ministerio de Educación, Ciencia y Tecnología (MINEDUCYT)": [
+    {
+      "titulo": "Certificación de registro de título de educación media",
+      "slug": "certificacion-de-registro-de-titulo-de-educacion-media",
+      "id": 738
+    },
+    {
+      "titulo": "Certificación de registro de notas de educación básica y media",
+      "slug": "certificacion-de-registro-de-notas-de-educacion-basica-y-media",
+      "id": 919
+    },
+    {
+      "titulo": "Boleta de resultados PAES / AVANZO",
+      "slug": "boleta-de-resultados-paes-avanzo",
+      "id": 1129
+    },
+    {
+      "titulo": "Auténtica de documentos académicos",
+      "slug": "autentica-de-documentos-academicos",
+      "id": 1093
+    },
+    {
+      "titulo": "Ampliación de servicios educativos",
+      "slug": "ampliacion-de-servicios-educativos-sector-privado",
+      "id": 629
+    },
+    {
+      "titulo": "Prospectos escolares",
+      "slug": "prospectos-escolares",
+      "id": 921
+    },
+    {
+      "titulo": "Cambio de domicilio centros educativos",
+      "slug": "cambio-de-domicilio-centros-educativos-oficiales",
+      "id": 638
+    },
+    {
+      "titulo": "Creación, nominación y funcionamiento de centros educativos",
+      "slug": "creacion-nominacion-y-funcionamiento-de-centros-educativos",
+      "id": 920
+    }
+  ],
+  "Instituto Salvadoreño del Seguro Social (ISSS)": [
+    {
+      "titulo": "Solvencia patronal de régimen salud",
+      "slug": "solvencias-y-constancias-patronales",
+      "id": 999
+    },
+    {
+      "titulo": "Constancia de no inscrito para persona natural o jurídica como patrono en el ISSS",
+      "slug": "solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss",
+      "id": 1114
+    }
+  ],
+  "Viceministerio de Transporte (VMT)": [
+    {
+      "titulo": "Registro de transportista de carga nacional e internacional",
+      "slug": "registro-de-transportista-de-carga-nacional-e-internacional",
+      "id": 1084
+    },
+    {
+      "titulo": "Modificación física de vehículo de transporte de carga",
+      "slug": "modificacion-fisica-de-vehiculo-de-transporte-de-carga",
+      "id": 1094
+    },
+    {
+      "titulo": "Autorización de realización de emisión de gases",
+      "slug": "autorizacion-de-realizacion-de-emision-de-gases",
+      "id": 1088
+    },
+    {
+      "titulo": "Constancia de capacidad",
+      "slug": "constancia-de-capacidad",
+      "id": 1096
+    },
+    {
+      "titulo": "Permiso especial para el transporte de objetos que sobrepasen el peso y/o dimensiones establecidas en la ley nacional e internacional, (autorización de transporte de cargas mayores a las permitidas)",
+      "slug": "permiso-especial-para-el-transporte-de-objetos-que-sobrepasen-el-peso-yo-dimensiones-establecidas-en-la-ley-nacional-e-internacional-autorizacion-de-transporte-de-cargas-mayores-a-las-permitidas",
+      "id": 1086
+    },
+    {
+      "titulo": "Permiso especial para el transporte de materiales peligrosos nacional e internacional",
+      "slug": "permiso-especial-para-el-transporte-de-materiales-peligrosos-nacional-e-internacional",
+      "id": 1085
+    },
+    {
+      "titulo": "Apostillado de certificación de licencia de conducir",
+      "slug": "apostillado-de-certificacion-de-licencia-de-conducir",
+      "id": 1102
+    },
+    {
+      "titulo": "Apostillado de constancia de récord de licencia de conducir",
+      "slug": "apostillado-de-constancia-de-record-de-licencia-de-conducir",
+      "id": 1103
+    },
+    {
+      "titulo": "Autorización de fianza moral",
+      "slug": "autorizacion-de-fianza-moral",
+      "id": 378
+    },
+    {
+      "titulo": "Constancia de modificación a la capacidad",
+      "slug": "constancia-de-modificacion-a-la-capacidad",
+      "id": 1097
+    },
+    {
+      "titulo": "Constancia para la obtención de la exención de IVA",
+      "slug": "constancia-para-la-obtencion-de-la-exencion-de-iva",
+      "id": 1128
+    },
+    {
+      "titulo": "Renovación de registro de transportistas de carga nacional e internacional",
+      "slug": "renovacion-de-registro-de-transportistas-de-carga-nacional-e-internacional",
+      "id": 1130
+    },
+    {
+      "titulo": "Certificación de tarifario",
+      "slug": "certificacion-de-tarifario",
+      "id": 1127
+    }
+  ],
+  "Procuraduría General de la República (PGR)": [
+    {
+      "titulo": "Fijación de cuota alimenticia a obligados nacionales y residentes en el extranjero",
+      "slug": "solicitud-de-fijacion-cuota-alimenticia",
+      "id": 1053
+    },
+    {
+      "titulo": "Solvencia de pensión alimenticia de la PGR",
+      "slug": "solicitud-de-solvencia-de-pension-alimenticia-de-la-pgr",
+      "id": 1101
+    }
+  ],
+  "Administración Nacional de Acueductos y Alcantarillados (ANDA)": [
+    {
+      "titulo": "Constancia de no servicio de agua potable y/o alcantarillado",
+      "slug": "constancia-de-no-servicio-de-agua-potable-yo-alcantarillado",
+      "id": 1
+    },
+    {
+      "titulo": "Cambio de nombre del titular de la cuenta",
+      "slug": "solicitud-de-tramites-de-cambio-de-nombre-del-titular-de-la-cuenta",
+      "id": 881
+    },
+    {
+      "titulo": "Factibilidad para una vivienda",
+      "slug": "solicitud-de-tramites-de-factibilidad-para-una-vivienda",
+      "id": 880
+    },
+    {
+      "titulo": "Solvencia de cuenta de agua potable y/o alcantarillados",
+      "slug": "solvencia-de-cuenta-de-agua-potable-yo-alcantarillados",
+      "id": 2
+    }
+  ],
+  "Instituto Salvadoreño de Rehabilitación Integral (ISRI)": [
+    {
+      "titulo": "Constancia médica",
+      "slug": "solicitud-de-constancia-medica",
+      "id": 1008
+    },
+    {
+      "titulo": "Constancia de horarios de atención en los servicios de rehabilitación",
+      "slug": "solicitud-de-constancia-horarios-de-atencion-en-los-servicios-de-rehabilitacion",
+      "id": 1010
+    },
+    {
+      "titulo": "Otorgamiento de cita médica",
+      "slug": "otorgamiento-de-cita-medica",
+      "id": 1092
+    }
+  ],
+  "Comisión Ejecutiva Portuaria Autónoma (CEPA)": [
+    {
+      "titulo": "Servicio VIP en el Aeropuerto Internacional de El Salvador",
+      "slug": "solicitud-del-servicio-vip-en-el-aeropuerto-internacional-de-el-salvador",
+      "id": 1047
+    },
+    {
+      "titulo": "Servicio extraordinario en el Puerto de Acajutla",
+      "slug": "solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla",
+      "id": 1072
+    },
+    {
+      "titulo": "Solicitud de carnet de identificación para el ingreso a las instalaciones de las empresas de CEPA",
+      "slug": "solicitud-de-carnet-de-identificacion-para-el-ingreso-a-las-instalaciones-de-las-empresas-de-cepa",
+      "id": 1132
+    }
+  ],
+  "Fondo Social para la vivienda (FSV)": [
+    {
+      "titulo": "Consulta y pago de préstamos FSV",
+      "slug": "consulta-y-pago-de-prestamos-fsv",
+      "id": 1087
+    }
+  ],
+  "Fondo Solidario para la Familia Microempresaria (FOSOFAMILIA)": [
+    {
+      "titulo": "Solicitud de crédito",
+      "slug": "solicitud-de-credito",
+      "id": 1112
+    }
+  ],
+  "Consejo Nacional de la Primera Infancia, Niñez y Adolescencia (CONAPINA)": [
+    {
+      "titulo": "Autorización y Renovación para el Funcionamiento de Centros de Atención a la Primera Infancia (CАРІ)",
+      "slug": "autorizacion-de-centros-de-atencion-a-primera-infancia",
+      "id": 1046
+    },
+    {
+      "titulo": "Acreditación de programas y registro de miembros de la REA",
+      "slug": "acreditacion-de-programas-y-registro-de-miembros-de-la-rea",
+      "id": 1073
+    },
+    {
+      "titulo": "Registro de proyectos de atención de primera infancia, niñez y adolescencia",
+      "slug": "registro-de-proyectos-de-atencion-de-primera-infancia-ninez-y-adolescencia",
+      "id": 1074
+    }
+  ],
+  "Escuela Nacional de Agricultura (ENA)": [
+    {
+      "titulo": "Constancia de estudios",
+      "slug": "solicitud-de-constancias-de-estudios",
+      "id": 1071
+    },
+    {
+      "titulo": "Certificación de notas para graduados de ENA",
+      "slug": "emision-de-certificacion-de-notas-para-graduados-de-ena",
+      "id": 1014
+    },
+    {
+      "titulo": "Reingreso para la carrera de agrónomo en grado técnico",
+      "slug": "solicitud-de-reingreso-para-la-carrera-de-agronomo-en-grado-tecnico",
+      "id": 1099
+    }
+  ],
+  "Ministerio de Agricultura y Ganadería (MAG)": [
+    {
+      "titulo": "Matrícula de fierro para herrar ganado",
+      "slug": "solicitud-de-matricula-de-fierro-para-herrar-ganado",
+      "id": 1077
+    },
+    {
+      "titulo": "Nota de exoneración de visado de importación de productos agrícola",
+      "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-agricola",
+      "id": 1006
+    },
+    {
+      "titulo": "Nota de exoneración de visado de importación de productos utilizados en alimentación animal",
+      "slug": "nota-de-exoneracion-de-visado-de-importacion-de-productos-veterinarios",
+      "id": 1007
+    },
+    {
+      "titulo": "Notificación de asamblea general",
+      "slug": "notificacion-de-asamblea-general",
+      "id": 1009
+    }
+  ],
+  "Alcaldía Santa Ana Oeste": [
+    {
+      "titulo": "Solvencia municipal y pago de impuestos municipales de los distritos de alcaldía Santa Ana Oeste",
+      "slug": "solicitud-de-solvencia-municipal-y-pago-de-impuestos-municipales-de-los-distritos-de-alcaldia-santa-ana-oeste",
+      "id": 1109
+    }
+  ],
+  "Instituto de Acceso a la Información Pública (IAIP)": [
+    {
+      "titulo": "Solvencia IAIP",
+      "slug": "solvencia-iaip",
+      "id": 1104
+    }
+  ],
+  "Autoridad de Aviación Civil (AAC)": [
+    {
+      "titulo": "Extensión de permiso de aprendiz técnico en mantenimiento de aeronaves",
+      "slug": "extension-de-permiso-de-aprendiz-tecnico-en-mantenimiento-de-aeronaves",
+      "id": 1003
+    },
+    {
+      "titulo": "Renovación de permiso de aprendiz de técnico de mantenimiento de aeronaves TMA",
+      "slug": "renovacion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma",
+      "id": 1040
+    },
+    {
+      "titulo": "Certificación extractada de documentos anotados/inscritos",
+      "slug": "solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos",
+      "id": 1062
+    },
+    {
+      "titulo": "Renovación de licencia de técnico de mantenimiento de aeronaves TMA",
+      "slug": "renovacion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma",
+      "id": 1078
+    },
+    {
+      "titulo": "Certificación literal de documentos anotados/inscritos",
+      "slug": "solicitud-de-certificacion-literal-de-documentos-anotadosinscritos",
+      "id": 1064
+    },
+    {
+      "titulo": "Extensión de permiso de piloto estudiante",
+      "slug": "extension-de-permiso-de-piloto-estudiante",
+      "id": 1011
+    },
+    {
+      "titulo": "Renovación de licencia piloto privado avión",
+      "slug": "renovacion-de-licencia-piloto-privado-avion",
+      "id": 1037
+    },
+    {
+      "titulo": "Anotación/inscripción de tarifas",
+      "slug": "solicitud-de-anotacioninscripcion-de-tarifas",
+      "id": 1060
+    },
+    {
+      "titulo": "Certificación de expedientes de aeronaves",
+      "slug": "solicitud-de-certificacion-literal-de-documentos-anotadosinscritos",
+      "id": 1063
+    },
+    {
+      "titulo": "Renovación de permiso de piloto estudiante",
+      "slug": "renovacion-de-permiso-de-piloto-estudiante",
+      "id": 1038
+    },
+    {
+      "titulo": "Anotación/inscripción de fianza",
+      "slug": "solicitud-de-anotacioninscripcion-de-fianza",
+      "id": 1058
+    },
+    {
+      "titulo": "Reposición de licencia técnico mantenimiento de aeronaves TMA",
+      "slug": "reposicion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma",
+      "id": 1043
+    },
+    {
+      "titulo": "Reposición de permiso de aprendiz de técnico de mantenimiento de aeronaves TMA",
+      "slug": "reposicion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma",
+      "id": 1044
+    },
+    {
+      "titulo": "Reposición de licencia piloto privado avión",
+      "slug": "reposicion-de-licencia-piloto-privado-avion",
+      "id": 1041
+    },
+    {
+      "titulo": "Reposición de permiso de piloto estudiante",
+      "slug": "reposicion-de-permiso-de-piloto-estudiante",
+      "id": 1042
+    },
+    {
+      "titulo": "Anotación/inscripción de pólizas de seguro",
+      "slug": "solicitud-de-anotacioninscripcion-de-polizas-de-seguro",
+      "id": 1061
+    },
+    {
+      "titulo": "Modificación o actualización de especificaciones y limitaciones de operación (Opspecs)",
+      "slug": "modificacion-o-actualizacion-de-opspecs",
+      "id": 1143
+    }
+  ],
+  "Ministerio de Vivienda (MINVIVIENDA)": [
+    {
+      "titulo": "Certificado de inscripción para el registro del desarrollador parcelario",
+      "slug": "certificado-inscripcion-de-registro-de-desarrollador-parcelario",
+      "id": 1012
+    }
+  ],
+  "Ministerio de la Defensa Nacional (MDN)": [
+    {
+      "titulo": "Homónimos para registros de armas de fuego",
+      "slug": "constancia-de-homonimos-para-registros-de-armas-de-fuego",
+      "id": 1004
+    },
+    {
+      "titulo": "Solicitud para la Devolución de Armas de Fuego de Persona Natural",
+      "slug": "solicitud-para-la-devolucion-de-armas-de-fuego-de-persona-natural",
+      "id": 1133
+    }
+  ],
+  "Dirección de Imprenta Nacional (DIN)": [
+    {
+      "titulo": "Solicitud de publicación en Diario Oficial",
+      "slug": "solicitud-de-publicacion-en-el-diario-oficial",
+      "id": 1005
+    },
+    {
+      "titulo": "Solicitud de Constancia de Publicación en el Diario Oficial",
+      "slug": "solicitud-de-constancia-de-publicacion-en-el-diario-oficial",
+      "id": 1107
+    }
+  ],
+  "Autoridad Marítima Portuaria (AMP)": [
+    {
+      "titulo": "Autorización y registro de agentes marítimos",
+      "slug": "autorizacion-y-registro-de-agentes-maritimos",
+      "id": 1000
+    }
+  ],
+  "Instituto Salvadoreño de Bienestar Magisterial (ISBM)": [
+    {
+      "titulo": "Reembolsos por gastos médico-hospitalarios",
+      "slug": "tramite-de-reembolsos-por-gastos-medicos-hospitalarios",
+      "id": 1113
+    },
+    {
+      "titulo": "Ayuda económica por la adquisición de anteojos",
+      "slug": "ayuda-economica-por-la-adquisicion-de-anteojos",
+      "id": 1131
+    },
+    {
+      "titulo": "Beneficio de ayuda económica para gastos funerarios",
+      "slug": "beneficio-de-ayuda-economica-para-gastos-funerarios",
+      "id": 1134
+    }
+  ],
+  "Corporación Salvadoreña de Inversiones (CORSAIN)": [
+    {
+      "titulo": "Estado de cuenta",
+      "slug": "solicitud-de-estado-de-cuenta",
+      "id": 1002
+    }
+  ],
+  "Instituto Nacional de los Deportes de El Salvador (INDES)": [
+    {
+      "titulo": "Certificación de inscripción de federaciones y asociaciones deportivas",
+      "slug": "certificacion-de-inscripcion-de-federaciones-y-asociaciones-deportivas",
+      "id": 1110
+    }
+  ],
+  "Ministerio de Medio Ambiente y Recursos Naturales (MARN)": [
+    {
+      "titulo": "Información LIDAR para la investigación científica y el desarrollo experimental para los sectores de educación superior y gobierno",
+      "slug": "productos-lidar-tecnica-de-teledeteccion-optica-que-utiliza-la-luz-de-laser-para-obtener-una-muestra-densa-de-la-superficie-de-la-tierra-produciendo-mediciones-exactas-de-x-y-y-z",
+      "id": 922
+    },
+    {
+      "titulo": "Permiso de incubación y recolección de huevos de tortuga marina",
+      "slug": "permiso-para-la-incubacion-de-huevos-de-tortugas-marinas-en-condiciones-controladas",
+      "id": 313
+    },
+    {
+      "titulo": "Información gratuita de fenómenos naturales",
+      "slug": "solicitud-de-informacion-gratuita-de-fenomenos-naturales",
+      "id": 1051
+    },
+    {
+      "titulo": "Certificación técnica para fines judiciales y de seguros",
+      "slug": "certificacion-tecnica-para-fines-judiciales-y-de-seguros",
+      "id": 1125
+    }
+  ],
+  "Fondo Nacional de Vivienda Popular (FONAVIPO)": [
+    {
+      "titulo": "Estado de cuenta del Fondo Especial de Contribuciones (FEC)",
+      "slug": "solicitud-de-estado-de-cuenta",
+      "id": 1091
+    }
+  ],
+  "Dirección General de Energía, Hidrocarburos y Minas (DGEHM)": [
+    {
+      "titulo": "Autorización para comercializar reguladores de baja presión para GLP",
+      "slug": "comercializacion-local-de-reguladores-de-baja-presion-para-glp",
+      "id": 1069
+    },
+    {
+      "titulo": "Autorización para comercializar cilindros portátiles para envasado de GLP",
+      "slug": "utilizar-en-el-mercado-nacional-cilindros-portatiles-para-envasado-de-glp",
+      "id": 1066
+    },
+    {
+      "titulo": "Autorización para exportar cilindros portátiles para envasado de GLP",
+      "slug": "exportar-cilindros-portatiles-para-envasado-de-glp",
+      "id": 1056
+    },
+    {
+      "titulo": "Autorización para importar reguladores de baja presión para GLP",
+      "slug": "importar-reguladores-de-baja-presion-para-glp-juridico",
+      "id": 1065
+    },
+    {
+      "titulo": "Autorización para importación de válvulas para cilindros de GLP",
+      "slug": "importacion-de-valvulas-para-cilindros-portatiles-para-glp",
+      "id": 1055
+    },
+    {
+      "titulo": "Autorización para importar cilindros portátiles para envasado de GLP",
+      "slug": "importar-cilindros-portatiles-para-envasado-de-glp",
+      "id": 1050
+    },
+    {
+      "titulo": "Autorización para exportar GLP a granel",
+      "slug": "exportar-glp-a-granel",
+      "id": 1067
+    },
+    {
+      "titulo": "Autorización para reexportar GLP a granel",
+      "slug": "reexportar-glp-a-granel",
+      "id": 1068
+    },
+    {
+      "titulo": "Autorización para importación de accesorios para cilindros portátiles para GLP",
+      "slug": "importacion-de-accesorios-para-cilindros-portatiles-para-glp",
+      "id": 1057
+    },
+    {
+      "titulo": "Transferencia de Funcionamiento de Estación de Servicio",
+      "slug": "transferencia-de-funcionamiento-de-estacion-de-servicio",
+      "id": 1135
+    },
+    {
+      "titulo": "Transferencia de Funcionamiento de Tanque para Consumo Privado Temporal",
+      "slug": "transferencia-de-funcionamiento-de-tanque-para-consumo-privado-temporal",
+      "id": 1142
+    },
+    {
+      "titulo": "Transferencia de Funcionamiento de Planta de Envasado de GLP",
+      "slug": "transferencia-de-funcionamiento-de-planta-de-envasado-de-glp",
+      "id": 1137
+    },
+    {
+      "titulo": "Transferencia de Funcionamiento de Depósito de Aprovisionamiento",
+      "slug": "transferencia-de-funcionamiento-de-deposito-de-aprovisionamiento",
+      "id": 1138
+    },
+    {
+      "titulo": "Transferencia de funcionamiento de fábrica de cilindros para envasado",
+      "slug": "resolucion-emitida-por-la-direccion-general-de-energia-hidrocarburos-y-minas-transfiriendo-la-autorizacion-de-funcionamiento-de-un-operador-a-otro",
+      "id": 1136
+    },
+    {
+      "titulo": "Transferencia de funcionamiento de taller para instalación de GLP vehicular",
+      "slug": "transferencia-de-funcionamiento-de-taller-para-instalacion-de-glp-vehicular",
+      "id": 1140
+    },
+    {
+      "titulo": "Transferencia de funcionamiento de taller de reparación y mantenimiento de cilindros de GLP",
+      "slug": "transferencia-de-funcionamiento-de-taller-de-reparacion-y-mantenimiento-de-cilindros-para-glp",
+      "id": 1139
+    },
+    {
+      "titulo": "Transferencia de Funcionamiento de Tanque para Consumo Privado",
+      "slug": "transferencia-de-funcionamiento-de-tanque-para-consumo-privado",
+      "id": 1141
+    }
+  ],
+  "Instituto Salvadoreño de Pensiones (ISP)": [
+    {
+      "titulo": "Constancia de pensionado",
+      "slug": "constancias-de-pensionados",
+      "id": 1119
+    },
+    {
+      "titulo": "Constancia de número de afiliación",
+      "slug": "constancia-de-numero-de-afiliacion",
+      "id": 1120
+    },
+    {
+      "titulo": "Constancia de cotizante no pensionado",
+      "slug": "solicitud-de-constancias-de-cotizante-no-pensionado",
+      "id": 1118
+    },
+    {
+      "titulo": "Constancia de beneficiario inscrito",
+      "slug": "constancias-de-beneficiarios-inscritos",
+      "id": 1121
+    },
+    {
+      "titulo": "Constancia de afiliación y beneficio",
+      "slug": "constancia-de-afiliacion-y-beneficio",
+      "id": 1117
+    }
+  ],
+  "Tribunal de Ética Gubernamental (TEG)": [
+    {
+      "titulo": "Constancia del Tribunal de Ética Gubernamental",
+      "slug": "constancia-del-tribunal-de-etica-gubernamental-sobre-existencia-o-no-de-sanciones-procedimientos-activos-o-fenecidos-por-infracciones-a-la-ley-de-etica-gubernamental",
+      "id": 1126
+    }
+  ],
+  "Fondo para la Atención a Víctimas de Accidentes de Tránsito (FONAT)": [
+    {
+      "titulo": "Ingreso a programas de rehabilitación",
+      "slug": "persona-natural",
+      "id": 1100
+    }
+  ],
+  "Defensoría del Consumidor": [
+    {
+      "titulo": "Constancia de cierre de casos",
+      "slug": "entrega-de-constancia-de-cierre-de-casos",
+      "id": 1105
+    }
+  ],
+  "Dirección General de Migración y Extranjería": [
+    {
+      "titulo": "Constancia de no restricción migratoria",
+      "slug": "constancia-de-no-restriccion",
+      "id": 1111
+    }
+  ],
+  "Caja Mutual de los Empleados del Ministerio de Educación (CME-MINED)": [
+    {
+      "titulo": "Historial de pago de seguros de carácter voluntario",
+      "slug": "historial-de-pago-de-seguros",
+      "id": 1098
+    }
+  ],
+  "Superintendencia de Competencia": [
+    {
+      "titulo": "Capacitación o consulta sobre derecho de competencia",
+      "slug": "solicitud-de-capacitacion-sobre-derecho-de-competencia",
+      "id": 1106
+    }
+  ],
+  "Instituto Administrador de los Beneficios de los Veteranos y Excombatientes (INABVE)": [
+    {
+      "titulo": "Constancia de pensión de veteranos, excombatientes y beneficiarios",
+      "slug": "constancia-de-deposito-de-pension",
+      "id": 1124
+    }
+  ],
+  "Ministerio de Obras Públicas y de Transporte (MOP)": [
+    {
+      "titulo": "Constancia de competencia",
+      "slug": "constancia-de-competencia",
+      "id": 1115
+    }
+  ],
+  "Fondo Salvadoreño para Estudios de Preinversión (FOSEP)": [
+    {
+      "titulo": "Formulario de inscripción registro nacional de consultores",
+      "slug": "formulario-de-inscripcion-registro-nacional-de-consultores",
+      "id": 1122
+    }
+  ]
+}

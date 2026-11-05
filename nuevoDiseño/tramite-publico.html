@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Trámite — Simple.sv</title>
+  <meta name="description" content="Conoce un trámite de Simple.sv antes de iniciar sesión: qué te pedirá, cuánto cuesta y cuánto tarda.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <script src="terminos.js" defer></script>
+
+  <style>
+    /* Trámite sin sesión · Simple.sv. Misma vista que tramite.html (banner, primer paso y resumen), pero el primer paso
+       es solo una vista previa: para llenarlo hay que iniciar sesión, y de ahí se entra directo a tramite.html con los datos de la persona. */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-family); font-size: 16px; line-height: 1.5; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    .l2-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .l2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Botones: un principal por pantalla, tamaño táctil de 44 px o más */
+    .l2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: var(--radius-pill); border: 1.5px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-btn-primary { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-btn-primary:hover { background: var(--color-blue-hover); }
+    .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
+    .l2-btn-outline:hover { background: var(--color-blue-soft); }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Encabezado */
+    .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
+    .l2-header-inner { max-width: none; }
+    .l2-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .l2-logo { display: inline-flex; align-items: center; min-height: 44px; }
+    .l2-logo svg { width: 110px; height: auto; }
+    .l2-nav { display: none; flex: 1; justify-content: center; gap: 28px; }
+    .l2-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .l2-nav a:hover { color: var(--color-blue-primary); }
+    .l2-header-actions { display: flex; gap: 12px; align-items: center; }
+    .l2-login { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--border-active); border-radius: var(--radius-pill); background: #FFFFFF; color: var(--color-blue-primary); font-weight: 700; font-size: 15px; text-decoration: none; white-space: nowrap; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-login:hover { background: var(--color-blue-soft); border-color: var(--color-blue-primary); }
+    .l2-login-texto { display: none; }
+
+    /* Catálogo */
+    .l2-section { padding: 56px 0 8px; }
+    .l2-section h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
+    .l2-section > .l2-wrap > p { color: var(--text-secondary); margin: 0 0 24px; }
+    .l2-catalog-intro {
+      position: relative; isolation: isolate; overflow: hidden;
+      width: 100vw; margin: 0 0 24px calc(50% - 50vw); padding: 26px max(28px, calc((100vw - 1168px) / 2));
+      border-radius: var(--radius-card); background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-deep) 65%, var(--color-blue-primary) 100%);
+      color: #FFFFFF; box-shadow: var(--shadow-card);
+    }
+    /* El catálogo (banner, pestañas y tarjetas) ocupa siempre el 97% del ancho de la pantalla */
+    #tramites > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-catalog-intro { width: 100%; margin-left: 0; margin-right: 0; padding-inline: max(28px, 3vw); }
+    .l2-catalog-intro h1 { font-size: 1.5em; position: relative; z-index: 1; margin: 0 0 8px; color: #FFFFFF; text-shadow: 0 1px 14px rgba(10, 42, 140, 0.55); }
+    .l2-catalog-intro p { position: relative; z-index: 1; margin: 0; max-width: 34ch; color: rgba(255, 255, 255, 0.86); text-shadow: 0 1px 12px rgba(10, 42, 140, 0.55); }
+
+    /* ===== Animación de líneas del banner de Trámites =====
+       Fondo vivo inspirado en Aura/n8n: líneas que fluyen y respiran,
+       un rayo que recorre la curva principal y nodos que laten. */
+    .l2-catalog-intro {
+      --sky: #9FD8FF;
+      --speed-flow: 18s; --speed-breath: 7.5s; --speed-node: 4.5s;
+      --speed-bolt: 10s; --speed-glow: 2.4s;
+      --line-opacity-min: 0.25; --line-opacity-max: 0.6; --line-opacity-static: 0.45;
+      --node-halo: 0.35; --node-halo-hover: 0.85; --node-scale: 1.15;
+      --decor-opacity: 0.5; --icon-opacity: 0.14; --hover-time: 600ms;
+    }
+    .l2-fondo-lineas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+    .l2-linea {
+      fill: none; stroke-width: 1.6; stroke-linecap: round;
+      stroke-dasharray: var(--dash); opacity: var(--line-opacity-min);
+      animation:
+        l2-flujo   calc(var(--speed-flow)   * var(--flow-m))   linear                      infinite,
+        l2-respira calc(var(--speed-breath) * var(--breath-m)) cubic-bezier(.37, 0, .63, 1) infinite;
+      animation-delay: var(--d), var(--d);
+    }
+    @keyframes l2-flujo { from { stroke-dashoffset: 0; } to { stroke-dashoffset: calc(var(--period) * -1); } }
+    @keyframes l2-respira { 0%, 100% { opacity: var(--line-opacity-min); } 50% { opacity: var(--line-opacity-max); } }
+    .l2-rayo { fill: none; stroke-linecap: round; stroke-dasharray: 60 2000; stroke-dashoffset: 60; opacity: 0; animation: l2-rayo-mov var(--speed-bolt) infinite; }
+    .l2-rayo-halo   { stroke: var(--sky); stroke-width: 12; opacity: 0; animation: l2-rayo-mov var(--speed-bolt) infinite, l2-brillo var(--speed-glow) ease-in-out infinite; }
+    .l2-rayo-brillo { stroke: var(--sky); stroke-width: 5; }
+    .l2-rayo-nucleo { stroke: #FFFFFF; stroke-width: 1.8; }
+    @keyframes l2-rayo-mov {
+      0%   { stroke-dashoffset: 60;    opacity: 0; animation-timing-function: ease-out; }
+      15%  { stroke-dashoffset: 40;    opacity: 1; animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+      36%  { stroke-dashoffset: -470;  opacity: 1; }
+      56%  { stroke-dashoffset: -470;  opacity: 1; animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+      90%  { stroke-dashoffset: -1000; opacity: 1; }
+      98%  { stroke-dashoffset: -1020; opacity: 0; }
+      100% { stroke-dashoffset: 60;    opacity: 0; }
+    }
+    @keyframes l2-brillo { 0%, 100% { stroke-width: 9; } 50% { stroke-width: 15; } }
+    .l2-nodo { transform-box: fill-box; transform-origin: center; animation: l2-pulso var(--speed-node) ease-in-out infinite; }
+    .l2-nodo-halo { opacity: var(--node-halo); transition: opacity var(--hover-time) ease; }
+    .l2-nodo-nucleo { fill: #FFFFFF; }
+    @keyframes l2-pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(var(--node-scale)); } }
+    .l2-catalog-intro:hover .l2-nodo-halo { opacity: var(--node-halo-hover); }
+    .l2-catalog-intro.l2-en-pausa .l2-linea,
+    .l2-catalog-intro.l2-en-pausa .l2-rayo,
+    .l2-catalog-intro.l2-en-pausa .l2-nodo { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-linea { animation: none; stroke-dasharray: none; opacity: var(--line-opacity-static); }
+      .l2-rayo, .l2-rayo-halo { display: none; }
+      .l2-nodo { animation: none; }
+      .l2-nodo-halo { transition: none; }
+    }
+
+    /* Banner del trámite: institución, nombre y datos clave */
+    .l2-catalog-intro .l2-tramite-inst { position: relative; z-index: 1; max-width: none; display: inline-flex; align-items: center; gap: 8px; margin: 0 0 10px; color: rgba(255, 255, 255, 0.86); font-size: 14px; font-weight: 700; }
+    .l2-catalog-intro h1 { max-width: 22ch; }
+    .l2-datos { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
+    .l2-datos li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: var(--radius-pill); background: rgba(255, 255, 255, 0.12); color: #FFFFFF; font-size: 14px; font-weight: 700; }
+
+    /* Formulario + resumen lateral */
+    .l2-tramite { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+    .l2-form-card, .l2-resumen { min-width: 0; }
+    .l2-form-card { padding: 24px; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-paso-cab { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; margin-bottom: 8px; border-bottom: 1px solid var(--border-subtle); }
+    .l2-paso-num { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 48px; height: 48px; border-radius: 16px; background: var(--color-blue-primary); color: #FFFFFF; font-size: 15px; font-weight: 800; box-shadow: 0 8px 20px rgba(0, 102, 255, 0.25); }
+    .l2-paso-cab h2, .l2-paso-cab h3 { margin: 0; color: var(--color-blue-primary); font-size: 22px; font-weight: 800; line-height: 1.2; }
+    .l2-paso-cab p { margin: 2px 0 0; color: var(--text-secondary); font-size: 15px; }
+    .l2-btn i { font-size: 18px; }
+
+    /* Resumen del trámite */
+    /* Columna de al lado: "Sobre este trámite" y, debajo, el desplegable de requisitos, detalles y leyes */
+    .l2-lateral { display: grid; gap: 24px; align-content: start; min-width: 0; }
+    .l2-resumen { padding: 22px; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: var(--bg-subtle); }
+    .l2-resumen h3 { margin: 0 0 6px; color: var(--color-blue-primary); font-size: 17px; font-weight: 800; }
+    .l2-resumen > p { margin: 0; color: var(--text-secondary); font-size: 14px; text-align: justify; }
+    .l2-resumen h3 { display: flex; align-items: center; gap: 12px; }
+    .l2-resumen-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-resumen dl { display: grid; gap: 14px; margin: 18px 0 0; }
+    .l2-resumen dl > div { display: flex; align-items: flex-start; gap: 12px; }
+    .l2-resumen dl i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-resumen dt { color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+    .l2-resumen dd { margin: 0; color: var(--text-primary); font-size: 15px; font-weight: 700; }
+
+    @media (min-width: 1000px) {
+      .l2-tramite { grid-template-columns: minmax(0, 1fr) 340px; }
+      .l2-lateral { position: sticky; top: 92px; }
+      /* Con el desplegable abierto la columna puede ser más alta que la pantalla: deja de acompañar el scroll */
+      .l2-lateral:has(.l2-info[open]) { position: static; }
+      .l2-form-card { padding: 32px; }
+    }
+
+    .l2-footer { margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 14px; }
+    /* El pie ocupa el mismo ancho que el contenido, para que sus enlaces queden a la izquierda, bajo las tarjetas */
+    .l2-footer > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-footer-enlaces { display: flex; flex-wrap: wrap; gap: 4px 22px; }
+    .l2-footer-enlaces a, .l2-footer-enlaces button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .l2-footer-enlaces a:hover, .l2-footer-enlaces button:hover { text-decoration: underline; }
+    .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+
+    @media (min-width: 720px) { .l2-logo svg { width: 132px; } }
+    @media (min-width: 1000px) { .l2-nav { display: flex; } }
+    @media (max-width: 560px) {
+      .l2-profile-chevron { display: none; }
+      .l2-profile-trigger > button { padding-right: 3px; }
+    }
+
+    .l2-seccion { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--border-subtle); color: var(--color-blue-primary); font-size: 18px; font-weight: 800; }
+    .l2-nota { display: flex; gap: 14px; margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: var(--color-blue-soft); color: var(--text-secondary); font-size: 15px; line-height: 1.55; }
+    .l2-nota > i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 24px; }
+    .l2-nota-aviso { border: 1.5px solid #FCD34D; background: var(--color-amber-soft); }
+    .l2-nota-aviso > i { color: var(--color-amber); }
+    .l2-nota-requisitos { display: block; padding: 20px 22px; border: 1px solid var(--border-subtle); background: var(--bg-subtle); }
+    .l2-nota-requisitos > i { display: none; }
+    .l2-nota-cuerpo { min-width: 0; }
+    .l2-nota-cuerpo strong.l2-nota-titulo { display: block; margin-bottom: 4px; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-nota-requisitos strong.l2-nota-titulo { font-size: 18px; }
+    .l2-nota-cuerpo p, .l2-nota-cuerpo ul { margin: 0 0 8px; }
+    .l2-nota-cuerpo p:last-child, .l2-nota-cuerpo ul:last-child { margin-bottom: 0; }
+    .l2-nota-cuerpo ul { padding-left: 20px; }
+    .l2-nota-cuerpo li { margin-bottom: 4px; }
+    .l2-nota-cuerpo li::marker { color: var(--color-blue-primary); }
+    .l2-nota-cuerpo h4 { margin: 18px 0 8px; color: var(--color-blue-sapphire); font-size: 14px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .l2-nota-requisitos .l2-nota-cuerpo { max-height: min(520px, 70vh); overflow-y: auto; padding-right: 8px; scrollbar-width: thin; scrollbar-color: #64748B transparent; }
+    .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar { width: 8px; }
+    .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar-thumb { border-radius: 8px; background: #64748B; }
+    .l2-nota-requisitos .l2-nota-cuerpo:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 4px; }
+    .l2-no-disponible { padding: 40px 24px; border: 1.5px dashed var(--border-subtle); border-radius: var(--radius-card); text-align: center; color: var(--text-secondary); }
+    .l2-no-disponible i { font-size: 40px; color: var(--border-active); }
+    .l2-no-disponible .l2-btn { margin: 14px 6px 0; }
+    .l2-no-disponible h3 { margin: 10px 0 6px; color: var(--color-blue-primary); font-size: 20px; }
+    .l2-no-disponible p { margin: 0 0 18px; }
+
+    /* Vista previa del primer paso: lo que pedirá el trámite, sin poder llenarlo hasta iniciar sesión */
+    .l2-previa-chip { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; padding: 4px 12px; border-radius: var(--radius-pill); background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 13px; font-weight: 800; white-space: nowrap; }
+    .l2-pide { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .l2-pide li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border-subtle); border-radius: 16px; background: var(--bg-subtle); }
+    .l2-pide li > i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 38px; height: 38px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 19px; }
+    .l2-pide-texto { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.35; }
+    .l2-pide-texto strong { color: var(--text-primary); font-size: 15px; font-weight: 700; }
+    .l2-pide-texto small { color: var(--text-muted); font-size: 13px; }
+    .l2-pide-auto { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; padding: 3px 10px; border-radius: var(--radius-pill); background: var(--color-emerald-soft); color: var(--color-emerald); font-size: 12px; font-weight: 800; }
+    .l2-pide-mas { margin: 12px 0 0; color: var(--text-muted); font-size: 14px; }
+    /* Llamado a iniciar el trámite: única acción de la página */
+    .l2-iniciar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 28px; padding: 20px 22px; border-radius: 20px; background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-blue-primary) 100%); color: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-iniciar-texto { display: flex; gap: 12px; flex: 1 1 320px; min-width: 0; }
+    .l2-iniciar-texto > i { flex-shrink: 0; font-size: 26px; color: #9FD8FF; }
+    .l2-iniciar-texto strong { display: block; font-size: 17px; font-weight: 800; }
+    .l2-iniciar-texto p { margin: 2px 0 0; color: rgba(255, 255, 255, 0.86); font-size: 14px; }
+    .l2-iniciar .l2-btn { background: #FFFFFF; color: var(--color-blue-primary); }
+    .l2-iniciar .l2-btn:hover { background: var(--color-blue-soft); }
+    .l2-iniciar .l2-btn:focus-visible { outline-color: #FFFFFF; }
+    /* Trámite sin formulario aquí: requisitos en la ficha oficial y cómo será el trámite */
+    .l2-requisitos { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; margin-top: 22px; padding: 18px; border: 1px solid var(--border-active); border-radius: 18px; background: var(--color-blue-soft); }
+    .l2-requisitos-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 14px; background: var(--color-blue-primary); color: #FFFFFF; font-size: 22px; }
+    .l2-requisitos-texto { flex: 1 1 260px; min-width: 0; }
+    .l2-requisitos-texto strong { display: block; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-requisitos-texto p { margin: 2px 0 0; color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
+    .l2-requisitos .l2-btn { flex-shrink: 0; font-size: 15px; }
+    .l2-sub { margin: 28px 0 0; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-pide-num { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 38px; height: 38px; border-radius: 12px; background: #FFFFFF; color: var(--color-blue-primary); font-size: 15px; font-weight: 800; }
+    @media (min-width: 1000px) { .l2-login-texto { display: inline; } }
+    @media (max-width: 719px) {
+      .l2-iniciar .l2-btn, .l2-requisitos .l2-btn { flex: 1 1 100%; }
+      .l2-previa-chip { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="modulos.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO (sin sesión) -->
+  <header class="l2-header">
+    <div class="l2-wrap l2-header-inner">
+      <a href="../index.html" class="l2-logo" aria-label="Simple.sv, inicio">
+        <svg viewBox="0 0 252 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <path d="M2.02 35.92C4.19 38.02 7.08 39.2 10.1 39.2C13.02 39.2 15.55 37.75 15.55 34.89C15.55 28.95 0.93 30.41 0.93 21.56C0.93 16.71 5.3 14.06 10.2 14.06C15.92 14.06 18.56 17.03 18.56 17.03L16.9 19.85C16.9 19.85 14.58 17.37 10.1 17.37C7.35 17.37 4.71 18.55 4.71 21.57C4.71 27.56 19.33 25.94 19.33 34.9C19.33 39.32 15.5 42.5 10.06 42.5C3.48 42.5 0.02 38.56 0.02 38.56L2.02 35.92Z" fill="#1C1E4D"/>
+          <path d="M25.56 3.92H29.39V8.51H25.56V3.92ZM25.66 14.71H29.33V41.85H25.66V14.71Z" fill="#1C1E4D"/>
+          <path d="M37.68 14.71H41.29V18.75C41.29 19.94 41.18 20.91 41.18 20.91H41.29C42.59 17.24 46.9 14.06 51.11 14.06C56.13 14.06 58.72 16.38 59.53 20.86H59.64C61.09 17.19 65.03 14.06 69.62 14.06C76.2 14.06 78.63 17.89 78.63 24.58V41.84H74.96V25.5C74.96 21.08 74.04 17.41 69.08 17.41C64.92 17.41 61.53 21.08 60.5 25.08C60.12 26.26 60.03 27.56 60.03 29.01V41.85H56.35V25.5C56.35 21.4 55.75 17.41 50.63 17.41C46.2 17.41 42.86 21.24 41.72 25.39C41.46 26.58 41.33 27.79 41.35 29.01V41.84H37.68V14.71Z" fill="#1C1E4D"/>
+          <path d="M86.89 14.71H90.4V17.36C90.4 18.06 90.37 18.76 90.29 19.46H90.4C90.4 19.46 92.61 14.06 99.79 14.06C107.07 14.06 111.6 19.89 111.6 28.31C111.6 36.89 106.48 42.5 99.46 42.5C92.94 42.5 90.56 37.32 90.56 37.32H90.46C90.46 37.32 90.56 38.29 90.56 39.7V52.65H86.89V14.71ZM99.09 39.26C103.89 39.26 107.83 35.22 107.83 28.31C107.83 21.67 104.32 17.41 99.25 17.41C94.72 17.41 90.45 20.65 90.45 28.36C90.46 33.81 93.48 39.26 99.09 39.26Z" fill="#1C1E4D"/>
+          <path d="M118.42 3.92H122.08V34.62C122.08 38.19 123.7 38.72 125.1 38.72C125.41 38.72 125.72 38.7 126.02 38.67V41.95C125.58 42.02 125.12 42.06 124.67 42.06C122.41 42.06 118.42 41.36 118.42 35.42V3.92Z" fill="#1C1E4D"/>
+          <path d="M142.75 14.06C150.25 14.06 154.08 19.84 154.08 26.58C154.08 27.23 153.97 28.47 153.97 28.47H133.14C133.3 35.43 138.05 39.21 143.66 39.21C148.62 39.21 151.91 35.92 151.91 35.92L153.58 38.72C150.79 41.13 147.23 42.47 143.54 42.5C135.45 42.5 129.35 36.67 129.35 28.31C129.37 19.4 135.42 14.06 142.75 14.06ZM150.36 25.45C150.14 19.78 146.69 17.14 142.65 17.14C138.11 17.14 134.17 19.99 133.31 25.46L150.36 25.45Z" fill="#1C1E4D"/>
+          <path d="M160.81 37.53H165.07V41.85H160.81V37.53Z" fill="#1C1E4D"/>
+          <path d="M173.79 35.92C175.95 38.02 178.85 39.2 181.87 39.2C184.78 39.2 187.32 37.75 187.32 34.89C187.32 28.95 172.69 30.41 172.69 21.56C172.69 16.71 177.07 14.06 181.97 14.06C187.68 14.06 190.33 17.03 190.33 17.03L188.66 19.84C188.66 19.84 186.35 17.36 181.87 17.36C179.11 17.36 176.47 18.54 176.47 21.56C176.47 27.55 191.09 25.93 191.09 34.89C191.09 39.31 187.26 42.5 181.82 42.5C175.24 42.5 171.79 38.56 171.79 38.56L173.79 35.92Z" fill="#1C1E4D"/>
+          <path d="M194.45 14.71H198.34L205.89 34.62C206.25 35.68 206.55 36.76 206.81 37.86H206.91C207.18 36.76 207.5 35.68 207.88 34.62L215.38 14.71H219.22L208.86 41.85H204.86L194.45 14.71Z" fill="#1C1E4D"/>
+          <path d="M251.96 14.61V23.78H223.44L226.83 14.61H251.96Z" fill="#0066FF"/>
+          <path d="M251.97 32.74V41.91H216.73L220.13 32.74H251.97Z" fill="#0066FF"/>
+          <path d="M223.44 23.78L220.13 32.74H251.96V23.78H223.44Z" fill="#E2E8F0"/>
+        </svg>
+      </a>
+
+      <div class="l2-header-actions">
+        <!-- Pendiente: definir si el inicio de sesión es identidad digital del gobierno o cuenta de Simple -->
+        <a href="../SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html" class="l2-login" id="login-cabecera" aria-label="Iniciar sesión"><i class="ph ph-user" aria-hidden="true"></i><span class="l2-login-texto">Iniciar sesión</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="l2-section" id="tramites">
+      <div class="l2-wrap">
+        <div class="l2-catalog-intro" id="catalogo-intro">
+          <!-- Capa decorativa: no la lee el lector de pantalla -->
+          <svg class="l2-fondo-lineas" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="l2gA" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+                <stop offset="0" stop-color="#9FD8FF" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#9FD8FF" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="l2gB" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
+                <stop offset="0"   stop-color="#9FD8FF" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#9FD8FF" stop-opacity="0.95"/>
+                <stop offset="1"   stop-color="#9FD8FF" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="l2gArco" gradientUnits="userSpaceOnUse" x1="760" y1="-40" x2="1260" y2="220">
+                <stop offset="0" stop-color="#9FD8FF" stop-opacity="0"/>
+                <stop offset="0.5" stop-color="#9FD8FF" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#9FD8FF" stop-opacity="0"/>
+              </linearGradient>
+              <radialGradient id="l2gHalo">
+                <stop offset="0" stop-color="#9FD8FF" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#9FD8FF" stop-opacity="0"/>
+              </radialGradient>
+              <pattern id="l2puntos" width="14" height="14" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.2" fill="#9FD8FF"/>
+              </pattern>
+              <linearGradient id="l2gFade" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff"/>
+                <stop offset="1" stop-color="#000"/>
+              </linearGradient>
+              <mask id="l2mascaraPuntos"><rect x="0" y="0" width="150" height="90" fill="url(#l2gFade)"/></mask>
+            </defs>
+
+            <g style="opacity: var(--decor-opacity)">
+              <rect x="14" y="14" width="150" height="90" fill="url(#l2puntos)" mask="url(#l2mascaraPuntos)"/>
+              <path d="M 760,-40 A 420 420 0 0 1 1260,220" fill="none" stroke="url(#l2gArco)" stroke-width="2.5"/>
+              <path d="M 790,-40 A 395 395 0 0 1 1260,195" fill="none" stroke="url(#l2gArco)" stroke-width="1" opacity="0.6"/>
+            </g>
+
+            <g fill="none" stroke="#9FD8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: var(--icon-opacity)">
+              <rect x="1090" y="18" width="48" height="60" rx="6"/>
+              <path d="M1102 38h24M1102 50h24M1102 62h14"/>
+              <path d="M930 150c0 0-18 21-18 32a18 18 0 0 0 36 0c0-11-18-32-18-32z"/>
+            </g>
+
+            <g>
+              <path class="l2-linea" stroke="url(#l2gA)" pathLength="1000" style="--dash:260 90;  --period:350; --flow-m:1;    --breath-m:.9;  --d:-3s"
+                    d="M-20,145 C 120,145 180,80 300,80 C 420,80 500,120 620,120 C 740,120 800,65 900,65 C 1000,65 1020,145 1080,145 C 1130,145 1180,115 1220,108"/>
+              <path class="l2-linea" stroke="url(#l2gB)" pathLength="1000" style="--dash:180 140; --period:320; --flow-m:1.2;  --breath-m:1.1; --d:-5s"
+                    d="M-20,8 C 150,8 230,44 300,80 C 370,116 470,180 620,180 C 780,180 860,208 1220,195"/>
+              <path class="l2-linea" stroke="url(#l2gA)" pathLength="1000" style="--dash:320 200; --period:520; --flow-m:.85;  --breath-m:.8;  --d:-1s"
+                    d="M-20,210 C 240,210 380,175 620,120 C 740,98 810,30 900,65 C 990,100 1060,165 1220,165"/>
+              <path class="l2-linea" stroke="url(#l2gB)" pathLength="1000" style="--dash:120 180; --period:300; --flow-m:1.1;  --breath-m:1.2; --d:-7s"
+                    d="M640,-15 C 760,15 820,58 900,65 C 980,72 1100,30 1220,44"/>
+              <path class="l2-linea" stroke="url(#l2gA)" pathLength="1000" style="--dash:220 120; --period:340; --flow-m:.78;  --breath-m:1;   --d:-4s"
+                    d="M800,230 C 940,230 1010,188 1080,145 C 1150,102 1190,44 1220,30"/>
+              <path class="l2-linea" stroke="url(#l2gB)" pathLength="1000" style="--dash:400 160; --period:560; --flow-m:1.22; --breath-m:.85; --d:-2s"
+                    d="M-20,165 C 200,145 300,230 560,215 C 760,205 900,238 1220,223"/>
+            </g>
+
+            <path class="l2-rayo l2-rayo-halo"   pathLength="1000" d="M-20,145 C 120,145 180,80 300,80 C 420,80 500,120 620,120 C 740,120 800,65 900,65 C 1000,65 1020,145 1080,145 C 1130,145 1180,115 1220,108"/>
+            <path class="l2-rayo l2-rayo-brillo" pathLength="1000" d="M-20,145 C 120,145 180,80 300,80 C 420,80 500,120 620,120 C 740,120 800,65 900,65 C 1000,65 1020,145 1080,145 C 1130,145 1180,115 1220,108"/>
+            <path class="l2-rayo l2-rayo-nucleo" pathLength="1000" d="M-20,145 C 120,145 180,80 300,80 C 420,80 500,120 620,120 C 740,120 800,65 900,65 C 1000,65 1020,145 1080,145 C 1130,145 1180,115 1220,108"/>
+
+            <g class="l2-nodo" style="animation-delay:0s">    <circle class="l2-nodo-halo" cx="300"  cy="80"  r="14" fill="url(#l2gHalo)"/><circle class="l2-nodo-nucleo" cx="300"  cy="80"  r="3.2"/></g>
+            <g class="l2-nodo" style="animation-delay:-1.2s"> <circle class="l2-nodo-halo" cx="620"  cy="120" r="14" fill="url(#l2gHalo)"/><circle class="l2-nodo-nucleo" cx="620"  cy="120" r="3.2"/></g>
+            <g class="l2-nodo" style="animation-delay:-2.4s"> <circle class="l2-nodo-halo" cx="900"  cy="65"  r="14" fill="url(#l2gHalo)"/><circle class="l2-nodo-nucleo" cx="900"  cy="65"  r="3.2"/></g>
+            <g class="l2-nodo" style="animation-delay:-3.4s"> <circle class="l2-nodo-halo" cx="1080" cy="145" r="14" fill="url(#l2gHalo)"/><circle class="l2-nodo-nucleo" cx="1080" cy="145" r="3.2"/></g>
+          </svg>
+
+          <div class="l2-banner-texto">
+            <p class="l2-tramite-inst"><i class="ph ph-buildings" aria-hidden="true"></i><span id="tramite-institucion"></span></p>
+            <h1 id="tramite-nombre">Trámite</h1>
+            <ul class="l2-datos" id="tramite-datos" aria-label="Datos del trámite"></ul>
+          </div>
+          <nav class="l2-modulos" aria-label="Módulos">
+            <a class="l2-modulo" href="../index.html#ver-tramites">
+              <span class="l2-modulo-icono"><i class="ph ph-list-bullets" aria-hidden="true"></i></span>
+              <span class="l2-modulo-texto"><strong>Volver</strong><small>A los trámites</small></span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="l2-tramite" id="tramite">
+          <!-- Vista previa del primer paso (formularios.js); se llena después de iniciar sesión -->
+          <div class="l2-form-card" id="previa">
+            <div class="l2-paso-cab">
+              <span class="l2-paso-num" id="paso-num">1</span>
+              <div>
+                <h2 class="l2-paso-titulo" id="paso-titulo"></h2>
+                <p id="paso-subtitulo"></p>
+              </div>
+              <span class="l2-previa-chip"><i class="ph ph-eye" aria-hidden="true"></i>Vista previa</span>
+            </div>
+
+            <div id="campos"></div>
+
+            <div class="l2-iniciar">
+              <div class="l2-iniciar-texto">
+                <i class="ph ph-identification-card" aria-hidden="true"></i>
+                <div>
+                  <strong>¿Listo para empezar?</strong>
+                  <p id="iniciar-detalle">Inicia sesión con tu Identidad Digital y entrarás directo a este trámite</p>
+                </div>
+              </div>
+              <a class="l2-btn l2-btn-primary" id="iniciar-tramite" href="../SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html">Iniciar trámite<i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="l2-lateral" id="lateral">
+            <aside class="l2-resumen" aria-labelledby="resumen-titulo">
+              <h3 id="resumen-titulo"><span class="l2-resumen-icono"><i class="ph ph-info" aria-hidden="true"></i></span>Sobre este trámite</h3>
+              <p id="resumen-descripcion"></p>
+              <dl id="resumen-datos"></dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l2-footer">
+    <div class="l2-wrap">
+      <nav class="l2-footer-enlaces" aria-label="Ayuda y términos">
+        <button type="button" data-terminos><i class="ph ph-scroll" aria-hidden="true"></i>Términos y condiciones</button>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="formularios.js"></script>
+  <script src="requisitos-tramite.js"></script>
+  <script>
+    /* ===== Trámite sin sesión: datos del catálogo + vista previa del primer paso; Iniciar trámite pide la sesión ===== */
+    const numero = Number(new URLSearchParams(location.search).get('n'));
+    const tramite = (window.CATALOGO_TRAMITES || []).find(t => t.numero === numero);
+    // El catálogo trae la descripción y la dependencia con punto final; aquí se muestran sin él
+    if (tramite) ['descripcion', 'dependencia'].forEach(k => { if (tramite[k]) tramite[k] = tramite[k].replace(/(?<!\.)\.$/, ''); });
+    const definicion = (window.FORMULARIOS_TRAMITES || {})[numero];
+    const LOGIN = '../SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html';
+
+    // Crea un elemento con texto (textContent evita inyectar HTML)
+    function el(tag, clase, texto) {
+      const nodo = document.createElement(tag);
+      if (clase) nodo.className = clase;
+      if (texto !== undefined) nodo.textContent = texto;
+      return nodo;
+    }
+    function icono(nombre) {
+      const i = el('i', `ph ${nombre}`);
+      i.setAttribute('aria-hidden', 'true');
+      return i;
+    }
+    // Quita las notas entre *( )* que trae el catálogo
+    const limpiarTexto = texto => (texto || '').replace(/\s*\*\([^)]*\)\*/g, '').trim();
+    function costoCorto(texto) {
+      const t = texto.toLowerCase();
+      if (t.startsWith('no tiene costo') || t.includes('gratu')) return 'Gratis';
+      const monto = texto.match(/\$\s?[\d.,]+/);
+      return monto ? monto[0].replace(/\s/, '') : 'Ver costo';
+    }
+
+    // Banner y resumen: los mismos de tramite.html
+    function pintarBanner() {
+      document.title = `${tramite.nombre} — Simple.sv`;
+      document.getElementById('tramite-institucion').textContent = tramite.institucion;
+      document.getElementById('tramite-nombre').textContent = tramite.nombre;
+
+      const datos = document.getElementById('tramite-datos');
+      [['ph-currency-dollar', costoCorto(tramite.costo)], ['ph-clock', limpiarTexto(tramite.tiempo)], ['ph-globe', tramite.modalidad]]
+        .filter(([, texto]) => texto)
+        .forEach(([nombre, texto]) => { const li = el('li'); li.append(icono(nombre), texto); datos.append(li); });
+
+      document.getElementById('resumen-descripcion').textContent = tramite.descripcion;
+      const dl = document.getElementById('resumen-datos');
+      [['ph-buildings', 'Dependencia', tramite.dependencia], ['ph-currency-dollar', 'Costo', limpiarTexto(tramite.costo)], ['ph-clock', 'Tiempo de respuesta', limpiarTexto(tramite.tiempo)], ['ph-users', 'Dirigido a', tramite.publico]]
+        .filter(([, , valor]) => valor)
+        .forEach(([nombre, titulo, valor]) => {
+          const fila = el('div');
+          const textos = el('div');
+          const dd = el('dd');
+          // Un costo con varios montos se muestra en líneas separadas
+          limpiarTexto(valor).replace(/\.$/, '').split(titulo === 'Costo' ? /\s+(?=\$\d)/ : /\n/).forEach((parte, i) => {
+            if (i) dd.append(el('br'));
+            dd.append(parte);
+          });
+          textos.append(el('dt', '', titulo), dd);
+          fila.append(icono(nombre), textos);
+          dl.append(fila);
+        });
+    }
+
+    // Notas del formulario (requisitos, avisos), igual que en tramite.html
+    function crearNota(campo) {
+      const caja = el('div', `l2-nota l2-nota-${campo.estilo || 'info'}`);
+      caja.append(icono(campo.estilo === 'aviso' ? 'ph-warning' : 'ph-info'));
+      const cuerpo = el('div', 'l2-nota-cuerpo');
+      if (campo.titulo) cuerpo.append(el('strong', 'l2-nota-titulo', campo.titulo));
+      let lista = null;
+      (campo.lineas || []).forEach(linea => {
+        if (linea.startsWith('- ')) {
+          if (!lista) { lista = el('ul'); cuerpo.append(lista); }
+          lista.append(el('li', '', linea.slice(2)));
+          return;
+        }
+        lista = null;
+        cuerpo.append(linea.startsWith('## ') ? el('h4', '', linea.slice(3)) : el('p', '', linea));
+      });
+      // Cuadro con scroll interno: alcanzable con teclado y con nombre
+      if (campo.estilo === 'requisitos') {
+        cuerpo.tabIndex = 0;
+        cuerpo.setAttribute('role', 'region');
+        cuerpo.setAttribute('aria-label', campo.titulo || 'Requisitos');
+      }
+      caja.append(cuerpo);
+      return caja;
+    }
+
+    // Cada dato que pedirá el primer paso, sin poder llenarlo todavía
+    const ICONO_CAMPO = { opciones: 'ph-list-checks', lista: 'ph-caret-circle-down', archivo: 'ph-paperclip', texto: 'ph-text-aa' };
+    function datoQuePide(campo) {
+      const li = el('li');
+      li.append(icono(campo.soloLectura ? 'ph-lock-simple' : ICONO_CAMPO[campo.tipo] || 'ph-text-aa'));
+      const texto = el('span', 'l2-pide-texto');
+      const detalle = campo.tipo === 'opciones' ? campo.opciones.map(op => op.texto).join(' · ')
+        : campo.tipo === 'lista' ? 'Eliges una opción de la lista'
+        : campo.tipo === 'archivo' ? campo.ayuda || 'Adjuntas un archivo'
+        : campo.ayuda || '';
+      texto.append(el('strong', '', campo.etiqueta + (campo.opcional ? ' (opcional)' : '')));
+      if (detalle) texto.append(el('small', '', detalle));
+      li.append(texto);
+      if (campo.soloLectura) {
+        const auto = el('span', 'l2-pide-auto');
+        auto.append(icono('ph-identification-card'), 'Con tu Identidad Digital');
+        li.append(auto);
+      }
+      return li;
+    }
+
+    function pintarPrevia() {
+      document.getElementById('paso-num').textContent = definicion.numero || '1';
+      document.getElementById('paso-titulo').textContent = definicion.titulo;
+      document.getElementById('paso-subtitulo').textContent = definicion.subtitulo || '';
+      const contenedor = document.getElementById('campos');
+      let lista = null;
+      // Los campos que dependen de una respuesta ("si") se omiten: aparecen al llenar el trámite
+      const condicionales = definicion.campos.filter(c => c.si).length;
+      definicion.campos.filter(c => !c.si).forEach(campo => {
+        if (campo.tipo === 'desplegable' || campo.tipo === 'finDesplegable' || campo.tipo === 'resumen') return;
+        if (campo.tipo === 'nota' || campo.tipo === 'seccion') {
+          contenedor.append(campo.tipo === 'nota' ? crearNota(campo) : el('h4', 'l2-seccion', campo.titulo));
+          lista = null;
+          return;
+        }
+        if (!lista) { lista = el('ul', 'l2-pide'); contenedor.append(lista); }
+        lista.append(datoQuePide(campo));
+      });
+      if (condicionales) contenedor.append(el('p', 'l2-pide-mas', 'Según lo que respondas, el trámite puede pedirte algunos datos más'));
+      const conDatos = definicion.campos.some(c => c.soloLectura || ['numero_de_documento', 'nombres', 'apellidos', 'nombre_de_solicitante', 'correo_notificaciones', 'correo_de_solicitante'].includes(c.nombre));
+      if (conDatos) document.getElementById('iniciar-detalle').textContent = 'Inicia sesión con tu Identidad Digital y entrarás directo a este trámite, con tus datos ya completados donde el trámite los pida';
+    }
+
+    // Trámite sin formulario en el nuevo diseño: la información y la ficha oficial, con el mismo botón para iniciarlo
+    function pintarSinFormulario() {
+      document.getElementById('paso-num').replaceChildren(icono('ph-list-checks'));
+      document.getElementById('paso-titulo').textContent = 'Antes de empezar';
+      document.getElementById('paso-subtitulo').textContent = 'Revisa los requisitos y cómo será tu trámite';
+      const contenedor = document.getElementById('campos');
+
+      // Requisitos: todavía están solo en la ficha oficial
+      const requisitos = el('div', 'l2-requisitos');
+      const iconoRequisitos = el('span', 'l2-requisitos-icono');
+      iconoRequisitos.append(icono('ph-clipboard-text'));
+      const textoRequisitos = el('div', 'l2-requisitos-texto');
+      textoRequisitos.append(el('strong', '', 'Requisitos'), el('p', '', 'Los requisitos detallados de este trámite están en su ficha oficial. Revísalos antes de empezar para tener todo a mano'));
+      requisitos.append(iconoRequisitos, textoRequisitos);
+      if (/^https?:\/\//i.test(tramite.enlace_simple || '')) {
+        const ficha = el('a', 'l2-btn l2-btn-outline');
+        ficha.href = tramite.enlace_simple;
+        ficha.target = '_blank';
+        ficha.rel = 'noopener noreferrer';
+        ficha.append('Ver requisitos', icono('ph-arrow-up-right'));
+        requisitos.append(ficha);
+      }
+
+      // Cómo será el trámite; el pago solo aparece si tiene costo
+      const costo = costoCorto(tramite.costo);
+      const pasos = [
+        ['Inicia sesión', 'Con tu Identidad Digital'],
+        ['Completa la solicitud', 'Tus datos de la Identidad Digital se llenan solos donde el trámite los pida'],
+        costo !== 'Gratis' && ['Paga en línea', `${costo === 'Ver costo' ? 'Con' : `${costo} con`} tarjeta de crédito o débito`],
+        ['Recibe tu documento', 'Sigue su avance en Mis documentos y descárgalo cuando esté listo']
+      ].filter(Boolean);
+      const lista = el('ol', 'l2-pide');
+      pasos.forEach(([titulo, detalle], i) => {
+        const li = el('li');
+        const num = el('span', 'l2-pide-num', String(i + 1));
+        num.setAttribute('aria-hidden', 'true');
+        const texto = el('span', 'l2-pide-texto');
+        texto.append(el('strong', '', titulo), el('small', '', detalle));
+        li.append(num, texto);
+        lista.append(li);
+      });
+      contenedor.append(requisitos, el('h3', 'l2-sub', 'Así será tu trámite'), lista);
+    }
+
+    if (!tramite) {
+      // Enlace sin trámite válido: mensaje claro y vuelta al catálogo
+      document.getElementById('tramite-institucion').parentElement.style.display = 'none';
+      document.getElementById('tramite-datos').style.display = 'none';
+      const contenedor = document.getElementById('tramite');
+      contenedor.replaceChildren();
+      const vacio = el('div', 'l2-no-disponible');
+      const volver = el('a', 'l2-btn l2-btn-primary', 'Ver trámites');
+      volver.href = '../index.html#ver-tramites';
+      vacio.append(icono('ph-file-dashed'), el('h3', '', 'No encontramos este trámite'), el('p', '', 'Revisa el enlace o elige un trámite del catálogo'), volver);
+      contenedor.append(vacio);
+    } else {
+      pintarBanner();
+      pintarInformacionTramite(definicion?.informacion, document.getElementById('lateral'));
+      if (definicion) pintarPrevia();
+      else pintarSinFormulario();
+      // Iniciar trámite (y el botón de la cabecera) pasan por el inicio de sesión y entran directo a este trámite
+      const destino = `${LOGIN}?destino=tramite&n=${tramite.numero}`;
+      document.getElementById('iniciar-tramite').href = destino;
+      document.getElementById('login-cabecera').href = destino;
+    }
+
+    /* ===== Banner: pausa la animación de fondo si no está visible ===== */
+    const catalogoIntro = document.getElementById('catalogo-intro');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entrada]) => {
+        catalogoIntro.classList.toggle('l2-en-pausa', !entrada.isIntersecting);
+      }, { threshold: 0.05 }).observe(catalogoIntro);
+    }
+  </script>
+</body>
+</html>

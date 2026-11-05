@@ -1,0 +1,213 @@
+/* Banners 1600x600 · Simple.sv — fondo negro a azul eléctrico, dispositivos en 3D y piezas de vidrio
+   Paleta de src/styles/simple-light-vibrant.css */
+:root {
+  --blue: #0066FF;
+  --blue-l: #3D8BFF;
+  --navy: #1C1E4D;
+  --sky: #9FD8FF;
+  --active: #93C5FD;
+  --wa: #00A884;
+  --wa2: #25D366;
+  --font: 'Manrope Variable', 'Manrope', -apple-system, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #0a0c14; overflow: hidden; }
+body { font-family: var(--font); color: #fff; -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; left: 0; top: 0; width: 1600px; height: 600px; overflow: hidden; background: #02040B; transform-origin: 0 0; }
+body.render #ui { display: none; }
+svg { overflow: visible; }
+i[data-i] { display: inline-flex; font-style: normal; }
+i[data-i] svg { width: 1em; height: 1em; }
+.abs { position: absolute; }
+
+/* ---------- fondo ---------- */
+#bg { position: absolute; inset: 0; background:
+  radial-gradient(ellipse 1100px 520px at 88% 118%, rgba(0,102,255,.95), rgba(0,82,230,.55) 38%, rgba(0,50,160,0) 72%),
+  radial-gradient(ellipse 700px 380px at 60% 110%, rgba(10,60,220,.55), rgba(10,60,220,0) 70%),
+  linear-gradient(118deg, #000 0%, #01030A 30%, #040C2E 58%, #0A2A9E 82%, #0B44E6 100%); }
+#glow { position: absolute; left: 0; top: 0; width: 1400px; height: 900px; margin: -450px 0 0 -700px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(61,139,255,.34), rgba(0,102,255,.12) 55%, rgba(0,102,255,0)); }
+#sheen { position: absolute; left: -40%; top: -20%; width: 40%; height: 140%; transform: rotate(18deg);
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(159,216,255,.07), rgba(255,255,255,0)); }
+#vig { position: absolute; inset: 0; background: radial-gradient(ellipse 120% 120% at 70% 60%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55)); }
+#cam { position: absolute; inset: 0; transform-origin: 70% 60%; }
+
+/* ---------- textos ---------- */
+.hero { position: absolute; left: 92px; top: 150px; width: 820px; }
+.hero .l1, .hero .rot b { font-weight: 800; font-size: 58px; line-height: 1; letter-spacing: .005em; text-transform: uppercase; white-space: nowrap; }
+.hero .l1 .w { display: inline-block; }
+.c-w { color: #fff; }
+.c-b { color: var(--blue); text-shadow: 0 0 34px rgba(0,102,255,.55); }
+.c-g { color: var(--wa2); text-shadow: 0 0 34px rgba(37,211,102,.35); }
+.hero .rot { position: relative; height: 66px; margin-top: 8px; }
+.hero .rot b { position: absolute; left: 0; top: 0; color: var(--blue); text-shadow: 0 0 34px rgba(0,102,255,.55); }
+.hero .sub { margin-top: 30px; font-size: 30px; line-height: 1.25; font-weight: 500; color: rgba(255,255,255,.9); }
+.hero .sub b { font-weight: 800; color: #fff; }
+
+.say { position: absolute; left: 968px; top: 0; width: 580px; font-size: 33px; line-height: 1.24; font-weight: 500; color: rgba(255,255,255,.92); letter-spacing: -.005em; }
+.say b { font-weight: 800; color: #fff; }
+.say .ln { display: block; white-space: nowrap; }
+
+/* ---------- línea y círculo (escena 2 y 3) ---------- */
+#hline { position: absolute; left: 0; top: 299px; width: 880px; height: 3px; background: linear-gradient(90deg, rgba(0,102,255,.25), var(--blue) 30%, var(--blue-l)); box-shadow: 0 0 14px rgba(0,102,255,.8); transform-origin: 0 50%; }
+#vline { position: absolute; left: 914px; top: 336px; width: 3px; height: 300px; background: linear-gradient(180deg, var(--blue-l), rgba(0,102,255,.4)); box-shadow: 0 0 14px rgba(0,102,255,.8); transform-origin: 50% 0; }
+#circ { position: absolute; left: 880px; top: 266px; width: 70px; height: 70px; border-radius: 50%; background: var(--blue); border: 4px solid #fff; display: grid; place-items: center; font-size: 34px; color: #fff; box-shadow: 0 0 0 10px rgba(0,102,255,.18), 0 0 40px rgba(0,102,255,.9); }
+#circ.wa { background: var(--wa); box-shadow: 0 0 0 10px rgba(0,168,132,.18), 0 0 40px rgba(37,211,102,.6); }
+
+/* ---------- chips de vidrio ---------- */
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 14px; padding: 10px 24px 10px 10px; border-radius: 16px; white-space: nowrap;
+  background: linear-gradient(180deg, rgba(48,52,70,.94), rgba(16,18,28,.94)); border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 22px 44px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.14); font-size: 25px; font-weight: 700; color: #fff; z-index: 30; }
+.chip .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 25px; background: linear-gradient(145deg, var(--blue-l), var(--blue)); box-shadow: 0 6px 16px rgba(0,102,255,.45); }
+.chip .ic.g { background: linear-gradient(145deg, #2FDB78, var(--wa)); box-shadow: 0 6px 16px rgba(0,168,132,.4); }
+.chip .ic.r { background: #fff; }
+.chip .ic.r img { width: 36px; }
+
+/* ---------- laptop 3D ---------- */
+.dev { position: absolute; z-index: 20; }
+.lap3d { position: absolute; left: 0; top: 0; width: 800px; height: 500px; perspective: 1900px; perspective-origin: 50% 30%; }
+.lap { position: absolute; inset: 0; transform-style: preserve-3d; }
+.lid { position: absolute; inset: 0; border-radius: 26px 26px 10px 10px; background: linear-gradient(180deg, #17191f, #0a0b0f); padding: 16px 16px 30px; transform-origin: 50% 100%; transform: rotateX(6deg); box-shadow: inset 0 0 0 2px #2a2d36; }
+.lid .scr { position: relative; width: 100%; height: 100%; border-radius: 8px; overflow: hidden; background: #F4F8FE; }
+.lid .scr img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0 0; }
+.lid .scr::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg, rgba(255,255,255,.16), rgba(255,255,255,0) 38%); }
+.lid .cam { position: absolute; left: 50%; top: 6px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: #2c3140; }
+.base { position: absolute; left: -46px; top: 100%; width: 892px; height: 560px; transform-origin: 50% 0; transform: rotateX(90deg); transform-style: preserve-3d;
+  border-radius: 6px 6px 34px 34px; background: linear-gradient(180deg, #9A9EA6 0%, #C9CCD2 8%, #D7DADF 60%, #BFC2C8 100%); }
+.base .kb { position: absolute; left: 92px; right: 92px; top: 44px; height: 250px; display: grid; grid-template-columns: repeat(14, 1fr); grid-auto-rows: 1fr; gap: 7px; padding: 10px; border-radius: 10px; background: #A9ADB5; }
+.base .kb i { border-radius: 6px; background: linear-gradient(180deg, #1d2026, #0e1014); box-shadow: inset 0 -2px 0 rgba(0,0,0,.6); }
+.base .kb i.sp { grid-column: span 6; }
+.base .kb i.w2 { grid-column: span 2; }
+.base .tp { position: absolute; left: 50%; width: 300px; margin-left: -150px; top: 320px; height: 190px; border-radius: 18px; background: linear-gradient(180deg, #C4C7CD, #B6B9BF); box-shadow: inset 0 0 0 1.5px rgba(0,0,0,.12); }
+.base .front { position: absolute; left: 0; right: 0; top: 100%; height: 22px; transform-origin: 50% 0; transform: rotateX(-90deg); border-radius: 0 0 20px 20px; background: linear-gradient(180deg, #A6AAB1, #6E727A); }
+.base .hinge { position: absolute; left: 70px; right: 70px; top: 0; height: 14px; border-radius: 0 0 8px 8px; background: linear-gradient(180deg, #1a1c22, #4a4e57); }
+
+/* ---------- teléfono 3D ---------- */
+.ph3d { position: absolute; left: 0; top: 0; width: 300px; height: 630px; perspective: 1600px; }
+.ph { position: absolute; inset: 0; transform-style: preserve-3d; border-radius: 52px; padding: 11px; background: linear-gradient(150deg, #4a5068, #12141c 50%, #262b3d); box-shadow: inset 0 0 0 2px rgba(255,255,255,.16), inset 2px 2px 0 rgba(159,216,255,.25), 0 40px 80px rgba(0,0,0,.55), 0 0 90px rgba(0,102,255,.35); }
+.ph .scr { position: relative; width: 100%; height: 100%; border-radius: 42px; overflow: hidden; background: #0B141A; }
+.ph .notch { position: absolute; left: 50%; top: 12px; width: 92px; height: 26px; margin-left: -46px; border-radius: 14px; background: #05060a; z-index: 9; }
+.ph .scr::after { content: ''; position: absolute; inset: 0; background: linear-gradient(118deg, rgba(255,255,255,.12), rgba(255,255,255,0) 36%); pointer-events: none; z-index: 8; }
+
+/* chat de WhatsApp (390 px de ancho, se escala a la pantalla) */
+.wa { position: absolute; left: 0; top: 0; width: 390px; height: 846px; transform-origin: 0 0; background: #0B141A; color: #E9EDEF; font-size: 14px; }
+.wa-head { position: absolute; left: 0; right: 0; top: 0; height: 100px; padding: 44px 12px 0; display: flex; align-items: center; gap: 9px; background: #1F2C34; z-index: 2; }
+.wa-head > i { font-size: 20px; }
+.wa-ava { width: 40px; height: 40px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; }
+.wa-ava img { width: 34px; }
+.wa-who b { display: flex; align-items: center; gap: 4px; font-size: 15.5px; }
+.wa-who b i { color: var(--wa); font-size: 15px; }
+.wa-who small { font-size: 11.5px; color: #8696A0; }
+.wa-acts { margin-left: auto; display: flex; gap: 14px; font-size: 19px; padding: 7px 12px; border-radius: 999px; background: #2A3942; }
+.wa-body { position: absolute; left: 0; right: 0; top: 100px; bottom: 70px; overflow: hidden; background: #0B141A radial-gradient(rgba(255,255,255,.035) 1px, transparent 1.4px) 0 0/16px 16px; }
+.wa-msgs { position: absolute; left: 0; right: 0; top: 0; padding: 10px; }
+.wa-day { margin: 4px auto 10px; width: max-content; padding: 4px 10px; border-radius: 8px; background: #182229; color: #8696A0; font-size: 11px; font-weight: 700; }
+.wa-row { margin-bottom: 6px; max-width: 300px; }
+.wa-row.me { margin-left: auto; width: max-content; max-width: 260px; }
+.wa-b { position: relative; padding: 7px 10px 18px; border-radius: 10px; background: #202C33; font-size: 13.5px; line-height: 1.38; }
+.wa-row:not(.me) .wa-b { border-top-left-radius: 3px; }
+.wa-row.me .wa-b { background: #005C4B; border-top-right-radius: 3px; min-width: 96px; }
+.wa-b em { position: absolute; right: 8px; bottom: 4px; font-style: normal; font-size: 10px; color: #8696A0; display: inline-flex; align-items: center; gap: 3px; }
+.wa-row.me .wa-b em { color: #9EC7BD; }
+.wa-b em i { color: #53BDEB; font-size: 13px; }
+.wa-b ol { margin: 5px 0 0 18px; }
+.wa-q { border-radius: 10px 10px 0 0 !important; }
+.wa-btns { display: grid; gap: 2px; margin-top: 2px; }
+.wa-btns span { display: flex; align-items: center; justify-content: center; gap: 6px; height: 36px; background: #202C33; color: #21C063; font-weight: 700; font-size: 13.5px; }
+.wa-btns span:last-child { border-radius: 0 0 10px 10px; }
+.wa-btns span.on { background: #2A3B44; }
+.wa-sum { margin-top: 6px; display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 12.5px; }
+.wa-sum span { color: #8696A0; }
+.wa-link { margin: 7px 0 2px; border-radius: 8px; overflow: hidden; background: #1A2328; }
+.wa-link-top { display: flex; gap: 9px; align-items: center; padding: 10px; background: linear-gradient(120deg, #1C1E4D, #0066FF); color: #fff; }
+.wa-link-top i { font-size: 20px; }
+.wa-link-top b { display: block; font-size: 12.5px; }
+.wa-link-top small { display: block; font-size: 10.5px; opacity: .8; }
+.wa-link-pie { display: block; padding: 7px 10px; font-size: 11px; color: #8696A0; }
+.wa-typing { position: absolute; left: 10px; display: inline-flex; gap: 4px; padding: 13px 14px; border-radius: 10px; border-top-left-radius: 3px; background: #202C33; }
+.wa-typing i { width: 7px; height: 7px; border-radius: 50%; background: #8696A0; }
+.wa-input { position: absolute; left: 0; right: 0; bottom: 0; height: 70px; padding: 10px 10px 18px; display: flex; align-items: center; gap: 8px; background: #0B141A; }
+.wa-input > i { font-size: 22px; color: #8696A0; }
+.wa-field { flex: 1; height: 42px; border-radius: 999px; background: #2A3942; padding: 0 16px; display: flex; align-items: center; font-size: 14.5px; white-space: nowrap; }
+.wa-field .ph-t { color: #8696A0; }
+.wa-send { width: 44px; height: 44px; border-radius: 50%; background: var(--wa); color: #0B141A; display: grid; place-items: center; font-size: 19px; flex: none; }
+
+/* ---------- tarjetas (escena 3) ---------- */
+#cardsWrap { position: absolute; left: 0; top: 70px; width: 878px; height: 470px; overflow: hidden; z-index: 18;
+  -webkit-mask-image: linear-gradient(90deg, #000 0, #000 82%, transparent 100%); mask-image: linear-gradient(90deg, #000 0, #000 82%, transparent 100%); }
+#strip { position: absolute; left: 0; top: 20px; display: flex; gap: 30px; }
+.card { position: relative; width: 330px; height: 410px; flex: none; border-radius: 28px; overflow: hidden; background: #0d0f16; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+.card > img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+.card .cap { position: absolute; left: 14px; bottom: 14px; padding: 8px 16px 8px 8px; font-size: 19px; border-radius: 13px; gap: 10px; }
+.card .cap .ic { width: 34px; height: 34px; font-size: 19px; border-radius: 10px; }
+.card.dark { background: #0B141A; }
+.card .inner { position: absolute; inset: 0; padding: 22px 18px; }
+
+/* tarjetas propias de WhatsApp */
+.card .wa-b { font-size: 16px; }
+.card .wa-sum { font-size: 15px; }
+.cc { position: relative; height: 196px; border-radius: 20px; padding: 22px 22px; color: #fff; background: linear-gradient(130deg, #1C1E4D 0%, #1C53C0 55%, #0066FF 100%); box-shadow: 0 18px 40px rgba(0,102,255,.35); overflow: hidden; }
+.cc::after { content: ''; position: absolute; right: -70px; top: -80px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(159,216,255,.45), rgba(159,216,255,0) 70%); }
+.cc-chip { width: 50px; height: 38px; border-radius: 8px; background: linear-gradient(135deg, #f8d77c, #d9a93d); }
+.cc-num { margin-top: 36px; font-size: 24px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+.cc-row { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; font-weight: 700; }
+.cc-row small { display: block; font-size: 10px; letter-spacing: .14em; opacity: .7; }
+.pay-tot { display: flex; justify-content: space-between; align-items: baseline; margin: 20px 4px 0; }
+.pay-tot span { font-size: 17px; color: #8696A0; font-weight: 600; }
+.pay-tot b { font-size: 36px; font-weight: 800; }
+.pay-btn { margin-top: 14px; height: 54px; border-radius: 999px; background: var(--blue); display: grid; place-items: center; font-size: 19px; font-weight: 800; box-shadow: 0 12px 30px rgba(0,102,255,.4); }
+.okc { width: 66px; height: 66px; border-radius: 50%; background: #059669; display: grid; place-items: center; font-size: 36px; box-shadow: 0 12px 30px rgba(5,150,105,.45); }
+.doc { margin-top: 16px; padding: 16px; border-radius: 16px; background: #fff; color: #0E1428; }
+.doc-top { display: flex; gap: 10px; align-items: center; }
+.doc-top img { width: 40px; }
+.doc-top small { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; color: var(--blue); }
+.doc-top b { display: block; font-size: 16px; font-weight: 800; color: var(--navy); }
+.doc .ln { display: block; height: 8px; border-radius: 4px; background: #E8EEF8; margin: 10px 0; }
+.doc-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+.pdf { padding: 4px 10px; border-radius: 7px; background: #FEE2E2; color: #DC2626; font-weight: 800; font-size: 13px; }
+.seal { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; border: 2.5px solid #059669; color: #059669; font-weight: 800; font-size: 13px; transform: rotate(-6deg); }
+.notif { padding: 14px; display: flex; gap: 12px; align-items: center; border-radius: 20px; background: rgba(245,247,250,.97); color: #0E1428; box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+.notif .ni { width: 46px; height: 46px; border-radius: 12px; background: var(--wa2); color: #fff; font-size: 26px; display: grid; place-items: center; flex: none; }
+.notif small { display: block; font-size: 12px; color: #64748B; }
+.notif b { display: block; font-size: 15px; }
+.notif span { display: block; font-size: 14px; color: #475569; line-height: 1.3; }
+
+/* ---------- píldoras de vidrio (escena 4) ---------- */
+.pill span { display: inline-block; }
+.pill { position: absolute; padding: 14px 34px; border-radius: 22px; font-size: 31px; font-weight: 600; color: #fff; white-space: nowrap; z-index: 25;
+  background: linear-gradient(180deg, rgba(38,42,58,.9), rgba(6,8,16,.94)); border: 1.5px solid rgba(255,255,255,.2);
+  box-shadow: 0 24px 50px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.18), inset 0 -10px 24px rgba(0,102,255,.12); }
+
+/* ---------- mosaico e imagen final ---------- */
+#tile { position: absolute; left: 50%; top: 50%; width: 250px; height: 250px; margin: -125px 0 0 -125px; border-radius: 62px; display: grid; place-items: center; z-index: 40;
+  background: linear-gradient(160deg, rgba(70,96,170,.55), rgba(12,18,44,.92) 60%); border: 2px solid rgba(255,255,255,.28);
+  box-shadow: 0 40px 90px rgba(0,0,0,.6), inset 0 2px 0 rgba(255,255,255,.3), inset 0 -30px 60px rgba(0,102,255,.35); }
+#tile img { width: 170px; filter: drop-shadow(0 16px 30px rgba(0,0,0,.45)); }
+#tile i { font-size: 150px; color: var(--wa2); filter: drop-shadow(0 16px 30px rgba(0,0,0,.45)); }
+
+#end { position: absolute; inset: 0; z-index: 45; }
+#endT { position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-size: 56px; font-weight: 400; letter-spacing: .005em; }
+#endPill { position: absolute; left: 50%; top: 142px; width: 900px; height: 200px; margin-left: -450px; border-radius: 100px; display: grid; place-items: center;
+  background: linear-gradient(180deg, rgba(52,62,100,.6), rgba(6,8,20,.9) 70%); border: 2px solid rgba(255,255,255,.24);
+  box-shadow: 0 40px 90px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.25), inset 0 -26px 50px rgba(0,102,255,.32); }
+#endPill .logo { width: 600px; }
+#endPill .logo svg { width: 100%; height: auto; display: block; }
+#endFab { position: absolute; left: 50%; top: 378px; width: max-content; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 12px; height: 66px; padding: 0 30px 0 12px; border-radius: 999px; font-size: 25px; font-weight: 700; white-space: nowrap; }
+#endFab.bot { background: var(--blue); box-shadow: 0 14px 34px rgba(0,102,255,.5); }
+#endFab.bot img { width: 50px; height: 50px; }
+#endFab.wa { background: var(--wa); box-shadow: 0 14px 34px rgba(0,168,132,.45); padding-left: 24px; }
+#endFab.wa i { font-size: 32px; }
+/* Logo del Gobierno de El Salvador */
+#endGob { position: absolute; left: 0; right: 0; top: 468px; display: flex; justify-content: center; align-items: center; }
+#endGob img { display: block; width: auto; height: 100px; }
+#endGob .sep { width: 1.5px; height: 40px; background: rgba(255,255,255,.3); margin: 0 10px; }
+#endGob .logo { width: 150px; }
+#endGob .logo svg { width: 100%; height: auto; display: block; }
+
+#fade { position: absolute; inset: 0; background: #000; z-index: 90; pointer-events: none; }
+
+/* ---------- vista previa ---------- */
+#ui { position: fixed; left: 0; right: 0; bottom: 0; height: 52px; display: flex; gap: 12px; align-items: center; padding: 0 16px; background: #0E1428; color: #fff; z-index: 99; font: 600 14px var(--font); }
+#ui a { color: var(--sky); text-decoration: none; }
+#ui button { width: 40px; height: 32px; border: 0; border-radius: 8px; background: var(--blue); color: #fff; font-size: 16px; }
+#ui input { flex: 1; }

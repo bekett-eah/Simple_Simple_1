@@ -1,0 +1,185 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1087,
+                "rnt_id": null,
+                "institucion_id": 45,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Consulta y pago de pr\u00e9stamos FSV",
+                "slug": "consulta-y-pago-de-prestamos-fsv",
+                "sub_titulo": "\u00c1rea de Pr\u00e9stamos",
+                "descripcion_busqueda": "a)\tEstado de cuenta de pr\u00e9stamo: gesti\u00f3n que se realiza para solicitar el estado de cuenta del pr\u00e9stamo con un resumen detallado de la situaci\u00f3n del pr\u00e9stamo y sus saldos\r\n\r\nb)\tHist\u00f3rico de pagos de los \u00faltimos doce meses: gesti\u00f3n que se realiza para solicitar un informe detallado del historial de pagos de los \u00faltimos doce meses\r\n\r\nc)\tHist\u00f3rico de pagos desde la escrituraci\u00f3n: gesti\u00f3n que se realiza para solicitar el hist\u00f3rico de pagos desde la escrituraci\u00f3n hasta la fecha de emisi\u00f3n\r\n\r\nd)\tPago de cuota de pr\u00e9stamos: gesti\u00f3n para realizar el pago de la cuota de pr\u00e9stamo mediante tarjeta de cr\u00e9dito o de d\u00e9bito",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/FSV.jpg",
+                "institucion": {
+                    "id": 45,
+                    "nombre": "Fondo Social para la vivienda",
+                    "siglas": "FSV"
+                },
+                "modalidades": [
+                    {
+                        "id": 2344,
+                        "tramite_id": 1087,
+                        "institucion_id": 45,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "\u00c1rea de Pr\u00e9stamos",
+                        "descripcion_busqueda": "a) Estado de cuenta de pr\u00e9stamo: gesti\u00f3n que se realiza para solicitar el estado de cuenta del pr\u00e9stamo con un resumen detallado de la situaci\u00f3n del pr\u00e9stamo y sus saldos\r\nb) Hist\u00f3rico de pagos de los \u00faltimos doce meses: gesti\u00f3n que se realiza para solicitar un informe detallado del historial de pagos de los \u00faltimos doce meses\r\nc) Hist\u00f3rico de pagos desde la escrituraci\u00f3n: gesti\u00f3n que se realiza para solicitar el hist\u00f3rico de pagos desde la escrituraci\u00f3n hasta la fecha de emisi\u00f3n\r\nd) Pago de cuota de pr\u00e9stamos: gesti\u00f3n para realizar el pago de la cuota de pr\u00e9stamo mediante tarjeta de cr\u00e9dito o de d\u00e9bito",
+                        "descripcion": "<strong>a. Estado de cuenta de pr&eacute;stamo:<\/strong> Gesti&oacute;n para solicitar el estado de cuenta del pr&eacute;stamo con un resumen detallado de la situaci&oacute;n y saldos&nbsp;<br \/><strong>b. Hist&oacute;rico de pagos de los &uacute;ltimos doce meses:<\/strong> Gesti&oacute;n para solicitar un informe detallado del historial de pagos de los &uacute;ltimos doce meses&nbsp;<br \/><strong>c. Hist&oacute;rico de pagos desde la escrituraci&oacute;n:<\/strong> Gesti&oacute;n para solicitar hist&oacute;rico de pagos desde la escrituraci&oacute;n hasta la fecha de emisi&oacute;n&nbsp;<br \/><strong>d. Pago de cuota de pr&eacute;stamos:<\/strong> Gesti&oacute;n para realizar el pago de la cuota del pr&eacute;stamo mediante tarjeta de cr&eacute;dito o d&eacute;bito",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/fsv.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/fsv.ventanilla.simple.sv\/tramites\/iniciar\/312&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1012,
+                "rnt_id": null,
+                "institucion_id": 36,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificado de inscripci\u00f3n para el registro del desarrollador parcelario",
+                "slug": "certificado-inscripcion-de-registro-de-desarrollador-parcelario",
+                "sub_titulo": "\u00c1rea de Registro de Profesionales, y Desarrolladores Parcelarios\/ Unidad de Tr\u00e1mites\u00a0y\u00a0Permisos",
+                "descripcion_busqueda": "Es el certificado de inscripci\u00f3n de desarrollador parcelario que se emiten a las personas naturales y jur\u00eddicas, nacionales o extranjeras que comercialicen proyectos parcelarios",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-24 at 2.35.27 PM.jpeg",
+                "institucion": {
+                    "id": 36,
+                    "nombre": "Ministerio de Vivienda",
+                    "siglas": "MINVIVIENDA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2255,
+                        "tramite_id": 1012,
+                        "institucion_id": 36,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "\u00c1rea de Registro de Profesionales, y Desarrolladores Parcelarios\/ Unidad de Tr\u00e1mites\u00a0y\u00a0Permisos",
+                        "descripcion_busqueda": "Es el certificado de inscripci\u00f3n de desarrollador parcelario que se emiten a las personas naturales y jur\u00eddicas, nacionales o extranjeras que comercialicen proyectos parcelarios",
+                        "descripcion": "Es el certificado de inscripci&oacute;n de desarrollador parcelario que se emiten a las personas naturales y jur&iacute;dicas, nacionales o extranjeras que comercialicen proyectos parcelarios",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mivi.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mivi.ventanilla.simple.sv\/tramites\/iniciar\/81&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    },
+                    {
+                        "id": 2258,
+                        "tramite_id": 1012,
+                        "institucion_id": 36,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial",
+                        "slug": "empresarial",
+                        "sub_titulo": "\u00c1rea de Registro de Profesionales, y Desarrolladores Parcelarios\/ Unidad de Tr\u00e1mites\u00a0y\u00a0Permisos",
+                        "descripcion_busqueda": "Es el certificado de inscripci\u00f3n de desarrollador parcelario que se emiten a las personas naturales y jur\u00eddicas, nacionales o extranjeras que comercialicen proyectos parcelarios",
+                        "descripcion": "Es el certificado de inscripci&oacute;n de desarrollador parcelario que se emiten a las personas naturales y jur&iacute;dicas, nacionales o extranjeras que comercialicen proyectos parcelarios",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mivi.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mivi.ventanilla.simple.sv\/tramites\/iniciar\/81&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1091,
+                "rnt_id": null,
+                "institucion_id": 44,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Estado de cuenta del Fondo Especial de Contribuciones (FEC)",
+                "slug": "solicitud-de-estado-de-cuenta",
+                "sub_titulo": "Unidad de Gesti\u00f3n de Activos del Fondo Especial",
+                "descripcion_busqueda": "Solicitud de gesti\u00f3n para la obtenci\u00f3n del estado de cuenta",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e707869ee6.png",
+                "institucion": {
+                    "id": 44,
+                    "nombre": "Fondo Nacional de Vivienda Popular",
+                    "siglas": "FONAVIPO"
+                },
+                "modalidades": [
+                    {
+                        "id": 2349,
+                        "tramite_id": 1091,
+                        "institucion_id": 44,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Personal",
+                        "slug": "personal",
+                        "sub_titulo": "Unidad de Gesti\u00f3n de Activos del Fondo Especial",
+                        "descripcion_busqueda": "Solicitud de gesti\u00f3n para la obtenci\u00f3n del estado de cuenta",
+                        "descripcion": "Solicitud de gesti&oacute;n para la obtenci&oacute;n del estado de cuenta",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/fonavipo.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/fonavipo.ventanilla.simple.sv\/tramites\/iniciar\/316&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 3,
+        "total": 3
+    },
+    "categoria": {
+        "id": 19,
+        "nombre": "Vivienda",
+        "icono": "public\/7_6265d1162fd8b.svg",
+        "img_1": "public\/50_625e0cc9e5317.png",
+        "img_2": "public\/50_625e0cca0050e.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:48:14.000000Z",
+        "updated_at": "2024-12-06T20:37:24.000000Z",
+        "icono_header": "public\/7_6265d1162fd8b_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 3,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

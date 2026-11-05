@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple.sv · Banners del carrusel</title>
+<!-- Banners de 1600x600 para el carrusel de la landing, en la línea del video de Platzi.
+     ?v=asistente  → funciones del asistente (agente) de Simple.sv
+     ?v=whatsapp   → hacer un trámite por WhatsApp
+     &render       → sin controles, para render.py -->
+<link rel="stylesheet" href="../video-tramite-whatsapp/node_modules/@fontsource-variable/manrope/wght.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage"></div>
+
+<div id="ui">
+  <a href="?v=asistente">Asistente</a>
+  <a href="?v=whatsapp">WhatsApp</a>
+  <button id="play">▶︎</button>
+  <input id="scrub" type="range" min="0" max="20" step="0.01" value="0">
+  <span id="time">0.00</span>
+</div>
+
+<script src="../video-tramite-whatsapp/node_modules/gsap/dist/gsap.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

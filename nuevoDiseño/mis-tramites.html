@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Mis documentos — Simple.sv</title>
+  <meta name="description" content="Tus trámites en proceso y finalizados en Simple.sv; los finalizados, listos para descargar o apostillar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <script src="transicion-vistas.js"></script>
+  <script src="cambio-vista.js"></script>
+  <script src="terminos.js" defer></script>
+
+  <style>
+    /* Mis documentos · Simple.sv. Misma base visual que Indexlogin.html (cabecera, banner, pestañas y pie) */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-family); font-size: 16px; line-height: 1.5; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    .l2-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .l2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Botones: un principal por pantalla, tamaño táctil de 44 px o más */
+    .l2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: var(--radius-pill); border: 1.5px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-btn-primary { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-btn-primary:hover { background: var(--color-blue-hover); }
+    .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
+    .l2-btn-outline:hover { background: var(--color-blue-soft); }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Encabezado */
+    .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
+    .l2-header-inner { max-width: none; }
+    .l2-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .l2-logo { display: inline-flex; align-items: center; min-height: 44px; }
+    .l2-logo svg { width: 110px; height: auto; }
+    .l2-nav { display: flex; flex: 1; justify-content: flex-start; gap: 28px; margin-left: 28px; }
+    .l2-nav a, .l2-nav button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--text-secondary); font: inherit; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; }
+    .l2-nav i { font-size: 20px; }
+    .l2-nav a:hover, .l2-nav button:hover { color: var(--color-blue-primary); }
+    .l2-nav a:focus-visible, .l2-nav button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+    .l2-nav [aria-current="page"] { color: var(--color-blue-primary); border-bottom-color: var(--color-blue-primary); }
+    /* Pantallas chicas: el menú pasa a una hamburguesa que despliega las opciones bajo el encabezado */
+    .l2-header-actions > .l2-menu-toggle { display: none; }
+    @media (max-width: 999px) {
+      .l2-header-actions > .l2-menu-toggle { display: inline-flex; }
+      .l2-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 60; flex: none; flex-direction: column; gap: 2px; margin: 0; padding: 8px 16px 12px; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); }
+      .l2-nav.abierto { display: flex; }
+      .l2-nav a, .l2-nav button { width: 100%; min-height: 48px; padding: 0 12px; border-bottom: 0; border-radius: 10px; }
+      .l2-nav [aria-current="page"] { background: var(--color-blue-soft); }
+    }
+    .l2-header-actions { display: flex; gap: 12px; align-items: center; }
+    .l2-notifications, .l2-profile-trigger { position: relative; }
+    .l2-icon-button, .l2-profile-trigger > button { border: 1.5px solid transparent; background: transparent; color: var(--color-blue-primary); cursor: pointer; }
+    .l2-icon-button { position: relative; width: 44px; height: 44px; border-radius: 50%; font-size: 22px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+    .l2-icon-button[aria-current="page"] { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:hover, .l2-profile-trigger > button:hover { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:focus-visible, .l2-profile-trigger > button:focus-visible, .l2-menu-item:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-notification-dot { position: absolute; top: 1px; right: 0; min-width: 18px; height: 18px; padding: 0 4px; border: 2px solid #F4F8FE; border-radius: var(--radius-pill); background: #DC2626; color: #FFFFFF; font-size: 11px; font-weight: 800; line-height: 14px; text-align: center; }
+    .l2-notification-panel, .l2-profile-menu { position: absolute; top: calc(100% + 10px); right: 0; z-index: 70; width: min(320px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--border-subtle); border-radius: 16px; background: #FFFFFF; box-shadow: var(--shadow-card); visibility: hidden; opacity: 0; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+    .l2-notification-panel.open, .l2-profile-menu.open { visibility: visible; opacity: 1; transform: translateY(0); }
+    @media (max-width: 560px) { .l2-notification-panel { position: fixed; top: 72px; left: 16px; right: 16px; width: auto; } }
+    .l2-notification-panel h2 { margin: 8px 10px 6px; font-size: 16px; }
+    .l2-notification { display: flex; gap: 10px; padding: 12px 10px; border-radius: 10px; background: var(--color-blue-soft); color: var(--text-primary); font-size: 14px; }
+    .l2-notification i { color: var(--color-blue-primary); font-size: 20px; flex-shrink: 0; }
+    .l2-notification p { margin: 0; }
+    .l2-profile-trigger > button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 3px 8px 3px 3px; border-radius: var(--radius-pill); font-weight: 700; }
+    .l2-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .l2-profile-chevron { font-size: 16px; }
+    .l2-menu-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 12px; border: none; border-radius: 10px; background: transparent; color: var(--text-primary); font: inherit; text-decoration: none; text-align: left; cursor: pointer; }
+    .l2-menu-item:hover { background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-menu-item i { width: 20px; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-menu-divider { height: 1px; margin: 6px 4px; background: var(--border-subtle); }
+
+    /* Catálogo */
+    .l2-section { padding: 56px 0 8px; }
+    .l2-section h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
+    .l2-titulo { margin: 0 0 6px; font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+    .l2-section > .l2-wrap > p { color: var(--text-secondary); margin: 0 0 24px; }
+
+    .l2-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; scrollbar-width: none; }
+    .l2-tabs::-webkit-scrollbar { display: none; }
+    @media (max-width: 999px) { .l2-tabs { padding-right: 36px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); } }
+    .l2-tab { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); background: #FFFFFF; color: var(--text-secondary); font-weight: 700; font-size: 15px; cursor: pointer; }
+    .l2-tab i { font-size: 16px; line-height: 1; }
+    .l2-tab[aria-selected="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tab[aria-pressed="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tab:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-tab-num { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--radius-pill); background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 12px; font-weight: 800; }
+    .l2-tab[aria-pressed="true"] .l2-tab-num { background: rgba(255, 255, 255, 0.22); color: #FFFFFF; }
+
+    /* Filtros en una sola línea: pestañas de estado a la izquierda; fechas, orden y período a la derecha.
+       Al abrir, las fechas van del 1 de enero de este año a hoy; la persona puede elegir cualquier rango. */
+    .l2-filtros { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .l2-rango { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+    .l2-atajo { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px 16px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; color: var(--text-secondary); font: inherit; font-size: 14px; font-weight: 700; white-space: nowrap; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .l2-atajo i { font-size: 16px; }
+    .l2-atajo:hover { border-color: var(--border-active); }
+    .l2-atajo:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-orden { width: 44px; padding: 0; color: var(--color-blue-primary); }
+    .l2-orden i { font-size: 20px; }
+    .l2-fechas-caja { position: relative; }
+    .l2-fechas-boton { padding-inline: 14px; }
+    .l2-fechas-boton[aria-expanded="true"] { border-color: var(--color-blue-primary); box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12); }
+    .l2-cal { position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; width: min(320px, calc(100vw - 32px)); padding: 14px; border: 1px solid var(--border-subtle); border-radius: 16px; background: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-cal[hidden] { display: none; }
+    .l2-cal-cab { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .l2-cal-cab strong { font-size: 15px; text-transform: capitalize; }
+    .l2-cal-nav { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: var(--color-blue-primary); font-size: 18px; cursor: pointer; }
+    .l2-cal-nav:hover:not(:disabled) { background: var(--color-blue-soft); }
+    .l2-cal-nav:disabled { color: var(--text-muted); opacity: 0.4; cursor: default; }
+    .l2-cal-sem, .l2-cal-dias { display: grid; grid-template-columns: repeat(7, 1fr); }
+    .l2-cal-sem span { padding: 4px 0; text-align: center; color: var(--text-muted); font-size: 12px; font-weight: 800; }
+    .l2-cal-dia { height: 38px; border: 0; border-radius: 0; background: transparent; color: var(--text-primary); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .l2-cal-dia:hover:not(:disabled):not(.inicio):not(.fin) { background: var(--color-blue-soft); border-radius: 10px; }
+    .l2-cal-dia:disabled { color: var(--text-muted); opacity: 0.4; cursor: default; }
+    .l2-cal-dia.hoy { text-decoration: underline; text-underline-offset: 3px; }
+    .l2-cal-dia.en-rango { background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-cal-dia.inicio, .l2-cal-dia.fin { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-cal-dia.inicio { border-radius: 10px 0 0 10px; }
+    .l2-cal-dia.fin { border-radius: 0 10px 10px 0; }
+    .l2-cal-dia.inicio.fin { border-radius: 10px; }
+    .l2-cal-dia:focus-visible, .l2-cal-nav:focus-visible { outline: 3px solid var(--border-focus); outline-offset: -2px; border-radius: 10px; }
+    .l2-cal-ayuda { margin: 10px 0 0; color: var(--text-secondary); font-size: 13px; text-align: center; }
+    /* Período: Este año (al abrir), Todo el historial o Personalizado (cuando la persona cambia las fechas) */
+    .l2-periodo { min-height: 44px; padding: 0 34px 0 14px; border: 1.5px solid var(--color-blue-primary); border-radius: var(--radius-pill); background: var(--color-blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 256 256'%3E%3Cpath fill='%230066FF' d='M213.66 101.66l-80 80a8 8 0 0 1-11.32 0l-80-80a8 8 0 0 1 11.32-11.32L128 164.69l74.34-74.35a8 8 0 0 1 11.32 11.32Z'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--color-blue-primary); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .l2-periodo:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    /* Debajo de la línea, solo si las fechas quedaron al revés */
+    .l2-rango-error { display: flex; align-items: center; gap: 8px; margin: -8px 0 16px; color: #DC2626; font-size: 14px; font-weight: 700; }
+    .l2-rango-error[hidden] { display: none; }
+    @media (max-width: 719px) {
+      .l2-rango { width: 100%; }
+      .l2-estado-lista { flex: 1 1 100%; }
+      .l2-fechas-caja { flex: 1 1 auto; }
+      .l2-fechas-boton { width: 100%; }
+          .l2-periodo { flex: 1 1 auto; }
+      .l2-orden { flex: 0 0 44px; }
+    }
+
+    /* Paginación de la tabla: 5 trámites por página */
+    .l2-paginas { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+    .l2-paginas-info { margin: 0; color: var(--text-secondary); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .l2-paginas-nav { display: flex; align-items: center; gap: 6px; }
+    .l2-pagina-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 10px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; color: var(--text-secondary); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .l2-pagina-btn:hover:not(:disabled):not([aria-current="page"]) { border-color: var(--border-active); background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-pagina-btn[aria-current="page"] { border-color: var(--color-blue-primary); background: var(--color-blue-primary); color: #FFFFFF; cursor: default; }
+    .l2-pagina-btn:disabled { opacity: 0.45; cursor: default; }
+    .l2-pagina-btn:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-pagina-btn i { font-size: 18px; }
+    @media (max-width: 719px) {
+      .l2-paginas { justify-content: center; }
+      .l2-paginas-info { flex-basis: 100%; text-align: center; }
+    }
+
+    /* Estados: azul en proceso, verde finalizado */
+    .l2-estado { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-pill); background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 14px; font-weight: 800; white-space: nowrap; }
+    .l2-estado.finalizado { background: var(--color-emerald-soft); color: var(--color-emerald); }
+
+    /* Tabla de trámites: tabla en escritorio, tarjetas apiladas en móvil */
+    .l2-docs { transition: opacity 180ms ease, transform 180ms ease; }
+    .l2-docs.saliendo { opacity: 0; transform: translateY(4px); }
+    .l2-tabla-caja { overflow: hidden; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-tabla { width: 100%; border-collapse: collapse; text-align: left; }
+    .l2-tabla th { padding: 14px 20px; background: var(--bg-subtle); color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; }
+    .l2-tabla td { padding: 16px 20px; border-top: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 15px; vertical-align: middle; }
+    .l2-tabla tbody tr { animation: l2-fila-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--n, 0) * 60ms); transition: background 0.2s ease; }
+    .l2-tabla tbody tr:hover { background: var(--color-blue-soft); }
+    @keyframes l2-fila-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .l2-doc { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .l2-doc-icono { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 14px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 22px; }
+    .l2-doc strong { display: block; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; line-height: 1.3; }
+    .l2-doc small { display: block; margin-top: 2px; color: var(--text-muted); font-size: 13px; font-weight: 600; }
+    .l2-fecha { white-space: nowrap; }
+    /* Acciones de cada documento: Descargar y Apostillar */
+    .l2-acciones-doc { display: flex; justify-content: flex-end; gap: 8px; }
+    .l2-acciones-doc .l2-btn { min-height: 44px; padding: 8px 16px; font-size: 14px; white-space: nowrap; }
+    .l2-acciones-doc .l2-btn i { font-size: 18px; }
+    .l2-acciones-doc .l2-btn-redondo { flex: 0 0 44px; width: 44px; padding: 0; border-radius: 50%; }
+    .l2-acciones-doc .l2-btn-redondo i { font-size: 20px; }
+    /* Trámites en proceso: fondo azul claro con línea a la izquierda, reloj que gira y estado que late;
+       sus acciones se ven apagadas hasta que el trámite finalice */
+    .l2-tabla tbody tr.proceso { background-color: #F5F9FF; }
+    .l2-tabla tbody tr.proceso:hover { background-color: var(--color-blue-soft); }
+    .l2-tabla tbody tr.proceso td:first-child { box-shadow: inset 4px 0 0 var(--color-blue-primary); }
+    .l2-tabla tr.proceso .l2-doc-icono { background: var(--color-blue-primary); color: #FFFFFF; animation: l2-reloj 3.2s ease-in-out infinite; }
+    @keyframes l2-reloj { 0%, 55% { transform: rotate(0); } 80%, 100% { transform: rotate(180deg); } }
+    .l2-estado.proceso { animation: l2-late 2s ease-out infinite; }
+    @keyframes l2-late { 0% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4); } 70%, 100% { box-shadow: 0 0 0 9px rgba(0, 102, 255, 0); } }
+    /* Trámite al que se llega desde un aviso (?tramite=N.º): explicación arriba de la lista y su fila resaltada */
+    .l2-destacado { display: flex; gap: 12px; margin: 0 0 16px; padding: 14px 16px; border-radius: 16px; background: var(--color-blue-soft); color: var(--text-secondary); font-size: 15px; line-height: 1.5; scroll-margin-top: 84px; }
+    .l2-destacado[hidden] { display: none; }
+    .l2-destacado > i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 24px; }
+    .l2-destacado.finalizado { background: var(--color-emerald-soft); }
+    .l2-destacado.finalizado > i { color: var(--color-emerald); }
+    .l2-destacado p { margin: 0; }
+    .l2-destacado strong { display: block; color: var(--text-primary); }
+    .l2-tabla tbody tr.destacado td { animation: l2-destello 2s ease-out 0.4s backwards; }
+    @keyframes l2-destello { 0%, 35% { background-color: rgba(0, 102, 255, 0.14); } }
+    .l2-acciones-doc .l2-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .l2-acciones-doc .l2-btn-primary:disabled:hover { background: var(--color-blue-primary); }
+    .l2-acciones-doc .l2-btn-outline:disabled:hover { background: #FFFFFF; }
+    /* Apostilla del documento, debajo del estado: lista (índigo) o en proceso (azul).
+       En la pestaña Apostillados el estado es el de la apostilla: En proceso (como los trámites en curso) o Apostillado */
+    .l2-estado-caja { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+    .l2-apostilla { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-pill); background: #E0E7FF; color: #3730A3; font-size: 14px; font-weight: 800; white-space: nowrap; }
+    .l2-apostilla.solicitada { background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-estado.apostillado { background: #E0E7FF; color: #3730A3; }
+    .l2-tabla th.l2-th-acciones { text-align: right; }
+
+    /* Ventana para apostillar */
+    .l2-dialog { width: min(480px, calc(100% - 32px)); max-height: 86vh; margin: auto; border: none; border-radius: var(--radius-card); padding: 0; box-shadow: 0 30px 60px rgba(14, 20, 40, 0.25); color: var(--text-primary); }
+    .l2-dialog::backdrop { background: rgba(14, 20, 40, 0.55); }
+    .l2-dialog-body { padding: 28px; overflow-y: auto; max-height: 86vh; text-align: center; }
+    .l2-dialog-icono { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 16px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 26px; }
+    .l2-dialog h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; line-height: 1.25; }
+    .l2-dialog p { margin: 0 0 10px; color: var(--text-secondary); }
+    .l2-dialog .l2-dialog-doc { padding: 12px 14px; border-radius: 14px; background: var(--bg-subtle); color: var(--text-primary); }
+    .l2-dialog-doc strong { display: block; color: var(--color-blue-primary); }
+    .l2-dialog-doc span { font-size: 14px; color: var(--text-muted); }
+    .l2-dialog-actions { display: flex; flex-direction: column-reverse; gap: 10px; margin-top: 22px; }
+    /* Ventana con el avance de un trámite en proceso: iniciado, en proceso y finalizado */
+    .l2-dialog.detalle { width: min(760px, calc(100% - 32px)); }
+    .l2-dialog.detalle h2 { margin-bottom: 4px; }
+    .l2-dialog.detalle .l2-detalle-num { margin: 0 0 26px; }
+    .l2-detalle-num strong { color: var(--text-primary); }
+    .l2-pasos { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 24px; padding: 0; list-style: none; }
+    .l2-paso { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 8px; }
+    .l2-paso::before { content: ""; position: absolute; top: 19px; right: 50%; width: 100%; height: 4px; border-radius: 2px; background: var(--border-subtle); }
+    .l2-paso:first-child::before { display: none; }
+    .l2-paso.hecho::before, .l2-paso.actual::before { background: var(--color-emerald); }
+    .l2-paso-marca { position: relative; z-index: 1; display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: var(--border-subtle); color: var(--text-muted); font-size: 20px; }
+    .l2-paso.hecho .l2-paso-marca { background: var(--color-emerald); color: #FFFFFF; }
+    .l2-paso.actual .l2-paso-marca { background: var(--color-blue-primary); color: #FFFFFF; animation: l2-late 2s ease-out infinite; }
+    .l2-paso-texto { display: grid; justify-items: center; gap: 2px; }
+    .l2-paso strong { color: var(--text-primary); font-size: 15px; font-weight: 800; line-height: 1.3; }
+    .l2-paso.pendiente strong { color: var(--text-muted); }
+    .l2-paso small { color: var(--text-muted); font-size: 13px; font-weight: 600; line-height: 1.4; }
+    .l2-dialog.detalle .l2-dialog-doc { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+    .l2-dialog.detalle .l2-dialog-doc > strong { color: var(--text-primary); }
+    .l2-dialog.detalle .l2-dialog-doc span { font-size: 15px; color: var(--text-secondary); }
+    .l2-dialog.detalle .l2-dialog-doc span strong { display: inline; color: var(--text-primary); }
+    @media (max-width: 560px) {
+      .l2-pasos { grid-template-columns: 1fr; gap: 18px; padding-left: 4px; }
+      .l2-paso { flex-direction: row; align-items: flex-start; gap: 14px; padding: 0; text-align: left; }
+      .l2-paso::before { display: none; }
+      .l2-paso:not(:last-child)::after { content: ""; position: absolute; top: 42px; left: 19px; width: 4px; height: calc(100% - 42px + 18px); background: var(--border-subtle); }
+      .l2-paso.hecho:not(:last-child)::after { background: var(--color-emerald); }
+      .l2-paso-texto { justify-items: start; padding-top: 2px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .l2-paso.actual .l2-paso-marca { animation: none; } }
+    .l2-close { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: none; background: var(--bg-subtle); color: var(--text-primary); font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .l2-close:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    @media (min-width: 560px) { .l2-dialog-actions { flex-direction: row; justify-content: center; } .l2-dialog-actions .l2-btn { flex: 0 0 190px; justify-content: center; } }
+
+    /* Aviso breve tras descargar o enviar una solicitud */
+    .l2-toast { position: fixed; left: 50%; bottom: 24px; z-index: 80; display: flex; align-items: center; gap: 10px; max-width: calc(100% - 32px); padding: 12px 18px; border-radius: 14px; background: var(--color-navy-deep); color: #FFFFFF; font-size: 15px; font-weight: 600; box-shadow: 0 18px 40px rgba(14, 20, 40, 0.3); opacity: 0; visibility: hidden; transform: translate(-50%, 12px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s; }
+    .l2-toast.visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s; }
+    .l2-toast i { font-size: 20px; color: #9FD8FF; }
+    .l2-vacio { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0; padding: 40px 20px; border: 1.5px dashed var(--border-subtle); border-radius: var(--radius-card); color: var(--text-muted); text-align: center; font-size: 15px; animation: l2-fila-in 0.4s ease both; }
+    .l2-vacio i { font-size: 36px; color: var(--border-active); }
+    @media (max-width: 719px) {
+      .l2-tabla thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .l2-tabla, .l2-tabla tbody, .l2-tabla tr, .l2-tabla td { display: block; }
+      .l2-tabla tr { padding: 16px; border-top: 1px solid var(--border-subtle); }
+      .l2-tabla tbody tr:first-child { border-top: 0; }
+      /* En proceso: la línea va en el borde de la tarjeta, separada del ícono */
+      .l2-tabla tbody tr.proceso { box-shadow: inset 4px 0 0 var(--color-blue-primary); }
+      .l2-tabla tbody tr.proceso td:first-child { box-shadow: none; }
+      .l2-tabla td { display: flex; justify-content: space-between; gap: 12px; padding: 6px 0; border: 0; }
+      .l2-tabla td[data-etiqueta]::before { content: attr(data-etiqueta); color: var(--text-muted); font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+      .l2-tabla td.l2-celda-doc { padding-bottom: 10px; }
+      .l2-tabla td.l2-celda-acciones { padding-top: 12px; }
+      .l2-estado-caja { align-items: flex-end; }
+      .l2-tabla td.l2-celda-acciones:empty { display: none; }
+      .l2-acciones-doc { justify-content: flex-start; width: 100%; }
+      .l2-acciones-doc .l2-btn { flex: 1; }
+      .l2-acciones-doc .l2-btn-redondo { flex: 0 0 44px; }
+    }
+
+    .l2-footer { margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 14px; }
+    /* El pie ocupa el mismo ancho que el contenido, para que sus enlaces queden a la izquierda, bajo las tarjetas */
+    .l2-footer > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-footer-enlaces { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-bottom: 10px; }
+    .l2-footer-enlaces a, .l2-footer-enlaces button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .l2-footer-enlaces a:hover, .l2-footer-enlaces button:hover { text-decoration: underline; }
+    .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+
+    @media (min-width: 720px) { .l2-logo svg { width: 132px; } }
+    @media (max-width: 560px) {
+      .l2-profile-chevron { display: none; }
+      .l2-profile-trigger > button { padding-right: 3px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-docs, .l2-tabla tbody tr { transition: none; animation: none; }
+      .l2-tabla tr.proceso .l2-doc-icono, .l2-estado.proceso, .l2-tabla tbody tr.destacado td { animation: none; }
+      .l2-vacio { animation: none; }
+      .l2-toast { transition: none; }
+    }
+    /* Contáctanos y Términos y condiciones van en el menú del encabezado */
+    .l2-footer-enlaces, .l2-header-actions > a.l2-icon-button[href="contactanos.html"] { display: none; }
+    .l2-footer:not(:has(> .l2-wrap > p)) { display: none; }
+  </style>
+  <link rel="stylesheet" href="modulos.css">
+  <script src="sesion.js"></script>
+  <script src="menu-movil.js" defer></script>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="l2-header">
+    <div class="l2-wrap l2-header-inner">
+      <a href="../index.html" class="l2-logo" aria-label="Simple.sv, volver a Trámites" data-transicion="Trámites" data-transicion-icono="ph-files">
+        <svg viewBox="0 0 252 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <path d="M2.02 35.92C4.19 38.02 7.08 39.2 10.1 39.2C13.02 39.2 15.55 37.75 15.55 34.89C15.55 28.95 0.93 30.41 0.93 21.56C0.93 16.71 5.3 14.06 10.2 14.06C15.92 14.06 18.56 17.03 18.56 17.03L16.9 19.85C16.9 19.85 14.58 17.37 10.1 17.37C7.35 17.37 4.71 18.55 4.71 21.57C4.71 27.56 19.33 25.94 19.33 34.9C19.33 39.32 15.5 42.5 10.06 42.5C3.48 42.5 0.02 38.56 0.02 38.56L2.02 35.92Z" fill="#1C1E4D"/>
+          <path d="M25.56 3.92H29.39V8.51H25.56V3.92ZM25.66 14.71H29.33V41.85H25.66V14.71Z" fill="#1C1E4D"/>
+          <path d="M37.68 14.71H41.29V18.75C41.29 19.94 41.18 20.91 41.18 20.91H41.29C42.59 17.24 46.9 14.06 51.11 14.06C56.13 14.06 58.72 16.38 59.53 20.86H59.64C61.09 17.19 65.03 14.06 69.62 14.06C76.2 14.06 78.63 17.89 78.63 24.58V41.84H74.96V25.5C74.96 21.08 74.04 17.41 69.08 17.41C64.92 17.41 61.53 21.08 60.5 25.08C60.12 26.26 60.03 27.56 60.03 29.01V41.85H56.35V25.5C56.35 21.4 55.75 17.41 50.63 17.41C46.2 17.41 42.86 21.24 41.72 25.39C41.46 26.58 41.33 27.79 41.35 29.01V41.84H37.68V14.71Z" fill="#1C1E4D"/>
+          <path d="M86.89 14.71H90.4V17.36C90.4 18.06 90.37 18.76 90.29 19.46H90.4C90.4 19.46 92.61 14.06 99.79 14.06C107.07 14.06 111.6 19.89 111.6 28.31C111.6 36.89 106.48 42.5 99.46 42.5C92.94 42.5 90.56 37.32 90.56 37.32H90.46C90.46 37.32 90.56 38.29 90.56 39.7V52.65H86.89V14.71ZM99.09 39.26C103.89 39.26 107.83 35.22 107.83 28.31C107.83 21.67 104.32 17.41 99.25 17.41C94.72 17.41 90.45 20.65 90.45 28.36C90.46 33.81 93.48 39.26 99.09 39.26Z" fill="#1C1E4D"/>
+          <path d="M118.42 3.92H122.08V34.62C122.08 38.19 123.7 38.72 125.1 38.72C125.41 38.72 125.72 38.7 126.02 38.67V41.95C125.58 42.02 125.12 42.06 124.67 42.06C122.41 42.06 118.42 41.36 118.42 35.42V3.92Z" fill="#1C1E4D"/>
+          <path d="M142.75 14.06C150.25 14.06 154.08 19.84 154.08 26.58C154.08 27.23 153.97 28.47 153.97 28.47H133.14C133.3 35.43 138.05 39.21 143.66 39.21C148.62 39.21 151.91 35.92 151.91 35.92L153.58 38.72C150.79 41.13 147.23 42.47 143.54 42.5C135.45 42.5 129.35 36.67 129.35 28.31C129.37 19.4 135.42 14.06 142.75 14.06ZM150.36 25.45C150.14 19.78 146.69 17.14 142.65 17.14C138.11 17.14 134.17 19.99 133.31 25.46L150.36 25.45Z" fill="#1C1E4D"/>
+          <path d="M160.81 37.53H165.07V41.85H160.81V37.53Z" fill="#1C1E4D"/>
+          <path d="M173.79 35.92C175.95 38.02 178.85 39.2 181.87 39.2C184.78 39.2 187.32 37.75 187.32 34.89C187.32 28.95 172.69 30.41 172.69 21.56C172.69 16.71 177.07 14.06 181.97 14.06C187.68 14.06 190.33 17.03 190.33 17.03L188.66 19.84C188.66 19.84 186.35 17.36 181.87 17.36C179.11 17.36 176.47 18.54 176.47 21.56C176.47 27.55 191.09 25.93 191.09 34.89C191.09 39.31 187.26 42.5 181.82 42.5C175.24 42.5 171.79 38.56 171.79 38.56L173.79 35.92Z" fill="#1C1E4D"/>
+          <path d="M194.45 14.71H198.34L205.89 34.62C206.25 35.68 206.55 36.76 206.81 37.86H206.91C207.18 36.76 207.5 35.68 207.88 34.62L215.38 14.71H219.22L208.86 41.85H204.86L194.45 14.71Z" fill="#1C1E4D"/>
+          <path d="M251.96 14.61V23.78H223.44L226.83 14.61H251.96Z" fill="#0066FF"/>
+          <path d="M251.97 32.74V41.91H216.73L220.13 32.74H251.97Z" fill="#0066FF"/>
+          <path d="M223.44 23.78L220.13 32.74H251.96V23.78H223.44Z" fill="#E2E8F0"/>
+        </svg>
+      </a>
+
+      <nav class="l2-nav" id="menu-principal" aria-label="Menú principal">
+        <a href="Indexlogin.html"><i class="ph ph-files" aria-hidden="true"></i>Trámites</a>
+        <a href="mis-tramites.html" aria-current="page"><i class="ph ph-folder-open" aria-hidden="true"></i>Mis documentos</a>
+        <a href="contactanos.html"><i class="ph ph-headset" aria-hidden="true"></i>Contáctanos</a>
+      </nav>
+
+      <div class="l2-header-actions">
+        <a class="l2-icon-button" href="contactanos.html" aria-label="Contáctanos" title="Contáctanos" data-transicion="Contáctanos" data-transicion-icono="ph-headset"><i class="ph ph-headset" aria-hidden="true"></i></a>
+        <div class="l2-notifications">
+          <button class="l2-icon-button" id="notificaciones-boton" type="button" aria-label="Ver notificaciones" aria-controls="notificaciones-panel" aria-expanded="false">
+            <i class="ph ph-bell" aria-hidden="true"></i>
+            <span class="l2-notification-dot" aria-label="1 notificación nueva">1</span>
+          </button>
+          <div class="l2-notification-panel" id="notificaciones-panel" role="region" aria-label="Notificaciones">
+            <h2>Notificaciones</h2>
+            <div class="l2-notification">
+              <i class="ph ph-check-circle" aria-hidden="true"></i>
+              <p><strong>Tu trámite está listo</strong><br>Revisa el estado de tu gestión reciente</p>
+            </div>
+          </div>
+        </div>
+        <div class="l2-profile-trigger">
+          <button id="perfil-boton" type="button" aria-label="Abrir menú de usuario" aria-haspopup="menu" aria-controls="perfil-menu" aria-expanded="false">
+            <img class="l2-avatar" src="usuario-avatar.png" alt="Foto de perfil de usuario">
+            <i class="ph ph-caret-down l2-profile-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="l2-profile-menu" id="perfil-menu" role="menu" aria-label="Menú de usuario">
+            <a class="l2-menu-item" href="../SIMPLE ACTUAL/Identidad digital.html" role="menuitem"><i class="ph ph-user-circle" aria-hidden="true"></i>Mi cuenta</a>
+            <div class="l2-menu-divider" role="separator"></div>
+            <a class="l2-menu-item" href="../index.html" role="menuitem"><i class="ph ph-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
+          </div>
+        </div>
+        <button class="l2-icon-button l2-menu-toggle" type="button" aria-label="Abrir el menú" aria-controls="menu-principal" aria-expanded="false"><i class="ph ph-list" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- MIS TRÁMITES: trámites en proceso y finalizados; los finalizados se pueden descargar o apostillar -->
+    <section class="l2-section" id="tramites">
+      <div class="l2-wrap">
+        <h1 class="l2-titulo">Mis documentos</h1>
+        <p>Tus trámites en proceso y finalizados</p>
+
+        <!-- Filtros en una sola línea: lista de estado (el número de cada opción lo pone el script) y fechas
+             (las iniciales, del 1 de enero de este año a hoy, también las pone el script) -->
+        <div class="l2-filtros">
+          <div class="l2-rango" role="group" aria-label="Filtrar trámites por estado y fecha">
+            <label class="l2-sr" for="estado">Estado</label>
+            <select class="l2-periodo l2-estado-lista" id="estado">
+              <option value="todos">Todos</option>
+              <option value="proceso">En proceso</option>
+              <option value="finalizado">Finalizados</option>
+              <option value="apostillado">Apostillados</option>
+            </select>
+            <label class="l2-sr" for="periodo">Período</label>
+            <select class="l2-periodo" id="periodo">
+              <option value="anio">Este año</option>
+              <option value="todo">Todo el historial</option>
+              <option value="personalizado" disabled>Personalizado</option>
+            </select>
+            <!-- Un solo botón de fechas: abre un calendario donde se elige el rango (inicio y fin) -->
+            <div class="l2-fechas-caja">
+              <input type="hidden" id="fecha-desde">
+              <input type="hidden" id="fecha-hasta">
+              <button type="button" class="l2-atajo l2-fechas-boton" id="fechas-boton" aria-haspopup="dialog" aria-expanded="false" aria-controls="cal">
+                <i class="ph ph-calendar-blank" aria-hidden="true"></i><span id="fechas-texto">Fechas</span><i class="ph ph-caret-down" aria-hidden="true"></i>
+              </button>
+              <div class="l2-cal" id="cal" role="dialog" aria-label="Elegir rango de fechas" hidden>
+                <div class="l2-cal-cab">
+                  <button type="button" class="l2-cal-nav" id="cal-ant" aria-label="Mes anterior"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+                  <strong id="cal-mes" aria-live="polite"></strong>
+                  <button type="button" class="l2-cal-nav" id="cal-sig" aria-label="Mes siguiente"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+                </div>
+                <div class="l2-cal-sem" aria-hidden="true"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+                <div class="l2-cal-dias" id="cal-dias"></div>
+                <p class="l2-cal-ayuda" id="cal-ayuda"></p>
+              </div>
+            </div>
+            <!-- Orden: alterna entre más recientes y más antiguos primero (su texto lo pone el script) -->
+            <button type="button" class="l2-atajo l2-orden" id="orden" data-orden="recientes"><i class="ph ph-sort-descending" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <p class="l2-rango-error" id="fechas-error" role="alert" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i>La fecha «Desde» debe ser igual o anterior a «hasta»</p>
+
+        <!-- Al llegar desde un aviso de WhatsApp (?tramite=N.º): qué pasa con ese trámite -->
+        <div class="l2-destacado" id="destacado" role="status" hidden></div>
+        <!-- Se rellena desde MIS_TRAMITES (mis-tramites.js) y las solicitudes hechas por WhatsApp en este navegador -->
+        <div class="l2-docs" id="lista" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l2-footer" data-transicion-contenido>
+    <div class="l2-wrap">
+      <nav class="l2-footer-enlaces" aria-label="Ayuda y términos">
+        <a href="contactanos.html" data-transicion="Contáctanos" data-transicion-icono="ph-headset"><i class="ph ph-headset" aria-hidden="true"></i>Contáctanos</a>
+        <button type="button" data-terminos><i class="ph ph-scroll" aria-hidden="true"></i>Términos y condiciones</button>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- APOSTILLAR DOCUMENTO -->
+  <dialog class="l2-dialog" id="apostilla" aria-labelledby="apostilla-titulo">
+    <form method="dialog" class="l2-dialog-body">
+      <button class="l2-close" type="submit" value="cancelar" aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button>
+      <span class="l2-dialog-icono"><i class="ph ph-seal-check" aria-hidden="true"></i></span>
+      <h2 id="apostilla-titulo">Apostillar documento</h2>
+      <p class="l2-dialog-doc" id="apostilla-doc"></p>
+      <p>La apostilla te permite usar este documento en otros países. Cuando esté lista te avisaremos y la encontrarás aquí mismo</p>
+      <div class="l2-dialog-actions">
+        <button class="l2-btn l2-btn-outline" type="submit" value="cancelar">Cancelar</button>
+        <button class="l2-btn l2-btn-primary" type="submit" value="enviar"><i class="ph ph-seal-check" aria-hidden="true"></i>Enviar solicitud</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- DETALLE DE UN TRÁMITE EN PROCESO -->
+  <dialog class="l2-dialog detalle" id="detalle" aria-labelledby="detalle-titulo">
+    <form method="dialog" class="l2-dialog-body">
+      <button class="l2-close" type="submit" aria-label="Cerrar"><i class="ph ph-x" aria-hidden="true"></i></button>
+      <h2 id="detalle-titulo"></h2>
+      <p class="l2-detalle-num" id="detalle-num"></p>
+      <ol class="l2-pasos" id="detalle-pasos"></ol>
+      <p class="l2-dialog-doc" id="detalle-ayuda"></p>
+      <div class="l2-dialog-actions">
+        <button class="l2-btn l2-btn-outline" type="submit">Salir</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="l2-toast" id="aviso" role="status" aria-live="polite"><i class="ph ph-check-circle" aria-hidden="true"></i><span id="aviso-texto"></span></div>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="mis-tramites.js"></script>
+
+  <script>
+    /* ===== Datos: trámites del usuario (mis-tramites.js) con nombre e institución del catálogo; se ordenan por fecha al pintar ===== */
+    const CATALOGO = Object.fromEntries((window.CATALOGO_TRAMITES || []).map(t => [t.numero, t]));
+    const ESTADOS = window.ESTADOS_TRAMITE || {};
+    // Solicitudes hechas por WhatsApp en este navegador (las guarda whatsapp.html al pagar y al llegar el aviso)
+    const POR_WHATSAPP = (() => {
+      try {
+        const lista = JSON.parse(localStorage.getItem('simple-tramites-nuevos'));
+        return Array.isArray(lista) ? lista.filter(t => /^\d{7}$/.test(t?.id) && typeof t.fecha === 'string') : [];
+      } catch { return []; }
+    })();
+    const TRAMITES = [...POR_WHATSAPP, ...(window.MIS_TRAMITES || [])]
+      .filter(t => ESTADOS[t.estado] && CATALOGO[t.numero])
+      .map(t => ({ ...CATALOGO[t.numero], ...t }));
+    // Trámite al que se llega desde un aviso (?tramite=N.º)
+    const destacado = TRAMITES.find(t => t.id === new URLSearchParams(location.search).get('tramite'));
+    const POR_PAGINA = 5;
+    const VACIOS = {
+      todos: ['ph-folder-open', 'Aún no tienes trámites'],
+      proceso: ['ph-hourglass-medium', 'No tienes trámites en proceso'],
+      finalizado: ['ph-check-circle', 'Aún no tienes trámites finalizados'],
+      apostillado: ['ph-seal-check', 'Aún no tienes documentos apostillados']
+    };
+    // Apostillas pedidas en esta visita (se suman a las que ya vienen en mis-tramites.js)
+    const apostillas = new Set();
+
+    // lista | solicitada | null
+    function apostillaDe(t) {
+      if (t.estado !== 'finalizado') return null;
+      return t.apostilla || (apostillas.has(t.id) ? 'solicitada' : null);
+    }
+
+    // ¿El trámite entra en la pestaña elegida?
+    function enPestana(t, id) {
+      if (id === 'todos') return true;
+      if (id === 'apostillado') return !!apostillaDe(t);
+      return t.estado === id;
+    }
+
+    const lista = document.getElementById('lista');
+    const estadoLista = document.getElementById('estado');
+    const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let filtroActual = 'todos';
+    let pagina = 0;
+
+    // Crea un elemento con texto (textContent evita inyectar HTML)
+    function el(tag, clase, texto) {
+      const nodo = document.createElement(tag);
+      if (clase) nodo.className = clase;
+      if (texto !== undefined) nodo.textContent = texto;
+      return nodo;
+    }
+
+    function icono(nombre) {
+      const i = el('i', `ph ${nombre}`);
+      i.setAttribute('aria-hidden', 'true');
+      return i;
+    }
+
+    function celda(etiqueta, contenido, clase) {
+      const td = el('td', clase);
+      if (etiqueta) td.dataset.etiqueta = etiqueta;
+      td.append(contenido);
+      return td;
+    }
+
+    function boton(clase, icon, texto) {
+      const b = el('button', `l2-btn ${clase}`);
+      b.type = 'button';
+      b.append(icono(icon), texto);
+      return b;
+    }
+
+    const formatoFecha = new Intl.DateTimeFormat('es-SV', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+
+    // En la pestaña Apostillados cada fila es la apostilla: su estado manda (en proceso o lista)
+    const vistaApostillas = () => filtroActual === 'apostillado';
+    const filaEnProceso = t => t.estado === 'proceso' || (vistaApostillas() && apostillaDe(t) === 'solicitada');
+
+    function estado(t) {
+      const apostilla = apostillaDe(t);
+      if (vistaApostillas()) {
+        const etiqueta = el('span', `l2-estado ${apostilla === 'lista' ? 'apostillado' : 'proceso'}`);
+        etiqueta.append(icono(apostilla === 'lista' ? 'ph-seal-check' : ESTADOS.proceso.icono), apostilla === 'lista' ? 'Apostillado' : ESTADOS.proceso.texto);
+        return etiqueta;
+      }
+      const info = ESTADOS[t.estado];
+      const etiqueta = el('span', `l2-estado ${t.estado}`);
+      etiqueta.append(icono(info.icono), info.texto);
+      if (!apostilla) return etiqueta;
+      const caja = el('div', 'l2-estado-caja');
+      const marca = el('span', `l2-apostilla ${apostilla}`);
+      marca.append(icono(apostilla === 'lista' ? 'ph-seal-check' : 'ph-hourglass-medium'), apostilla === 'lista' ? 'Apostillado' : 'Apostilla en proceso');
+      caja.append(etiqueta, marca);
+      return caja;
+    }
+
+    // Descargar y Apostillar (solo finalizados). Con la apostilla en proceso o lista, Apostillar se ve apagado
+    // (como en los trámites en curso) y Descargar baja el documento (lista = el documento apostillado)
+    function acciones(t) {
+      const caja = el('div', 'l2-acciones-doc');
+      if (t.estado !== 'finalizado') {
+        // En proceso: los mismos botones, apagados hasta que el trámite finalice
+        [['l2-btn-outline', 'ph-seal-check', 'Apostillar'], ['l2-btn-primary', 'ph-download-simple', 'Descargar']].forEach(([clase, icon, texto]) => {
+          const b = boton(clase, icon, texto);
+          b.disabled = true;
+          b.title = 'Disponible cuando tu trámite finalice';
+          caja.append(b);
+        });
+        // Ver detalle: redondo, solo con el ícono, al final de la fila
+        const detalle = boton('l2-btn-primary l2-btn-redondo', 'ph-list-checks', '');
+        detalle.title = 'Ver detalle';
+        detalle.setAttribute('aria-label', `Ver el detalle de ${t.nombre}, trámite ${t.id}`);
+        detalle.addEventListener('click', () => abrirDetalle(t));
+        caja.append(detalle);
+        return caja;
+      }
+      const apostilla = apostillaDe(t);
+      const apostillar = boton('l2-btn-outline', 'ph-seal-check', 'Apostillar');
+      if (apostilla) {
+        apostillar.disabled = true;
+        apostillar.title = apostilla === 'lista' ? 'Este documento ya está apostillado' : 'Tu apostilla está en proceso';
+      } else {
+        apostillar.setAttribute('aria-label', `Apostillar ${t.nombre}, trámite ${t.id}`);
+        apostillar.addEventListener('click', () => abrirApostilla(t));
+      }
+      caja.append(apostillar);
+      const apostillado = apostilla === 'lista';
+      const descargar = boton('l2-btn-primary', 'ph-download-simple', 'Descargar');
+      descargar.setAttribute('aria-label', `Descargar ${t.nombre}${apostillado ? ' apostillado' : ''}, trámite ${t.id}`);
+      if (apostillado) descargar.title = 'Descargar documento apostillado';
+      descargar.addEventListener('click', () => avisar(`Descargando ${t.nombre}${apostillado ? ' (apostillado)' : ''}…`));
+      caja.append(descargar);
+      return caja;
+    }
+
+    /* ===== Filtro por fechas: por defecto, del 1 de enero de este año a hoy ===== */
+    const desdeInput = document.getElementById('fecha-desde');
+    const hastaInput = document.getElementById('fecha-hasta');
+    const ordenBoton = document.getElementById('orden');
+    const ORDENES = {
+      recientes: { texto: 'más recientes primero', icono: 'ph-sort-descending', siguiente: 'antiguos' },
+      antiguos: { texto: 'más antiguos primero', icono: 'ph-sort-ascending', siguiente: 'recientes' }
+    };
+    const periodo = document.getElementById('periodo');
+    // Fecha local en el formato de los campos de fecha (AAAA-MM-DD)
+    const aISO = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const diaDe = t => t.fecha.slice(0, 10);
+    const HOY = aISO(new Date());
+    const RANGOS = {
+      anio: [`${HOY.slice(0, 4)}-01-01`, HOY],
+      todo: [TRAMITES.reduce((primero, t) => diaDe(t) < primero ? diaDe(t) : primero, HOY), HOY]
+    };
+
+    // Un campo vacío no limita; si "Desde" queda después de "Hasta" no se muestra nada hasta corregirlo
+    function rangoValido() {
+      return !desdeInput.value || !hastaInput.value || desdeInput.value <= hastaInput.value;
+    }
+    function delRango() {
+      if (!rangoValido()) return [];
+      return TRAMITES.filter(t => (!desdeInput.value || diaDe(t) >= desdeInput.value) && (!hastaInput.value || diaDe(t) <= hastaInput.value));
+    }
+
+    function aplicarRango(id) {
+      [desdeInput.value, hastaInput.value] = RANGOS[id];
+      pagina = 0;
+      refrescar();
+    }
+
+    /* ===== Calendario de rango: un solo botón; primer clic = inicio, segundo clic = fin ===== */
+    const fechasBoton = document.getElementById('fechas-boton');
+    const fechasTexto = document.getElementById('fechas-texto');
+    const cal = document.getElementById('cal');
+    const calDias = document.getElementById('cal-dias');
+    const calMes = document.getElementById('cal-mes');
+    const calAyuda = document.getElementById('cal-ayuda');
+    const calAnt = document.getElementById('cal-ant');
+    const calSig = document.getElementById('cal-sig');
+    const MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const aTexto = iso => iso.split('-').reverse().join('/');
+    let calVista = { a: 0, m: 0 };
+    let calInicio = null;
+
+    function pintarCal() {
+      const { a, m } = calVista;
+      calMes.textContent = `${MESES[m]} ${a}`;
+      calSig.disabled = aISO(new Date(a, m + 1, 1)) > HOY;
+      calDias.replaceChildren();
+      const hueco = (new Date(a, m, 1).getDay() + 6) % 7;
+      for (let i = 0; i < hueco; i++) calDias.append(el('span'));
+      const [d0, d1] = calInicio ? [calInicio, calInicio] : [desdeInput.value, hastaInput.value];
+      for (let dia = 1; dia <= new Date(a, m + 1, 0).getDate(); dia++) {
+        const iso = aISO(new Date(a, m, dia));
+        const b = el('button', 'l2-cal-dia', String(dia));
+        b.type = 'button';
+        b.dataset.dia = iso;
+        b.disabled = iso > HOY;
+        if (iso === HOY) b.classList.add('hoy');
+        if (d0 && d1 && iso >= d0 && iso <= d1) b.classList.add('en-rango');
+        if (iso === d0) b.classList.add('inicio');
+        if (iso === d1) b.classList.add('fin');
+        b.setAttribute('aria-label', `${dia} de ${MESES[m]} de ${a}`);
+        calDias.append(b);
+      }
+      calAyuda.textContent = calInicio ? 'Ahora elige la fecha final' : 'Elige la fecha inicial';
+    }
+    function pintarBotonFechas() {
+      fechasTexto.textContent = desdeInput.value && hastaInput.value ? `${aTexto(desdeInput.value)} – ${aTexto(hastaInput.value)}` : 'Fechas';
+      if (!cal.hidden) pintarCal();
+    }
+    function abrirCal() {
+      calInicio = null;
+      const [a, m] = (hastaInput.value || HOY).split('-').map(Number);
+      calVista = { a, m: m - 1 };
+      cal.hidden = false;
+      fechasBoton.setAttribute('aria-expanded', 'true');
+      pintarCal();
+    }
+    function cerrarCal() {
+      calInicio = null;
+      cal.hidden = true;
+      fechasBoton.setAttribute('aria-expanded', 'false');
+    }
+    function moverMes(delta) {
+      const d = new Date(calVista.a, calVista.m + delta, 1);
+      calVista = { a: d.getFullYear(), m: d.getMonth() };
+      pintarCal();
+    }
+    fechasBoton.addEventListener('click', () => (cal.hidden ? abrirCal() : cerrarCal()));
+    calAnt.addEventListener('click', () => moverMes(-1));
+    calSig.addEventListener('click', () => moverMes(1));
+    calDias.addEventListener('click', e => {
+      const b = e.target.closest('.l2-cal-dia');
+      if (!b || b.disabled) return;
+      const iso = b.dataset.dia;
+      if (!calInicio) { calInicio = iso; pintarCal(); return; }
+      [desdeInput.value, hastaInput.value] = iso < calInicio ? [iso, calInicio] : [calInicio, iso];
+      cerrarCal();
+      pagina = 0;
+      refrescar();
+    });
+    const fechasCaja = fechasBoton.parentElement;
+    document.addEventListener('click', e => { if (!cal.hidden && !e.composedPath().includes(fechasCaja)) cerrarCal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !cal.hidden) { cerrarCal(); fechasBoton.focus(); } });
+
+    // Aviso de fechas al revés, orden, atajo activo y número de trámites de cada pestaña
+    function actualizarFiltros() {
+      const valido = rangoValido();
+      const desde = desdeInput.value;
+      const hasta = hastaInput.value;
+      document.getElementById('fechas-error').hidden = valido;
+      [desdeInput, hastaInput].forEach(c => c.setAttribute('aria-invalid', String(!valido)));
+      hastaInput.min = desde;
+      const orden = ORDENES[ordenBoton.dataset.orden];
+      ordenBoton.querySelector('i').className = `ph ${orden.icono}`;
+      ordenBoton.title = `Orden: ${orden.texto}. Cambiar a ${ORDENES[orden.siguiente].texto}`;
+      ordenBoton.setAttribute('aria-label', ordenBoton.title);
+      // El período coincide con Este año o Todo el historial; si no, las fechas son personalizadas
+      periodo.value = Object.keys(RANGOS).find(id => RANGOS[id][0] === desde && RANGOS[id][1] === hasta) || 'personalizado';
+      pintarBotonFechas();
+      const enFechas = delRango();
+      [...estadoLista.options].forEach(o => {
+        o.textContent = `${o.dataset.nombre} (${enFechas.filter(t => enPestana(t, o.value)).length})`;
+      });
+    }
+
+    /* ===== Paginación: 5 trámites por página ===== */
+    function irAPagina(n) {
+      pagina = n;
+      refrescar();
+      lista.scrollIntoView({ block: 'nearest', behavior: sinMovimiento ? 'auto' : 'smooth' });
+    }
+
+    function paginacion(total) {
+      const paginas = Math.ceil(total / POR_PAGINA);
+      const caja = el('nav', 'l2-paginas');
+      caja.setAttribute('aria-label', 'Páginas de trámites');
+      const desde = pagina * POR_PAGINA + 1;
+      const hasta = Math.min(total, desde + POR_PAGINA - 1);
+      caja.append(el('p', 'l2-paginas-info', `Mostrando ${desde}–${hasta} de ${total} trámites`));
+      const nav = el('div', 'l2-paginas-nav');
+      const flecha = (icon, etiqueta, destino) => {
+        const b = el('button', 'l2-pagina-btn');
+        b.type = 'button';
+        b.setAttribute('aria-label', etiqueta);
+        b.append(icono(icon));
+        b.disabled = destino < 0 || destino >= paginas;
+        b.addEventListener('click', () => irAPagina(destino));
+        return b;
+      };
+      nav.append(flecha('ph-caret-left', 'Página anterior', pagina - 1));
+      for (let i = 0; i < paginas; i++) {
+        const b = el('button', 'l2-pagina-btn', String(i + 1));
+        b.type = 'button';
+        b.setAttribute('aria-label', `Página ${i + 1}`);
+        if (i === pagina) b.setAttribute('aria-current', 'page');
+        else b.addEventListener('click', () => irAPagina(i));
+        nav.append(b);
+      }
+      nav.append(flecha('ph-caret-right', 'Página siguiente', pagina + 1));
+      caja.append(nav);
+      return caja;
+    }
+
+    // Prioridad por estado, siempre antes que la fecha: en Todos, primero los que están en proceso, luego los finalizados y al final
+    // los finalizados con apostilla. En Apostillados, primero las apostillas en proceso y después las listas
+    function prioridad(t) {
+      if (filtroActual === 'apostillado') return apostillaDe(t) === 'solicitada' ? 0 : 1;
+      if (t.estado === 'proceso') return 0;
+      return apostillaDe(t) ? 2 : 1;
+    }
+
+    // Los trámites de la pestaña y las fechas elegidas: por prioridad de estado y, dentro de cada una, por fecha
+    // (el más reciente primero, o el más antiguo si se cambió el orden)
+    function listaFiltrada() {
+      const antiguosPrimero = ordenBoton.dataset.orden === 'antiguos';
+      return delRango()
+        .filter(t => enPestana(t, filtroActual))
+        .sort((a, b) => prioridad(a) - prioridad(b) || (antiguosPrimero ? a.fecha.localeCompare(b.fecha) : b.fecha.localeCompare(a.fecha)));
+    }
+
+    function pintarLista() {
+      const todos = listaFiltrada();
+      // La página no puede quedar más allá de la última (p. ej. al acotar las fechas)
+      pagina = Math.max(0, Math.min(pagina, Math.ceil(todos.length / POR_PAGINA) - 1));
+      const visibles = todos.slice(pagina * POR_PAGINA, (pagina + 1) * POR_PAGINA);
+      actualizarFiltros();
+      lista.replaceChildren();
+
+      if (!visibles.length) {
+        const vacio = el('p', 'l2-vacio');
+        if (!rangoValido()) {
+          vacio.append(icono('ph-calendar-x'), 'Corrige las fechas para ver tus trámites');
+        } else if (TRAMITES.some(t => enPestana(t, filtroActual))) {
+          // Hay trámites, pero fuera de estas fechas
+          vacio.append(icono('ph-calendar-blank'), 'No hay trámites en estas fechas');
+          if (periodo.value !== 'todo') {
+            const todo = boton('l2-btn-outline', 'ph-clock-counter-clockwise', 'Ver todo el historial');
+            todo.addEventListener('click', () => aplicarRango('todo'));
+            vacio.append(todo);
+          }
+        } else {
+          const [icon, texto] = VACIOS[filtroActual];
+          vacio.append(icono(icon), texto);
+        }
+        lista.append(vacio);
+        return;
+      }
+
+      const tabla = el('table', 'l2-tabla');
+      tabla.append(el('caption', 'l2-sr', filtroActual === 'apostillado' ? 'Mis documentos apostillados' : 'Mis documentos en proceso y finalizados'));
+      const cabeza = el('thead');
+      const filaCabeza = el('tr');
+      ['Trámite', 'Institución', 'Estado', 'Fecha', 'Acciones'].forEach(t => {
+        const th = el('th', t === 'Acciones' ? 'l2-th-acciones' : '', t);
+        th.scope = 'col';
+        filaCabeza.append(th);
+      });
+      cabeza.append(filaCabeza);
+
+      const cuerpo = el('tbody');
+      visibles.forEach((t, n) => {
+        const enProceso = filaEnProceso(t);
+        const fila = el('tr', [enProceso ? 'proceso' : '', t === destacado ? 'destacado' : ''].join(' ').trim());
+        fila.style.setProperty('--n', n);
+
+        const doc = el('div', 'l2-doc');
+        const icon = el('span', 'l2-doc-icono');
+        icon.append(icono(enProceso ? 'ph-hourglass-medium' : vistaApostillas() ? 'ph-seal-check' : 'ph-file-text'));
+        const nombre = el('div');
+        nombre.append(el('strong', '', t.nombre), el('small', '', `Trámite N.º ${t.id}${t.canal === 'whatsapp' ? ' · Por WhatsApp' : ''}`));
+        doc.append(icon, nombre);
+
+        fila.append(
+          celda('', doc, 'l2-celda-doc'),
+          celda('Institución', t.institucion),
+          celda('Estado', estado(t)),
+          celda('Fecha', el('span', 'l2-fecha', formatoFecha.format(new Date(t.fecha)))),
+          celda('', acciones(t), 'l2-celda-acciones')
+        );
+        cuerpo.append(fila);
+      });
+
+      tabla.append(cabeza, cuerpo);
+      const caja = el('div', 'l2-tabla-caja');
+      caja.append(tabla);
+      lista.append(caja);
+      if (todos.length > POR_PAGINA) lista.append(paginacion(todos.length));
+    }
+
+    // La tabla se desvanece, se repinta y las filas entran una a una
+    function refrescar() {
+      if (sinMovimiento) { pintarLista(); return; }
+      lista.classList.add('saliendo');
+      setTimeout(() => {
+        pintarLista();
+        lista.classList.remove('saliendo');
+      }, 180);
+    }
+
+    /* ===== Apostillar y aviso breve ===== */
+    const dialogoApostilla = document.getElementById('apostilla');
+    let porApostillar = null;
+
+    // Avance de un trámite en proceso: iniciado (listo), en proceso (actual) y finalizado (pendiente)
+    const TELEFONOS = { RNPN: '2521-9300' };
+    const dialogoDetalle = document.getElementById('detalle');
+    const formatoDia = new Intl.DateTimeFormat('es-SV', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    function abrirDetalle(t) {
+      const dia = formatoDia.format(new Date(t.fecha));
+      document.getElementById('detalle-titulo').textContent = t.nombre;
+      const num = document.getElementById('detalle-num');
+      num.replaceChildren('Número de trámite: ', el('strong', '', t.id));
+      const pasos = [
+        ['hecho', 'ph-check', 'Trámite iniciado', dia],
+        ['actual', 'ph-caret-double-right', 'Trámite en proceso', t.institucion, dia],
+        ['pendiente', 'ph-hourglass-medium', 'Trámite finalizado', 'Pendiente']
+      ];
+      document.getElementById('detalle-pasos').replaceChildren(...pasos.map(([clase, icon, titulo, ...detalles]) => {
+        const li = el('li', `l2-paso ${clase}`);
+        if (clase === 'actual') li.setAttribute('aria-current', 'step');
+        const marca = el('span', 'l2-paso-marca');
+        marca.append(icono(icon));
+        const texto = el('div', 'l2-paso-texto');
+        texto.append(el('strong', '', titulo), ...detalles.map(d => el('small', '', d)));
+        li.append(marca, texto);
+        return li;
+      }));
+      const ayuda = document.getElementById('detalle-ayuda');
+      const llave = Object.keys(TELEFONOS).find(k => t.institucion.includes(k));
+      const textoAyuda = el('span', '', 'Si necesitas ayuda con tu trámite ');
+      textoAyuda.append(el('strong', '', t.id), ' puedes comunicarte con:');
+      ayuda.replaceChildren(textoAyuda, el('strong', '', t.institucion));
+      if (llave) ayuda.append(el('span', '', `Teléfono: ${TELEFONOS[llave]}`));
+      dialogoDetalle.showModal();
+    }
+
+    function abrirApostilla(t) {
+      porApostillar = t;
+      const doc = document.getElementById('apostilla-doc');
+      doc.replaceChildren(el('strong', '', t.nombre), el('span', '', `${t.institucion} · Trámite N.º ${t.id}`));
+      dialogoApostilla.returnValue = '';
+      dialogoApostilla.showModal();
+    }
+
+    dialogoApostilla.addEventListener('close', () => {
+      if (dialogoApostilla.returnValue === 'enviar' && porApostillar) {
+        apostillas.add(porApostillar.id);
+        pintarLista();
+        avisar('Enviamos tu solicitud de apostilla. Te avisaremos cuando esté lista');
+      }
+      porApostillar = null;
+    });
+
+    let avisoTiempo;
+    function avisar(texto) {
+      const aviso = document.getElementById('aviso');
+      document.getElementById('aviso-texto').textContent = texto;
+      aviso.classList.add('visible');
+      clearTimeout(avisoTiempo);
+      avisoTiempo = setTimeout(() => aviso.classList.remove('visible'), 3500);
+    }
+
+    // Cambio de estado: vuelve a la primera página
+    function cambiarFiltro(id) {
+      if (id === filtroActual) return;
+      filtroActual = id;
+      pagina = 0;
+      refrescar();
+    }
+
+    // El número de cada opción lo pone actualizarFiltros según las fechas elegidas
+    [...estadoLista.options].forEach(o => { o.dataset.nombre = o.textContent; });
+    estadoLista.addEventListener('change', () => cambiarFiltro(estadoLista.value));
+    ordenBoton.addEventListener('click', () => {
+      ordenBoton.dataset.orden = ORDENES[ordenBoton.dataset.orden].siguiente;
+      pagina = 0;
+      refrescar();
+    });
+    periodo.addEventListener('change', () => aplicarRango(periodo.value));
+    [desdeInput.value, hastaInput.value] = RANGOS.anio;
+
+    // Desde un aviso: el trámite en su página de la lista, resaltado, con lo que pasa con él arriba
+    if (destacado) {
+      if (diaDe(destacado) < RANGOS.anio[0]) [desdeInput.value, hastaInput.value] = RANGOS.todo;
+      pagina = Math.floor(listaFiltrada().indexOf(destacado) / POR_PAGINA);
+      const aviso = document.getElementById('destacado');
+      const finalizado = destacado.estado === 'finalizado';
+      const texto = el('p');
+      texto.append(
+        el('strong', '', `Tu solicitud N.º ${destacado.id} ${finalizado ? 'finalizó' : 'está en proceso'}`),
+        finalizado ? `${destacado.nombre} ya está lista: descárgala aquí abajo` : `${destacado.nombre} · ${destacado.institucion}. Te avisaremos por correo${destacado.canal === 'whatsapp' ? ' y por WhatsApp' : ''} cuando finalice`
+      );
+      aviso.classList.toggle('finalizado', finalizado);
+      aviso.append(icono(finalizado ? 'ph-check-circle' : 'ph-hourglass-medium'), texto);
+      aviso.hidden = false;
+    }
+    pintarLista();
+    if (destacado) document.getElementById('destacado').scrollIntoView({ block: 'start' });
+
+    /* ===== Menús del encabezado ===== */
+    const notificacionesBoton = document.getElementById('notificaciones-boton');
+    const notificacionesPanel = document.getElementById('notificaciones-panel');
+    const perfilBoton = document.getElementById('perfil-boton');
+    const perfilMenu = document.getElementById('perfil-menu');
+
+    function cerrarMenusEncabezado() {
+      // Si el foco estaba dentro de lo que se cierra, vuelve al botón que lo abrió
+      const foco = document.activeElement;
+      if (perfilMenu.contains(foco)) perfilBoton.focus();
+      else if (notificacionesPanel.contains(foco)) notificacionesBoton.focus();
+      notificacionesPanel.classList.remove('open');
+      perfilMenu.classList.remove('open');
+      notificacionesBoton.setAttribute('aria-expanded', 'false');
+      perfilBoton.setAttribute('aria-expanded', 'false');
+    }
+
+    notificacionesBoton.addEventListener('click', () => {
+      const abierto = notificacionesPanel.classList.toggle('open');
+      perfilMenu.classList.remove('open');
+      notificacionesBoton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+      perfilBoton.setAttribute('aria-expanded', 'false');
+    });
+
+    perfilBoton.addEventListener('click', () => {
+      const abierto = perfilMenu.classList.toggle('open');
+      notificacionesPanel.classList.remove('open');
+      perfilBoton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+      notificacionesBoton.setAttribute('aria-expanded', 'false');
+    });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarMenusEncabezado(); });
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.l2-notifications, .l2-profile-trigger')) cerrarMenusEncabezado();
+    });
+  </script>
+</body>
+</html>

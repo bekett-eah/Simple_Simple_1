@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="es" data-lt-installed="true"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <!-- CSRF Token -->
+<meta name="csrf-token" content="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg">
+<title>LOGIN - Gobierno de El Salvador</title>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Favicon icon -->
+<link rel="icon" href="https://login.gob.sv/img/favicon_GOES.png" type="image/x-icon">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="Apostillado Electrónico">
+
+<!-- Favicon icon -->
+
+
+
+
+  <!-- vendor css -->
+  <link rel="stylesheet" href="Identidad%20digital_files/style_VMCe.css">
+  <link href="Identidad%20digital_files/css2_002_VMCe.css" rel="stylesheet">
+
+  <script src="Identidad%20digital_files/jquery-3.6.0.min_002_VMCe.js"></script>
+  <script src="Identidad%20digital_files/jquery-3.6.0.min_VMCe.js"></script>
+  
+  
+  <link rel="stylesheet" type="text/css" href="Identidad%20digital_files/toastr_VMCe.css">
+  <script src="Identidad%20digital_files/toastr.min_VMCe.js"></script>
+  
+  <script type="text/javascript" src="Identidad%20digital_files/sweetalert2.all.min_VMCe.js"></script><style>@-webkit-keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-shown{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;box-shadow:0 0 .625em #d9d9d9;overflow-y:hidden}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:initial;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon-text{font-size:2em;font-weight:700;line-height:1em}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 .0625em #fff,0 0 0 .125em rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:2em;height:2.8125em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.25em;left:-.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:2em 2em;transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;-webkit-transform-origin:0 2em;transform-origin:0 2em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:showSweetToast .5s;animation:showSweetToast .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:hideSweetToast .2s forwards;animation:hideSweetToast .2s forwards}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:animate-toast-success-tip .75s;animation:animate-toast-success-tip .75s}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:animate-toast-success-long .75s;animation:animate-toast-success-long .75s}@-webkit-keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@-webkit-keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-shown{top:auto;right:auto;bottom:auto;left:auto;background-color:transparent}body.swal2-no-backdrop .swal2-shown>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-shown.swal2-top{top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-top-left,body.swal2-no-backdrop .swal2-shown.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-top-end,body.swal2-no-backdrop .swal2-shown.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-shown.swal2-center{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-left,body.swal2-no-backdrop .swal2-shown.swal2-center-start{top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-end,body.swal2-no-backdrop .swal2-shown.swal2-center-right{top:50%;right:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom{bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom-left,body.swal2-no-backdrop .swal2-shown.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swal2-shown.swal2-bottom-right{right:0;bottom:0}.swal2-container{display:flex;position:fixed;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:10px;background-color:transparent;z-index:1060;overflow-x:hidden;-webkit-overflow-scrolling:touch}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-container.swal2-fade{transition:background-color .1s}.swal2-container.swal2-shown{background-color:rgba(0,0,0,.4)}.swal2-popup{display:none;position:relative;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-popup .swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-popup .swal2-title{display:block;position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-popup .swal2-actions{flex-wrap:wrap;align-items:center;justify-content:center;margin:1.25em auto 0;z-index:1}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm{width:2.5em;height:2.5em;margin:.46875em;padding:0;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;box-sizing:border-box;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{display:inline-block;width:15px;height:15px;margin-left:5px;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff;content:'';-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal}.swal2-popup .swal2-styled{margin:.3125em;padding:.625em 2em;font-weight:500;box-shadow:none}.swal2-popup .swal2-styled:not([disabled]){cursor:pointer}.swal2-popup .swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled:focus{outline:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(50,100,150,.4)}.swal2-popup .swal2-styled::-moz-focus-inner{border:0}.swal2-popup .swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-popup .swal2-image{max-width:100%;margin:1.25em auto}.swal2-popup .swal2-close{position:absolute;top:0;right:0;justify-content:center;width:1.2em;height:1.2em;padding:0;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer;overflow:hidden}.swal2-popup .swal2-close:hover{-webkit-transform:none;transform:none;color:#f27474}.swal2-popup>.swal2-checkbox,.swal2-popup>.swal2-file,.swal2-popup>.swal2-input,.swal2-popup>.swal2-radio,.swal2-popup>.swal2-select,.swal2-popup>.swal2-textarea{display:none}.swal2-popup .swal2-content{justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:300;line-height:normal;z-index:1;word-wrap:break-word}.swal2-popup #swal2-content{text-align:center}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-radio,.swal2-popup .swal2-select,.swal2-popup .swal2-textarea{margin:1em auto}.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-textarea{width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;font-size:1.125em;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);box-sizing:border-box}.swal2-popup .swal2-file.swal2-inputerror,.swal2-popup .swal2-input.swal2-inputerror,.swal2-popup .swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-popup .swal2-file:focus,.swal2-popup .swal2-input:focus,.swal2-popup .swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-popup .swal2-file::-webkit-input-placeholder,.swal2-popup .swal2-input::-webkit-input-placeholder,.swal2-popup .swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-popup .swal2-file:-ms-input-placeholder,.swal2-popup .swal2-input:-ms-input-placeholder,.swal2-popup .swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::-ms-input-placeholder,.swal2-popup .swal2-input::-ms-input-placeholder,.swal2-popup .swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::placeholder,.swal2-popup .swal2-input::placeholder,.swal2-popup .swal2-textarea::placeholder{color:#ccc}.swal2-popup .swal2-range{margin:1em auto;background:inherit}.swal2-popup .swal2-range input{width:80%}.swal2-popup .swal2-range output{width:20%;font-weight:600;text-align:center}.swal2-popup .swal2-range input,.swal2-popup .swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-popup .swal2-input{height:2.625em;padding:0 .75em}.swal2-popup .swal2-input[type=number]{max-width:10em}.swal2-popup .swal2-file{background:inherit;font-size:1.125em}.swal2-popup .swal2-textarea{height:6.75em;padding:.75em}.swal2-popup .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:#545454;font-size:1.125em}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-radio{align-items:center;justify-content:center;background:inherit}.swal2-popup .swal2-checkbox label,.swal2-popup .swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-popup .swal2-checkbox input,.swal2-popup .swal2-radio input{margin:0 .4em}.swal2-popup .swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;background:#f0f0f0;color:#666;font-size:1em;font-weight:300;overflow:hidden}.swal2-popup .swal2-validation-message::before{display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center;content:'!';zoom:normal}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}.swal2-icon{position:relative;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;line-height:5em;cursor:default;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;zoom:normal}.swal2-icon-text{font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:3.75em 3.75em;transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 3.75em;transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;top:-.25em;left:-.25em;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%;z-index:2;box-sizing:content-box}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;top:.5em;left:1.625em;width:.4375em;height:5.625em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);z-index:1}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;height:.3125em;border-radius:.125em;background-color:#a5dc86;z-index:2}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center;z-index:20}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:inherit;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:inherit}.swal2-progress-steps .swal2-progress-step-line{width:2.5em;height:.4em;margin:0 -1px;background:#3085d6;z-index:10}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-show.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-hide.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-animate-success-icon .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-animate-error-icon{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-animate-error-icon .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}@-webkit-keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:initial!important}}</style>
+
+  
+  
+  
+
+
+  
+  <link href="Identidad%20digital_files/select2.min_VMCe.css" rel="stylesheet">
+  <link rel="stylesheet" href="Identidad%20digital_files/select2-bootstrap4.min_VMCe.css">
+
+  <!-- https://material.io/resources/icons/?style=round -->
+  <link href="Identidad%20digital_files/css2_VMCe.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="Identidad%20digital_files/bootstrap-icons_VMCe.css">
+    <script defer="defer" src="Identidad%20digital_files/cdn.min_VMCe.js"></script>
+
+    <link rel="stylesheet" href="Identidad%20digital_files/animate.min_VMCe.css">
+
+  <!-- Google tag (gtag.js) -->
+<script async="" src="Identidad%20digital_files/google-analytics_analytics_VMCe.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RDRWHWWLM9');
+</script>
+
+<style>
+    @font-face {
+        font-family:'MuseoSans-500';
+        src: url('https://login.gob.sv/fonts/MuseoSans-500/MuseoSans-500.woff');
+        src: url('https://login.gob.sv/fonts/MuseoSans-500/MuseoSans-500.woff') format('woff'),
+        url('https://login.gob.sv/fonts/MuseoSans-500/MuseoSans-500.eot?#iefix') format('embedded-opentype'),
+        url('https://login.gob.sv/fonts/MuseoSans-500/MuseoSans-500.ttf') format('truetype'),
+        url('https://login.gob.sv/fonts/MuseoSans-500/MuseoSans-500.svg#MuseoSans-500') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family:'MuseoSans-700';
+        src: url('https://login.gob.sv/fonts/MuseoSans-700/MuseoSans-700.woff');
+        src: url('https://login.gob.sv/fonts/MuseoSans-700/MuseoSans-700.woff') format('woff'),
+        url('https://login.gob.sv/fonts/MuseoSans-700/MuseoSans-700.eot?#iefix') format('embedded-opentype'),
+        url('https://login.gob.sv/fonts/MuseoSans-700/MuseoSans-700.ttf') format('truetype'),
+        url('https://login.gob.sv/fonts/MuseoSans-700/MuseoSans-700.svg#MuseoSans-700') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family:'MuseoSans-300';
+        src: url('https://login.gob.sv/fonts/MuseoSans-300/MuseoSans-300.woff');
+        src: url('https://login.gob.sv/fonts/MuseoSans-300/MuseoSans-300.woff') format('woff'),
+        url('https://login.gob.sv/fonts/MuseoSans-300/MuseoSans-300.eot?#iefix') format('embedded-opentype'),
+        url('https://login.gob.sv/fonts/MuseoSans-300/MuseoSans-300.ttf') format('truetype'),
+        url('https://login.gob.sv/fonts/MuseoSans-300/MuseoSans-300.svg#MuseoSans-300') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body{
+        font-family: 'MuseoSans-300' !important;
+    }
+    input, button, select, optgroup, textarea{
+        font-family: 'MuseoSans-300' !important;
+    }
+    .text-subrayado{
+      text-decoration: underline;
+      -o-text-decoration: underline;
+      -moz-text-decoration: underline;
+      -webkit-text-decoration: underline;
+    }
+    .text-truncate {
+      display: inline-block;
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: Ellipsis;
+    }
+    .text-gray-yeda{
+      color: #A2A2A2;
+    }
+    .text-light{
+      color: #697185 !important;
+    }
+    .bg-select{
+      background: #A2A2A2 !important;
+      color: #fff !important;
+      font-weight: bold;
+    }
+    /* edicion de plantilla */
+    .page-header{
+      margin-top: -150px !important;
+    }
+    .text-footer{
+      color: #ACAEBF;
+      top: 31px;
+      position: relative;
+    }
+    .fa-arrow-left{
+      /* color: #5c8cfc; */
+      font-size: 17px;
+    }
+    .volver{
+      margin-left: 10px;
+    }
+    .pcoded-navbar .pcoded-inner-navbar li > a {
+        text-align: center !important;
+    }
+   /*  .pcoded-navbar.menu-light .pcoded-inner-navbar > li.active > a, .pcoded-navbar.menu-light .pcoded-inner-navbar > li.pcoded-trigger > a {
+        background: #313945 !important;
+        color: #F4F7FD !important;
+    } */
+    .pcoded-navbar .pcoded-inner-navbar > li.active > a, .pcoded-navbar .pcoded-inner-navbar > li.pcoded-trigger > a {
+        box-shadow: 0 0px 0px 0px rgba(0, 0, 0, 0.4) !important;
+    }
+    .pcoded-navbar.menu-light .pcoded-inner-navbar li.active > a, .pcoded-navbar.menu-light .pcoded-inner-navbar li.pcoded-trigger > a, .pcoded-navbar.menu-light .pcoded-inner-navbar li:hover > a {
+          /* color: #5c8cfc !important; */
+      }
+    .icon{
+      /* color: #5c8cfc !important; */
+      font-size: 25px;
+    }
+    .pcoded-navbar.menu-light a {
+        color: #fff !important;
+    }
+    .pcoded-navbar .pcoded-inner-navbar li {
+/*         margin-bottom: 28px; */
+    }
+    .pcoded-navbar ul {
+        margin-top: 120px;
+    }
+    .pcoded-navbar.navbar-collapsed .pcoded-inner-navbar > li > a {
+      width: calc(70px - 20px);
+    }
+    .imagen-logo{
+      display: none;
+    }
+    @media (max-width: 991px) {
+        .imagen-logo{
+          display: block;
+        }
+        .divCerrar{
+            margin-top: 0px !important;
+        }
+    }
+    @media (max-width: 500px) {
+        .cerrar{
+          font-size: 10px;
+        }
+    }
+    @media (min-width: 993px) {
+      .mobile-menu{
+        display: none;
+      }
+    }
+    @media (max-width: 700px) {
+        .text-footer{
+          top: 0px;
+        }
+    }
+    .btn{
+        border-radius: 25px;
+        -o-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -webkit-border-radius: 25px;
+    }
+    .btn-primary{
+        background-color: #2792FD !important;
+        font-family: 'MuseoSans-300' !important;
+    }
+    .btn-secondary{
+        background-color: #697185 !important;
+        font-family: 'MuseoSans-300' !important;
+    }
+    .btn-primary:hover,.btn-secondary:hover{
+        opacity: 0.9;
+    }
+    .modal-content{
+        border-radius: 25px;
+        -o-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -webkit-border-radius: 25px;
+        background-color: #F4F7FF
+    }
+    .text-alert-warning{
+        color: #F3A723 !important;
+    }
+    .toast-success{
+        background-color: #B7EE40 !important;
+        opacity: 1 !important;
+    }
+    .floating-label-active{
+        top: -10px;
+        font-size: 0.75rem;
+        color: #4680ff;
+    }
+    .iti__country-list{
+        z-index: 20000 !important;
+    }
+    .iti--container{
+        z-index: 20000 !important;
+    }
+    .cursor-pointer{
+        cursor: pointer;
+        -moz-cursor: pointer;
+        -o-cursor: pointer;
+        -webkit-cursor: pointer;
+    }
+
+    /*Cambios toast*/
+    /*
+    #toast-container > .toast-error {
+            background-image: url('https://login.gob.sv/img/error.png') !important;
+    }*/
+
+
+    /*fin edicion de plantilla */
+</style>
+</head>
+<body style="overflow-x:hidden">
+    <!-- [ Pre-loader ] start -->
+    
+    <!-- [ Pre-loader ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar menu-light" id="navMenu" style=" z-index:3000; position: fixed; border-bottom-right-radius:20px ;">
+        <div class="navbar-wrapper" style="height: 100%!important">
+            <style>
+      /* Los datos no siempre caben en la pantalla (en el celular ni en la computadora): se permite el scroll vertical */
+      html,
+      body {
+          height: auto;
+          min-height: 100%;
+          overflow-x: hidden !important;
+          overflow-y: auto !important;
+      }
+
+      .myButton{
+            background-color: #559AE7 ;
+            border-color: #559AE7;
+             color:white;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 14px;
+            color: #373a3c;
+            font-weight: 400;
+            /*background: #DADEE7;*/
+            background-image: url('https://login.gob.sv/img/BG-gris.png');
+            background-attachment: fixed;
+            background-position:  0;
+            background-size: cover;
+        }
+
+
+        .myButton:hover{
+            border-color:#F4F7FD !important;
+            background-color: #F4F7FD !important;
+            color: #3E678B !important;
+        }
+        .myButtonDark{
+            background-color: #559AE7 ;
+            border-color: #559AE7;
+             color:white;
+        }
+
+        .myButtonGradient{
+            background-image: linear-gradient(to right, #687eff  0%, #2112c9  100%);
+            /*border-color: #559AE7;*/
+            font-size: 12px;
+            font-weight: 700;
+            color:white;
+        }
+
+        .myButtonGradient:hover{
+            border-color:#cccdd0 !important;
+            background-color: #F4F7FD !important;
+            color: #fff !important;
+        }
+
+
+
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+
+    .message-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+        .myButtonDark:hover{
+            border-color:#cccdd0 !important;
+            background-color: #F4F7FD !important;
+            color: #3E678B !important;
+        }
+
+        .myButtonDark2{
+            background-color: #559AE7 ;
+            border-color: #559AE7;
+             color:white;
+        }
+
+
+        .myButtonDark2:hover{
+            border-color:#cccdd0 !important;
+            background-color: #F4F7FD !important;
+            color: #3E678B !important;
+        }
+       @media (max-width:992px){
+        body {
+            background-image: url('https://login.gob.sv/img/BG-gris-tablet.png');
+            background-attachment: fixed;
+            background-position: 0 2em;
+            background-size: cover;
+        }
+        .text-Nav{
+            font-size: 80% !important;
+            text-align: start !important;
+        }
+        .igmNav{
+            text-align: center !important;
+        }
+        .divMenu{
+            position: fixed !important;
+            width: 200px !important;
+        }
+       }
+
+       @media(max-width: 500px){
+            body {
+                background-image: url('https://login.gob.sv/img/BG-gris-telefono.png');
+                background-attachment: fixed;
+                background-position: 0 2em;
+                background-size: cover;
+            }
+            .header_logos{
+                width: 100% !important;
+            }
+        }
+        @media(max-width:1200px){
+            .divMenu{
+                width: 180px !important;
+            }
+
+        }
+        @media(max-width:1200px) and (min-width:992px){
+            .divA{
+                margin-left: 30px ;
+            }
+        }
+        @media(min-width:1200px){
+            .divContentUser{
+                padding-top:40px;
+            }
+        }
+
+        .img_estela_azul{
+            position: absolute;
+            bottom: 0px;
+        }
+        @media(max-height:550px){
+
+            .img_estela_azul{
+                display: none;
+            }
+        }
+
+
+
+</style>
+<div class="navbar-content scroll-div divMenu ps" style="  border-bottom-right-radius:20px !important;  background-color: #1313AA !important; width:200px !important; ">
+    <ul class="nav pcoded-inner-navbar d-flex justify-content-start p-4" style=" padding:0px !important; margin-top:8px !important;">
+        <br>
+
+        <img src="Identidad%20digital_files/login2025_VMCe.svg" width="150" class="ml-4 img-fluid " style="margin-bottom: 35px !important;" draggable="false">
+
+        <br>
+        <br>
+                
+            
+            <li class="nav-item active">
+                <a href="https://login.gob.sv/perfil" class="nav-link h5" style="color:#ffffff !important;">
+                   <div class="row  align-items-center text-left">
+                        <div class="col-xl-4 col-lg-4 col-4  igmNav ">
+                            
+                            <img src="Identidad%20digital_files/identidad_icon_VMCe.svg" style="max-width: 80%;" alt="Las identidades">
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-8 p-0 h6 text-Nav  pl-1">
+                            Datos e identidades
+                        </div>
+
+                   </div>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a href="https://login.gob.sv/perfil/cambiar-contrasena" class="nav-link h5" style="color:#ffffff !important;">
+                    <div class="row  align-items-center text-left">
+                        <div class="col-xl-4 col-lg-4 col-4  igmNav">
+                            
+                            <img src="Identidad%20digital_files/candado_icon_VMCe.svg" style="max-width: 80%;" alt="Cambio_pass">
+
+                        </div>
+                        <div class="col-xl-8 col-lg-8 col-8 p-0 h6 text-Nav  pl-1">Cambiar contraseñas</div>
+                    </div>
+                </a>
+            </li>
+            
+
+            
+
+            
+                
+            
+
+            
+            
+        
+
+
+    </ul>
+
+    
+<div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><div class="resize-sensor" style="position: absolute; inset: 0px; overflow: hidden; z-index: -1; visibility: hidden; opacity: 0;"><div class="resize-sensor-expand" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; opacity: 0;"><div style="position: absolute; left: 0px; top: 0px; transition: all; width: 100000px; height: 100000px;"></div></div><div class="resize-sensor-shrink" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; opacity: 0;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
+
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue calPantalla " id="headMenuHide" style="position: fixed;">
+        <style>
+    @media(max-width:992px) {
+        .headER {
+            border-radius: 0px !important;
+        }
+
+        .btnFUNC {
+            font-size: 1em;
+        }
+
+        .fotoUser {
+            display: none !important;
+        }
+
+        .ul-name {
+            margin-top: 10px !important;
+        }
+
+    }
+
+    @media(max-width:354px) {
+        .textHeader {
+            font-size: 0.9rem !important;
+        }
+
+    }
+
+    @media(max-width:339px) {
+        .btnFUNC {
+            font-size: 0.6rem !important;
+        }
+
+    }
+
+    @media(max-width:500px) {
+
+        .btnFUNC {
+            position: fixed;
+            left: 10px;
+            margin-top: 0.4rem;
+        }
+
+        .nameUserHeader {
+            display: none;
+        }
+
+    }
+
+    .rounedLogout {
+        border-radius: 20px;
+        border: 2px solid white;
+        padding: 0 1em 0 1em;
+        margin-top: -0.1em;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: left;
+        background: #DADEE7;
+    }
+</style>
+<div class="m-header bg-dark headER" style="background-color: rgb(19, 19, 170) !important; border-top-right-radius: 20px; width: 200px;">
+    <a class="mobile-menu mr-3" style="position: fixed; left: 1.5%;" id="mobile-collapse" href="#!">
+        <i class="material-icons material" style="color:#050E5B">menu</i>
+    </a>
+    <a href="#!" class="mob-toggler ">
+        <i class="feather icon-more-vertical" style="color:#050E5B"></i>
+    </a>
+</div>
+<div class="collapse navbar-collapse " style="" id="headMenu">
+
+    
+
+
+    <div class="p-0 pt-lg-2 ul-name d-flex justify-content-end" style="margin-right: 19px;margin-top: 3px; margin-left: auto;">
+        <div class="dropdown drp-user">
+
+            <div class="pr-2 divCerrar" style="vertical-align:middle; margin-left: auto;">
+                <div class="cerrar font-weight-bold d-flex align-items-center justify-content-end" style="text-align: right">
+                    <div class="text-right mr-2">
+                        <h6 style="color:#050E5B !important; text-transform: capitalize !important; margin-bottom: 0;">
+                             <strong class="nameUserHeader mb-3">María Fernanda López García</strong>
+                        </h6>
+                        <label class="rounedLogout mt-1" style="color: #050e5b;font-size: 14px; cursor:pointer;" role="button" tabindex="0" onclick="window.location.href='../index.html';" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); window.location.href='../index.html'; }">
+                            Cerrar sesión
+                        </label>
+                    </div>
+                    <div>
+                        <img style="max-width: 75px; border-radius: 100px;width: 50px;height: 50px; object-fit:cover; object-position:center;" id="foto" draggable="false" src="Identidad%20digital_files/avatar_usuario.png" alt="" class="mobile_view_search fotoUser shadow">
+                    </div>
+                </div>
+            </div>
+            <form id="logout-form" action="https://login.gob.sv/logout" method="POST" class="d-none">
+                <input type="hidden" name="_token" value="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg">            </form>
+
+        </div>
+    </div>
+    </div></header>
+    <!-- [ Header ] end -->
+
+  
+  <script type="text/javascript">
+    let alerta_top=(mensaje, tipo = 'success', tiempo = '10000')=>{
+      toastr.options = {
+        "closeButton": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "timeOut": tiempo,
+      }
+      toastr[tipo](mensaje);
+    }
+      </script>
+  
+
+  <!-- [ Main Content ] start -->
+  <div class="pcoded-main-container " style="background-color: transparent; min-height: 653px;">
+    <div class="pcoded-content calPantalla px-0" style="width: 102%;left: -2%;">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header py-4" style="background: transparent;">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12" style="text-align: center;">
+              
+            </div>
+            
+                
+                
+            
+        </div>
+    </div>
+</div>
+      <!-- [ breadcrumb ] end -->
+      
+      <div class="mainContenedor " style="background:transparent">
+            
+    
+
+    <style>
+        .bi-id{
+            color: #2792FD;
+            font-size: 30px;
+        }
+        .container-img-user{
+            width: 220px;
+            height: 220px;
+            overflow: hidden;
+            margin: 10px;
+            position: relative;
+        }
+        .img-user{
+            position: absolute;
+            left: -106%;
+            right: -107%;
+            top: -93%;
+            bottom: -100%;
+            margin: auto;
+            min-height: -16%;
+            min-width: 48%;
+            width: 176px !important;
+                }
+        .text-blue-idd{
+            color: #050E5B  !important;
+            font-weight: 800;
+
+        }
+        .container{
+            position: relative;
+            top: -18px;
+        }
+        .cardPerfil{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .status-badge{
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.45em 0.75em;
+            border-radius: 0.4rem;
+            background: #ff5757 !important;
+            color: #ffffff !important;
+            font-size: 0.9em;
+            line-height: 1;
+        }
+        .status-badge.is-active{
+            background: #28a745 !important;
+        }
+        .status-badge i{
+            color: #ffffff;
+        }
+        .status-icon{
+            display: inline-block;
+            font-size: 1.25em;
+            font-weight: 800;
+            line-height: 0.75;
+        }
+        .status-edit{
+            color: #559AE7 !important;
+            font-size: 1.15rem;
+            vertical-align: middle;
+        }
+        .edit-icon{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+        }
+        .edit-icon svg{
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+        }
+        .identity-level-icon{
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            color: #2113CB;
+            vertical-align: middle;
+        }
+        .identity-level-icon.is-pending{
+            opacity: 0.5;
+        }
+        .identity-level-icon svg{
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 1.8;
+        }
+        .cardPerfil .divA > div:first-child img,
+        .cardPerfil .divA > div:first-child > i{
+            width: 42px;
+            height: 42px;
+            max-width: none !important;
+            object-fit: contain;
+            margin-top: 0 !important;
+        }
+        .dui-icon-column{
+            padding-right: 14px !important;
+        }
+        #togglePassword3 {
+            position: absolute;
+            right: 0px;
+            top: 6px;
+            font-size: 19px;
+            padding: 0 5px;
+            background: #F4F7FF;
+            z-index: 9999999999999999;
+        }
+        .form-control:focus + #togglePassword3 {
+            background-color: #F4F7FF;
+            transition: background 0s ease-out;
+        }
+        .content-border{
+            border-left: 2.5px ;
+            border-left-style: dotted;
+
+            border-left-color: #90a9c6;
+
+        }
+        .username_profile_photo{
+            max-width: 120px;
+            border-radius:100px;
+            margin-bottom:10px;
+        }
+        .popover {
+            border-radius: 10px; /* Bordes redondeados */
+            max-width: 300px;    /* Ancho máximo del popover */
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+        }
+
+        .popover .arrow {
+            display: none; /* Oculta la flecha del popover */
+        }
+
+        .popover-body {
+            padding: 15px;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        /* Opcional: Ajusta el z-index si es necesario */
+        .popover {
+            z-index: 1060;
+        }
+        @media(min-width:993px){
+            .content-border{
+               padding-left: 50px !important;
+
+            }
+        }
+        @media(max-width:992px){
+            .container{
+                top: -10px;
+            }
+            .content-border{
+                border-left: 0px;
+
+            }
+            .cardPerfil{
+                justify-content: center !important;
+                text-align: center !important;
+
+            }
+
+
+        }
+        @media(max-width:320px){
+            *{
+                font-size: 0.9rem !important;
+            }
+        }
+
+        @import  url('https://fonts.googleapis.com/css2?family=Museo+Sans:wght@900&display=swap');
+        .titulo {
+            font-family: 'Museo Sans', sans-serif;
+            font-weight: 900;
+            color: #050E5B;
+        }
+
+        .titulo-2 {
+            font-family: 'Museo Sans', sans-serif;
+            font-weight: 550;
+            color: #050E5B;
+        }
+
+        /* .instituciones_header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+
+        /* Estilos generales para todas las pantallas */
+
+        @media (max-width: 480px) {
+        /* Agrega aquí tus estilos específicos para dispositivos móviles en modo retrato */
+            .titulo {
+                font-size: 22px;
+            }
+            .header_logos{
+                width: 30px !important;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+        /* Agrega aquí tus estilos específicos para dispositivos móviles en modo apaisado y tablets en modo retrato */
+            .titulo {
+                font-size: 25px;
+            }
+            .header_logos{
+                width: 40px !important;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+        /* Agrega aquí tus estilos específicos para tablets en modo apaisado y pantallas más pequeñas de escritorio */
+            .titulo {
+                font-size: 25px;
+            }
+            .header_logos{
+                width: 40px !important;
+            }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1199px) {
+        /* Agrega aquí tus estilos específicos para pantallas medianas de escritorio y laptops */
+            .titulo {
+                font-size: 25px;
+            }
+            .header_logos{
+                width: 40px !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+        /* Agrega aquí tus estilos específicos para pantallas grandes de escritorio y laptops */
+            .titulo {
+                font-size: 25px;
+            }
+            .header_logos{
+                width: 40px !important;
+            }
+        }
+
+
+
+
+
+    </style>
+
+    <div class="container">
+        
+
+        
+
+        <div class="text-center instituciones_header h1 bold" style="color:#050E5B !important;">
+            <strong class="titulo">Datos e identidades</strong>
+        </div>
+
+        <div class="h3 text-center profile-one" style="color:#050E5B !important; margin-top:-0.6em">
+            <strong class="titulo-2">Bienvenido/a al portal de Login</strong>
+        </div>
+
+        <div class="row  justify-content-center">
+        <div class="col-lg-10 col-xl-10 col-md-11 col-10 bg-white shadow-sm cardPerfil mt-3" style="  border-radius: 25px !important; padding-bottom: 60px !important; padding-top: 30px !important;">
+            <div class="row align-items-center">
+                            <div class="col-xl-7  border-cuenta">
+                                <div class="row">
+                        <div class="col-xl-5 align-items-center mt-5">
+                            <div class="text-center">
+                                <img class="username_profile_photo" id="fotot" draggable="false" src="Identidad%20digital_files/avatar_usuario.png" alt="">
+                            </div>
+                            <div class="text-center">
+                                
+                                <small class="h5" style="color: #050E5B !important; font-style: normal; font-weight: 900!important; line-height: 27px; text-transform: capitalize !important; font-family: 'Museo Sans', sans-serif;" translate="no">
+                                    
+                                    maría fernanda<br>
+                                     lópez garcía
+
+                                    
+                                                                    </small>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-7">
+                                
+                                <div class="mt-5">
+                                    
+                                    <div class="row align-items-start  divA  justify-content-center">
+                                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center dui-icon-column">
+                                            
+
+                                            <img src="Identidad%20digital_files/dui_icon_VMCe.svg" style="max-width: 70%; margin-top:0.6em" alt="Dui">
+                                        </div>
+                                        <div class="col-md-9 col-7  p-0 text-left p-0">
+                                            <h5 class="text-blue-idd notranslate" translate="no">DUI: <br>
+                                                                                                <span style="font-weight:200 !important; color:#050E5B  !important;">    06245097-8</span>
+                                                                                                </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-start mt-5 divA justify-content-center">
+                                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+                                            
+                                            <img src="Identidad%20digital_files/pasaporte_icon_VMCe.svg" style="max-width: 70%;" alt="Pasaportes">
+                                        </div>
+                                        <div class="col-md-9 p-1 col-7  text-left">
+
+                                            <h5 class="text-blue-idd  ">Pasaporte:  <br>
+                                                                                                    <span style="font-weight:200 !important; color:#050E5B !important;">A12345678</span>
+                                                                                            </h5>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="row align-items-start mt-5 divA justify-content-center">
+                                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+                                            
+                                            <img src="Identidad%20digital_files/correo_icon_VMCe.svg" style="max-width: 70%; margin-top:0.6em" alt="Correo">
+                                        </div>
+
+
+                                        <div class="col-md-9 col-7  p-1 text-left">
+                                            <h5 class="text-blue-idd  " id="divCorreo">Correo: 
+                                                 <br><span style="font-weight:200 !important; color:#050E5B  !important;word-wrap: break-word;" class="textEmailUserPerfil">maria.fernanda@example.com</span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4 mx-auto">
+                        <div class="col">
+                            <div class="row justify-content-center">
+
+                                
+                            </div>
+
+                            <div class="row mt-3 justify-content-center">
+                                                                <div class="">
+                                    <button class="btn btn-sm myButtonGradient" id="btnEditarDatos">Editar información de contacto</button>
+
+                                    <button type="button" class="btn btn-link text-danger font-weight-bold d-none" id="btnCancelarEditarDatos" style="border: 1px solid red !important; color: #559AE7">Cancelar edición de datos de contacto</button>
+                                </div>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+                                            <div class="col-xl-5 mt-5">
+                                <div class="row align-items-start  divA  justify-content-center">
+                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+                            
+                            <img src="Identidad%20digital_files/telefono_icon_VMCe.svg" style="max-width: 50%;" alt="¿Telefono">
+                        </div>
+
+                        <div class="col-md-9 col-7  p-0 text-left p-0">
+                            <h5 class="text-blue-idd " id="divTelefono">Teléfono:  
+                                <br><span style="font-weight:200 !important; color:#050E5B !important;">+503 7000-1234</span>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row align-items-start mt-5 divA  justify-content-center">
+                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+
+
+
+                            
+                            <img src="Identidad%20digital_files/direccion_icon_VMCe.svg" style="max-width: 50%;" alt="Dirección">
+                        </div>
+                        <div class="col-md-9 col-7  p-0 text-left p-0">
+                            <h5 class="text-blue-idd ">Dirección: 
+                                
+                                    
+                                    <br><span style="font-weight:200 !important; color:#050E5B  !important;">SAN VICENTE, SAN VICENTE, EL SALVADOR</span>
+                                
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row align-items-start mt-5 divA  justify-content-center">
+                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+                            <img src="Identidad%20digital_files/doble_factor_icon_VMCe.svg" style="max-width: 60%;" alt="doble_factor">
+                        </div>
+                        <div class="col-md-9 col-7  p-0 text-left p-0">
+                            <h5 class="text-blue-idd  ">Factor Doble: <br>
+                                <span style="font-weight:200 !important; color:#050E5B !important;">
+                                                                                                <span class="status-badge mt-2 ml-2"><span class="status-icon" aria-hidden="true">×</span> Inactivo</span>
+                                                                                                <button class="btn btn-link btn-sm p-0 status-edit" data-toggle="modal" data-target="#mdlDobleFactor" id="btnDobleFactor" aria-label="Activar doble factor"><span class="edit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16.5V20h3.5L19 8.5 15.5 5 4 16.5Z"></path><path d="m13.5 7 3.5 3.5"></path><path d="M14 20h6"></path></svg></span></button>
+                                                
+                                </span>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row align-items-start mt-5 divA justify-content-center">
+                        <div class="col-md-3 col-3 col-xl-2 pr-0 d-flex justify-content-start justify-content-md-center">
+                            <img src="Identidad%20digital_files/whatsapp_icon_VMCe.svg" style="max-width: 44%;" alt="WhatsApp">
+                        </div>
+                        <div class="col-md-9 col-7 p-0 text-left">
+                            <h5 class="text-blue-idd">
+                                Notificaciones por WhatsApp:
+                                <br>
+                                <small style="font-weight: 200 !important; color: #050E5B !important;">
+                                    Avisos sobre el estado de tus trámites
+                                </small>
+                                <br>
+                                <span class="status-badge mt-2" id="estadoWhatsapp">
+                                    <span class="status-icon" id="iconoEstadoWhatsapp" aria-hidden="true">×</span>
+                                    <span id="textoEstadoWhatsapp">Inactivo</span>
+                                </span>
+                                <button type="button" class="btn btn-link btn-sm p-0 ml-2 status-edit" id="btnWhatsapp" aria-label="Activar notificaciones por WhatsApp" title="Activar notificaciones por WhatsApp">
+                                    <span class="edit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 16.5V20h3.5L19 8.5 15.5 5 4 16.5Z"></path><path d="m13.5 7 3.5 3.5"></path><path d="M14 20h6"></path></svg></span>
+                                </button>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mx-auto mt-5">
+                        <div class="mx-auto mt-3">
+                            
+                                
+                                            
+                                                
+
+
+                            <div class="my-2 mx-5">
+
+                                <label class="d-block text-light">Nivel de identidad de identidad:</label>
+                                <label class="mx-1" data-html="true" title="Validación de correo electrónico">
+                                    <span class="identity-level-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"></rect><path d="m3 6 9 7 9-7"></path><path d="m3 18 6-5"></path><path d="m21 18-6-5"></path></svg>
+                                    </span>
+                                </label>
+                                <label class="mx-1" data-html="true" title="Validación de celular número">
+                                    <span class="identity-level-icon is-pending" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2"></rect><path d="M11 18h2"></path></svg>
+                                    </span>
+                                </label>
+                                <label class="mx-1" data-html="true" title="Validación de documento">
+                                    <span class="identity-level-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="M3 9h18"></path><path d="M6 13h4"></path><path d="M6 16h2"></path><path d="M12 13h5"></path><path d="M12 16h3"></path></svg>
+                                    </span>
+                                </label>
+                                <label class="mx-1" data-html="true" title="Validación de prueba de vida">
+                                    <span class="identity-level-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"></path><path d="M16 3h3a2 2 0 0 1 2 2v3"></path><path d="M8 21H5a2 2 0 0 1-2-2v-3"></path><path d="M16 21h3a2 2 0 0 0 2-2v-3"></path><circle cx="12" cy="9" r="3"></circle><path d="M6.5 18c.8-2.3 2.6-3.5 5.5-3.5s4.7 1.2 5.5 3.5"></path></svg>
+                                    </span>
+                                </label>
+
+                            
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                       
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script>
+        $(document).ready(function () {
+                    });
+    </script>
+
+            <!-- Modal -->
+<div class="modal fade " id="mdlEmail" role="dialog" aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content p-2 ">
+        <div class="modal-header">
+          <h5 class="modal-title">Edición de correo electrónico</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form action="https://login.gob.sv/perfil/datos-contacto/EMAIL/editar-correo" method="POST">
+            <input type="hidden" name="_token" value="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg">            <div class="modal-body pt-1">
+                                    <div class="fw-bold h4 text-center">
+                        Necesitas agregar un teléfono a tu perfil para poder editar tu correo electrónico
+                    </div>
+                            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+        </form>
+      </div>
+    </div>
+</div>
+    <!-- Modal -->
+
+<div class="modal fade" id="mdlTelefono" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content p-2">
+        <div class="modal-header">
+          <h5 class="modal-title">Edición de Teléfono</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <form action="https://login.gob.sv/perfil/datos-contacto/TELEFONO/actualizar-telefono" method="POST">
+            <input type="hidden" name="_token" value="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg">            <div class="modal-body pt-1">
+                <div class="text-right font-weight-bold text-muted mb-2">
+                    Edición de datos
+                </div>
+                <div>
+                    <link rel="stylesheet" href="Identidad%20digital_files/intlTelInput.min_VMCe.css">
+<script src="Identidad%20digital_files/intlTelInput.min_VMCe.js"></script>
+
+<style>
+    .iti.iti--allow-dropdown.iti--separate-dial-code{
+        width: 100% !important;
+    }
+</style>
+
+
+<div class="form-group">
+    <label for="" class="floating-label-active">Teléfono actual:</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">-</span>
+        </div>
+        <input type="text" class="form-control pl-2" value="-" style="border: 1px solid #ced4da" disabled="disabled">
+    </div>
+</div>
+
+
+<div class="mb-4 ">
+    <label class="d-block floating-label-active">Nuevo Teléfono:</label>
+    <input type="hidden" id="codigoPais" name="codigoPais" value="+503">
+    <div class="iti iti--allow-dropdown iti--separate-dial-code"><div class="iti__flag-container"><div class="iti__selected-flag" role="combobox" aria-owns="iti-0__country-listbox" aria-expanded="false" tabindex="0" title="El Salvador: +503" aria-activedescendant="iti-0__item-sv-preferred"><div class="iti__flag iti__sv"></div><div class="iti__selected-dial-code">+503</div><div class="iti__arrow"></div></div><ul class="iti__country-list iti__hide" id="iti-0__country-listbox" role="listbox"><li class="iti__country iti__preferred iti__active" tabindex="-1" id="iti-0__item-sv-preferred" role="option" data-dial-code="503" data-country-code="sv" aria-selected="true"><div class="iti__flag-box"><div class="iti__flag iti__sv"></div></div><span class="iti__country-name">El Salvador</span><span class="iti__dial-code">+503</span></li><li class="iti__divider" role="separator" aria-disabled="true"></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-af" role="option" data-dial-code="93" data-country-code="af"><div class="iti__flag-box"><div class="iti__flag iti__af"></div></div><span class="iti__country-name">Afghanistan (‫افغانستان‬‎)</span><span class="iti__dial-code">+93</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-al" role="option" data-dial-code="355" data-country-code="al"><div class="iti__flag-box"><div class="iti__flag iti__al"></div></div><span class="iti__country-name">Albania (Shqipëri)</span><span class="iti__dial-code">+355</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-dz" role="option" data-dial-code="213" data-country-code="dz"><div class="iti__flag-box"><div class="iti__flag iti__dz"></div></div><span class="iti__country-name">Algeria (‫الجزائر‬‎)</span><span class="iti__dial-code">+213</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-as" role="option" data-dial-code="1" data-country-code="as"><div class="iti__flag-box"><div class="iti__flag iti__as"></div></div><span class="iti__country-name">American Samoa</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ad" role="option" data-dial-code="376" data-country-code="ad"><div class="iti__flag-box"><div class="iti__flag iti__ad"></div></div><span class="iti__country-name">Andorra</span><span class="iti__dial-code">+376</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ao" role="option" data-dial-code="244" data-country-code="ao"><div class="iti__flag-box"><div class="iti__flag iti__ao"></div></div><span class="iti__country-name">Angola</span><span class="iti__dial-code">+244</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ai" role="option" data-dial-code="1" data-country-code="ai"><div class="iti__flag-box"><div class="iti__flag iti__ai"></div></div><span class="iti__country-name">Anguilla</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ag" role="option" data-dial-code="1" data-country-code="ag"><div class="iti__flag-box"><div class="iti__flag iti__ag"></div></div><span class="iti__country-name">Antigua and Barbuda</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ar" role="option" data-dial-code="54" data-country-code="ar"><div class="iti__flag-box"><div class="iti__flag iti__ar"></div></div><span class="iti__country-name">Argentina</span><span class="iti__dial-code">+54</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-am" role="option" data-dial-code="374" data-country-code="am"><div class="iti__flag-box"><div class="iti__flag iti__am"></div></div><span class="iti__country-name">Armenia (Հայաստան)</span><span class="iti__dial-code">+374</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-aw" role="option" data-dial-code="297" data-country-code="aw"><div class="iti__flag-box"><div class="iti__flag iti__aw"></div></div><span class="iti__country-name">Aruba</span><span class="iti__dial-code">+297</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-au" role="option" data-dial-code="61" data-country-code="au"><div class="iti__flag-box"><div class="iti__flag iti__au"></div></div><span class="iti__country-name">Australia</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-at" role="option" data-dial-code="43" data-country-code="at"><div class="iti__flag-box"><div class="iti__flag iti__at"></div></div><span class="iti__country-name">Austria (Österreich)</span><span class="iti__dial-code">+43</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-az" role="option" data-dial-code="994" data-country-code="az"><div class="iti__flag-box"><div class="iti__flag iti__az"></div></div><span class="iti__country-name">Azerbaijan (Azərbaycan)</span><span class="iti__dial-code">+994</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bs" role="option" data-dial-code="1" data-country-code="bs"><div class="iti__flag-box"><div class="iti__flag iti__bs"></div></div><span class="iti__country-name">Bahamas</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bh" role="option" data-dial-code="973" data-country-code="bh"><div class="iti__flag-box"><div class="iti__flag iti__bh"></div></div><span class="iti__country-name">Bahrain (‫البحرين‬‎)</span><span class="iti__dial-code">+973</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bd" role="option" data-dial-code="880" data-country-code="bd"><div class="iti__flag-box"><div class="iti__flag iti__bd"></div></div><span class="iti__country-name">Bangladesh (বাংলাদেশ)</span><span class="iti__dial-code">+880</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bb" role="option" data-dial-code="1" data-country-code="bb"><div class="iti__flag-box"><div class="iti__flag iti__bb"></div></div><span class="iti__country-name">Barbados</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-by" role="option" data-dial-code="375" data-country-code="by"><div class="iti__flag-box"><div class="iti__flag iti__by"></div></div><span class="iti__country-name">Belarus (Беларусь)</span><span class="iti__dial-code">+375</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-be" role="option" data-dial-code="32" data-country-code="be"><div class="iti__flag-box"><div class="iti__flag iti__be"></div></div><span class="iti__country-name">Belgium (België)</span><span class="iti__dial-code">+32</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bz" role="option" data-dial-code="501" data-country-code="bz"><div class="iti__flag-box"><div class="iti__flag iti__bz"></div></div><span class="iti__country-name">Belize</span><span class="iti__dial-code">+501</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bj" role="option" data-dial-code="229" data-country-code="bj"><div class="iti__flag-box"><div class="iti__flag iti__bj"></div></div><span class="iti__country-name">Benin (Bénin)</span><span class="iti__dial-code">+229</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bm" role="option" data-dial-code="1" data-country-code="bm"><div class="iti__flag-box"><div class="iti__flag iti__bm"></div></div><span class="iti__country-name">Bermuda</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bt" role="option" data-dial-code="975" data-country-code="bt"><div class="iti__flag-box"><div class="iti__flag iti__bt"></div></div><span class="iti__country-name">Bhutan (འབྲུག)</span><span class="iti__dial-code">+975</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bo" role="option" data-dial-code="591" data-country-code="bo"><div class="iti__flag-box"><div class="iti__flag iti__bo"></div></div><span class="iti__country-name">Bolivia</span><span class="iti__dial-code">+591</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ba" role="option" data-dial-code="387" data-country-code="ba"><div class="iti__flag-box"><div class="iti__flag iti__ba"></div></div><span class="iti__country-name">Bosnia and Herzegovina (Босна и Херцеговина)</span><span class="iti__dial-code">+387</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bw" role="option" data-dial-code="267" data-country-code="bw"><div class="iti__flag-box"><div class="iti__flag iti__bw"></div></div><span class="iti__country-name">Botswana</span><span class="iti__dial-code">+267</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-br" role="option" data-dial-code="55" data-country-code="br"><div class="iti__flag-box"><div class="iti__flag iti__br"></div></div><span class="iti__country-name">Brazil (Brasil)</span><span class="iti__dial-code">+55</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-io" role="option" data-dial-code="246" data-country-code="io"><div class="iti__flag-box"><div class="iti__flag iti__io"></div></div><span class="iti__country-name">British Indian Ocean Territory</span><span class="iti__dial-code">+246</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-vg" role="option" data-dial-code="1" data-country-code="vg"><div class="iti__flag-box"><div class="iti__flag iti__vg"></div></div><span class="iti__country-name">British Virgin Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bn" role="option" data-dial-code="673" data-country-code="bn"><div class="iti__flag-box"><div class="iti__flag iti__bn"></div></div><span class="iti__country-name">Brunei</span><span class="iti__dial-code">+673</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bg" role="option" data-dial-code="359" data-country-code="bg"><div class="iti__flag-box"><div class="iti__flag iti__bg"></div></div><span class="iti__country-name">Bulgaria (България)</span><span class="iti__dial-code">+359</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bf" role="option" data-dial-code="226" data-country-code="bf"><div class="iti__flag-box"><div class="iti__flag iti__bf"></div></div><span class="iti__country-name">Burkina Faso</span><span class="iti__dial-code">+226</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bi" role="option" data-dial-code="257" data-country-code="bi"><div class="iti__flag-box"><div class="iti__flag iti__bi"></div></div><span class="iti__country-name">Burundi (Uburundi)</span><span class="iti__dial-code">+257</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kh" role="option" data-dial-code="855" data-country-code="kh"><div class="iti__flag-box"><div class="iti__flag iti__kh"></div></div><span class="iti__country-name">Cambodia (កម្ពុជា)</span><span class="iti__dial-code">+855</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cm" role="option" data-dial-code="237" data-country-code="cm"><div class="iti__flag-box"><div class="iti__flag iti__cm"></div></div><span class="iti__country-name">Cameroon (Cameroun)</span><span class="iti__dial-code">+237</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ca" role="option" data-dial-code="1" data-country-code="ca"><div class="iti__flag-box"><div class="iti__flag iti__ca"></div></div><span class="iti__country-name">Canada</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cv" role="option" data-dial-code="238" data-country-code="cv"><div class="iti__flag-box"><div class="iti__flag iti__cv"></div></div><span class="iti__country-name">Cape Verde (Kabu Verdi)</span><span class="iti__dial-code">+238</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bq" role="option" data-dial-code="599" data-country-code="bq"><div class="iti__flag-box"><div class="iti__flag iti__bq"></div></div><span class="iti__country-name">Caribbean Netherlands</span><span class="iti__dial-code">+599</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ky" role="option" data-dial-code="1" data-country-code="ky"><div class="iti__flag-box"><div class="iti__flag iti__ky"></div></div><span class="iti__country-name">Cayman Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cf" role="option" data-dial-code="236" data-country-code="cf"><div class="iti__flag-box"><div class="iti__flag iti__cf"></div></div><span class="iti__country-name">Central African Republic (République centrafricaine)</span><span class="iti__dial-code">+236</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-td" role="option" data-dial-code="235" data-country-code="td"><div class="iti__flag-box"><div class="iti__flag iti__td"></div></div><span class="iti__country-name">Chad (Tchad)</span><span class="iti__dial-code">+235</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cl" role="option" data-dial-code="56" data-country-code="cl"><div class="iti__flag-box"><div class="iti__flag iti__cl"></div></div><span class="iti__country-name">Chile</span><span class="iti__dial-code">+56</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cn" role="option" data-dial-code="86" data-country-code="cn"><div class="iti__flag-box"><div class="iti__flag iti__cn"></div></div><span class="iti__country-name">China (中国)</span><span class="iti__dial-code">+86</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cx" role="option" data-dial-code="61" data-country-code="cx"><div class="iti__flag-box"><div class="iti__flag iti__cx"></div></div><span class="iti__country-name">Christmas Island</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cc" role="option" data-dial-code="61" data-country-code="cc"><div class="iti__flag-box"><div class="iti__flag iti__cc"></div></div><span class="iti__country-name">Cocos (Keeling) Islands</span><span class="iti__dial-code">+61</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-co" role="option" data-dial-code="57" data-country-code="co"><div class="iti__flag-box"><div class="iti__flag iti__co"></div></div><span class="iti__country-name">Colombia</span><span class="iti__dial-code">+57</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-km" role="option" data-dial-code="269" data-country-code="km"><div class="iti__flag-box"><div class="iti__flag iti__km"></div></div><span class="iti__country-name">Comoros (‫جزر القمر‬‎)</span><span class="iti__dial-code">+269</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cd" role="option" data-dial-code="243" data-country-code="cd"><div class="iti__flag-box"><div class="iti__flag iti__cd"></div></div><span class="iti__country-name">Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)</span><span class="iti__dial-code">+243</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cg" role="option" data-dial-code="242" data-country-code="cg"><div class="iti__flag-box"><div class="iti__flag iti__cg"></div></div><span class="iti__country-name">Congo (Republic) (Congo-Brazzaville)</span><span class="iti__dial-code">+242</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ck" role="option" data-dial-code="682" data-country-code="ck"><div class="iti__flag-box"><div class="iti__flag iti__ck"></div></div><span class="iti__country-name">Cook Islands</span><span class="iti__dial-code">+682</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cr" role="option" data-dial-code="506" data-country-code="cr"><div class="iti__flag-box"><div class="iti__flag iti__cr"></div></div><span class="iti__country-name">Costa Rica</span><span class="iti__dial-code">+506</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ci" role="option" data-dial-code="225" data-country-code="ci"><div class="iti__flag-box"><div class="iti__flag iti__ci"></div></div><span class="iti__country-name">Côte d’Ivoire</span><span class="iti__dial-code">+225</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-hr" role="option" data-dial-code="385" data-country-code="hr"><div class="iti__flag-box"><div class="iti__flag iti__hr"></div></div><span class="iti__country-name">Croatia (Hrvatska)</span><span class="iti__dial-code">+385</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cu" role="option" data-dial-code="53" data-country-code="cu"><div class="iti__flag-box"><div class="iti__flag iti__cu"></div></div><span class="iti__country-name">Cuba</span><span class="iti__dial-code">+53</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cw" role="option" data-dial-code="599" data-country-code="cw"><div class="iti__flag-box"><div class="iti__flag iti__cw"></div></div><span class="iti__country-name">Curaçao</span><span class="iti__dial-code">+599</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cy" role="option" data-dial-code="357" data-country-code="cy"><div class="iti__flag-box"><div class="iti__flag iti__cy"></div></div><span class="iti__country-name">Cyprus (Κύπρος)</span><span class="iti__dial-code">+357</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-cz" role="option" data-dial-code="420" data-country-code="cz"><div class="iti__flag-box"><div class="iti__flag iti__cz"></div></div><span class="iti__country-name">Czech Republic (Česká republika)</span><span class="iti__dial-code">+420</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-dk" role="option" data-dial-code="45" data-country-code="dk"><div class="iti__flag-box"><div class="iti__flag iti__dk"></div></div><span class="iti__country-name">Denmark (Danmark)</span><span class="iti__dial-code">+45</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-dj" role="option" data-dial-code="253" data-country-code="dj"><div class="iti__flag-box"><div class="iti__flag iti__dj"></div></div><span class="iti__country-name">Djibouti</span><span class="iti__dial-code">+253</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-dm" role="option" data-dial-code="1" data-country-code="dm"><div class="iti__flag-box"><div class="iti__flag iti__dm"></div></div><span class="iti__country-name">Dominica</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-do" role="option" data-dial-code="1" data-country-code="do"><div class="iti__flag-box"><div class="iti__flag iti__do"></div></div><span class="iti__country-name">Dominican Republic (República Dominicana)</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ec" role="option" data-dial-code="593" data-country-code="ec"><div class="iti__flag-box"><div class="iti__flag iti__ec"></div></div><span class="iti__country-name">Ecuador</span><span class="iti__dial-code">+593</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-eg" role="option" data-dial-code="20" data-country-code="eg"><div class="iti__flag-box"><div class="iti__flag iti__eg"></div></div><span class="iti__country-name">Egypt (‫مصر‬‎)</span><span class="iti__dial-code">+20</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sv" role="option" data-dial-code="503" data-country-code="sv"><div class="iti__flag-box"><div class="iti__flag iti__sv"></div></div><span class="iti__country-name">El Salvador</span><span class="iti__dial-code">+503</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gq" role="option" data-dial-code="240" data-country-code="gq"><div class="iti__flag-box"><div class="iti__flag iti__gq"></div></div><span class="iti__country-name">Equatorial Guinea (Guinea Ecuatorial)</span><span class="iti__dial-code">+240</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-er" role="option" data-dial-code="291" data-country-code="er"><div class="iti__flag-box"><div class="iti__flag iti__er"></div></div><span class="iti__country-name">Eritrea</span><span class="iti__dial-code">+291</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ee" role="option" data-dial-code="372" data-country-code="ee"><div class="iti__flag-box"><div class="iti__flag iti__ee"></div></div><span class="iti__country-name">Estonia (Eesti)</span><span class="iti__dial-code">+372</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-et" role="option" data-dial-code="251" data-country-code="et"><div class="iti__flag-box"><div class="iti__flag iti__et"></div></div><span class="iti__country-name">Ethiopia</span><span class="iti__dial-code">+251</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fk" role="option" data-dial-code="500" data-country-code="fk"><div class="iti__flag-box"><div class="iti__flag iti__fk"></div></div><span class="iti__country-name">Falkland Islands (Islas Malvinas)</span><span class="iti__dial-code">+500</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fo" role="option" data-dial-code="298" data-country-code="fo"><div class="iti__flag-box"><div class="iti__flag iti__fo"></div></div><span class="iti__country-name">Faroe Islands (Føroyar)</span><span class="iti__dial-code">+298</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fj" role="option" data-dial-code="679" data-country-code="fj"><div class="iti__flag-box"><div class="iti__flag iti__fj"></div></div><span class="iti__country-name">Fiji</span><span class="iti__dial-code">+679</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fi" role="option" data-dial-code="358" data-country-code="fi"><div class="iti__flag-box"><div class="iti__flag iti__fi"></div></div><span class="iti__country-name">Finland (Suomi)</span><span class="iti__dial-code">+358</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fr" role="option" data-dial-code="33" data-country-code="fr"><div class="iti__flag-box"><div class="iti__flag iti__fr"></div></div><span class="iti__country-name">France</span><span class="iti__dial-code">+33</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gf" role="option" data-dial-code="594" data-country-code="gf"><div class="iti__flag-box"><div class="iti__flag iti__gf"></div></div><span class="iti__country-name">French Guiana (Guyane française)</span><span class="iti__dial-code">+594</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pf" role="option" data-dial-code="689" data-country-code="pf"><div class="iti__flag-box"><div class="iti__flag iti__pf"></div></div><span class="iti__country-name">French Polynesia (Polynésie française)</span><span class="iti__dial-code">+689</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ga" role="option" data-dial-code="241" data-country-code="ga"><div class="iti__flag-box"><div class="iti__flag iti__ga"></div></div><span class="iti__country-name">Gabon</span><span class="iti__dial-code">+241</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gm" role="option" data-dial-code="220" data-country-code="gm"><div class="iti__flag-box"><div class="iti__flag iti__gm"></div></div><span class="iti__country-name">Gambia</span><span class="iti__dial-code">+220</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ge" role="option" data-dial-code="995" data-country-code="ge"><div class="iti__flag-box"><div class="iti__flag iti__ge"></div></div><span class="iti__country-name">Georgia (საქართველო)</span><span class="iti__dial-code">+995</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-de" role="option" data-dial-code="49" data-country-code="de"><div class="iti__flag-box"><div class="iti__flag iti__de"></div></div><span class="iti__country-name">Germany (Deutschland)</span><span class="iti__dial-code">+49</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gh" role="option" data-dial-code="233" data-country-code="gh"><div class="iti__flag-box"><div class="iti__flag iti__gh"></div></div><span class="iti__country-name">Ghana (Gaana)</span><span class="iti__dial-code">+233</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gi" role="option" data-dial-code="350" data-country-code="gi"><div class="iti__flag-box"><div class="iti__flag iti__gi"></div></div><span class="iti__country-name">Gibraltar</span><span class="iti__dial-code">+350</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gr" role="option" data-dial-code="30" data-country-code="gr"><div class="iti__flag-box"><div class="iti__flag iti__gr"></div></div><span class="iti__country-name">Greece (Ελλάδα)</span><span class="iti__dial-code">+30</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gl" role="option" data-dial-code="299" data-country-code="gl"><div class="iti__flag-box"><div class="iti__flag iti__gl"></div></div><span class="iti__country-name">Greenland (Kalaallit Nunaat)</span><span class="iti__dial-code">+299</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gd" role="option" data-dial-code="1" data-country-code="gd"><div class="iti__flag-box"><div class="iti__flag iti__gd"></div></div><span class="iti__country-name">Grenada</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gp" role="option" data-dial-code="590" data-country-code="gp"><div class="iti__flag-box"><div class="iti__flag iti__gp"></div></div><span class="iti__country-name">Guadeloupe</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gu" role="option" data-dial-code="1" data-country-code="gu"><div class="iti__flag-box"><div class="iti__flag iti__gu"></div></div><span class="iti__country-name">Guam</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gt" role="option" data-dial-code="502" data-country-code="gt"><div class="iti__flag-box"><div class="iti__flag iti__gt"></div></div><span class="iti__country-name">Guatemala</span><span class="iti__dial-code">+502</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gg" role="option" data-dial-code="44" data-country-code="gg"><div class="iti__flag-box"><div class="iti__flag iti__gg"></div></div><span class="iti__country-name">Guernsey</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gn" role="option" data-dial-code="224" data-country-code="gn"><div class="iti__flag-box"><div class="iti__flag iti__gn"></div></div><span class="iti__country-name">Guinea (Guinée)</span><span class="iti__dial-code">+224</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gw" role="option" data-dial-code="245" data-country-code="gw"><div class="iti__flag-box"><div class="iti__flag iti__gw"></div></div><span class="iti__country-name">Guinea-Bissau (Guiné Bissau)</span><span class="iti__dial-code">+245</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gy" role="option" data-dial-code="592" data-country-code="gy"><div class="iti__flag-box"><div class="iti__flag iti__gy"></div></div><span class="iti__country-name">Guyana</span><span class="iti__dial-code">+592</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ht" role="option" data-dial-code="509" data-country-code="ht"><div class="iti__flag-box"><div class="iti__flag iti__ht"></div></div><span class="iti__country-name">Haiti</span><span class="iti__dial-code">+509</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-hn" role="option" data-dial-code="504" data-country-code="hn"><div class="iti__flag-box"><div class="iti__flag iti__hn"></div></div><span class="iti__country-name">Honduras</span><span class="iti__dial-code">+504</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-hk" role="option" data-dial-code="852" data-country-code="hk"><div class="iti__flag-box"><div class="iti__flag iti__hk"></div></div><span class="iti__country-name">Hong Kong (香港)</span><span class="iti__dial-code">+852</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-hu" role="option" data-dial-code="36" data-country-code="hu"><div class="iti__flag-box"><div class="iti__flag iti__hu"></div></div><span class="iti__country-name">Hungary (Magyarország)</span><span class="iti__dial-code">+36</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-is" role="option" data-dial-code="354" data-country-code="is"><div class="iti__flag-box"><div class="iti__flag iti__is"></div></div><span class="iti__country-name">Iceland (Ísland)</span><span class="iti__dial-code">+354</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-in" role="option" data-dial-code="91" data-country-code="in"><div class="iti__flag-box"><div class="iti__flag iti__in"></div></div><span class="iti__country-name">India (भारत)</span><span class="iti__dial-code">+91</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-id" role="option" data-dial-code="62" data-country-code="id"><div class="iti__flag-box"><div class="iti__flag iti__id"></div></div><span class="iti__country-name">Indonesia</span><span class="iti__dial-code">+62</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ir" role="option" data-dial-code="98" data-country-code="ir"><div class="iti__flag-box"><div class="iti__flag iti__ir"></div></div><span class="iti__country-name">Iran (‫ایران‬‎)</span><span class="iti__dial-code">+98</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-iq" role="option" data-dial-code="964" data-country-code="iq"><div class="iti__flag-box"><div class="iti__flag iti__iq"></div></div><span class="iti__country-name">Iraq (‫العراق‬‎)</span><span class="iti__dial-code">+964</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ie" role="option" data-dial-code="353" data-country-code="ie"><div class="iti__flag-box"><div class="iti__flag iti__ie"></div></div><span class="iti__country-name">Ireland</span><span class="iti__dial-code">+353</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-im" role="option" data-dial-code="44" data-country-code="im"><div class="iti__flag-box"><div class="iti__flag iti__im"></div></div><span class="iti__country-name">Isle of Man</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-il" role="option" data-dial-code="972" data-country-code="il"><div class="iti__flag-box"><div class="iti__flag iti__il"></div></div><span class="iti__country-name">Israel (‫ישראל‬‎)</span><span class="iti__dial-code">+972</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-it" role="option" data-dial-code="39" data-country-code="it"><div class="iti__flag-box"><div class="iti__flag iti__it"></div></div><span class="iti__country-name">Italy (Italia)</span><span class="iti__dial-code">+39</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-jm" role="option" data-dial-code="1" data-country-code="jm"><div class="iti__flag-box"><div class="iti__flag iti__jm"></div></div><span class="iti__country-name">Jamaica</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-jp" role="option" data-dial-code="81" data-country-code="jp"><div class="iti__flag-box"><div class="iti__flag iti__jp"></div></div><span class="iti__country-name">Japan (日本)</span><span class="iti__dial-code">+81</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-je" role="option" data-dial-code="44" data-country-code="je"><div class="iti__flag-box"><div class="iti__flag iti__je"></div></div><span class="iti__country-name">Jersey</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-jo" role="option" data-dial-code="962" data-country-code="jo"><div class="iti__flag-box"><div class="iti__flag iti__jo"></div></div><span class="iti__country-name">Jordan (‫الأردن‬‎)</span><span class="iti__dial-code">+962</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kz" role="option" data-dial-code="7" data-country-code="kz"><div class="iti__flag-box"><div class="iti__flag iti__kz"></div></div><span class="iti__country-name">Kazakhstan (Казахстан)</span><span class="iti__dial-code">+7</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ke" role="option" data-dial-code="254" data-country-code="ke"><div class="iti__flag-box"><div class="iti__flag iti__ke"></div></div><span class="iti__country-name">Kenya</span><span class="iti__dial-code">+254</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ki" role="option" data-dial-code="686" data-country-code="ki"><div class="iti__flag-box"><div class="iti__flag iti__ki"></div></div><span class="iti__country-name">Kiribati</span><span class="iti__dial-code">+686</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-xk" role="option" data-dial-code="383" data-country-code="xk"><div class="iti__flag-box"><div class="iti__flag iti__xk"></div></div><span class="iti__country-name">Kosovo</span><span class="iti__dial-code">+383</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kw" role="option" data-dial-code="965" data-country-code="kw"><div class="iti__flag-box"><div class="iti__flag iti__kw"></div></div><span class="iti__country-name">Kuwait (‫الكويت‬‎)</span><span class="iti__dial-code">+965</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kg" role="option" data-dial-code="996" data-country-code="kg"><div class="iti__flag-box"><div class="iti__flag iti__kg"></div></div><span class="iti__country-name">Kyrgyzstan (Кыргызстан)</span><span class="iti__dial-code">+996</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-la" role="option" data-dial-code="856" data-country-code="la"><div class="iti__flag-box"><div class="iti__flag iti__la"></div></div><span class="iti__country-name">Laos (ລາວ)</span><span class="iti__dial-code">+856</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lv" role="option" data-dial-code="371" data-country-code="lv"><div class="iti__flag-box"><div class="iti__flag iti__lv"></div></div><span class="iti__country-name">Latvia (Latvija)</span><span class="iti__dial-code">+371</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lb" role="option" data-dial-code="961" data-country-code="lb"><div class="iti__flag-box"><div class="iti__flag iti__lb"></div></div><span class="iti__country-name">Lebanon (‫لبنان‬‎)</span><span class="iti__dial-code">+961</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ls" role="option" data-dial-code="266" data-country-code="ls"><div class="iti__flag-box"><div class="iti__flag iti__ls"></div></div><span class="iti__country-name">Lesotho</span><span class="iti__dial-code">+266</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lr" role="option" data-dial-code="231" data-country-code="lr"><div class="iti__flag-box"><div class="iti__flag iti__lr"></div></div><span class="iti__country-name">Liberia</span><span class="iti__dial-code">+231</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ly" role="option" data-dial-code="218" data-country-code="ly"><div class="iti__flag-box"><div class="iti__flag iti__ly"></div></div><span class="iti__country-name">Libya (‫ليبيا‬‎)</span><span class="iti__dial-code">+218</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-li" role="option" data-dial-code="423" data-country-code="li"><div class="iti__flag-box"><div class="iti__flag iti__li"></div></div><span class="iti__country-name">Liechtenstein</span><span class="iti__dial-code">+423</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lt" role="option" data-dial-code="370" data-country-code="lt"><div class="iti__flag-box"><div class="iti__flag iti__lt"></div></div><span class="iti__country-name">Lithuania (Lietuva)</span><span class="iti__dial-code">+370</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lu" role="option" data-dial-code="352" data-country-code="lu"><div class="iti__flag-box"><div class="iti__flag iti__lu"></div></div><span class="iti__country-name">Luxembourg</span><span class="iti__dial-code">+352</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mo" role="option" data-dial-code="853" data-country-code="mo"><div class="iti__flag-box"><div class="iti__flag iti__mo"></div></div><span class="iti__country-name">Macau (澳門)</span><span class="iti__dial-code">+853</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mk" role="option" data-dial-code="389" data-country-code="mk"><div class="iti__flag-box"><div class="iti__flag iti__mk"></div></div><span class="iti__country-name">Macedonia (FYROM) (Македонија)</span><span class="iti__dial-code">+389</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mg" role="option" data-dial-code="261" data-country-code="mg"><div class="iti__flag-box"><div class="iti__flag iti__mg"></div></div><span class="iti__country-name">Madagascar (Madagasikara)</span><span class="iti__dial-code">+261</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mw" role="option" data-dial-code="265" data-country-code="mw"><div class="iti__flag-box"><div class="iti__flag iti__mw"></div></div><span class="iti__country-name">Malawi</span><span class="iti__dial-code">+265</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-my" role="option" data-dial-code="60" data-country-code="my"><div class="iti__flag-box"><div class="iti__flag iti__my"></div></div><span class="iti__country-name">Malaysia</span><span class="iti__dial-code">+60</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mv" role="option" data-dial-code="960" data-country-code="mv"><div class="iti__flag-box"><div class="iti__flag iti__mv"></div></div><span class="iti__country-name">Maldives</span><span class="iti__dial-code">+960</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ml" role="option" data-dial-code="223" data-country-code="ml"><div class="iti__flag-box"><div class="iti__flag iti__ml"></div></div><span class="iti__country-name">Mali</span><span class="iti__dial-code">+223</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mt" role="option" data-dial-code="356" data-country-code="mt"><div class="iti__flag-box"><div class="iti__flag iti__mt"></div></div><span class="iti__country-name">Malta</span><span class="iti__dial-code">+356</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mh" role="option" data-dial-code="692" data-country-code="mh"><div class="iti__flag-box"><div class="iti__flag iti__mh"></div></div><span class="iti__country-name">Marshall Islands</span><span class="iti__dial-code">+692</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mq" role="option" data-dial-code="596" data-country-code="mq"><div class="iti__flag-box"><div class="iti__flag iti__mq"></div></div><span class="iti__country-name">Martinique</span><span class="iti__dial-code">+596</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mr" role="option" data-dial-code="222" data-country-code="mr"><div class="iti__flag-box"><div class="iti__flag iti__mr"></div></div><span class="iti__country-name">Mauritania (‫موريتانيا‬‎)</span><span class="iti__dial-code">+222</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mu" role="option" data-dial-code="230" data-country-code="mu"><div class="iti__flag-box"><div class="iti__flag iti__mu"></div></div><span class="iti__country-name">Mauritius (Moris)</span><span class="iti__dial-code">+230</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-yt" role="option" data-dial-code="262" data-country-code="yt"><div class="iti__flag-box"><div class="iti__flag iti__yt"></div></div><span class="iti__country-name">Mayotte</span><span class="iti__dial-code">+262</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mx" role="option" data-dial-code="52" data-country-code="mx"><div class="iti__flag-box"><div class="iti__flag iti__mx"></div></div><span class="iti__country-name">Mexico (México)</span><span class="iti__dial-code">+52</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-fm" role="option" data-dial-code="691" data-country-code="fm"><div class="iti__flag-box"><div class="iti__flag iti__fm"></div></div><span class="iti__country-name">Micronesia</span><span class="iti__dial-code">+691</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-md" role="option" data-dial-code="373" data-country-code="md"><div class="iti__flag-box"><div class="iti__flag iti__md"></div></div><span class="iti__country-name">Moldova (Republica Moldova)</span><span class="iti__dial-code">+373</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mc" role="option" data-dial-code="377" data-country-code="mc"><div class="iti__flag-box"><div class="iti__flag iti__mc"></div></div><span class="iti__country-name">Monaco</span><span class="iti__dial-code">+377</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mn" role="option" data-dial-code="976" data-country-code="mn"><div class="iti__flag-box"><div class="iti__flag iti__mn"></div></div><span class="iti__country-name">Mongolia (Монгол)</span><span class="iti__dial-code">+976</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-me" role="option" data-dial-code="382" data-country-code="me"><div class="iti__flag-box"><div class="iti__flag iti__me"></div></div><span class="iti__country-name">Montenegro (Crna Gora)</span><span class="iti__dial-code">+382</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ms" role="option" data-dial-code="1" data-country-code="ms"><div class="iti__flag-box"><div class="iti__flag iti__ms"></div></div><span class="iti__country-name">Montserrat</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ma" role="option" data-dial-code="212" data-country-code="ma"><div class="iti__flag-box"><div class="iti__flag iti__ma"></div></div><span class="iti__country-name">Morocco (‫المغرب‬‎)</span><span class="iti__dial-code">+212</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mz" role="option" data-dial-code="258" data-country-code="mz"><div class="iti__flag-box"><div class="iti__flag iti__mz"></div></div><span class="iti__country-name">Mozambique (Moçambique)</span><span class="iti__dial-code">+258</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mm" role="option" data-dial-code="95" data-country-code="mm"><div class="iti__flag-box"><div class="iti__flag iti__mm"></div></div><span class="iti__country-name">Myanmar (Burma) (မြန်မာ)</span><span class="iti__dial-code">+95</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-na" role="option" data-dial-code="264" data-country-code="na"><div class="iti__flag-box"><div class="iti__flag iti__na"></div></div><span class="iti__country-name">Namibia (Namibië)</span><span class="iti__dial-code">+264</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nr" role="option" data-dial-code="674" data-country-code="nr"><div class="iti__flag-box"><div class="iti__flag iti__nr"></div></div><span class="iti__country-name">Nauru</span><span class="iti__dial-code">+674</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-np" role="option" data-dial-code="977" data-country-code="np"><div class="iti__flag-box"><div class="iti__flag iti__np"></div></div><span class="iti__country-name">Nepal (नेपाल)</span><span class="iti__dial-code">+977</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nl" role="option" data-dial-code="31" data-country-code="nl"><div class="iti__flag-box"><div class="iti__flag iti__nl"></div></div><span class="iti__country-name">Netherlands (Nederland)</span><span class="iti__dial-code">+31</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nc" role="option" data-dial-code="687" data-country-code="nc"><div class="iti__flag-box"><div class="iti__flag iti__nc"></div></div><span class="iti__country-name">New Caledonia (Nouvelle-Calédonie)</span><span class="iti__dial-code">+687</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nz" role="option" data-dial-code="64" data-country-code="nz"><div class="iti__flag-box"><div class="iti__flag iti__nz"></div></div><span class="iti__country-name">New Zealand</span><span class="iti__dial-code">+64</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ni" role="option" data-dial-code="505" data-country-code="ni"><div class="iti__flag-box"><div class="iti__flag iti__ni"></div></div><span class="iti__country-name">Nicaragua</span><span class="iti__dial-code">+505</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ne" role="option" data-dial-code="227" data-country-code="ne"><div class="iti__flag-box"><div class="iti__flag iti__ne"></div></div><span class="iti__country-name">Niger (Nijar)</span><span class="iti__dial-code">+227</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ng" role="option" data-dial-code="234" data-country-code="ng"><div class="iti__flag-box"><div class="iti__flag iti__ng"></div></div><span class="iti__country-name">Nigeria</span><span class="iti__dial-code">+234</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nu" role="option" data-dial-code="683" data-country-code="nu"><div class="iti__flag-box"><div class="iti__flag iti__nu"></div></div><span class="iti__country-name">Niue</span><span class="iti__dial-code">+683</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-nf" role="option" data-dial-code="672" data-country-code="nf"><div class="iti__flag-box"><div class="iti__flag iti__nf"></div></div><span class="iti__country-name">Norfolk Island</span><span class="iti__dial-code">+672</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kp" role="option" data-dial-code="850" data-country-code="kp"><div class="iti__flag-box"><div class="iti__flag iti__kp"></div></div><span class="iti__country-name">North Korea (조선 민주주의 인민 공화국)</span><span class="iti__dial-code">+850</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mp" role="option" data-dial-code="1" data-country-code="mp"><div class="iti__flag-box"><div class="iti__flag iti__mp"></div></div><span class="iti__country-name">Northern Mariana Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-no" role="option" data-dial-code="47" data-country-code="no"><div class="iti__flag-box"><div class="iti__flag iti__no"></div></div><span class="iti__country-name">Norway (Norge)</span><span class="iti__dial-code">+47</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-om" role="option" data-dial-code="968" data-country-code="om"><div class="iti__flag-box"><div class="iti__flag iti__om"></div></div><span class="iti__country-name">Oman (‫عُمان‬‎)</span><span class="iti__dial-code">+968</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pk" role="option" data-dial-code="92" data-country-code="pk"><div class="iti__flag-box"><div class="iti__flag iti__pk"></div></div><span class="iti__country-name">Pakistan (‫پاکستان‬‎)</span><span class="iti__dial-code">+92</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pw" role="option" data-dial-code="680" data-country-code="pw"><div class="iti__flag-box"><div class="iti__flag iti__pw"></div></div><span class="iti__country-name">Palau</span><span class="iti__dial-code">+680</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ps" role="option" data-dial-code="970" data-country-code="ps"><div class="iti__flag-box"><div class="iti__flag iti__ps"></div></div><span class="iti__country-name">Palestine (‫فلسطين‬‎)</span><span class="iti__dial-code">+970</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pa" role="option" data-dial-code="507" data-country-code="pa"><div class="iti__flag-box"><div class="iti__flag iti__pa"></div></div><span class="iti__country-name">Panama (Panamá)</span><span class="iti__dial-code">+507</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pg" role="option" data-dial-code="675" data-country-code="pg"><div class="iti__flag-box"><div class="iti__flag iti__pg"></div></div><span class="iti__country-name">Papua New Guinea</span><span class="iti__dial-code">+675</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-py" role="option" data-dial-code="595" data-country-code="py"><div class="iti__flag-box"><div class="iti__flag iti__py"></div></div><span class="iti__country-name">Paraguay</span><span class="iti__dial-code">+595</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pe" role="option" data-dial-code="51" data-country-code="pe"><div class="iti__flag-box"><div class="iti__flag iti__pe"></div></div><span class="iti__country-name">Peru (Perú)</span><span class="iti__dial-code">+51</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ph" role="option" data-dial-code="63" data-country-code="ph"><div class="iti__flag-box"><div class="iti__flag iti__ph"></div></div><span class="iti__country-name">Philippines</span><span class="iti__dial-code">+63</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pl" role="option" data-dial-code="48" data-country-code="pl"><div class="iti__flag-box"><div class="iti__flag iti__pl"></div></div><span class="iti__country-name">Poland (Polska)</span><span class="iti__dial-code">+48</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pt" role="option" data-dial-code="351" data-country-code="pt"><div class="iti__flag-box"><div class="iti__flag iti__pt"></div></div><span class="iti__country-name">Portugal</span><span class="iti__dial-code">+351</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pr" role="option" data-dial-code="1" data-country-code="pr"><div class="iti__flag-box"><div class="iti__flag iti__pr"></div></div><span class="iti__country-name">Puerto Rico</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-qa" role="option" data-dial-code="974" data-country-code="qa"><div class="iti__flag-box"><div class="iti__flag iti__qa"></div></div><span class="iti__country-name">Qatar (‫قطر‬‎)</span><span class="iti__dial-code">+974</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-re" role="option" data-dial-code="262" data-country-code="re"><div class="iti__flag-box"><div class="iti__flag iti__re"></div></div><span class="iti__country-name">Réunion (La Réunion)</span><span class="iti__dial-code">+262</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ro" role="option" data-dial-code="40" data-country-code="ro"><div class="iti__flag-box"><div class="iti__flag iti__ro"></div></div><span class="iti__country-name">Romania (România)</span><span class="iti__dial-code">+40</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ru" role="option" data-dial-code="7" data-country-code="ru"><div class="iti__flag-box"><div class="iti__flag iti__ru"></div></div><span class="iti__country-name">Russia (Россия)</span><span class="iti__dial-code">+7</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-rw" role="option" data-dial-code="250" data-country-code="rw"><div class="iti__flag-box"><div class="iti__flag iti__rw"></div></div><span class="iti__country-name">Rwanda</span><span class="iti__dial-code">+250</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-bl" role="option" data-dial-code="590" data-country-code="bl"><div class="iti__flag-box"><div class="iti__flag iti__bl"></div></div><span class="iti__country-name">Saint Barthélemy</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sh" role="option" data-dial-code="290" data-country-code="sh"><div class="iti__flag-box"><div class="iti__flag iti__sh"></div></div><span class="iti__country-name">Saint Helena</span><span class="iti__dial-code">+290</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kn" role="option" data-dial-code="1" data-country-code="kn"><div class="iti__flag-box"><div class="iti__flag iti__kn"></div></div><span class="iti__country-name">Saint Kitts and Nevis</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lc" role="option" data-dial-code="1" data-country-code="lc"><div class="iti__flag-box"><div class="iti__flag iti__lc"></div></div><span class="iti__country-name">Saint Lucia</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-mf" role="option" data-dial-code="590" data-country-code="mf"><div class="iti__flag-box"><div class="iti__flag iti__mf"></div></div><span class="iti__country-name">Saint Martin (Saint-Martin (partie française))</span><span class="iti__dial-code">+590</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-pm" role="option" data-dial-code="508" data-country-code="pm"><div class="iti__flag-box"><div class="iti__flag iti__pm"></div></div><span class="iti__country-name">Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)</span><span class="iti__dial-code">+508</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-vc" role="option" data-dial-code="1" data-country-code="vc"><div class="iti__flag-box"><div class="iti__flag iti__vc"></div></div><span class="iti__country-name">Saint Vincent and the Grenadines</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ws" role="option" data-dial-code="685" data-country-code="ws"><div class="iti__flag-box"><div class="iti__flag iti__ws"></div></div><span class="iti__country-name">Samoa</span><span class="iti__dial-code">+685</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sm" role="option" data-dial-code="378" data-country-code="sm"><div class="iti__flag-box"><div class="iti__flag iti__sm"></div></div><span class="iti__country-name">San Marino</span><span class="iti__dial-code">+378</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-st" role="option" data-dial-code="239" data-country-code="st"><div class="iti__flag-box"><div class="iti__flag iti__st"></div></div><span class="iti__country-name">São Tomé and Príncipe (São Tomé e Príncipe)</span><span class="iti__dial-code">+239</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sa" role="option" data-dial-code="966" data-country-code="sa"><div class="iti__flag-box"><div class="iti__flag iti__sa"></div></div><span class="iti__country-name">Saudi Arabia (‫المملكة العربية السعودية‬‎)</span><span class="iti__dial-code">+966</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sn" role="option" data-dial-code="221" data-country-code="sn"><div class="iti__flag-box"><div class="iti__flag iti__sn"></div></div><span class="iti__country-name">Senegal (Sénégal)</span><span class="iti__dial-code">+221</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-rs" role="option" data-dial-code="381" data-country-code="rs"><div class="iti__flag-box"><div class="iti__flag iti__rs"></div></div><span class="iti__country-name">Serbia (Србија)</span><span class="iti__dial-code">+381</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sc" role="option" data-dial-code="248" data-country-code="sc"><div class="iti__flag-box"><div class="iti__flag iti__sc"></div></div><span class="iti__country-name">Seychelles</span><span class="iti__dial-code">+248</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sl" role="option" data-dial-code="232" data-country-code="sl"><div class="iti__flag-box"><div class="iti__flag iti__sl"></div></div><span class="iti__country-name">Sierra Leone</span><span class="iti__dial-code">+232</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sg" role="option" data-dial-code="65" data-country-code="sg"><div class="iti__flag-box"><div class="iti__flag iti__sg"></div></div><span class="iti__country-name">Singapore</span><span class="iti__dial-code">+65</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sx" role="option" data-dial-code="1" data-country-code="sx"><div class="iti__flag-box"><div class="iti__flag iti__sx"></div></div><span class="iti__country-name">Sint Maarten</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sk" role="option" data-dial-code="421" data-country-code="sk"><div class="iti__flag-box"><div class="iti__flag iti__sk"></div></div><span class="iti__country-name">Slovakia (Slovensko)</span><span class="iti__dial-code">+421</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-si" role="option" data-dial-code="386" data-country-code="si"><div class="iti__flag-box"><div class="iti__flag iti__si"></div></div><span class="iti__country-name">Slovenia (Slovenija)</span><span class="iti__dial-code">+386</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sb" role="option" data-dial-code="677" data-country-code="sb"><div class="iti__flag-box"><div class="iti__flag iti__sb"></div></div><span class="iti__country-name">Solomon Islands</span><span class="iti__dial-code">+677</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-so" role="option" data-dial-code="252" data-country-code="so"><div class="iti__flag-box"><div class="iti__flag iti__so"></div></div><span class="iti__country-name">Somalia (Soomaaliya)</span><span class="iti__dial-code">+252</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-za" role="option" data-dial-code="27" data-country-code="za"><div class="iti__flag-box"><div class="iti__flag iti__za"></div></div><span class="iti__country-name">South Africa</span><span class="iti__dial-code">+27</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-kr" role="option" data-dial-code="82" data-country-code="kr"><div class="iti__flag-box"><div class="iti__flag iti__kr"></div></div><span class="iti__country-name">South Korea (대한민국)</span><span class="iti__dial-code">+82</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ss" role="option" data-dial-code="211" data-country-code="ss"><div class="iti__flag-box"><div class="iti__flag iti__ss"></div></div><span class="iti__country-name">South Sudan (‫جنوب السودان‬‎)</span><span class="iti__dial-code">+211</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-es" role="option" data-dial-code="34" data-country-code="es"><div class="iti__flag-box"><div class="iti__flag iti__es"></div></div><span class="iti__country-name">Spain (España)</span><span class="iti__dial-code">+34</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-lk" role="option" data-dial-code="94" data-country-code="lk"><div class="iti__flag-box"><div class="iti__flag iti__lk"></div></div><span class="iti__country-name">Sri Lanka (ශ්‍රී ලංකාව)</span><span class="iti__dial-code">+94</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sd" role="option" data-dial-code="249" data-country-code="sd"><div class="iti__flag-box"><div class="iti__flag iti__sd"></div></div><span class="iti__country-name">Sudan (‫السودان‬‎)</span><span class="iti__dial-code">+249</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sr" role="option" data-dial-code="597" data-country-code="sr"><div class="iti__flag-box"><div class="iti__flag iti__sr"></div></div><span class="iti__country-name">Suriname</span><span class="iti__dial-code">+597</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sj" role="option" data-dial-code="47" data-country-code="sj"><div class="iti__flag-box"><div class="iti__flag iti__sj"></div></div><span class="iti__country-name">Svalbard and Jan Mayen</span><span class="iti__dial-code">+47</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sz" role="option" data-dial-code="268" data-country-code="sz"><div class="iti__flag-box"><div class="iti__flag iti__sz"></div></div><span class="iti__country-name">Swaziland</span><span class="iti__dial-code">+268</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-se" role="option" data-dial-code="46" data-country-code="se"><div class="iti__flag-box"><div class="iti__flag iti__se"></div></div><span class="iti__country-name">Sweden (Sverige)</span><span class="iti__dial-code">+46</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ch" role="option" data-dial-code="41" data-country-code="ch"><div class="iti__flag-box"><div class="iti__flag iti__ch"></div></div><span class="iti__country-name">Switzerland (Schweiz)</span><span class="iti__dial-code">+41</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-sy" role="option" data-dial-code="963" data-country-code="sy"><div class="iti__flag-box"><div class="iti__flag iti__sy"></div></div><span class="iti__country-name">Syria (‫سوريا‬‎)</span><span class="iti__dial-code">+963</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tw" role="option" data-dial-code="886" data-country-code="tw"><div class="iti__flag-box"><div class="iti__flag iti__tw"></div></div><span class="iti__country-name">Taiwan (台灣)</span><span class="iti__dial-code">+886</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tj" role="option" data-dial-code="992" data-country-code="tj"><div class="iti__flag-box"><div class="iti__flag iti__tj"></div></div><span class="iti__country-name">Tajikistan</span><span class="iti__dial-code">+992</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tz" role="option" data-dial-code="255" data-country-code="tz"><div class="iti__flag-box"><div class="iti__flag iti__tz"></div></div><span class="iti__country-name">Tanzania</span><span class="iti__dial-code">+255</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-th" role="option" data-dial-code="66" data-country-code="th"><div class="iti__flag-box"><div class="iti__flag iti__th"></div></div><span class="iti__country-name">Thailand (ไทย)</span><span class="iti__dial-code">+66</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tl" role="option" data-dial-code="670" data-country-code="tl"><div class="iti__flag-box"><div class="iti__flag iti__tl"></div></div><span class="iti__country-name">Timor-Leste</span><span class="iti__dial-code">+670</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tg" role="option" data-dial-code="228" data-country-code="tg"><div class="iti__flag-box"><div class="iti__flag iti__tg"></div></div><span class="iti__country-name">Togo</span><span class="iti__dial-code">+228</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tk" role="option" data-dial-code="690" data-country-code="tk"><div class="iti__flag-box"><div class="iti__flag iti__tk"></div></div><span class="iti__country-name">Tokelau</span><span class="iti__dial-code">+690</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-to" role="option" data-dial-code="676" data-country-code="to"><div class="iti__flag-box"><div class="iti__flag iti__to"></div></div><span class="iti__country-name">Tonga</span><span class="iti__dial-code">+676</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tt" role="option" data-dial-code="1" data-country-code="tt"><div class="iti__flag-box"><div class="iti__flag iti__tt"></div></div><span class="iti__country-name">Trinidad and Tobago</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tn" role="option" data-dial-code="216" data-country-code="tn"><div class="iti__flag-box"><div class="iti__flag iti__tn"></div></div><span class="iti__country-name">Tunisia (‫تونس‬‎)</span><span class="iti__dial-code">+216</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tr" role="option" data-dial-code="90" data-country-code="tr"><div class="iti__flag-box"><div class="iti__flag iti__tr"></div></div><span class="iti__country-name">Turkey (Türkiye)</span><span class="iti__dial-code">+90</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tm" role="option" data-dial-code="993" data-country-code="tm"><div class="iti__flag-box"><div class="iti__flag iti__tm"></div></div><span class="iti__country-name">Turkmenistan</span><span class="iti__dial-code">+993</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tc" role="option" data-dial-code="1" data-country-code="tc"><div class="iti__flag-box"><div class="iti__flag iti__tc"></div></div><span class="iti__country-name">Turks and Caicos Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-tv" role="option" data-dial-code="688" data-country-code="tv"><div class="iti__flag-box"><div class="iti__flag iti__tv"></div></div><span class="iti__country-name">Tuvalu</span><span class="iti__dial-code">+688</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-vi" role="option" data-dial-code="1" data-country-code="vi"><div class="iti__flag-box"><div class="iti__flag iti__vi"></div></div><span class="iti__country-name">U.S. Virgin Islands</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ug" role="option" data-dial-code="256" data-country-code="ug"><div class="iti__flag-box"><div class="iti__flag iti__ug"></div></div><span class="iti__country-name">Uganda</span><span class="iti__dial-code">+256</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ua" role="option" data-dial-code="380" data-country-code="ua"><div class="iti__flag-box"><div class="iti__flag iti__ua"></div></div><span class="iti__country-name">Ukraine (Україна)</span><span class="iti__dial-code">+380</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ae" role="option" data-dial-code="971" data-country-code="ae"><div class="iti__flag-box"><div class="iti__flag iti__ae"></div></div><span class="iti__country-name">United Arab Emirates (‫الإمارات العربية المتحدة‬‎)</span><span class="iti__dial-code">+971</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-gb" role="option" data-dial-code="44" data-country-code="gb"><div class="iti__flag-box"><div class="iti__flag iti__gb"></div></div><span class="iti__country-name">United Kingdom</span><span class="iti__dial-code">+44</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-us" role="option" data-dial-code="1" data-country-code="us"><div class="iti__flag-box"><div class="iti__flag iti__us"></div></div><span class="iti__country-name">United States</span><span class="iti__dial-code">+1</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-uy" role="option" data-dial-code="598" data-country-code="uy"><div class="iti__flag-box"><div class="iti__flag iti__uy"></div></div><span class="iti__country-name">Uruguay</span><span class="iti__dial-code">+598</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-uz" role="option" data-dial-code="998" data-country-code="uz"><div class="iti__flag-box"><div class="iti__flag iti__uz"></div></div><span class="iti__country-name">Uzbekistan (Oʻzbekiston)</span><span class="iti__dial-code">+998</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-vu" role="option" data-dial-code="678" data-country-code="vu"><div class="iti__flag-box"><div class="iti__flag iti__vu"></div></div><span class="iti__country-name">Vanuatu</span><span class="iti__dial-code">+678</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-va" role="option" data-dial-code="39" data-country-code="va"><div class="iti__flag-box"><div class="iti__flag iti__va"></div></div><span class="iti__country-name">Vatican City (Città del Vaticano)</span><span class="iti__dial-code">+39</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ve" role="option" data-dial-code="58" data-country-code="ve"><div class="iti__flag-box"><div class="iti__flag iti__ve"></div></div><span class="iti__country-name">Venezuela</span><span class="iti__dial-code">+58</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-vn" role="option" data-dial-code="84" data-country-code="vn"><div class="iti__flag-box"><div class="iti__flag iti__vn"></div></div><span class="iti__country-name">Vietnam (Việt Nam)</span><span class="iti__dial-code">+84</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-wf" role="option" data-dial-code="681" data-country-code="wf"><div class="iti__flag-box"><div class="iti__flag iti__wf"></div></div><span class="iti__country-name">Wallis and Futuna (Wallis-et-Futuna)</span><span class="iti__dial-code">+681</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-eh" role="option" data-dial-code="212" data-country-code="eh"><div class="iti__flag-box"><div class="iti__flag iti__eh"></div></div><span class="iti__country-name">Western Sahara (‫الصحراء الغربية‬‎)</span><span class="iti__dial-code">+212</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ye" role="option" data-dial-code="967" data-country-code="ye"><div class="iti__flag-box"><div class="iti__flag iti__ye"></div></div><span class="iti__country-name">Yemen (‫اليمن‬‎)</span><span class="iti__dial-code">+967</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-zm" role="option" data-dial-code="260" data-country-code="zm"><div class="iti__flag-box"><div class="iti__flag iti__zm"></div></div><span class="iti__country-name">Zambia</span><span class="iti__dial-code">+260</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-zw" role="option" data-dial-code="263" data-country-code="zw"><div class="iti__flag-box"><div class="iti__flag iti__zw"></div></div><span class="iti__country-name">Zimbabwe</span><span class="iti__dial-code">+263</span></li><li class="iti__country iti__standard" tabindex="-1" id="iti-0__item-ax" role="option" data-dial-code="358" data-country-code="ax"><div class="iti__flag-box"><div class="iti__flag iti__ax"></div></div><span class="iti__country-name">Åland Islands</span><span class="iti__dial-code">+358</span></li></ul></div><input autocomplete="off" class="form-control" id="phone" type="tel" name="telefono" placeholder="0000 0000" required="" style="padding-left: 92px;" data-intl-tel-input-id="0"></div>
+    
+</div>
+
+<div class="form-group">
+    <label class="floating-label" for="current_password_tel">Contraseña actual:</label>
+    <input type="password" name="current_password_tel" class="form-control pl-2" id="current_password_tel">
+    
+</div>
+
+
+
+<script>
+    var mascara = '0000 0000';
+    var validacion_pais = true;
+    function placeholderCero(){
+        mascara = $("#phone").attr('placeholder');
+        $("#phone").attr('placeholder', mascara.replace(/[123456789]/gi,'0') )
+    }
+    function activarEventos(codigoTelPais = '503'){
+        $("#codigoPais").val('+' + codigoTelPais );
+        let cadena = $("#phone").attr('placeholder');
+        cadena = cadena.replace(/[123456789]/gi,'0');
+        mascara = cadena;
+        $("#phone").val('').unmask().removeAttr('maxlength').mask(mascara).removeAttr('maxlength');
+        placeholderCero();
+	}
+
+    $(document).ready(function () {
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            // any initialisation options go here
+            preferredCountries: ['sv'],
+            separateDialCode: true,
+            // excludeCountries: ["sv"],
+            utilsScript: "https://login.gob.sv/plugins/intlTelInput/js/utils.js",
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                if( validacion_pais ){
+                    $("#phone").val('').unmask().removeAttr('maxlength').mask(mascara).removeAttr('maxlength');
+                    validacion_pais = false;
+                }
+                return selectedCountryPlaceholder.replace(/[123456789]/gi,'0');
+            },
+        });
+        var iti = window.intlTelInputGlobals.getInstance(input);
+        input.addEventListener("countrychange", function(e) {
+            activarEventos(iti.getSelectedCountryData().dialCode)
+        });
+
+    });
+
+</script>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary  btn-md" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn myButton btn-md">Modificar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+    <form action="#" method="POST" class="d-inline-block" id="frmCancelar">
+    <input type="hidden" name="_token" value="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg"></form>
+<script>
+
+    $(document).ready(function () {
+
+        
+                    $("#btnWhatsapp").on('click', function(){
+                        const estadoActivo = $("#estadoWhatsapp").hasClass("is-active");
+                        $("#estadoWhatsapp")
+                            .toggleClass("is-active", !estadoActivo);
+                        $("#textoEstadoWhatsapp").text(estadoActivo ? "Inactivo" : "Activo");
+                        $("#iconoEstadoWhatsapp").text(estadoActivo ? "×" : "✓");
+                $(this)
+                    .attr("aria-label", estadoActivo ? "Activar notificaciones por WhatsApp" : "Desactivar notificaciones por WhatsApp")
+                    .attr("title", estadoActivo ? "Activar notificaciones por WhatsApp" : "Desactivar notificaciones por WhatsApp");
+            });
+
+                    $("#btnEditarDatos").on('click', function(){
+                $("#btnEditarDatos").addClass('d-none');
+                $("#btnCancelarEditarDatos").removeClass('d-none');
+                $("#divCorreo").append('<button type="button" class="d-block btn btn-link font-weight-bold mb-0 py-0 pl-0 text-left"'+
+                                'data-toggle="modal" data-target="#mdlEmail" id="btnCorreo">'+
+                                'Cambiar mi correo electrónico'+
+                            '</button>');
+                $("#divTelefono").append('<button type="button" class="d-block btn btn-link font-weight-bold mb-0 py-0 pl-0 pr-0 text-left"'+
+                                'data-toggle="modal" data-target="#mdlTelefono" id="btnTel">'+
+                            'Agregar mi número de contacto'+
+                            '</button>');
+            });
+
+            $("#btnCancelarEditarDatos").on('click', function(){
+                $("#btnCorreo,#btnTel").remove();
+                $("#btnEditarDatos").removeClass('d-none');
+                $("#btnCancelarEditarDatos").addClass('d-none');
+            });
+                $(document).on('click', ".btnCancelar", function(){
+            $("#frmCancelar").attr('action', 'https://login.gob.sv/perfil/datos-contacto/' + $(this).val() + '/cancelar').submit();
+        });
+
+    });
+</script>
+
+                <div class="modal fade" id="mdlDobleFactor" role="dialog" aria-hidden="true">
+            <div class="modal-dialog " role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                <h5 class="modal-title">Activar doble factor de autenticación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                </div>
+                <form action="https://login.gob.sv/perfil/editar-doble-factor" method="POST">
+                    <input type="hidden" name="_token" value="Gm7uqnre7nfOxNCTBokB3wpxRJKGZhOi2FS0C0Mg">                    <input type="hidden" name="_method" value="PUT">                    <div class="modal-body">
+
+
+                        <div id="qrContainer" style="display: none;" class="showQr">
+                            <img src="data:image/png;base64,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" alt="QR Code">
+                        </div>
+                        <div class="pb-2">
+                            <span class="badge" style="background-color: #559AE7; color:  white; cursor: pointer;" id="generateQr">
+                                <i class="fa fa-qrcode"></i>
+                                Generar QR
+                            </span>
+                        </div>
+
+                        <div class="text-muted">
+                            Para editar la configuración de doble factor de autenticación necesitas escribir tu contraseña actual
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="floating-label" for="current_password">Contraseña actual:</label>
+                            <input id="current_password" type="password" class="form-control " name="current_password" maxlength="64" minlength="8" required="">
+                            <i class="bi bi-eye-slash" id="togglePassword3"></i>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Activar</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+
+    
+
+
+
+
+        <script>
+        const togglePassword3 = document.querySelector("#togglePassword3");
+        const current_password = document.querySelector("#current_password");
+        togglePassword3.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = current_password.getAttribute("type") === "password" ? "text" : "password";
+            current_password.setAttribute("type", type);
+
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+    </script>
+
+<script type="text/javascript" defer="defer">
+    /*let nuevaFoto = null;
+    const fotoDom = document.getElementById('fotot');
+    const examplke =  fetch(`/data/${""}`)
+    .then((response) => response.json())
+    .then((data) =>{
+        if(data){
+            fotoDom.src = data;
+            fotoDom.style = "height:178.33px;";
+        }
+    });*/
+
+    
+                
+</script>
+
+    
+
+      </div>
+
+    </div>
+
+    <style>
+     @media (min-width: 990px) {
+         .offset-custom {
+             margin-left: 16.66667%;
+         }
+     }
+     #conFooterContainer {
+         display: flex;
+         justify-content: center;
+     }
+
+     /* Estilos para pantallas móviles */
+     @media  only screen and (max-width: 768px) {
+         /* Aplicar estilo solo en pantallas móviles */
+         #conFooter {
+             text-align: center;
+         }
+     }
+
+ </style>
+<div>
+
+
+
+    <div class="" style="" id="conFooter">
+         
+         <div class="row d-flex justify-content-center mb-4">
+
+            <div class="calPantalla">
+                                <img src="Identidad%20digital_files/RNPN_GOES_VMCe.svg" style="width: 200px; heigth:100px " alt="Imagen responsive">
+                            </div>
+        </div>
+    </div>
+</div>
+  </div>
+
+  <!-- Required Js -->
+  <script src="Identidad%20digital_files/vendor-all.min_VMCe.js"></script>
+  <script src="Identidad%20digital_files/bootstrap.min_VMCe.js"></script>
+  <script src="Identidad%20digital_files/ripple_VMCe.js"></script>
+  <script src="Identidad%20digital_files/pcoded.min_VMCe.js"></script>
+
+  
+  <script src="Identidad%20digital_files/select2.min_VMCe.js"></script>
+
+  
+  <script src="Identidad%20digital_files/ResizeSensor.min_VMCe.js"></script>
+
+  
+  <script src="Identidad%20digital_files/jquery.mask.min_VMCe.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $(".pcoded-main-container").css('min-height', ($(window).height() - 190) + 'px')
+      $(window).resize(function () {
+        arreglarFooter();
+      });
+      arreglarFooter();
+      new ResizeSensor(jQuery('.divMenu'), function() {
+        if( $(window).width() > 991 )
+          $(".m-header").css('width', $(".divMenu").width() + 'px' );
+        else
+          $(".m-header").css('width', '100%' );
+
+        if( $(".divMenu").width() == 70 ){
+          $(".divMenu ul").removeClass('p-4')
+        }else {
+          $(".divMenu ul").addClass('p-4')
+          $("#navMenu").removeClass('navbar-collapsed');
+        }
+      });
+
+      /*var btn = document.getElementById('mobile-collapse'),
+          caja = document.getElementById('headMenuHide');
+
+        function hideHeader(){
+          caja.style.display = 'none';
+        }*/
+
+         // btn.addEventListener('click', hideHeader);
+
+         $("#mobile-collapse").click(function(){
+          //console.log('a');
+          document.getElementById('headMenu').classList.remove('d-flex');
+
+           document.getElementById('headMenu').classList.add('d-none');
+        });
+
+
+
+
+
+
+
+    });
+    let arreglarFooter=()=>{
+      let tamOcupado = 0;
+      $(".calPantalla").each(function(index){
+        tamOcupado += $(this).height();
+      })
+      let tamPantalla = $(window).height();
+      if( tamPantalla > tamOcupado ){
+        let restante = tamPantalla - tamOcupado - 190;
+        $("#conFooter").css('padding-top', restante + 'px')
+      }
+    }
+    let alerta=(form,texto)=>{
+      Swal.fire({
+        icon: 'warning',
+        title: '¡ADVERTENCIA!',
+        text: texto,
+        showCancelButton: true,
+        cancelButtonColor: 'red',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Sí, eliminar',
+        confirmButtonColor: 'green'
+      }).then(result=>{
+        if(result.value){
+            $("#" + form ).submit();
+        }
+      });
+    }
+    let input_document_mask=(select_input, input_documento, act_placeholder = true )=>{
+        let mascara = $(select_input).find('option[value="'+$(select_input).val()+'"]').attr('mascara-doc');
+        $(input_documento).val('').unmask().removeAttr('maxlength');
+        if( mascara != '' ){
+            if(act_placeholder){
+                $(input_documento).attr('placeholder', mascara)
+            }
+            $(input_documento).mask(mascara)
+        }
+    }
+
+    $("#fullscreenModal").on("hidden.bs.modal", function () {
+     const video = $('#video')[0];
+    video.pause();
+    video.currentTime = 0;
+});
+      $("#mdlActivarQr").on("hidden.bs.modal", function () {
+     const video = $('#video')[0];
+    video.pause();
+    video.currentTime = 0;
+});
+  </script>
+
+
+
+<script class="iti-load-utils" async="" src="Identidad%20digital_files/utils_VMCe.js"></script><protonpass-root-acf7 data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-acf7></body></html>

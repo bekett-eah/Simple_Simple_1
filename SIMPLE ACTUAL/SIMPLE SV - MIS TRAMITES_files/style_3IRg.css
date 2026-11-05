@@ -1,0 +1,3351 @@
+/*-----------------------------------------------------------------------------------
+	GobSv-prueba
+	About: A shiny new Laravel website.
+	Author: '------------'
+	Version: 1.0
+	Built with Blocs
+-----------------------------------------------------------------------------------*/
+body{
+	margin:0;
+	
+    background:#FFFFFF;
+    overflow-x:hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	padding-top: 105px;
+}
+.bloc-sm {
+    padding: 10px;
+}
+.page-container{overflow: hidden;} /* Prevents unwanted scroll space when scroll FX used. */
+a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent blue selection glow on Chrome and Safari */
+a:hover{text-decoration: none; cursor:pointer;}
+
+
+/* Preloader */
+
+.page-preloader{position: fixed;top: 0;bottom: 0;width: 100%;z-index:100000;background:#FFFFFF url("img/pageload-spinner.gif") no-repeat center center;animation-name: preloader-fade;animation-delay: 2s;animation-duration: 0.5s;animation-fill-mode: both;}
+.preloader-complete{animation-delay:0.1s;}
+@keyframes preloader-fade {0% {opacity: 1;visibility: visible;}100% {opacity: 0;visibility: hidden;}}
+
+
+#nav {
+     position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1050;
+	/*background: linear-gradient(105.41deg, #0f1129 41.87%, #2c4a80 103.65%, #1a3c78 106.42%);*/
+	background: linear-gradient(105.41deg,  rgba(28, 30, 77, 0.95) 41.87%,
+        rgba(72, 127, 255, 0.95) 103.65%,
+        rgba(28, 83, 192, 0.95) 106.42%);
+    color: #e0e6f0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* = Web Fonts
+-------------------------------------------------------------- */
+
+
+
+@font-face {
+	font-family:'MuseoSans-500';
+
+	src: url('./fonts/MuseoSans-500/MuseoSans-500.woff');
+	src: url('./fonts/MuseoSans-500/MuseoSans-500.woff2');
+	src: url('./fonts/MuseoSans-500/MuseoSans-500.woff2') format('woff2'),
+	src: url('./fonts/MuseoSans-500/MuseoSans-500.woff') format('woff'),
+	url('./fonts/MuseoSans-500/MuseoSans-500.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/MuseoSans-500/MuseoSans-500.ttf') format('truetype'),
+	url('./fonts/MuseoSans-500/MuseoSans-500.svg#MuseoSans-500') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'MuseoSans-700';
+	src: url('./fonts/MuseoSans-700/MuseoSans-700.woff2');
+	src: url('./fonts/MuseoSans-700/MuseoSans-700.woff2') format('woff2'),
+	src: url('./fonts/MuseoSans-700/MuseoSans-700.woff');
+	src: url('./fonts/MuseoSans-700/MuseoSans-700.woff') format('woff'),
+	url('./fonts/MuseoSans-700/MuseoSans-700.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/MuseoSans-700/MuseoSans-700.ttf') format('truetype'),
+	url('./fonts/MuseoSans-700/MuseoSans-700.svg#MuseoSans-700') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:'MuseoSans-300';
+	src: url('./fonts/MuseoSans-300/MuseoSans-300.woff');
+	src: url('./fonts/MuseoSans-300/MuseoSans-300.woff') format('woff'),
+	url('./fonts/MuseoSans-300/MuseoSans-300.eot?#iefix') format('embedded-opentype'),
+	url('./fonts/MuseoSans-300/MuseoSans-300.ttf') format('truetype'),
+	url('./fonts/MuseoSans-300/MuseoSans-300.svg#MuseoSans-300') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* = Blocs
+-------------------------------------------------------------- */
+
+/*.bloc{
+	width:100%;
+	clear:both;
+	background: 50% 50% no-repeat;
+	padding:0 20px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position:relative;
+	display:flex;
+}*/
+.bloc .container{
+	padding-left:10px;
+	padding-right:10px;
+	position:relative;
+}
+
+
+/* Sizes */
+
+.bloc-lg{
+	padding:100px 20px;
+}
+.bloc-md{
+	padding:50px 20px;
+}
+.bloc-sm{
+	padding:20px;
+}
+
+/* = Full Width Blocs
+-------------------------------------------------------------- */
+
+.full-width-bloc{
+	padding-left:0;
+	padding-right:0;
+}
+.full-width-bloc .row{
+	margin-left:0;
+	margin-right:0;
+}
+.full-width-bloc .container{
+	width:100%;
+	max-width:100%!important;
+}
+.full-width-bloc .carousel img{
+	width:100%;
+	height:auto;
+}
+
+
+/* Group Styles */
+
+.bloc-group{
+	display:flex;
+}
+.bloc-tile-2{
+	width:50%;
+}
+.bloc-tile-3{
+	width:33.33333333%;
+}
+.bloc-tile-4{
+	width:25%;
+}
+.bloc-tile-2 .container, .bloc-tile-3 .container, .bloc-tile-4 .container{
+	width:100%;
+}
+
+
+/* Background Styles */
+
+.bg-center,.bg-l-edge,.bg-r-edge,.bg-t-edge,.bg-b-edge,.bg-tl-edge,.bg-bl-edge,.bg-tr-edge,.bg-br-edge,.bg-repeat{
+	-webkit-background-size: auto!important;
+	-moz-background-size: auto!important;
+	-o-background-size: auto!important;
+	background-size: auto!important;
+}
+.bg-center{
+	-webkit-background-size: auto;
+}
+
+
+/* Dark theme */
+
+.d-bloc{
+	color:rgba(255,255,255,.7);
+}
+.d-bloc button:hover{
+	color:rgba(255,255,255,.9);
+}
+.d-bloc .icon-round,.d-bloc .icon-square,.d-bloc .icon-rounded,.d-bloc .icon-semi-rounded-a,.d-bloc .icon-semi-rounded-b{
+	border-color:rgba(255,255,255,.9);
+}
+.d-bloc .divider-h span{
+	border-color:rgba(255,255,255,.2);
+}
+.d-bloc .a-btn,.d-bloc .navbar a, .d-bloc a .icon-sm, .d-bloc a .icon-md, .d-bloc a .icon-lg, .d-bloc a .icon-xl, .d-bloc h1 a, .d-bloc h2 a, .d-bloc h3 a, .d-bloc h4 a, .d-bloc h5 a, .d-bloc h6 a, .d-bloc p a{
+	color:rgba(255,255,255,.6);
+}
+.d-bloc .a-btn:hover,.d-bloc .navbar a:hover,.d-bloc a:hover .icon-sm, .d-bloc a:hover .icon-md, .d-bloc a:hover .icon-lg, .d-bloc a:hover .icon-xl, .d-bloc h1 a:hover, .d-bloc h2 a:hover, .d-bloc h3 a:hover, .d-bloc h4 a:hover, .d-bloc h5 a:hover, .d-bloc h6 a:hover, .d-bloc p a:hover{
+	color:rgba(255,255,255,1);
+}
+.d-bloc .navbar-toggle .icon-bar{
+	background:rgba(255,255,255,1);
+}
+.d-bloc .btn-wire,.d-bloc .btn-wire:hover{
+	color:rgba(255,255,255,1);
+	border-color:rgba(255,255,255,1);
+}
+.d-bloc .card{
+	color:rgba(0,0,0,.5);
+}
+.d-bloc .card button:hover{
+	color:rgba(0,0,0,.7);
+}
+.d-bloc .card icon{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover{
+	color:rgba(0,0,0,1);
+}
+.d-bloc .card .btn-wire, .d-bloc .card .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
+}
+
+
+/* Light theme */
+
+.d-bloc .card,.l-bloc{
+	color: #697185 !important;
+	/*color:rgba(0,0,0,.5);*/
+}
+.d-bloc .card button:hover,.l-bloc button:hover{
+	color:rgba(0,0,0,.7);
+}
+.l-bloc .icon-round,.l-bloc .icon-square,.l-bloc .icon-rounded,.l-bloc .icon-semi-rounded-a,.l-bloc .icon-semi-rounded-b{
+	border-color:rgba(0,0,0,.7);
+}
+.d-bloc .card .divider-h span,.l-bloc .divider-h span{
+	border-color:rgba(0,0,0,.1);
+}
+.d-bloc .card .a-btn,.l-bloc .a-btn,.l-bloc .navbar a,.l-bloc a .icon-sm, .l-bloc a .icon-md, .l-bloc a .icon-lg, .l-bloc a .icon-xl, .l-bloc h1 a, .l-bloc h2 a, .l-bloc h3 a, .l-bloc h4 a, .l-bloc h5 a, .l-bloc h6 a, .l-bloc p a{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .a-btn:hover,.l-bloc .a-btn:hover,.l-bloc .navbar a:hover, .l-bloc a:hover .icon-sm, .l-bloc a:hover .icon-md, .l-bloc a:hover .icon-lg, .l-bloc a:hover .icon-xl, .l-bloc h1 a:hover, .l-bloc h2 a:hover, .l-bloc h3 a:hover, .l-bloc h4 a:hover, .l-bloc h5 a:hover, .l-bloc h6 a:hover, .l-bloc p a:hover{
+	color:rgba(0,0,0,1);
+}
+.l-bloc .navbar-toggle .icon-bar{
+	color:rgba(0,0,0,.6);
+}
+.d-bloc .card .btn-wire,.d-bloc .card .btn-wire:hover,.l-bloc .btn-wire,.l-bloc .btn-wire:hover{
+	color:rgba(0,0,0,.7);
+	border-color:rgba(0,0,0,.3);
+}
+
+/* Row Margin Offsets */
+
+.voffset{
+	margin-top:30px;
+}
+.voffset-md{
+	margin-top:50px;
+}
+
+
+/* = NavBar
+-------------------------------------------------------------- */
+
+/* Handle Multi Level Navigation */
+.dropdown-menu .dropdown-menu{
+	border:none
+}
+
+	.detalle-costo .tramite-card__icono {
+		/* border: solid 1px #fff; */
+		font-size: 24px;
+		margin-top: -2px;
+	  }
+
+
+@media (min-width:576px){
+
+.navbar-expand-sm .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px
+  }
+
+	.navbar-expand-sm .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}
+}
+
+
+@media (min-width:768px){
+	/* .menu-movil{
+		display: flex !important;
+    	flex-direction: row;
+    	justify-content: space-between;
+    	align-items: center;
+	} */
+	.btn-menu {
+		margin-top: 0!important;
+		height: 37px;
+		width: 37px;
+		text-align: center;
+		border-radius: 3px;
+		cursor: pointer;
+		transition: left 0.4s ease;
+	}
+	.menu-movil .btn-menu.me-auto{
+		display: none;
+	}
+	.menu-movil .notificacionMovil.me-auto{
+		display: none;
+	}
+	.notificacionMovil {
+        /* position: absolute; */
+        /* margin-top: -35px; */
+        height: 35px;
+        width: 35px;
+        text-align: center;
+        /* margin-right: 3rem !important; */
+        border-radius: 3px;
+        cursor: pointer;
+        transition: left 0.4s ease;
+        /* margin-left: 82% !important; */
+    }
+	.notificacionMovil .circleNumbers{
+		padding-left: 0px!important;
+	}
+	#verNotificaciones{
+		position: absolute;
+		transform: translate3d(-355px, 30px, 0px)!important;
+		top: 0px;
+		left: 0px;
+		right: auto;
+		min-width: 25rem;
+		will-change: transform;
+	}
+	.loginIdSV{
+		/* position: absolute;
+    	margin-top: -35px; */
+    	height: 35px;
+    	width: 35px;
+    	text-align: center;
+    	border-radius: 3px;
+    	cursor: pointer;
+    	transition: left 0.4s ease;
+    	/* margin-left: 84% !important; */
+	}
+	.navbar-expand-md .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-md .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}
+}
+
+@media (min-width:992px){
+	.navbar-expand-lg .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-lg .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}
+}
+/* = Bric adjustment margins
+-------------------------------------------------------------- */
+
+.mg-clear{
+	margin:0;
+}
+.mg-sm{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+.mg-md{
+	margin-top:10px;
+	margin-bottom:20px;
+}
+.mg-lg{
+	margin-top:10px;
+	margin-bottom:40px;
+}
+img.mg-sm,img.mg-md,img.mg-lg{
+	margin-top: 0;
+}
+img.mg-sm{
+	margin-bottom:10px;
+}
+img.mg-md{
+	margin-bottom:30px;
+}
+img.mg-lg{
+	margin-bottom:50px;
+}
+
+/* = Buttons
+-------------------------------------------------------------- */
+
+.btn-d{
+	color:#FFF;
+	background:rgba(0,0,0,.3);
+}
+
+.btn-d:hover,.btn-d:focus{
+	background-color: #D0DEFF !important;
+}
+
+/* Prevent ugly blue glow on chrome and safari */
+button{
+	outline: none!important;
+}
+
+.btn-rd{
+	border-radius: 40px;
+	padding: 6px 22px;
+	font-family: "MuseoSans-500" !important;
+	font-size: 18px !important;
+}
+.btn-style-none,.btn-style-none:hover,.btn-style-none:active,.btn-style-none:focus{
+	background:none;
+	box-shadow: none;
+	padding:0;
+}
+.a-block{
+	width:100%;
+	text-align:left;
+	display: inline-block;
+}
+.text-center .a-block{
+	text-align:center;
+}
+.btn .caret{
+	margin:0 0 0 5px}.dropdown a .caret{
+	margin:0 0 0 5px}.btn-dropdown .dropdown-menu .dropdown{
+	padding: 3px 20px;
+}
+
+/* = Icons
+-------------------------------------------------------------- */
+.icon-sm{
+	font-size:18px!important;
+}
+
+
+
+
+/* = Masonary
+-------------------------------------------------------------- */
+.card-columns .card {
+	margin-bottom: 0.75rem;
+}
+@media (min-width: 576px) {
+	.card-columns {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+	-webkit-column-gap: 1.25rem;
+	-moz-column-gap: 1.25rem;
+	column-gap: 1.25rem;
+	orphans: 1;
+	widows: 1;
+}
+.card-columns .card {
+	display: inline-block;
+	width: 100%;
+}
+}
+/* = Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	/*padding:20px 0;*/
+	width:100%;
+	display:inline-block;
+}
+.divider-h span{
+	display: block;
+	border-top:1px solid transparent;
+}
+.divider-half{
+	width: 50%;
+	margin: 0 auto;
+}
+.dropdown-menu .divider-h,.dropdown-menu .divider-half{
+	padding:0;
+}
+
+/* = Forms
+-------------------------------------------------------------- */
+
+.form-control{
+	border-color:rgba(0,0,0,.1);
+	box-shadow:none;
+}
+
+
+.carousel-nav-icon{
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill-rule: evenodd;
+	stroke-linecap:round;
+}
+
+
+/* ScrollToTop button */
+
+.scrollToTop{
+	width:36px;
+	height:36px;
+	padding:5px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	opacity:0;
+	z-index:999;
+	transition: all .3s ease-in-out;
+	pointer-events:none;
+}
+.showScrollTop{
+	opacity: 1;
+	pointer-events:all;
+}
+.scroll-to-top-btn-icon{
+	fill: none;
+	stroke: #fff;
+	stroke-width: 2px;
+	fill-rule: evenodd;
+	stroke-linecap:round;
+}
+
+.close{
+	color:#000;
+	/*opacity:0.5;*/
+}
+.close:hover{
+	opacity:1;
+}
+
+/* Toggle Visibility */
+.toggled-item{
+	transition: height 350ms ease-in-out, padding 350ms ease-in-out, opacity 350ms ease-in-out;
+	overflow: hidden;
+}
+.toggled-item-hidden{
+	padding-top:0!important;
+	padding-bottom:0!important;
+	border-top:0!important;
+	border-bottom:0!important;
+	outline:0!important;
+	opacity: 0;
+}
+
+/* Hide Object */
+.object-hidden{
+	display:none;
+}
+
+/* = Custom Styling
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4,h5,h6,p,label,.btn,a{
+	font-family:"MuseoSans-500";
+}
+/*.container{
+	max-width:1600px;
+}*/
+.btn-inises-class1{
+	color:#4880FF !important;
+	border-color:#4880FF !important;
+	/*border-style:solid;*/
+	font-size:14px;
+	font-family:"MuseoSans-700";
+	text-align:center;
+	background-color:transparent;
+	position:relative;
+	right:7%;
+	border-width:1px 1px 1px 1px;
+	top: -7px;
+}
+.link-style1{
+	background-size:auto auto;
+	font-size:20px;
+	color:#F4F7FD!important;
+	text-decoration:underline!important;
+	/*font-weight:bold;*/
+	font-family:"MuseoSans-700";
+}
+.img-style{
+	width:300px;
+}
+.log-padd{
+	left:10%;
+}
+.log-padd1{
+	left:12%;
+	float:none;
+}
+.row-style{
+	width:100%;
+}
+.img-institucion-style{
+	width:30px;
+	position:relative;
+	right:4%;
+	top: -3px;
+}
+.btn-style{
+	/*width:40.56%;*/
+	padding-top:7px;
+	padding-bottom:7px;
+	border-width: 2px 2px 2px 2px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.img-bloc-1-style{
+	width:28px;
+}
+.p-style{
+	font-family:"MuseoSans-700";
+	font-size:43px;
+	/*line-height:px;*/
+	width:100%;
+	color: #2F3745 !important;
+	font-weight: 100;
+	line-height: 1.1;
+}
+.h5-style{
+	font-family:"MuseoSans-300";
+	font-size:15px;
+	color: #697185 !important;
+}
+.text-custom{
+	position:relative;
+	text-align: left !important;
+	border-style:solid;
+	border-color:#fff !important;
+	font-family:"MuseoSans-500";
+	color:#4880FF!important;
+	text-align:center;
+	font-size:16px;
+/*	margin-left:15%;
+	left:5%;*/
+	height: 50px;
+	border-radius:30px 30px 30px 30px;
+	border-width:1px 1px 1px 1px;
+	padding-left: 20px !important;
+}
+.field-style{
+	width:60%;
+	height:40px;
+}
+.btn-buscar-style{
+	width:100%;
+	padding-top:8px;
+	padding-bottom:8px;
+}
+.btn-cusc{
+	position:relative;
+	/*margin-top:2%;*/
+	font-family:"MuseoSans-700";
+	font-size:15px;
+}
+.bloc-style{
+	height:40px;
+	width:100%;
+}
+.btb-ftr{
+	border-style:solid;
+	border-color:#487FFF!important;
+	font-family:"Lato";
+	font-weight:700;
+	font-size:12px;
+	color:#487FFF!important;
+	background-color:#FFFFFF;
+	border-radius:29px 29px 29px 29px;
+	border-width:1px 1px 1px 1px;
+}
+.btn-sc1{
+	position:relative;
+	top:30px;
+	left:25%;
+}
+.margin-inst{
+	position:relative;
+	left:5%;
+}
+.text-customc{
+	position:relative;
+	border-style:solid;
+	border-color:#487FFF!important;
+	font-family:"MuseoSans-300";
+	color:#487FFF!important;
+	text-align:center;
+	font-size:13px;
+	margin-left:15%;
+	left:10%;
+	top:12px;
+	border-radius:30px 30px 30px 30px;
+	border-width:1px 1px 1px 1px;
+}
+.field-bloc-1-style{
+	width:76.11%;
+	margin-top: -15px;
+}
+.alert-class{
+	color:#F4F7FD!important;
+	font-weight:normal;
+	background-color:#487FFF;
+	background-size:length;
+}
+.h1-style{
+	text-indent:px;
+	letter-spacing:1px;
+	font-size:30px;
+	font-family:"MuseoSans-500";
+	line-height:30px;
+	letter-spacing: 6pt;
+}
+.btn-filtrar-style{
+	width:13.23%;
+}
+.h3-style{
+	font-size:20px;
+	font-family:"MuseoSans-700";
+}
+.h3-bloc-3-style{
+	font-size:20px;
+	font-family:"MuseoSans-700";
+}
+.h3-3-style{
+	font-size:20px;
+	font-family:"MuseoSans-700";
+}
+.h3-4-style{
+	font-size:20px;
+	font-family:"Lato";
+	font-weight:700;
+}
+.h3-12-style{
+	font-size:20px;
+}
+.h3-11-style{
+	font-size:20px;
+}
+.h3-10-style{
+	font-size:20px;
+}
+.h3-9-style{
+	font-size:20px;
+}
+.h3-8-style{
+	font-size:20px;
+}
+.h3-7-style{
+	font-size:20px;
+}
+.h3-6-style{
+	font-size:20px;
+}
+.h3-5-style{
+	font-size:20px;
+}
+.p-alert-space0-style{
+	font-size:20px;
+	font-family:"MuseoSans-300";
+}
+.img-bloc-6-style{
+	width:49px;
+	border-radius:0px 0px 0px 0px;
+}
+.h5-bloc-6-style{
+	/*width:74.07%;*/
+	font-family:"MuseoSans-700";
+	font-size:18px;
+	color: #3158B0 !important;
+}
+.mg-cst{
+	position:relative;
+	left:2%;
+}
+.h3-bloc-6-style{
+	font-size:20px;
+	font-family:"MuseoSans-700";
+	text-decoration:none;
+	margin-top: 0px !important;
+	margin-bottom: -5px !important;
+}
+.h4-bloc-6-style{
+	font-size:18px;
+	font-family:"MuseoSans-500";
+	text-decoration:none;
+}
+.h4-style{
+	font-family:"MuseoSans-300";
+	width:100%;
+	font-size:28px;
+}
+.cp-btn{
+	font-family:"MuseoSans-700";
+	color:#3D4756!important;
+	font-size:20px;
+	font-weight:normal;
+	position:relative;
+	top:25px;
+}
+.img-bloc-8-style{
+	width:180px;
+}
+.img-9-style{
+	width:26px;
+}
+.label-style{
+	width:90.76%;
+	font-family:"MuseoSans-300";
+	font-size:16px;
+}
+.img-bloc-12-style{
+	width:51px;
+}
+.h6-style{
+	/*width:65.31%;*/
+	font-family:"MuseoSans-500";
+	font-size:medium;
+}
+.img-9-bloc-8-style{
+	width:20px;
+}
+.back-btn{
+	font-family:"MuseoSans-500";
+	color:#6A83BE !important;
+	font-size:16px;
+	text-decoration:none;
+}
+.txt-cat{
+	font-family:"MuseoSans-300";
+	font-size:45px;
+	color:#4880FF!important;
+}
+.p-bloc-13-style{
+	font-family:"MuseoSans-500";
+	color: #697185;
+}
+.p-32-style{
+	font-family:"MuseoSans-500";
+}
+.p-33-style{
+	font-family:"MuseoSans-500";
+}
+.p-34-style{
+	font-family:"MuseoSans-500";
+}
+.p-35-style{
+	font-family:"MuseoSans-500";
+}
+.p-bloc-16-style{
+	width:100%;
+	text-align: justify !important;
+}
+.btn-bloc-16-style{
+	width:38.97%;
+	padding-top:6px;
+	padding-bottom:6px;
+}
+.btn-institución--style{
+	width:100%;
+}
+.btn-button-style{
+	width:100%;
+}
+.font-cat-btn{
+	font-family:"MuseoSans-300";
+	font-size:16px;
+	color: #697185 !important;
+	text-decoration:none;
+}
+.btn-5-padding{
+	font-family: "MuseoSans-300";
+	font-size: 16px;
+	color: #697185 !important;
+}
+.btb-filt{
+	border-style:solid;
+	border-color:transparent!important;
+	font-family:"MuseoSans-500";
+	font-size:15px;
+	color:transparent!important;
+	border-radius:10px 10px 10px 10px;
+	border-width:2px 2px 2px 2px;
+}
+.btn-padding{
+	font-family: "MuseoSans-700";
+	font-size: 15px;
+	background-color:#F4F7FD;
+	border-style:solid;
+	border-color:#487FFF!important;
+	color:#487FFF!important;
+	padding-top:6px;
+	padding-bottom:6px;
+	/*width:82.35%;*/
+	border-width:2px 2px 2px 2px;
+}
+.navbar-brand img{
+	width:321px;
+}
+.envase-filtr-padding{
+	position:relative;
+	bottom:35px;
+}
+.link-style{
+	width:100%;
+}
+.pad-rrss{
+	position: relative;
+	margin: auto;
+	/* top:20px; */
+}
+
+/* = Colour
+-------------------------------------------------------------- */
+
+/* Background colour styles */
+
+.bgc-lavender-web{
+	background-color:#F4F7FD;
+}
+.bgc-alice-blue{
+	background-color:#F4F7FD;
+}
+.bgc-alice-blue-2{
+	background-color:#F3F7FD;
+}
+.bgc-glaucous{
+	background-color:#6983BE;
+}
+.bgc-lavender-web-2{
+	background-color:#E0E5F1;
+}
+.bgc-charcoal{
+	background-color:#2F3745;
+}
+.bgc-charcoal-2{
+	background-color:#2F3745;
+}
+.bgc-st-patricks-blue{
+	background-color:#3158B0;
+}
+.bgc-st-patricks-blue-2{
+	background-color:#3158B0;
+}
+
+/* Text colour styles */
+
+.tc-steel-blue{
+	color:#2F3745 !important;
+}
+.tc-charcoal{
+	color:#2F3745!important;
+}
+.tc-charcoal-2{
+	color:#2F3745!important;
+}
+.tc-white{
+	color:#F4F7FD !important;
+}
+.tc-alice-blue{
+	color:#F4F7FD !important;
+}
+.tc-charcoal-3{
+	color:#2F3745!important;
+}
+
+/* Button colour styles */
+
+.btn-medium-electric-blue{
+	background:#4880FF;
+	color:#FFFFFF!important;
+}
+.btn-medium-electric-blue:hover{
+	background:#386EE6!important;
+	color:#FFFFFF!important;
+}
+.btn-alice-blue{
+	background:#FFF;
+	/*color:rgba(0,0,0,.5)!important;*/
+}
+.btn-alice-blue:hover{
+	background:#c2c6ca!important;
+	color:rgba(0,0,0,.5)!important;
+}
+.btn-white{
+	background:#F4F7FD;
+	color: #2F3745 !important;
+	font-family: "MuseoSans-700";
+	font-size: 15px;
+}
+/*.btn-white:hover{
+	background:#cccccc!important;
+	color:rgba(0,0,0,.5)!important;
+}*/
+.btn-ultramarine-blue{
+	/* background:#487FFF; */
+	background:#253272;
+	color:#FFFFFF!important;
+}
+.btn-ultramarine-blue:hover{
+	background:#3a66cc!important;
+	color:#FFFFFF!important;
+}
+
+/* Icon colour styles */
+
+.icon-white{
+	color:#FFFFFF!important;
+	border-color:#FFFFFF!important;
+}
+
+.titulo-bienvenido{
+	max-width: 900px;
+	font-size: 3.5rem;
+	padding-right: 10px;
+}
+.margin-welcome > p{
+    font-size: 1.5rem;
+	padding-right: 10px;
+}
+
+
+
+/* = Bloc Padding Multi Breakpoint
+-------------------------------------------------------------- */
+
+@media (min-width: 576px) {
+    .bloc-xxl-sm{padding:200px 20px;}
+    .bloc-xl-sm{padding:150px 20px;}
+    .bloc-lg-sm{padding:100px 20px;}
+    .bloc-md-sm{padding:50px 20px;}
+    .bloc-sm-sm{padding:20px;}
+    .bloc-no-padding-sm{padding:0 20px;}
+}
+@media (min-width: 768px) {
+    .bloc-xxl-md{padding:200px 20px;}
+    .bloc-xl-md{padding:150px 20px;}
+    .bloc-lg-md{padding:100px 20px;}
+    .bloc-md-md{padding:50px 20px;}
+    .bloc-sm-md{padding:20px 20px;}
+    .bloc-no-padding-md{padding:0 20px;}
+}
+@media (min-width: 992px) {
+    .bloc-xxl-lg{padding:200px 20px;}
+    .bloc-xl-lg{padding:150px 20px;}
+    .bloc-lg-lg{padding:100px 20px;}
+    .bloc-md-lg{padding:50px 20px;}
+    .bloc-sm-lg{padding:20px;}
+    .bloc-no-padding-lg{padding:0 20px;}
+}
+
+
+/* = Mobile adjustments
+-------------------------------------------------------------- */
+
+@media (max-width: 1350px){
+	.select2-container--default .select2-selection--single .select2-selection__arrow {
+		right: 3px !important;
+	  }
+	.container-find {
+		/* background-color: #FFFFFF; */
+		height: auto !important;
+		padding: 10px;
+		padding-bottom: 15px;
+		overflow: hidden;
+	  }
+
+	.findtextcont{
+		/* border: solid 3px #1b44b4; */
+		width: 100%;
+		display: block !important;
+
+	}
+	.findtextbox{
+		/* border: solid 3px #db3232; */
+		width: 100%;
+		float: left;
+		padding-bottom: 10px;
+
+	}
+	.findtextbox input{
+		width: 100%;
+	}
+
+	.findtextboxright{
+		/* border: solid 3px #4f9817; */
+		width: 100%;
+		float: left;
+
+	}
+
+
+
+	.titulo-bienvenido{
+		max-width: 900px;
+		font-size: 3rem;
+	}
+	.margin-welcome > p{
+		font-size: 1.3rem;
+	}
+}
+
+
+@media (max-width: 1143px)
+{
+	.titulo-bienvenido{
+
+		max-width: 900px;
+		font-size: 2.5rem;
+
+	}
+	.margin-welcome > p{
+		font-size: 1.2rem;
+	}
+}
+@media (max-width: 1024px)
+{
+    .titulo-bienvenido{
+
+		max-width: 900px;
+		font-size: 2.5rem;
+
+	}
+	.margin-welcome > p{
+		font-size: 1.1rem;
+	}
+	.bloc.full-width-bloc, .bloc-tile-2.full-width-bloc .container, .bloc-tile-3.full-width-bloc .container, .bloc-tile-4.full-width-bloc .container{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+
+.card-footer {
+    padding: 0px 0px 50px 0px !important;
+    background-color: #F3F7FD !important;
+    border-top: 0px solid rgba(0,0,0,.125) !important;
+}
+.page-link {
+    color: #2F3745 !important;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #DBE3F1 !important;
+    border-color: #DBE3F1 !important;
+}
+
+li.page-item.first-page-item, li.page-item.last-page-item {
+    list-style-type: none;
+    padding-top: 5px;
+    font-weight: 400;
+    color: #1C1E4D;
+    font-size: 20px;
+}
+li.page-item.first-page-item a, li.page-item.last-page-item a  {
+    border: none;
+}
+
+
+#redes-movil{
+	display: none;
+}
+@media (max-width: 775px) {
+	#rrss-l{
+		display: none;
+	}
+	#politicas{
+		display: none;
+	}
+	#redes-movil{
+		display: block;
+	}
+	.pad-rrss{
+		top:20px;
+	}
+	.titulo-bienvenido{
+		 line-height: 42px;
+		 font-size: 30px !important;
+		 max-width: 600px;
+		 margin: 0 auto;
+		 text-align: center;
+	}
+	.opciones-identidad{
+		margin-top: 20px;
+	}
+	.tramites-institucion-unidad{
+		 line-height: 18px;
+	}
+	.content-acceso-rapido{
+		margin-left: calc(var(--bs-gutter-x) * 0) !important;
+		margin-right: calc(var(--bs-gutter-x) * 0) !important;
+	}
+
+}
+
+
+.img-categoria{
+	vertical-align: inherit !important;
+}
+
+/*img.mg-sm {
+    margin-bottom: 35px !important;
+}*/
+
+.mg-md {
+    margin-top: 0px !important;
+}
+.id-opciones{
+	margin-bottom: 1px;
+}
+
+.texto-content {
+  height: 100px;
+  /*width: 288px;*/
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.subcategoria{
+	margin-bottom: 30px;
+}
+
+a {
+    color: #2F3745 !important;
+    text-decoration: none !important;
+}
+
+.accesos_rapidos:hover{
+	background-color: #4880FF;
+	color: #ffffff !important;
+}
+.spacio-titulo:hover{
+	color: #ffffff !important;
+}
+
+
+.spacio-sub_titulo{
+	margin-bottom: 20px;
+	margin-top: 15px !important;
+	font-size: 14px !important;
+}
+
+.spacio-titulo{
+	margin-top: 20px;
+}
+.opciones-accesos{
+	margin-top: 35px;
+}
+.owl-nav{
+	display: none;
+}
+
+.titulo-tarjeta{
+	font-size: 18px;
+	color: #F4F7FD;
+	font-family: "MuseoSans-500";
+}
+
+.card {
+    border: 0px solid rgba(0,0,0,.125) !important;
+}
+
+.titulo-margin{
+	margin-top: 80px;
+	margin-bottom: -19px;
+}
+
+.carousel{
+	margin-top: 30px;
+	margin-bottom: 25px;
+}
+
+.opciones-categorias{
+    margin-top: 7px;
+    margin-bottom: 45px;
+}
+.instituciones{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin-right: 22px;
+	color: #697185;
+}
+
+.link-footer{
+	color: #C3CBDC !important;
+	font-size: 13px !important;
+}
+
+.hover-a{
+	color: #fff !important;
+}
+input::placeholder {
+  color: #2F3745 !important;
+}
+.direccion-slider{
+	font-size: 50px;
+	color: #fff;
+}
+.slider-direccion{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+.logo-movil{
+	display: none;
+	text-align: center;
+}
+
+.verComo {
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: #F5F5F5;
+    border: none;
+    height: 38px;
+    padding: 16px;
+}
+.verComo::placeholder {
+    color: #919AAB !important;
+}
+
+
+@media (max-width: 844px) {
+    .sidebar {
+        height: 100vh !important;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background-color: #ffffff !important;
+    }
+
+	#verComo{
+		width: calc(100% - 40px);
+		margin: 0px auto;
+	}
+	.container-find{
+		/* border: solid 3px #db3232; */
+		padding-top: 10px;
+		padding-right: 7px;
+		padding-right: 7px;
+		padding-right: 7px;
+		width: calc(100% - 40px);
+		margin: 0px auto;
+		border-radius: 20px;
+	}
+	.container-find .justify-content-lg-start{
+		/* border: solid 1px #000; */
+		width: 100%;
+		gap: 0px;
+
+	}
+	.container-find .justify-content-lg-start .select-et{
+		/* border: solid 1px #000; */
+		width: 100%;
+	}
+
+	.container-find .busqueda-input {
+		/* border: solid 1px #000; */
+		width: 100%;
+	}
+	.container-find .dropdown-selecters, .container-find  .custom-select, .busqueda-container .dropdown-selecters, .busqueda-container .selection > span{
+		width: 100%;
+	}
+	
+
+}
+
+.categories-home-container h2 {
+	color:#697185;
+}
+
+.paginationheader{
+	/* border: solid 2px #000; */
+    margin-top: 0px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.pagination-container{
+	/* border: solid 3px #a0925a; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 3px;
+}
+.pagination{
+	/* border: solid 2px #478dd9; */
+}
+
+.categorias-container{
+margin: 0px auto;
+}
+
+@media (max-width: 701px){
+
+	.categorias-grid-wrapper {
+		/* border: solid 1px #401476; */
+		min-width: initial !important;
+	}
+
+	.categorias-container {
+		width: 100% !important;
+		max-width: 100% !important;
+		min-width: initial;
+		padding: 0px !important;
+	  }
+	.categorias-grid{
+		display: block;
+
+	}
+	.link-card {
+		width: 100%;
+	  }
+	  .link-card .categorias-card {
+		width: 100%;
+	  }
+	  /* #pagination-container-categories{
+		display: block !important;
+		width: calc(100% - 20px);
+		height: auto;
+		margin: 0px auto;
+		overflow: hidden;
+	  } */
+
+	  /* #pagination-container-categories li{
+		display: block !important;
+		float: left;
+		width: fit-content;
+	} */
+
+	  /* #pagination-container-categories .selectPerPage{
+		width: 100%;
+		max-width: 200px;
+		margin: 0px auto;
+	  }
+	   */
+
+}
+
+@media (max-width: 575px) {
+	.margin-welcome {
+		margin-top: 0px !important;
+	}
+	.content-header {
+		margin-top: 0px !important;
+	}
+	.margin-welcome .btn-buscar{
+		margin-top: 0px !important;
+	}
+	.txt-buscar-filtro{
+		margin-top: 24px !important;
+		margin-bottom: 24px !important;
+		padding-bottom: 0px !important;
+		font-size: 28px !important;
+	}
+
+	.busqueda-container{
+		margin-top: 15px !important;
+		margin-bottom: 5px !important;
+
+	}
+	.categories-home-container {
+		padding-top: 20px !important;
+	}
+	.categories-home-container >h2 {
+		/* border: solid 1px #000 !important; */
+		padding-bottom: 0px !important;
+		margin-bottom: 0px !important;
+	}
+
+	.tramite-card__info {
+		background: linear-gradient(84.29deg, #1C1E4D 0.95%, #1C53C0 70.65%);
+		padding: 1rem 0.5rem;
+		width: 50%;
+		border-radius: 19.56px 0 0 19.56px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		overflow-y: auto;
+		max-height: 340px;
+	}
+	.logo-web{
+		display: none;
+	}
+	.logo-movil{
+		display: block;
+	}
+	.btn-menu {
+    	margin-top: 0px !important;
+	}
+	.menu-movil{
+		display: flex !important;
+    	flex-direction: row;
+    	justify-content: space-between;
+    	align-items: center;
+	}
+	.notificacionMovil{
+		/* position: absolute;
+		margin-top: -35px; */
+		height: 35px;
+		width: 35px;
+		text-align: center;
+		border-radius: 3px;
+		cursor: pointer;
+		transition: left 0.4s ease;
+		/* margin-left: 80% !important;
+		padding-top: 1%; */
+	}
+	.notificacionMovil .circleNumbers{
+		padding-left: 0px!important;
+	}
+	.menu-movil .btn-menu.ms-auto{
+		display: none;
+	}
+
+	#verNotificaciones, #infoUser_drop {
+        position: fixed!important; /* en lugar de absolute */
+        top: 60px!important; /* ajusta según altura del header */
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 100vw;
+        transform: none !important;
+        min-width: unset !important;
+        border-radius: 0 0 10px 10px;
+        box-sizing: border-box;
+        z-index: 1050;
+    }
+	.loginIdSV{
+		/* position: absolute;
+    	margin-top: -35px; */
+    	/* height: 35px; */
+    	/* width: 35px; */
+    	text-align: center;
+    	border-radius: 3px;
+    	cursor: pointer;
+    	transition: left 0.4s ease;
+    	/* margin-left: 82% !important; */
+	}
+} /* 8888888888888888888 en media query 575 8888888888888888888  */
+	.menu-movil .sidebar{
+		top: 0%;
+	}
+
+	.navbar-nav{
+		margin-top: 7px !important;
+	}
+	.a-instituciones {
+	    margin-left: 14px;
+	}
+	.icono-acceso-rapido{
+		font-size: 50px !important;
+	}
+
+	/*.img-institucion-style {
+	    right: 11%;
+	}*/
+	.instituciones {
+	    padding-top: 0px;
+	    padding-bottom: 0px;
+	    margin-right: 0px;
+	    margin-left: -12px;
+	}
+
+	input::placeholder {
+	  font-size: 14px !important;
+	}
+	.select-div-top{
+		margin-top: -21px;
+	}
+	.btn-padding {
+	    top: 15px !important;
+	}
+	.h1-style {
+	    font-size: 25px;
+	}
+
+	.h5-bloc-6-style {
+	    font-size: 22px;
+	    text-align: left !important;
+	}
+	.content-cuenta{
+		text-align: center;
+		margin-bottom: 30px;
+	}
+}
+
+.search{
+	color: #4880FF !important;
+	font-size: 25px;
+	margin-right: -4px;
+}
+.identida-digital{
+	color: #2F3745 !important;
+}
+.cero_resultado{
+	color: #2F3745 !important;
+	font-family: "MuseoSans-300" !important;
+}
+.report_problem{
+	color: #9DB3E8 !important;
+	font-size: 35px;
+	margin-bottom: 30px;
+}
+.no_resultados{
+	margin-bottom: 75px;
+	margin-top: 50px;
+
+}
+
+
+.icono-acceso-rapido{
+	font-size: 40px;
+	color: #3158B0 !important;
+	margin-top: -9px;
+}
+.padding-acceso{
+	padding-bottom: 60px;
+}
+.icono-categoria{
+	font-size: 50px;
+}
+.text-right{
+	text-align: right;
+}
+.h6-categoria{
+	margin-top: 5px !important;
+	color: #D0DEFF !important;
+}
+
+.h6-categoria:hover{
+	color: #FFFFFF !important;
+}
+
+.user-style{
+	float: left;
+	margin-right: 10px;
+	margin-top: -17px !important;
+	color: #343a40;
+	font-size: 20px;
+}
+.content-sesion{
+	text-align: right;
+	margin-top: 4px;
+}
+.cerrar-sesion{
+	margin-right: 10px;
+	color: #4680ff !important;
+}
+.mi-perfil{
+	margin-right: 15px;
+	color: #4680ff !important;
+}
+
+.titulo-cceso-rapido{
+	width: 275px !important;
+}
+
+.icono-tramite{
+	font-size: 40px;
+	color: #3158B0 !important;
+	margin-top: 5px;
+}
+
+.svgdescargastab{
+width: fit-content;
+height: auto;
+margin: 0px auto;
+}
+
+.dinerocontactohorario{
+	border: solid 3px #b8c4fe;
+	background-color: #eff2ff;
+	border-radius: 7px;
+	margin: 0px auto;
+	padding-top: 22px;
+	padding-bottom: 12px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	text-align: center;
+	box-shadow: 3px 5px 5px 0px #22222240;
+}
+
+.dinerocontactohorario .destacado{
+	width: fit-content;
+	min-width: 250px;
+	height: auto;
+	padding: 1px;
+	overflow: hidden;
+	margin: 0px auto;
+	font-size: 25px;
+
+	/* border: solid 1px #000; */
+}
+.dinerocontactohorario span{
+	margin-right: 0px ;
+}
+
+.dinerocontactohorario .detalle-descripcion{
+	text-align: left;
+}
+
+.dinerocontactohorario .destacado h3, .dinerocontactohorario .destacado svg{
+	/* border: solid 1px #000; */
+	float: left;
+	color: #505665;
+	fill: #505665;
+	font-weight: bolder;
+}
+.dinerocontactohorario .destacado h3{
+	width: calc(100% - 54px);
+	float: left;
+	padding-top: 3px;
+	font-size: 24px;
+	/* border: solid 1px #000; */
+}
+.dinerocontactohorario .destacado svg{
+	/* border: solid 1px #000; */
+	margin-top: 2px;
+	margin-right: 4px;
+	width: 45px;
+	float: left;
+}
+
+.container-descripcion-tramite {
+    border: solid 0px #253272;
+    overflow: hidden;
+    background-color: #F9F8FF;
+    border-radius: 20px;
+    padding: 0px;
+    width: 100%;
+    min-height: 290px;
+}
+
+.titulo-descripcion-tramite {
+    background-color: #253272;
+    font-family: "MuseoSans-500";
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.container-descripcion-tramite ul, .container-descripcion-tramite>span{
+	/* border: solid 1px #000; */
+	margin: 20px;
+}
+.container-descripcion-tramite ul li{
+	margin-bottom: 10px;
+	margin-left: -16px;
+}
+.container-descargable {
+	padding: 30px;
+}
+.container-descargable .detalle-descripcion{
+	/* border: solid 1px #000; */
+	width: 100%;
+	text-align: center;
+	max-width: 380px;
+	margin: 20px auto;
+}
+.container-descargable b{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 3; /* número de líneas visibles */
+	max-height: calc(1.2em * 3); /* line-height * número de líneas */
+}
+.icono-descripcion-tramite{
+	float:left;
+	margin-top:2px;
+	height: 25px;
+}
+
+.subtitulo-descripcion-tramite{
+	font-size: 22px;
+	margin-top: 11px;
+	color: #313945;
+}
+
+.alto-secciones-descripcion-tramite{
+	margin-top: 25px;
+}
+
+.icono-descripcion-tramite-tab{
+	float:left;
+	height: 25px;
+	height: auto;
+	width: fit-content;
+	margin-right: 10px;
+  /* border: solid 1px #000; */
+}
+.titulo-descripcion-tramite-tab{
+	/*color: #2F3745; kkk*/
+	/* left: 14px; */
+	/* position: relative; */
+	/* top: -5px; */
+	font-size: 23px;
+	float: left;
+}
+.icono-tab{
+	/* margin-top: -2px; */
+	/* margin-left: -24px; */
+	font-size: 39px;
+}
+.icono-tab-anexos{
+	margin-top: -2px;
+    margin-left: 14px;
+}
+.icono-tab:hover{
+	color: #4880FF;
+}
+.link-descarga{
+	color: #697185 !important;
+}
+.nav-link {
+    padding: 10px 34px 2px 38px !important;
+    color: #313945 !important;
+}
+.tab-list {
+	display: flex;
+	/* justify-content: center; */
+	margin-top: 20px;
+}
+.nav-tabs {
+    border-bottom: 1px solid #253272;
+}
+
+.nav-tabs .nav-link{
+	color: #253272 !important;
+    /* background-color: #f5f7ff !important; */
+    /* border-color: #4880FF #4880FF #4880FF; */
+    border: solid 0px #253272;
+	border-bottom: solid 0px #4880FF;
+    /* border-radius: 10px 10px 0px 0px !important; */
+    /* -webkit-border-radius: 10px 10px 0px 0px !important;
+    -moz-border-radius: 10px 10px 0px 0px !important;
+    -ms-border-radius: 10px 10px 0px 0px !important;
+    -o-border-radius: 10px 10px 0px 0px !important; */
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    /* background-color: #4880FF !important; */
+    color: #253272 !important;
+	border-bottom: solid 3px #4880FF;
+    border-color: #253272;
+    /* border-radius: 10px 10px 0px 0px !important;
+    -webkit-border-radius: 10px 10px 0px 0px !important;
+    -moz-border-radius: 10px 10px 0px 0px !important;
+    -ms-border-radius: 10px 10px 0px 0px !important;
+    -o-border-radius: 10px 10px 0px 0px !important; */
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    /* border-color: #4880FF #4880FF #4880FF; */
+    isolation: isolate;
+}
+
+
+
+.icono-desactivado{
+	color: #4880FF !important;
+}
+.icono-activado{
+	color: #F4F7FD !important;
+}
+#myTabContent{
+	margin-top: 35px;
+	margin-bottom: 35px;
+}
+#myTab{
+	margin-top: 30px;
+}
+
+#myTabContent > div > ul{
+	margin-left: 3%;
+	font-size: 18px;
+}
+.top-categoria{
+	margin-top: 20px;
+}
+
+.text-custom-categoria {
+    position: relative;
+    border-style: solid;
+    border-color: #4880FF !important;
+    font-family: "MuseoSans-300";
+    color: #4880FF !important;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 30px 30px 30px 30px;
+    border-width: 1px 1px 1px 1px;
+}
+.btn-cusc-categoria {
+    position: relative;
+/*    margin-top: 2%;*/
+    font-family: "MuseoSans-700";
+    font-size: 15px;
+}
+.field-style-categoria {
+    height: 50px;
+    width: 90%;
+}
+
+.btn-buscar-style-categoria {
+    /*width: 24.28%;*/
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.input-center{
+	justify-content: right !important;
+	display: flex !important;
+}
+
+.search-categoria {
+    color: #fff !important;
+    font-size: 25px;
+    margin-right: -4px;
+}
+.row-categoria{
+	margin-top: 45px;
+}
+.card-footer-categoria-tramite {
+    padding: 0px 0px 50px 0px !important;
+    /*background-color: #fff !important;*/
+    border-top: 0px solid rgba(0,0,0,.125) !important;
+}
+
+.atencion-seccion{
+	color: #3158B0 !important;
+}
+
+.margin-contador-tramites{
+	margin-top: 25px !important;
+}
+.p-32-style{
+	color: #6A83BE !important;
+}
+/*.spacio-sub_titulo{
+	color: #6A83BE !important;
+}*/
+
+.tramites-institucion-unidad{
+	color: #6A83BE !important;
+}
+.p-32-style-color{
+	color: #fff !important;
+}
+
+.p-padding-top{
+	padding-bottom: 1.5rem;
+}
+.btn-enlace-tramite{
+	margin-bottom: 60px;
+	margin-top: 20px;
+}
+.tramites-vistos{
+	padding-bottom: 55px;
+	padding-top: 0px;
+}
+.titulo-tramites-vistos{
+	padding-bottom: 0px;
+	padding-top: 30px;
+}
+
+.alert{
+	border-radius: 0px !important;
+}
+.texto-identidad-digital{
+	margin-top: 12px !important;
+}
+.logo-footer{
+	/* margin-top: -5px !important; */
+}
+.opciones-identidad{
+		margin-top: 10px;
+	}
+#politicas-movil{
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+.pagination{
+	margin-top: 20px;
+}
+
+.pagination li.page-item.disabled {
+    font-size: 20px !important;
+    font-family: 'MuseoSans-500';
+
+}
+
+.pagination .page-item.disabled .page-link, li.page-item.disabled.first-page-item .page-link{
+    color: #697182 !important;
+}
+
+.disabled {
+	pointer-events: 'none';
+	opacity: 0.5;
+	cursor: 'not-allowed';
+}
+
+#loading-spinner,
+#spinner_categorias,
+#loader_preguntas,
+#loader_docs {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: none;
+		background-color: rgba(255, 255, 255, 0.6); /* fondo semitransparente */
+		z-index: 10;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
+
+.spinner {
+		width: 48px;
+		height: 48px;
+		border: 6px solid #ccc;
+		border-top-color: #23336e; /* color principal */
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+}
+
+.selectPerPage {
+    border-radius: 5px;
+    padding: 5px;
+    border: 0.5px solid #1C1E4D;
+    color: #1C1E4D;
+    font-size: 14px;
+	margin-top: 13px;
+}
+
+.btn-direcciones{
+	background-color: #FFFFFF;
+	border-color: #3C4557;
+	border-radius: 29px;
+	padding: 8px 15px;
+	font-family: "MuseoSans-500";
+	color: #3C4557 !important;
+	font-size: 16px;
+	border: 1px solid;
+}
+.btn-direcciones:hover{
+	background-color: #D0DEFF;
+}
+
+/*option {
+    background: aliceblue !important;
+    font-family: "MuseoSans-300" !important;
+}*/
+
+
+
+
+.navbar-light .navbar-toggler{
+	color: #F4F7FD !important;
+}
+.btn-white:hover {
+    background: #D0DEFF !important;
+}
+
+
+.alert {
+    margin-bottom: 0px !important;
+}
+.menu-movil{
+	display: none;
+}
+
+.img-movil{
+	display: none;
+}
+
+
+
+
+
+
+
+
+  /* emisiones paginas */
+  .contenedor-imagen {
+	border-radius: 20px;
+	margin-bottom: -100px;
+	width: 100%;
+	max-width: 338px;
+	height: auto;
+	max-height: 287px;
+	overflow: hidden;
+	margin-bottom: 0px;
+}
+
+.contenedor-imagen img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.contenedor-textodescriptivo {
+	padding-left: 28px;
+	width: calc(100% - 380px);
+	max-width: 1158px;
+}
+.titulo-tramite-color {
+	color: white !important;
+	text-align: left !important;
+	font-weight: 600;
+	font-size: 48px
+}
+.btnemisiones{
+	width: fit-content;
+  padding-top: 14px;
+  border-radius: 22px !important;
+  min-width: 221px;
+  font-size: 24px;
+  padding-bottom: 14px;
+  padding-left: 28px;
+  padding-right: 28px;
+  float: right;
+}
+
+.bg-header {
+	background: linear-gradient(105.41deg, #1C1E4D 41.87%, #487FFF 103.65%, #1C53C0 106.42%);
+    color: #F4F7FF;
+	/* background: linear-gradient(to right, #1C1E4D, #1C53C0, #487FFF); */
+	color: #F4F7FF;
+	height: auto;
+	/* overflow: hidden; */
+	padding-bottom: 5px;
+	display: block;
+	box-sizing: initial;
+
+}
+.titulo-modalidad {
+	text-align: left !important;
+	color: #ffffff !important;
+	font-family: 'MuseoSans-500';
+	font-weight: 500;
+	font-size: 23px !important;
+}
+
+.descripcion-tramite {
+	font-size: 16px !important;
+	color: #ffffff !important;
+	font-size: 20px !important;
+}
+
+
+@media (max-width:1238px){
+	.btnemisiones {
+	  float: left;
+	}
+}
+@media (max-width: 1145px) {
+
+    body {
+        padding-top: 90px !important;
+    }
+
+	.menu-web{
+		display: none;
+	}
+	.img-web, .contenedor-imagen {
+		display: none;
+	}
+	.contenedor-textodescriptivo {
+		width: 100%;
+	}
+	.img-movil{
+		display: block;
+	}
+	.menu-movil{
+		display: flex !important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+	}
+	.txt-cat{
+		font-size: 30px;
+	}
+
+	.search {
+	    margin-top: 0px !important;
+	    font-size: 25px !important;
+	    margin-left: 6px !important;
+	}
+	.buscador-menu{
+		left: 50px !important;
+		color: #4680ff !important;
+	}
+	.instituciones {
+	    margin-left: 0px;
+	}
+	.a-instituciones {
+	    margin-left: 12px !important;
+	}
+	.accesosR:hover {
+	    background-color: #D0DEFF !important;
+	}
+}
+
+@media (min-width: 1100px) {
+	.row-content > * {
+	    padding-right: calc(var(--bs-gutter-x) * 1.0) !important;
+	    padding-left: calc(var(--bs-gutter-x) * 1.0) !important;
+	}
+}
+
+@media (max-width: 1030px) {
+
+	.dinerocontactohorario p, .dinerocontactohorario h3{
+		font-size: 24px !important;
+	}
+}
+
+@media (max-width: 856px) {
+	.dinerocontactohorario h3{
+		font-size: 21px !important;
+	}
+	.dinerocontactohorario p{
+		font-size: 19px !important;
+	}
+	.dinerocontactohorario .destacado svg {
+		margin-top: 0px;
+		margin-right: 5px;
+		width: 20px;
+		height: 19px;
+	}
+	.dinerocontactohorario .col{
+		flex: initial;
+		margin-bottom: 20px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+	    max-width: 1280px;
+	    /*padding-left: 9% !important;
+		padding-right: 9% !important;*/
+	}
+}
+.user-sesion{
+	line-height: 25px !important;
+}
+
+
+.btn-menu {
+    /*position: absolute;*/
+    /* margin-top: -45px; */
+    height: 37px;
+    width: 37px;
+    text-align: center;
+    /*background: #F4F7FD;;*/
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease
+}
+
+.btn-menu.click {
+    left: 260px;
+}
+
+.btn-menu.click span{
+	display: none;
+}
+
+.btn-menu span {
+	display: block;
+    color: #697185;
+    font-size: 35px !important;
+    line-height: 36px;
+    position: relative;
+}
+
+
+
+
+.p::before{
+   font-family: "Material Icons";
+   content: '\F019'
+}
+
+/*.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #E0E5F1;;
+    z-index: 100;
+    transition: left 0.4s ease
+}
+
+.sidebar.show {
+    left: 0px;
+    z-index: 1000;
+}*/
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    top: 0;
+    left: -250px;
+    background: #E0E5F1;;
+    z-index: 1055 !important;
+    transition: left 0.4s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.sidebar .text {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 65px;
+    text-align: center;
+    background: #E0E5F1;;
+    letter-spacing: 1px
+}
+
+.sidebar ul {
+    /*background: #E0E5F1;;*/
+	background: #FFFFFF;;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 18px
+}
+
+.sidebar ul li {
+    line-height: 55px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+}
+
+.sidebar ul li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+}
+
+.sidebar ul li a {
+    position: relative;
+    /*color: white;
+    text-decoration: none;*/
+    /*font-weight: 500;
+    display: block;
+	*/
+    /* border: solid  1px #000; */
+    font-size: 16px !important;
+    padding-left: 1px;
+    width: 100%;
+}
+
+/*.sidebar ul li.active a {
+    color: #FC5404;
+    background: #E0E5F1;
+    border-left-color: #FC5404
+}*/
+
+.feat-show {
+    transition: all 0.5s
+}
+
+.sidebar ul li.active ul {
+    transition: all 0.5s
+}
+
+.sidebar ul ul {
+    position: static;
+    display: none
+}
+
+.sidebar ul.show {
+    display: block;
+    transition: all 0.5s
+}
+
+.sidebar ul ul li {
+    line-height: 42px;
+    border-top: none
+}
+
+.sidebar ul ul li a {
+    font-size: 12px;
+    color: #e6e6e6
+}
+
+.sidebar ul li.active ul li a {
+    color: #e6e6e6;
+    background: #E0E5F1;
+    border-left-color: transparent
+}
+
+
+
+/* .sidebar ul li a span {
+    position: absolute;
+    top: 50%;
+    /*right: 20px;
+    transform: translateY(-50%);
+    font-size: 15px;
+    transition: transform 0.4s
+}
+
+.sidebar ul li a span.rotate {
+    transform: translateY(-50%) rotate(-180deg)
+} */
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #202020;
+    z-index: -1;
+    text-align: center
+}
+
+.activo{
+	color: #fff !important;
+}
+
+
+.icono-tipo-modalida{
+	margin-top: 30px;
+	color: #697185;
+}
+.tipo-modalida-tramite{
+	margin-left: 5%;
+	margin-top: -25px;
+	color: #697185;
+}
+
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: center;
+}
+
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: center;
+}
+
+.owl-carousel .caption {
+  text-align: center;
+}
+
+
+
+/*select-box-using-only-css/ */
+.styled-select {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 29px;
+   overflow: hidden;
+   /*width: 240px;*/
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   /*width: 268px;*/
+}
+
+
+.styled-select.slate select {
+   font-size: 16px;
+   color: #697185;
+}
+
+option {
+    background-color: #FFFFFF;
+}
+.institucion-unidad{
+	margin-bottom: 20px;
+	margin-top: 15px !important;
+	color: #fff;
+	font-size: 14px !important;
+}
+
+
+.content-acceso-rapido {
+  	margin-left: calc(var(--bs-gutter-x) * 1);
+	margin-right: calc(var(--bs-gutter-x) * 1);
+}
+.titulo-tramite{
+	margin-top: 40px;
+}
+
+.filtro-busquedad{
+	margin-top: 30px;
+	background-color: #fff;
+	border-radius: 34px;
+	box-shadow: 0px 3px 10px 1px rgba(208,222,255,0.7);
+	-webkit-box-shadow: 0px 3px 10px 1px rgba(208,222,255,0.7);
+	-moz-box-shadow: 0px 3px 10px 1px rgba(208,222,255,0.7);
+}
+.form-busquedad{
+	padding: 4px;
+	margin-top: 25px;
+}
+.form-select {
+  border: 0px solid #ced4da;
+  color:#9DB3E8 !important;
+  font-size: 16px !important;
+}
+
+@media (min-width: 992px) {
+	.border-colum{
+		border-right-color: #9DB3E8;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-left-color: #9DB3E8;
+		border-left-style: solid;
+		border-left-width: 1px;
+	}
+}
+
+
+.border-colum{
+	border-right-color: #9DB3E8;
+	border-right-style: solid;
+	border-right-width: 1px;
+}
+@media (max-width: 575px) {
+	body {
+        padding-top: 88px !important;
+    }
+	.border-colum{
+		border-right-color: #9DB3E8;
+		border-right-style: solid;
+		border-right-width: 0px;
+	}
+}
+@media (max-width: 1492px) {
+	.tipo-modalida-tramite {
+	  margin-left: 8%;
+	}
+}
+.representante{
+	margin-left: 10px;
+	font-size: 22px;
+    color: #6b7184;
+    font-family: "MuseoSans-500";
+}
+
+.modalidades-contador > h6, .modalidades-contador > span, .modalidades-contador > a{
+	color: #fff !important;
+}
+
+
+.input-id-placeholder::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff !important;
+    opacity: 1; /* Firefox */
+}
+.input-id-placeholder::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff !important;
+}
+.input-id-placeholder::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff !important;
+}
+.ancho-boton{
+	height: 50px;
+}
+.row-header{
+	margin-bottom: 30px;
+	margin-top: 40px;
+}
+.mensaje-busquedad{
+	margin-top: 25px !important;
+}
+
+.explorar-categorias{
+	margin-top: 0px !important;
+	margin-bottom: 70px !important;
+}
+
+.tramites-busquedad{
+	margin-top: -5px !important;
+}
+
+.icono-verificacion{
+	padding-top: 9px !important;
+	padding-bottom: 62px !important;
+	padding-right: 12px !important;
+}
+
+.titulo-validacion-omg{
+	font-size: 16px;
+	color: #697185 !important;
+	font-family:'MuseoSans-500';
+}
+.font-weight-a{
+	font-family: "MuseoSans-500";
+	font-size: 16px !important;
+	color: #4880FF !important;
+}
+.leyes-descripcion{
+	font-family: "MuseoSans-300";
+	font-size: 16px !important;
+	color: #313945 !important;
+}
+.detalle-titulo{
+	font-family: "MuseoSans-500";
+	font-size: 22px !important;
+	color: #6b7184 !important;
+}
+.detalle-descripcion{
+	font-family: "MuseoSans-300";
+	font-size: 22px !important;
+	color: #374151 !important;
+	margin: 20px;
+	/* text-align: center; */
+	line-height: initial;
+	margin-left: 0px;
+}
+
+.titulo-icono-tramite {
+  font-family: "MuseoSans-500";
+  color: #577efc;
+  font-size: 25px;
+  left: 10px;
+  position: relative;
+}
+
+button.desplegar {
+    display: block;
+    margin: 30px auto;
+    padding: 9px 24px 7px;
+    font-weight: 900;
+    color: #C00;
+    outline-color: #C00;
+    border: 1px solid #C00;
+    background: #FFF;
+}
+
+.botton-inicar-tramite-web{
+	background-color: #E2EAFF;
+	padding-bottom: 20px;
+	margin-top: 25px;
+}
+
+.icono-enlace-tramite{
+	float: left;
+	margin-top: 0px;
+	height: 25px;
+	padding-left: 55px;
+	  margin-bottom: 40px;
+}
+
+.titulo-descripcion-enlace {
+  font-size: 14px;
+  color: #697185 !important;
+  font-family: 'MuseoSans-500';
+  margin-right: 50px;
+}
+
+.btn-enlace-tramite-descripcion{
+	margin-bottom: 15px;
+	margin-top: 20px;
+}
+.filtro_busquedad{
+	float:left;
+	margin-right: 10px;
+	font-family: "MuseoSans-500";
+	font-size:16px;
+	color: #386EE6 !important;
+	cursor: pointer;
+	margin-top: 7px;
+}
+.title-tramites-mas-utilizados{
+	font-family: "MuseoSans-500";
+	font-size:25px;
+	color: #697185 !important;
+}
+
+
+.enlace-mas-utilizados{
+	border-radius: 20px;
+	padding: 10px 10px 12px 10px;
+	font-family: "MuseoSans-500" !important;
+	/*border: 1px solid;*/
+	width: 200px;
+	margin-bottom: 20px;
+	color: #6A83BE;
+}
+.enlace-mas-utilizados-pasaprte{
+	border-radius: 20px;
+	padding: 10px 10px 12px 10px;
+	font-family: "MuseoSans-500" !important;
+	/*border: 1px solid;*/
+	width: 245px;
+	margin-bottom: 20px;
+	color: #6A83BE;
+}
+
+.icono-tramites-mas-utilizados {
+  float: left;
+  margin-top: 2px;
+  height: 25px;
+  margin-left: 4px;
+}
+.icono-tramites-mas-utilizados-pasaporte {
+  float: left;
+  margin-top: 2px;
+  height: 25px;
+  margin-left: 0px;
+}
+.titulo-tramites-mas-utilizados-pasaporte {
+  font-family: "MuseoSans-500";
+  /*color: #6A83BE;*/
+  font-size: 14px;
+  left: 0px;
+  position: relative;
+  top: 2px;
+}
+.titulo-tramites-mas-utilizados-solvencia {
+  font-family: "MuseoSans-500";
+  /*color: #6A83BE;*/
+  font-size: 14px;
+  left: -8px;
+  position: relative;
+  top: 2px;
+}
+.titulo-tramites-mas-utilizados-apostillado {
+  font-family: "MuseoSans-500";
+  /*color: #6A83BE;*/
+  font-size: 14px;
+  left: 4px;
+  position: relative;
+  top: 2px;
+}
+
+.enlace-mas-utilizados:hover{
+	background-color: #E0E5F1;
+	color: #2D52A8;
+}
+.enlace-mas-utilizados-pasaprte:hover{
+	background-color: #E0E5F1;
+	color: #2D52A8;
+}
+
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+
+@media (max-width: 992px) {
+	.text-left{
+		text-align: center;
+	}
+	.text-right{
+		text-align: center;
+	}
+}
+
+.accesos-rapidos-contenedor{
+	background-color: #ffffff !important;
+}
+
+.text-count{
+	font-size: 16px !important;
+}
+.calPantalla{
+	background-color: #FFFFFF !important;
+}
+.text-justify{
+	text-align: justify !important;
+}
+.leer-mas{
+	color: #4880FF !important;
+}
+.desplegar{
+	color: #4880FF !important;
+}
+.politicas-de-privacidad{
+	text-align: right;
+}
+
+.modalidades-contador > a:hover{
+	text-decoration: underline !important;
+	color: #fff !important;
+}
+.atencion-ciudadana{
+	font-size: 16px !important;
+}
+.atencion{
+	font-family: "MuseoSans-500";
+	color: #4880FF !important;
+	margin-top: 12px;
+}
+.contenedor-imagen{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	/*padding-bottom: 20px !important;*/
+}
+
+
+.a-instituciones{
+		display: none;
+	}
+
+ #circulo{
+   height:10px;
+   width:10px;
+   margin-bottom: 2px;
+    margin-right: 7px;
+    margin-left: 10px;
+   background:#21a71f;
+   -moz-border-radius:50px;
+   -webkit-border-radius:50px;
+   border-radius:50px;
+}
+
+.text-muted-tramite {
+    color: #6c757d;
+    white-space: nowrap;
+}
+.text-muted {
+    white-space: nowrap;
+}
+
+/*#Requisitos > ul > li > span {
+	text-align: justify !important;
+}*/
+
+.white{
+    color: white !important;
+}
+
+.p-block-100{
+    padding-block:100px ;
+}
+
+
+/* estilos de paginacion custom */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding-inline: 15px;
+    padding-block: 7px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #1C1E4D !important;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.pagination a:not([rel]),
+.pagination span:not([rel]) {
+    border-radius: 100px;
+}
+
+.pagination a:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.page-item.active .page-link:not([rel]) {
+    background-color: #253272 !important;
+    color: #FFF !important;
+    border: none !important;
+}
+
+.pagination .page-item:first-child .page-link, .pagination .page-item:last-child .page-link{
+    font-size: 20px;
+}
+
+/* estilos de seccion de mis documentos/apostillados */
+.title_doc {
+	font-size: 0.94rem;
+}
+.subtitle_doc{
+	font-size: 0.8rem;
+}
+.pdf-default {
+    width: 200px;
+    height: 250px;
+}
+
+.btn-apostillar {
+    background: #4880FF;
+}
+
+.btn-descargar {
+    background: #23336e;
+}
+
+.btn-rechazado {
+    background: red;
+}
+
+.btn-apostillado {
+    background: green;
+}
+
+.btn-enviado {
+    background: rgb(33, 145, 140);
+}
+
+.btn-base {
+    color: #FFFFFF;
+    border-radius: 30px;
+    width: 175px;
+}
+.estado-badge{
+    /* color: white; */
+    border-radius: 30px;
+    min-width: 175px;
+    font-size: 17px;
+    /* background: red; */
+    min-height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt-h1-style{
+	font-weight: 600 !important;
+	font-family: "MuseoSans-700" !important;
+}
+
+form#search-form {
+    border: 1px solid #969CAA;
+	margin: 0px auto;
+}
+
+
+@media (max-width: 932px) {
+	/* kk */
+	.titulo-tramite-color {
+		font-size: 30px;
+	  }
+	}
+
+	@media (max-width: 991px) {
+		/* .bg-header {
+			height: 87px;
+		} */
+		.titulo-descripcion-tramite-tab {
+			font-size: 17px;
+		}
+		.icono-tab {
+			font-size: 28px;
+		  }
+		  .icono-descripcion-tramite-tab {
+			margin-right: 4px;
+		  }
+		  .nav-tabs {
+			border-bottom: 0px solid #253272;
+		  }
+
+		.titulo-bienvenido{
+			line-height: 46px;
+			max-width: 600px;
+			margin: 0 auto;
+			text-align: center;
+	   }
+		.field-style{
+			width:100%;
+		}
+		/*.text-custom{
+			left:-15%;
+		}*/
+		.btn-buscar-style{
+			width:28.45%;
+		}
+		.btn-sc1{
+			top:15px;
+		}
+		.margin-inst{
+			left:0%;
+		}
+		.text-customc{
+		}
+		.btn-padding{
+			position:relative;
+			top:40px;
+			/*width:53.34%;*/
+		}
+		.btn-5-padding{
+			position:relative;
+			top:20px;
+		}
+		.envase-filtr-padding{
+			bottom:55px;
+		}
+		.padd-filtr{
+		}
+		.filtr-padd-1{
+			bottom:30px;
+		}
+		.btn-bloc-16-style{
+			width:100%;
+		}
+		.p-bloc-16-style{
+			width:100%;
+		}
+
+		/* MD Row Margin Offsets */
+		.voffset-clear-md{
+			margin-top:0;
+		}
+			.voffset-md{
+			margin-top:30px;
+		}
+
+		.select-div-top{
+			margin-top: -21px;
+		}
+		.btn-padding {
+			top: 0px;
+		}
+
+		.form-busquedad > div {
+			margin-bottom: 13px;
+		  }
+		  .filtro_busquedad{
+			  margin-left: 27px !important;
+		  }
+		.text-custom{
+			background-color: #E5EBF5;
+			text-align: center !important;
+			top: -2px !important;
+			/*border-color: #86b7fe;*/
+			/*outline: 0;*/
+			/*box-shadow: 0 0 0 .15rem rgba(13,110,253,.25);*/
+		}
+		.search {
+			display: none;
+		}
+		.a-instituciones{
+			display: none;
+		}
+
+		.container{max-width:1280px;}
+		.bloc{padding-left: constant(safe-area-inset-left);padding-right: constant(safe-area-inset-right);} /* iPhone X Notch Support*/
+		.bloc-group, .bloc-group .bloc{display:block;width:100%;}
+	}
+	@media (max-width: 767px)
+	{
+		.dropdown-selecters {
+		width: 100%;
+		display: block !important;
+		/* border: solid 1px #000; */
+		/* padding: 5px; */
+	  }
+	  .dropdown-selecters .select-wrapper{
+		  margin-bottom: 10px;
+
+		}
+
+		.menu-movil {
+			display: flex !important;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+    	}
+		.bloc-tile-2 .container, .bloc-tile-3 .container, .bloc-tile-4 .container{
+			padding-left:0;padding-right:0;
+		}
+		.btn-dwn{
+		   display:none;
+		}
+		.voffset{
+			margin-top:5px;
+		}
+		.voffset-md{
+			margin-top:20px;
+		}
+		.voffset-lg{
+			margin-top:30px;
+		}
+		form{
+			padding:5px;
+		}
+		.close-lightbox{
+			display:inline-block;
+		}
+		.blocsapp-device-iphone5{
+		   background-size: 216px 425px;
+		   padding-top:60px;
+		   width:216px;
+		   height:425px;
+		}
+		.blocsapp-device-iphone5 img{
+		   width: 180px;
+		   height: 320px;
+		}
+	}
+
+    @media (max-width: 991.99px){
+
+		#filtro-tramites{
+			margin-top: 20px;
+		}
+        .pagination {
+            max-width: calc(100vw-200px);
+            overflow-x: auto;
+            justify-content: flex-start;
+			/* border: solid 2px #000; */
+			width: 100%;
+			min-width: 250px;
+        }
+
+        .pagination::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        ul.pagination::-webkit-scrollbar-thumb {
+            background-color: #d5dbdb;
+        }
+    }
+
+
+	@media (max-width: 767px){
+		.btn-style{
+			width:50.73%;
+			margin-top: -25px !important;
+		}
+		.search {
+			margin-top: -52px !important;
+		}
+
+
+	}
+
+
+	@media (max-width: 767px){
+		.btn-style{
+			width:34.36%;
+		}
+		.btn-inises-class1{
+			font-size:13px;
+		}
+		.img-institucion-style{
+			width:30px;
+		}
+		.a-instituciones{
+			margin-left: 50px;
+		}
+		.btn-buscar-style{
+			width:36.41%;
+		}
+		.text-customc{
+			font-size:9px;
+		}
+		.btn-5-padding{
+			position:relative;
+			top:20px;
+		}
+		.btn-button-padding{
+			position:relative;
+			/*top:10px;*/
+		}
+		.p-bloc-16-style{
+			width:100%;
+		}
+		.h3-bloc-6-style {
+			font-size: 19px;
+		}
+		.spacio-sub_titulo{
+			line-height: 18px !important;
+		}
+
+		/* Small Text Margin Offsets */
+		.mg-lg-sm{
+			margin-top: 10px;
+			margin-bottom:40px;
+		}
+
+		.container {
+			/*padding-left: 13px !important;
+			padding-right: 13px !important;*/
+		}
+
+		.user-style{
+			font-size: 15px !important;
+			margin-right: 20px !important;
+		}
+		.content-sesion {
+			margin-top: 0px !important;
+		}
+		.cerrar-sesion {
+			margin-right: 25px !important;
+		}
+
+
+	}
+
+
+	.air-datepicker{
+		padding: 5px;
+		/* border: solid 2px #7e2525 !important; */
+		min-width: 260px !important;
+		max-width: 300px !important;
+		width: 100%;
+	}
+
+	.air-datepicker--content{
+		/* border: solid 1px #000 !important; */
+		width: calc(100% - 10px);
+	}
+
+
+
+	@media (max-width: 575px){
+		.container-descripcion-tramite{
+			font-size: 18px;
+		}
+		.container-descripcion-tramite ul {
+			margin: 0px;
+			font-size: 18px;
+			margin-left: 4px;
+			margin-right: 14px;
+		}
+		.representante {
+			font-size: 20px;
+			margin-left: 0px !important;
+			margin-right: 14px;
+			margin-bottom: 6px;
+
+		}
+		.detalle-descripcion{
+			font-size: 18px;
+		}
+		  /* 999999999999999 */
+
+		.btn-style{
+			width:32.82%;
+		}
+		.btn-inises-class1{
+			font-size:13px;
+		}
+		.img-style{
+			width:220px;
+		}
+		.text-custom{
+			font-size:12px;
+		}
+		.btn-buscar-style{
+			width:53.33%;
+		}
+		.btn-cusc{
+			margin-top:5%;
+		}
+		.btn-sc1{
+		}
+		.text-customc{
+			left:0%;
+			font-size:10px;
+		}
+		.bloc-style{
+			width:100%;
+			height:44px;
+		}
+		.btn-button-style{
+			width:100%;
+			padding-top:2px;
+			padding-bottom:2px;
+		}
+		.btn-button-padding{
+			padding-top:6px;
+			padding-bottom:6px;
+			width:100%;
+			position:relative;
+			top:-15px;
+			border-radius:12px 12px 12px 12px;
+		}
+		.btn-5-padding{
+			width:100%;
+			border-radius:12px 12px 12px 12px;
+		}
+		.navbar-brand img{
+			width: 158px;
+    		padding-left: 9px;
+		}
+		#verNotificaciones{
+			margin: 6px auto;
+			width: calc(100% - 40px);
+			border-radius: 2px;
+		}
+		.btn-padding{
+			position:relative;
+			top:35px;
+			width:100%;
+		}
+		.label-style{
+			font-size:16px;
+		}
+		.btn-bloc-16-style{
+			width:100%;
+		}
+		.p-style{
+			font-family:"MuseoSans-500";
+		}
+		.envase-filtr-padding{
+		}
+		.p-bloc-16-style{
+			width:100%;
+		}
+
+		/* Mobile Text Margin Offsets */
+		.mg-lg-xs{
+			margin-top: 10px;
+			margin-bottom:40px;
+		}
+
+	}

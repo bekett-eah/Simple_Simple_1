@@ -1,0 +1,418 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 738,
+                "rnt_id": 1572,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificaci\u00f3n de registro de t\u00edtulo de educaci\u00f3n media",
+                "slug": "certificacion-de-registro-de-titulo-de-educacion-media",
+                "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas ",
+                "descripcion_busqueda": "Es el documento oficial emitido por el Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda por medio del cual se hace constar que existe un registro oficial de T\u00edtulo de Bachiller de la Rep\u00fablica de El Salvador a favor de una persona, este podr\u00e1 ser solicitado en casos de extrav\u00edo, destrucci\u00f3n o p\u00e9rdida del t\u00edtulo original",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e754817448.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 1646,
+                        "tramite_id": 738,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                        "descripcion_busqueda": "Es el documento oficial emitido por el Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda por medio del cual se hace constar que existe un registro oficial de T\u00edtulo de Bachiller de la Rep\u00fablica de El Salvador a favor de una persona, este podr\u00e1 ser solicitado en casos de extrav\u00edo, destrucci\u00f3n o p\u00e9rdida del t\u00edtulo original",
+                        "descripcion": "Es el documento oficial emitido por el Ministerio de Educaci&oacute;n, Ciencia y Tecnolog&iacute;a por medio del cual se hace constar que existe un registro oficial de T&iacute;tulo de Bachiller de la Rep&uacute;blica de El Salvador a favor de una persona, este podr&aacute; ser solicitado en caso de extrav&iacute;o, destrucci&oacute;n o p&eacute;rdida del t&iacute;tulo original",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/21&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 919,
+                "rnt_id": null,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificaci\u00f3n de registro de notas de educaci\u00f3n b\u00e1sica y media",
+                "slug": "certificacion-de-registro-de-notas-de-educacion-basica-y-media",
+                "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                "descripcion_busqueda": "Documento extendido por el Ministerio de Educaci\u00f3n, que evidencia el grado acad\u00e9mico obtenido por un estudiante en la rep\u00fablica de El Salvador. Este documento tiene validez para tr\u00e1mite de Matricula o Presentaci\u00f3n al lugar de trabajo",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e759c44193.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2116,
+                        "tramite_id": 919,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                        "descripcion_busqueda": "Documento extendido por el Ministerio de Educaci\u00f3n que evidencia el grado acad\u00e9mico obtenido por un estudiante en la Rep\u00fablica de El Salvador. Este documento tiene validez para tr\u00e1mite de matricula o presentaci\u00f3n al lugar de trabajo",
+                        "descripcion": "Documento extendido por el Ministerio de Educaci&oacute;n que evidencia el grado acad&eacute;mico obtenido por un estudiante en la Rep&uacute;blica de El Salvador. Este documento tiene validez para tr&aacute;mite de matr&iacute;cula o presentaci&oacute;n al lugar de trabajo",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/46&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1129,
+                "rnt_id": null,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Boleta de resultados PAES \/ AVANZO",
+                "slug": "boleta-de-resultados-paes-avanzo",
+                "sub_titulo": "Direcci\u00f3n Nacional de Evaluaci\u00f3n e Investigaci\u00f3n Educativa",
+                "descripcion_busqueda": "Descarga digital de boleta de resultados de la prueba PAES o AVANZO para estudiantes de segundo a\u00f1o de bachillerato",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6928788326fc9.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2395,
+                        "tramite_id": 1129,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Direcci\u00f3n Nacional de Evaluaci\u00f3n e Investigaci\u00f3n Educativa",
+                        "descripcion_busqueda": "Descarga digital de boleta de resultados de la prueba PAES o AVANZO para estudiantes de segundo a\u00f1o de bachillerato",
+                        "descripcion": "<strong>Descarga digital de boleta de resultados de la prueba PAES o AVANZO para estudiantes de segundo a&ntilde;o de bachillerato<\/strong>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/385&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1093,
+                "rnt_id": null,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Aut\u00e9ntica de documentos acad\u00e9micos",
+                "slug": "autentica-de-documentos-academicos",
+                "sub_titulo": "Departamento de Registro Acad\u00e9mico",
+                "descripcion_busqueda": "Es un documento por medio del cual se da fe administrativa que la firma que calza el documento se encuentra registrada como persona autorizada para emitir un documento p\u00fablico",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e77cdbf41b.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2351,
+                        "tramite_id": 1093,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Gerencia de Acreditaci\u00f3n - Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                        "descripcion_busqueda": "Es un documento por medio del cual se da fe administrativa que la firma que calza el documento se encuentra registrada como persona autorizada para emitir un documento p\u00fablico",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Es un documento por medio del cual se da fe administrativa que la firma que calza el documento se encuentra registrada como persona autorizada para emitir un documento p&uacute;blico<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/331&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1046,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n y Renovaci\u00f3n para el Funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia (C\u0410\u0420\u0406)",
+                "slug": "autorizacion-de-centros-de-atencion-a-primera-infancia",
+                "sub_titulo": "Departamento de Autorizaci\u00f3n y Registro de Centros de Atenci\u00f3n a Primera Infancia.",
+                "descripcion_busqueda": "Tr\u00e1mite mediante el cual se otorga la autorizaci\u00f3n oficial para el funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t\u00e9cnicos y de calidad necesarios para brindar atenci\u00f3n integral, segura y adecuada a ni\u00f1as y ni\u00f1os en sus primeros a\u00f1os de vida",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7960935f.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2291,
+                        "tramite_id": 1046,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Departamento de Autorizaci\u00f3n y Registro P\u00fablico de Centros de Atenci\u00f3n a Primera Infancia",
+                        "descripcion_busqueda": "Tr\u00e1mite mediante el cual se otorga la autorizaci\u00f3n oficial para el funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t\u00e9cnicos y de calidad necesarios para brindar atenci\u00f3n integral, segura y adecuada a ni\u00f1as y ni\u00f1os en sus primeros a\u00f1os de vida",
+                        "descripcion": "Tr&aacute;mite mediante el cual se otorga la autorizaci&oacute;n oficial para el funcionamiento de Centros de Atenci&oacute;n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t&eacute;cnicos y de calidad necesarios para brindar atenci&oacute;n integral, segura y adecuada a ni&ntilde;as y ni&ntilde;os en sus primeros a&ntilde;os de vida",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$45.85",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/458&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 420,
+                                "modalidad_id": 2291,
+                                "costo": "45.85",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1071,
+                "rnt_id": null,
+                "institucion_id": 38,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de estudios",
+                "slug": "solicitud-de-constancias-de-estudios",
+                "sub_titulo": "Coordinaci\u00f3n acad\u00e9mica",
+                "descripcion_busqueda": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr\u00e1mites como: pensiones, solicitud de vi\u00e1ticos y seguros",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b1d2440bd8.jpg",
+                "institucion": {
+                    "id": 38,
+                    "nombre": "Escuela Nacional de Agricultura",
+                    "siglas": "ENA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2324,
+                        "tramite_id": 1071,
+                        "institucion_id": 38,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de Constancias de Estudios",
+                        "slug": "solicitud-de-constancias-de-estudios",
+                        "sub_titulo": "Coordinaci\u00f3n acad\u00e9mica",
+                        "descripcion_busqueda": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr\u00e1mites como: pensiones, solicitud de vi\u00e1ticos y seguros",
+                        "descripcion": "Documento solicitado por estudiantes activos para ser utilizada en diversos tr&aacute;mites como: pensiones, solicitud de vi&aacute;ticos y seguros",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$5.00",
+                        "url_sitio": "https:\/\/ena.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/ena.ventanilla.simple.sv\/tramites\/iniciar\/270&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 65,
+                                "modalidad_id": 2324,
+                                "costo": "5.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 629,
+                "rnt_id": 1560,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Ampliaci\u00f3n de servicios educativos",
+                "slug": "ampliacion-de-servicios-educativos-sector-privado",
+                "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                "descripcion_busqueda": "Se entender\u00e1 por Ampliaci\u00f3n a la extensi\u00f3n de Servicios Educativos, ofertados, a diferencia de los niveles o grados que ya tiene autorizado el centro educativo, por lo cual, debe realizarse un proceso de verificaci\u00f3n y aseguramiento que existe la capacidad instalada para su aprobaci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e743a9453a.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 1353,
+                        "tramite_id": 629,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                        "descripcion_busqueda": "Se entender\u00e1 por Ampliaci\u00f3n a la extensi\u00f3n de Servicios Educativos, ofertados, a diferencia de los niveles o grados que ya tiene autorizado el centro educativo, por lo cual, debe realizarse un proceso de verificaci\u00f3n y aseguramiento que existe la capacidad instalada para su aprobaci\u00f3n",
+                        "descripcion": "Se entender&aacute; por Ampliaci&oacute;n a la extensi&oacute;n de Servicios Educativos, ofertados, a diferencia de los niveles o grados&nbsp;que ya tiene autorizado el centro educativo, por lo cual, debe realizarse un proceso de verificaci&oacute;n y aseguramiento que existe la capacidad instalada para su aprobaci&oacute;n",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/41&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1073,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Acreditaci\u00f3n de programas y registro de miembros de la REA",
+                "slug": "acreditacion-de-programas-y-registro-de-miembros-de-la-rea",
+                "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA.",
+                "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento. \r\nTodo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7bc5f589.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2326,
+                        "tramite_id": 1073,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "CONAPINA - Acreditaci\u00f3n de Programas y Registro de miembros de la REA (Administrativo)",
+                        "slug": "conapina-acreditacion-de-programas-y-registro-de-miembros-de-la-rea-administrativo",
+                        "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA",
+                        "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento Todo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                        "descripcion": "<h5>La acreditaci&oacute;n de los programas constituye la autorizaci&oacute;n administrativa para su ejecuci&oacute;n y funcionamiento todo programa en materia de primera infancia, ni&ntilde;ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber&aacute;n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser&aacute;n registradas para formar parte de la REA<\/h5>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "50 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/297&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 921,
+                "rnt_id": null,
+                "institucion_id": 3,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Prospectos escolares",
+                "slug": "prospectos-escolares",
+                "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                "descripcion_busqueda": "De conformidad con el art\u00edculo 82 de la Ley General de Educaci\u00f3n, todos los centros privados de educaci\u00f3n est\u00e1n en la obligaci\u00f3n de presentar al Ministerio de Educaci\u00f3n, el prospecto escolar anual que es el documento que evidencia el costo de la matr\u00edcula y el de cada cuota de escolaridad o colegiatura, as\u00ed como el n\u00famero de \u00e9stas a pagar durante el a\u00f1o y los servicios educativos que oferta, conforme la autorizaci\u00f3n de funcionamiento",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e77a21343d.png",
+                "institucion": {
+                    "id": 3,
+                    "nombre": "Ministerio de Educaci\u00f3n, Ciencia y Tecnolog\u00eda",
+                    "siglas": "MINEDUCYT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2121,
+                        "tramite_id": 921,
+                        "institucion_id": 3,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial",
+                        "slug": "empresarial",
+                        "sub_titulo": "Direcci\u00f3n General de Niveles y Modalidades Educativas",
+                        "descripcion_busqueda": "De conformidad con el art\u00edculo 82 de la Ley General de Educaci\u00f3n, todos los centros privados de educaci\u00f3n est\u00e1n en la obligaci\u00f3n de presentar al Ministerio de Educaci\u00f3n, el prospecto escolar anual que es el documento que evidencia el costo de la matr\u00edcula y el de cada cuota de escolaridad o colegiatura, as\u00ed como el n\u00famero de \u00e9stas a pagar durante el a\u00f1o y los servicios educativos que oferta, conforme la autorizaci\u00f3n de funcionamiento",
+                        "descripcion": "De conformidad con el art&iacute;culo 82 de la Ley General de Educaci&oacute;n, todos los centros privados de&nbsp; educaci&oacute;n est&aacute;n en la obligaci&oacute;n de presentar al Ministerio de Educaci&oacute;n, el prospecto escolar anual que es el&nbsp; documento que evidencia el costo de la matr&iacute;cula y el de cada cuota de escolaridad o colegiatura, as&iacute; como el n&uacute;mero de &eacute;stas a pagar&nbsp; durante el a&ntilde;o y los servicios educativos que oferta, conforme la autorizaci&oacute;n de funcionamiento",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda h\u00e1bil",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/mineducyt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mineducyt.ventanilla.simple.sv\/tramites\/iniciar\/42&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=1",
+        "from": 1,
+        "last_page": 2,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=2",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=educacion&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 13
+    },
+    "categoria": {
+        "id": 5,
+        "nombre": "Educaci\u00f3n",
+        "icono": "public\/Educacion.svg",
+        "img_1": "public\/7_62193f84555ce.png",
+        "img_2": "public\/7_62193f8455632.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:23:42.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Educacion_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 13,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=educacion&amp;page=2\">2<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=educacion&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

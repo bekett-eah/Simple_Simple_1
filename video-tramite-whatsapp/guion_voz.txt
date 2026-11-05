@@ -1,0 +1,27 @@
+GUION DE VOZ — Tutorial «Tus antecedentes por WhatsApp» (vertical y horizontal)
+Trámites de ejemplo:
+- Constancia de antecedentes penales (Ministerio de Justicia): $3.00, unas 12 horas hábiles
+- Constancia de antecedentes policiales (PNC): $3.50, hasta 5 días hábiles
+
+Graba cada línea en un archivo aparte, con la misma voz, y nómbralo como su código
+(intro, p1 … p7, cierre). Sirve mp3, wav o m4a.
+Ponlos en: ~/Documents/SIMPLE_SV/video-tramite-whatsapp/voz-nueva/
+Si la voz lee mal «Simple.sv», escribe «Simple punto ese ve»; si lee mal «PNC», escribe «pe ene ce».
+
+intro   ¡Hola! Soy tu asistente de Simple.sv, y te llevo directo a tu trámite. Hoy te enseño a sacar tus antecedentes penales y policiales por WhatsApp, en siete pasos.
+
+p1      Paso uno. Entra a Simple.sv y toca: ¿Necesitas ayuda? Ahí te recibe nuestro asistente.
+
+p2      Paso dos. Escribe: antecedentes. El asistente encuentra los dos trámites: los penales, del Ministerio de Justicia, y los policiales, de la PNC. De cada uno te muestra los pasos, el costo y cuánto tarda.
+
+p3      Paso tres. Con un toque, el asistente te lleva directo al formulario del trámite. Pero si prefieres WhatsApp, toca: Llevarlo por WhatsApp, e inicia sesión con tu Identidad Digital.
+
+p4      Paso cuatro. Empecemos con los penales. En WhatsApp te pedimos los datos uno por uno: para qué usarás la constancia y dónde la vas a presentar. Tus datos personales salen de tu Identidad Digital.
+
+p5      Paso cinco. Revisa tu solicitud, y paga tres dólares con tarjeta, en el enlace seguro que te enviamos.
+
+p6      Paso seis. Ahora los policiales: en el mismo chat, inicia una nueva solicitud y escribe: antecedentes policiales. Es más rápido: solo confirmas tus datos y pagas tres dólares con cincuenta.
+
+p7      Paso siete. Te avisamos por WhatsApp y por correo cuando cada constancia esté lista: los penales, en unas doce horas hábiles, y los policiales, en hasta cinco días hábiles. Descárgalas en Mis documentos.
+
+cierre  ¡Así de simple! Tus trámites de gobierno, fáciles, rápidos y sin filas. Entra hoy a Simple.sv.

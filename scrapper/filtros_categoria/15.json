@@ -1,0 +1,404 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1101,
+                "rnt_id": null,
+                "institucion_id": 43,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia de pensi\u00f3n alimenticia de la PGR",
+                "slug": "solicitud-de-solvencia-de-pension-alimenticia-de-la-pgr",
+                "sub_titulo": "Secretar\u00eda General",
+                "descripcion_busqueda": "Es la solicitud para emitir el documento que indica el cumplimiento o no en los pagos por\r\npensi\u00f3n alimenticia de una persona",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6826051488a56.jpeg",
+                "institucion": {
+                    "id": 43,
+                    "nombre": "Procuradur\u00eda General de la Rep\u00fablica",
+                    "siglas": "PGR"
+                },
+                "modalidades": [
+                    {
+                        "id": 2364,
+                        "tramite_id": 1101,
+                        "institucion_id": 43,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Secretar\u00eda General",
+                        "descripcion_busqueda": "Es la solicitud para emitir el documento que indica el cumplimiento o no en los pagos por pensi\u00f3n alimenticia de una persona",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Es la solicitud para emitir el documento que indica el cumplimiento o no en los pagos por pensi&oacute;n alimenticia de una persona<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "15 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/pgr.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/pgr.ventanilla.simple.sv\/tramites\/iniciar\/348&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1113,
+                "rnt_id": null,
+                "institucion_id": 56,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Reembolsos por gastos m\u00e9dico-hospitalarios",
+                "slug": "tramite-de-reembolsos-por-gastos-medicos-hospitalarios",
+                "sub_titulo": "Secci\u00f3n de Riesgos Profesionales, Beneficios y Prestaciones",
+                "descripcion_busqueda": "Solicitud de tr\u00e1mite de reembolso (por compra de medicamento, ex\u00e1menes, cirug\u00edas, consulta m\u00e9dica, etc)",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b08fb8d9ef.jpg",
+                "institucion": {
+                    "id": 56,
+                    "nombre": "Instituto Salvadore\u00f1o de Bienestar Magisterial",
+                    "siglas": "ISBM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2378,
+                        "tramite_id": 1113,
+                        "institucion_id": 56,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Secci\u00f3n de Riesgos Profesionales, Beneficios y Prestaciones",
+                        "descripcion_busqueda": "Solicitud de tr\u00e1mite de reembolso (por compra de medicamento, ex\u00e1menes, cirug\u00edas, consulta m\u00e9dica, etc)",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Solicitud de tr&aacute;mite de reembolso (por compra de medicamento, ex&aacute;menes, cirug&iacute;as, consulta m&eacute;dica, etc)<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 mes h\u00e1bil",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/simple.sv\/tramite\/tramite-de-reembolsos-por-gastos-medicos-hospitalarios\/persona-natural",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1119,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de pensionado",
+                "slug": "constancias-de-pensionados",
+                "sub_titulo": "Departamento de Prestaciones",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el monto de pensi\u00f3n y descuentos de los pensionados en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6887e041e9a5c.jpg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2384,
+                        "tramite_id": 1119,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Constancia de pensionados",
+                        "slug": "constancia-de-pensionados",
+                        "sub_titulo": "Departamento de Prestaciones",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el monto de pensi\u00f3n y descuentos de los pensionados en ISP",
+                        "descripcion": "<p class=\"western\" style=\"line-height: 100%;\" align=\"justify\"><span style=\"font-family: Times New Roman, serif;\"><span style=\"font-size: medium;\"><span style=\"font-family: Arial, sans-serif;\"><span style=\"font-size: small;\">Gesti&oacute;n que se realiza para solicitar el monto de pensi&oacute;n y descuentos de los pensionados en ISP<\/span><\/span><\/span><\/span><\/p>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/391&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1131,
+                "rnt_id": null,
+                "institucion_id": 56,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Ayuda econ\u00f3mica por la adquisici\u00f3n de anteojos",
+                "slug": "ayuda-economica-por-la-adquisicion-de-anteojos",
+                "sub_titulo": "Secci\u00f3n de Riesgos Profesionales, Beneficios y Prestaciones",
+                "descripcion_busqueda": "Reembolso de m\u00e1ximo $100.00 d\u00f3lares a otorgar al servidor p\u00fablico docente activo o pensionado, por la adquisici\u00f3n de anteojos, el cual se brinda un m\u00e1ximo de dos ocasiones",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/69e29abc93ce8.jpeg",
+                "institucion": {
+                    "id": 56,
+                    "nombre": "Instituto Salvadore\u00f1o de Bienestar Magisterial",
+                    "siglas": "ISBM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2397,
+                        "tramite_id": 1131,
+                        "institucion_id": 56,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Secci\u00f3n de Riesgos Profesionales, Beneficios y Prestaciones",
+                        "descripcion_busqueda": "Reembolso de m\u00e1ximo $100.00 d\u00f3lares a otorgar al servidor p\u00fablico docente activo o pensionado, por la adquisici\u00f3n de anteojos, el cual se brinda un m\u00e1ximo de dos ocasiones",
+                        "descripcion": "<strong>Reembolso de m&aacute;ximo $100.00 d&oacute;lares a otorgar al servidor p&uacute;blico docente activo o pensionado, por la adquisici&oacute;n de anteojos, el cual se brinda un m&aacute;ximo de dos ocasiones<\/strong>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "38 d\u00edas h\u00e1biles posterior a la autorizaci\u00f3n de pago",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isbm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isbm.ventanilla.simple.sv\/tramites\/iniciar\/434&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1098,
+                "rnt_id": null,
+                "institucion_id": 47,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Historial de pago de seguros de car\u00e1cter voluntario",
+                "slug": "historial-de-pago-de-seguros",
+                "sub_titulo": "\u00c1rea de Operaciones",
+                "descripcion_busqueda": "Documento que establece el detalle de todos las transacciones y pagos de primas de un seguro",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e4544e2b94.png",
+                "institucion": {
+                    "id": 47,
+                    "nombre": "Caja Mutual de los Empleados del Ministerio de Educaci\u00f3n",
+                    "siglas": "CME-MINED"
+                },
+                "modalidades": [
+                    {
+                        "id": 2360,
+                        "tramite_id": 1098,
+                        "institucion_id": 47,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Servicio",
+                        "slug": "servicio",
+                        "sub_titulo": "\u00c1rea de Operaciones",
+                        "descripcion_busqueda": "Documento que establece el detalle de todos las transacciones y pagos de primas de un seguro",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Documento que establece el detalle de todos las transacciones y pagos de primas de un seguro<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/cajamutual.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/cajamutual.ventanilla.simple.sv\/tramites\/iniciar\/346&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1124,
+                "rnt_id": null,
+                "institucion_id": 59,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de pensi\u00f3n de veteranos, excombatientes y beneficiarios",
+                "slug": "constancia-de-deposito-de-pension",
+                "sub_titulo": "INABVE oficinas administrativas",
+                "descripcion_busqueda": "Pago de pensi\u00f3n a veteranos, excombatientes y personas con discapacidad a consecuencia del conflicto armado, que se encuentran censado y verificado en el registro del instituto, adem\u00e1s de haber firmado sobrevivencia",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/68e9187cb3f8b.jpg",
+                "institucion": {
+                    "id": 59,
+                    "nombre": "Instituto Administrador de los Beneficios de los Veteranos y Excombatientes",
+                    "siglas": "INABVE"
+                },
+                "modalidades": [
+                    {
+                        "id": 2389,
+                        "tramite_id": 1124,
+                        "institucion_id": 59,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "En l\u00ednea",
+                        "slug": "en-linea",
+                        "sub_titulo": "INABVE oficinas administrativas",
+                        "descripcion_busqueda": "Se les brinda pago de pensi\u00f3n a veteranos, excombatientes y personas con discapacidad a consecuencia del conflicto armado, que se encuentre debidamente inscritos en la Unidad de Registro y Afiliaci\u00f3n de la instituci\u00f3n y  que haya firmado la constancia de sobrevivencia",
+                        "descripcion": "<span style=\"color: #000000; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: #ffffff; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">Pago de pensi&oacute;n a veteranos, excombatientes y personas con discapacidad a consecuencia del conflicto armado, que se encuentran censado y verificado en el registro del instituto, adem&aacute;s de haber firmado sobrevivencia<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "6 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/inabve.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/inabve.ventanilla.simple.sv\/tramites\/iniciar\/406&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1120,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de n\u00famero de afiliaci\u00f3n",
+                "slug": "constancia-de-numero-de-afiliacion",
+                "sub_titulo": "Departamento de prestaciones",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el n\u00famero de afiliaci\u00f3n que tiene asignado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6888d8c01de52.jpg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2385,
+                        "tramite_id": 1120,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Constancia de n\u00famero de afiliaci\u00f3n",
+                        "slug": "constancia-de-numero-de-afiliacion",
+                        "sub_titulo": "Departamento de prestaciones",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el n\u00famero de afiliaci\u00f3n que tiene asignado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar el n&uacute;mero de afiliaci&oacute;n que tiene asignado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/392&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1118,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de cotizante no pensionado",
+                "slug": "solicitud-de-constancias-de-cotizante-no-pensionado",
+                "sub_titulo": "Departamento de Tesorer\u00eda",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el \u00faltimo periodo de cotizaci\u00f3n que se tiene registrado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6887e1d9f2667.jpeg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2383,
+                        "tramite_id": 1118,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de constancias de cotizante no pensionado",
+                        "slug": "solicitud-de-constancias-de-cotizante-no-pensionado",
+                        "sub_titulo": "Departamento de Tesorer\u00eda",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el \u00faltimo periodo de cotizaci\u00f3n que se tiene registrado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar el &uacute;ltimo periodo de cotizaci&oacute;n que se tiene registrado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/389&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1121,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de beneficiario inscrito",
+                "slug": "constancias-de-beneficiarios-inscritos",
+                "sub_titulo": "Departamento de prestaciones",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6888dfb777868.jpeg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2386,
+                        "tramite_id": 1121,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Constancias de beneficiarios inscritos",
+                        "slug": "constancias-de-beneficiarios-inscritos",
+                        "sub_titulo": "Departamento de prestaciones",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/388&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=1",
+        "from": 1,
+        "last_page": 2,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=2",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=servicios-financieros-seguros-y-pensiones&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 13
+    },
+    "categoria": {
+        "id": 20,
+        "nombre": "Servicios financieros, seguros y pensiones",
+        "icono": "public\/Servicios_financieros_seguros_y_pensiones.svg",
+        "img_1": "public\/7_62193cd7e49ed.png",
+        "img_2": "public\/7_62193cd7e4a4a.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T04:35:32.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Servicios_financieros_seguros_y_pensiones_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 13,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=servicios-financieros-seguros-y-pensiones&amp;page=2\">2<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=servicios-financieros-seguros-y-pensiones&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

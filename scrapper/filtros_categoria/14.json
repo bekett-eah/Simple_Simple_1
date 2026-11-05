@@ -1,0 +1,140 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 8,
+                "rnt_id": 1338,
+                "institucion_id": 5,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de antecedentes penales",
+                "slug": "emision-de-certificacion-de-antecedentes-penales",
+                "sub_titulo": "Direcci\u00f3n General de Centros Penales",
+                "descripcion_busqueda": "Constancia para comprobar que las personas naturales de origen\u00a0salvadore\u00f1o, no poseen\u00a0registros de antecedentes penales por sentencia condenatoria ejecutoriada en su contra por imput\u00e1rsele un delito",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b1dec636e3.jpg",
+                "institucion": {
+                    "id": 5,
+                    "nombre": "Ministerio de Justicia y Seguridad P\u00fablica",
+                    "siglas": "MJSP"
+                },
+                "modalidades": [
+                    {
+                        "id": 11,
+                        "tramite_id": 8,
+                        "institucion_id": 5,
+                        "tipo_tramite": 0,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Nacionales | Personas naturales",
+                        "slug": "nacionales-personas-naturales",
+                        "sub_titulo": "Direcci\u00f3n General de Centros Penales",
+                        "descripcion_busqueda": "Constancia para comprobar que las personas naturales de origen\u00a0salvadore\u00f1o, no poseen\u00a0registros de antecedentes penales por sentencia condenatoria ejecutoriada en su contra por imput\u00e1rsele un delito",
+                        "descripcion": "<div style=\"text-align: justify;\">Constancia para comprobar que las personas naturales de origen&nbsp;salvadore&ntilde;o, no poseen&nbsp;registros de antecedentes penales por sentencia condenatoria ejecutoriada en su contra por imput&aacute;rsele un delito<\/div>\r\n<div style=\"text-align: justify;\">&nbsp;<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "12 horas h\u00e1biles (m\u00e1ximo 20 d\u00edas h\u00e1biles, seg\u00fan el caso)",
+                        "costo_tramite": "$3.00",
+                        "url_sitio": "https:\/\/antecedentes.seguridad.gob.sv\/servicios",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 151,
+                                "modalidad_id": 11,
+                                "costo": "3.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1133,
+                "rnt_id": null,
+                "institucion_id": 33,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solicitud para la Devoluci\u00f3n de Armas de Fuego de Persona Natural",
+                "slug": "solicitud-para-la-devolucion-de-armas-de-fuego-de-persona-natural",
+                "sub_titulo": "Departamento de Asesor\u00eda Legal",
+                "descripcion_busqueda": "Tr\u00e1mite para la devoluci\u00f3n de arma de fuego a personas naturales que se les ha decomisado arma por haber cometido alguna infracci\u00f3n a la Ley CRAMEAS",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6a2c61402602a.jpeg",
+                "institucion": {
+                    "id": 33,
+                    "nombre": "Ministerio de la Defensa Nacional",
+                    "siglas": "MDN"
+                },
+                "modalidades": [
+                    {
+                        "id": 2399,
+                        "tramite_id": 1133,
+                        "institucion_id": 33,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Departamento de Asesor\u00eda Legal",
+                        "descripcion_busqueda": "Tr\u00e1mite para la devoluci\u00f3n de arma de fuego a personas naturales que se les ha decomisado arma por haber cometido alguna infracci\u00f3n a la Ley CRAMEAS",
+                        "descripcion": "<span style=\"font-weight: 400;\">Tr&aacute;mite para la devoluci&oacute;n de arma de fuego a personas naturales que se les ha decomisado arma por haber cometido alguna infracci&oacute;n a la Ley CRAMEAS<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/mdn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/mdn.ventanilla.simple.sv\/tramites\/iniciar\/462&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 394,
+                                "modalidad_id": 2399,
+                                "costo": "11.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    },
+    "categoria": {
+        "id": 7,
+        "nombre": "Seguridad, defensa y materiales peligrosos",
+        "icono": "public\/Seguridad_defensa_y_materiales_peligrosos.svg",
+        "img_1": "public\/7_62193f1323bb5.png",
+        "img_2": "public\/7_62193f1323c10.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:23:54.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Seguridad_defensa_y_materiales_peligrosos_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 2,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

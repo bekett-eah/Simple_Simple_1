@@ -1,0 +1,400 @@
+2026-10-14 14:47:01,455 | INFO | robots.txt consultado: HTTP 200. Revísalo antes de una extracción extensa.
+2026-10-14 14:47:01,455 | INFO | Consultando endpoint JSON: http://simple.sv/tramites-filtro?page=1&per_page=9
+2026-10-14 14:47:03,416 | INFO | Página JSON 2/14: http://simple.sv/tramites-filtro?page=2&per_page=9
+2026-10-14 14:47:05,254 | INFO | Página 2: 9 registros; 9 nuevos
+2026-10-14 14:47:05,254 | INFO | Página JSON 3/14: http://simple.sv/tramites-filtro?page=3&per_page=9
+2026-10-14 14:47:06,744 | INFO | Página 3: 9 registros; 9 nuevos
+2026-10-14 14:47:06,744 | INFO | Página JSON 4/14: http://simple.sv/tramites-filtro?page=4&per_page=9
+2026-10-14 14:47:08,221 | INFO | Página 4: 9 registros; 9 nuevos
+2026-10-14 14:47:08,222 | INFO | Página JSON 5/14: http://simple.sv/tramites-filtro?page=5&per_page=9
+2026-10-14 14:47:09,735 | INFO | Página 5: 9 registros; 9 nuevos
+2026-10-14 14:47:09,735 | INFO | Página JSON 6/14: http://simple.sv/tramites-filtro?page=6&per_page=9
+2026-10-14 14:47:11,227 | INFO | Página 6: 9 registros; 9 nuevos
+2026-10-14 14:47:11,228 | INFO | Página JSON 7/14: http://simple.sv/tramites-filtro?page=7&per_page=9
+2026-10-14 14:47:12,686 | INFO | Página 7: 9 registros; 9 nuevos
+2026-10-14 14:47:12,686 | INFO | Página JSON 8/14: http://simple.sv/tramites-filtro?page=8&per_page=9
+2026-10-14 14:47:14,171 | INFO | Página 8: 9 registros; 9 nuevos
+2026-10-14 14:47:14,171 | INFO | Página JSON 9/14: http://simple.sv/tramites-filtro?page=9&per_page=9
+2026-10-14 14:47:15,676 | INFO | Página 9: 9 registros; 9 nuevos
+2026-10-14 14:47:15,677 | INFO | Página JSON 10/14: http://simple.sv/tramites-filtro?page=10&per_page=9
+2026-10-14 14:47:17,144 | INFO | Página 10: 9 registros; 9 nuevos
+2026-10-14 14:47:17,144 | INFO | Página JSON 11/14: http://simple.sv/tramites-filtro?page=11&per_page=9
+2026-10-14 14:47:18,644 | INFO | Página 11: 9 registros; 9 nuevos
+2026-10-14 14:47:18,644 | INFO | Página JSON 12/14: http://simple.sv/tramites-filtro?page=12&per_page=9
+2026-10-14 14:47:20,110 | INFO | Página 12: 9 registros; 9 nuevos
+2026-10-14 14:47:20,110 | INFO | Página JSON 13/14: http://simple.sv/tramites-filtro?page=13&per_page=9
+2026-10-14 14:47:21,599 | INFO | Página 13: 9 registros; 9 nuevos
+2026-10-14 14:47:21,599 | INFO | Página JSON 14/14: http://simple.sv/tramites-filtro?page=14&per_page=9
+2026-10-14 14:47:23,065 | INFO | Página 14: 1 registros; 1 nuevos
+2026-10-14 14:47:23,066 | INFO | Página del portal 1/150: https://www.simple.sv/
+2026-10-14 14:47:24,691 | INFO | Página del portal 2/150: https://www.simple.sv/index.php/tramites-filtrados
+2026-10-14 14:47:26,152 | INFO | Página del portal 3/150: https://www.simple.sv/instrucciones
+2026-10-14 14:47:27,560 | INFO | Página del portal 4/150: https://www.simple.sv/login
+2026-10-14 14:47:29,526 | WARNING | No se pudo leer https://www.simple.sv/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fwww.simple.sv%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wk1Y8Ri2HpUXx6ADR60lwlDlWBYSr4Uu0Eh9hogZ
+2026-10-14 14:47:29,528 | INFO | Página del portal 5/150: https://www.simple.sv/contactanos
+2026-10-14 14:47:30,943 | INFO | Página del portal 6/150: https://www.simple.sv/categorias-home?page=2
+2026-10-14 14:47:32,319 | INFO | Se omite contenido no HTML: https://www.simple.sv/categorias-home?page=2 (application/json)
+2026-10-14 14:47:32,319 | INFO | Página del portal 7/150: https://www.simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:47:33,606 | WARNING | No se pudo leer https://www.simple.sv/cdn-cgi/l/email-protection: 404 Client Error: Not Found for url: https://www.simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:47:33,606 | INFO | Página del portal 8/150: https://www.simple.sv/index.php
+2026-10-14 14:47:35,098 | INFO | Página del portal 9/150: https://www.simple.sv/index.php/login
+2026-10-14 14:47:36,678 | WARNING | No se pudo leer https://www.simple.sv/index.php/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fwww.simple.sv%2Findex.php%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wk1Y8Ri2HpUXx6ADR60lwlDlWBYSr4Uu0Eh9hogZ
+2026-10-14 14:47:36,678 | INFO | Página del portal 10/150: https://www.simple.sv/index.php/contactanos
+2026-10-14 14:47:38,106 | INFO | Página del portal 11/150: https://www.simple.sv/index.php/tramite/constancia-de-no-servicio-de-agua-potable-yo-alcantarillado/ciudadano
+2026-10-14 14:47:39,581 | INFO | Página del portal 12/150: https://www.simple.sv/index.php/tramite/solvencia-de-cuenta-de-agua-potable-yo-alcantarillados/ciudadano
+2026-10-14 14:47:41,057 | INFO | Página del portal 13/150: https://www.simple.sv/index.php/tramite/emision-de-certificacion-de-antecedentes-penales/nacionales-personas-naturales
+2026-10-14 14:47:42,506 | INFO | Página del portal 14/150: https://www.simple.sv/index.php/tramite/constancia-de-antecedentes-policiales/nacionales
+2026-10-14 14:47:43,932 | INFO | Página del portal 15/150: https://www.simple.sv/index.php/tramite/permiso-para-la-incubacion-de-huevos-de-tortugas-marinas-en-condiciones-controladas/persona-natural
+2026-10-14 14:47:45,396 | INFO | Página del portal 16/150: https://www.simple.sv/index.php/tramite/autorizacion-de-fianza-moral/modalidad-unica
+2026-10-14 14:47:46,843 | INFO | Página del portal 17/150: https://www.simple.sv/index.php/tramite/ampliacion-de-servicios-educativos-sector-privado/modalidad-unica
+2026-10-14 14:47:48,321 | INFO | Página del portal 18/150: https://www.simple.sv/index.php/tramite/cambio-de-domicilio-centros-educativos-oficiales/modalidad-unica
+2026-10-14 14:47:49,755 | INFO | Página del portal 19/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-titulo-de-educacion-media/modalidad-unica
+2026-10-14 14:47:51,186 | INFO | Página del portal 20/150: http://www.simple.sv/index.php/tramites-filtrados?page=1
+2026-10-14 14:47:52,712 | INFO | Página del portal 21/150: http://www.simple.sv/index.php/tramites-filtrados?page=2
+2026-10-14 14:47:54,209 | INFO | Página del portal 22/150: http://www.simple.sv/index.php/tramites-filtrados?page=3
+2026-10-14 14:47:55,687 | INFO | Página del portal 23/150: http://www.simple.sv/index.php/tramites-filtrados?page=4
+2026-10-14 14:47:57,164 | INFO | Página del portal 24/150: http://www.simple.sv/index.php/tramites-filtrados?page=5
+2026-10-14 14:47:58,646 | INFO | Página del portal 25/150: http://www.simple.sv/index.php/tramites-filtrados?page=14
+2026-10-14 14:48:00,184 | INFO | Página del portal 26/150: http://www.simple.sv/contactanos?page=2
+2026-10-14 14:48:01,638 | INFO | Página del portal 27/150: https://www.simple.sv/index.php/categorias-home?page=2
+2026-10-14 14:48:03,039 | INFO | Se omite contenido no HTML: https://www.simple.sv/index.php/categorias-home?page=2 (application/json)
+2026-10-14 14:48:03,040 | INFO | Página del portal 28/150: https://www.simple.sv/index.php/instrucciones
+2026-10-14 14:48:04,450 | INFO | Página del portal 29/150: http://www.simple.sv/index.php/contactanos?page=2
+2026-10-14 14:48:05,897 | INFO | Página del portal 30/150: https://www.simple.sv/storage/Constancia_de_No_Servicio_L0a3fBC.pdf
+2026-10-14 14:48:07,483 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/Constancia_de_No_Servicio_L0a3fBC.pdf (application/pdf)
+2026-10-14 14:48:07,483 | INFO | Página del portal 31/150: https://www.simple.sv/storage/Solicitud_Solvencia_de_Cuenta_h43XMpI.pdf
+2026-10-14 14:48:08,927 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/Solicitud_Solvencia_de_Cuenta_h43XMpI.pdf (application/pdf)
+2026-10-14 14:48:08,927 | INFO | Página del portal 32/150: https://www.simple.sv/index.php/mis-documentos
+2026-10-14 14:48:10,310 | WARNING | No se pudo leer https://www.simple.sv/index.php/mis-documentos: 401 Client Error: Unauthorized for url: https://www.simple.sv/index.php/mis-documentos
+2026-10-14 14:48:10,310 | INFO | Página del portal 33/150: https://www.simple.sv/storage/EAM-PVS-PR-06-FO-01_Solicitud_incubacion_05_feb_2021.pdf
+2026-10-14 14:48:11,759 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/EAM-PVS-PR-06-FO-01_Solicitud_incubacion_05_feb_2021.pdf (application/pdf)
+2026-10-14 14:48:11,760 | INFO | Página del portal 34/150: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO_Hwbzap6.docx
+2026-10-14 14:48:13,193 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO_Hwbzap6.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:48:13,193 | INFO | Página del portal 35/150: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO.docx
+2026-10-14 14:48:14,627 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:48:14,627 | INFO | Página del portal 36/150: https://www.simple.sv/storage/3._CAMBIO_DE_DOMICILIO_OFICIALES.docx
+2026-10-14 14:48:16,029 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/3._CAMBIO_DE_DOMICILIO_OFICIALES.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:48:16,030 | INFO | Página del portal 37/150: https://www.simple.sv/index.php/tramite/solicitud-de-tramites-de-factibilidad-para-una-vivienda/ciudadano
+2026-10-14 14:48:17,471 | INFO | Página del portal 38/150: https://www.simple.sv/index.php/tramite/solicitud-de-tramites-de-cambio-de-nombre-del-titular-de-la-cuenta/ciudadano
+2026-10-14 14:48:18,911 | INFO | Página del portal 39/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-notas-de-educacion-basica-y-media/ciudadano
+2026-10-14 14:48:20,362 | INFO | Página del portal 40/150: https://www.simple.sv/index.php/tramite/creacion-nominacion-y-funcionamiento-de-centros-educativos/ciudadano
+2026-10-14 14:48:21,807 | INFO | Página del portal 41/150: https://www.simple.sv/index.php/tramite/prospectos-escolares/empresarial
+2026-10-14 14:48:23,236 | INFO | Página del portal 42/150: https://www.simple.sv/index.php/tramite/productos-lidar-tecnica-de-teledeteccion-optica-que-utiliza-la-luz-de-laser-para-obtener-una-muestra-densa-de-la-superficie-de-la-tierra-produciendo-mediciones-exactas-de-x-y-y-z/modalidad-unica
+2026-10-14 14:48:24,656 | INFO | Página del portal 43/150: https://www.simple.sv/index.php/tramite/solvencias-y-constancias-patronales/solicitud-de-solvencia-patronal-de-regimen-salud
+2026-10-14 14:48:26,095 | INFO | Página del portal 44/150: https://www.simple.sv/index.php/tramite/autorizacion-y-registro-de-agentes-maritimos/modalidad-unica
+2026-10-14 14:48:27,566 | INFO | Página del portal 45/150: https://www.simple.sv/index.php/tramite/solicitud-de-estado-de-cuenta/ciudadano
+2026-10-14 14:48:29,005 | INFO | Página del portal 46/150: https://www.simple.sv/index.php/tramite/extension-de-permiso-de-aprendiz-tecnico-en-mantenimiento-de-aeronaves/modalidad-unica
+2026-10-14 14:48:30,455 | INFO | Página del portal 47/150: https://www.simple.sv/index.php/tramite/constancia-de-homonimos-para-registros-de-armas-de-fuego/modalidad-unica
+2026-10-14 14:48:31,907 | INFO | Página del portal 48/150: https://www.simple.sv/index.php/tramite/solicitud-de-publicacion-en-el-diario-oficial/modalidad-unica
+2026-10-14 14:48:33,319 | INFO | Página del portal 49/150: https://www.simple.sv/index.php/tramite/nota-de-exoneracion-de-visado-de-importacion-de-productos-agricola/modalidad-unica
+2026-10-14 14:48:34,768 | INFO | Página del portal 50/150: https://www.simple.sv/index.php/tramite/nota-de-exoneracion-de-visado-de-importacion-de-productos-veterinarios/modalidad-unica
+2026-10-14 14:48:36,225 | INFO | Página del portal 51/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-medica/modalidad-unica
+2026-10-14 14:48:37,650 | INFO | Página del portal 52/150: https://www.simple.sv/index.php/tramite/notificacion-de-asamblea-general/modalidad-unica
+2026-10-14 14:48:39,090 | INFO | Página del portal 53/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-horarios-de-atencion-en-los-servicios-de-rehabilitacion/modalidad-unica
+2026-10-14 14:48:40,502 | INFO | Página del portal 54/150: https://www.simple.sv/index.php/tramite/extension-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:48:41,977 | INFO | Página del portal 55/150: https://www.simple.sv/index.php/tramite/certificado-inscripcion-de-registro-de-desarrollador-parcelario/ciudadano
+2026-10-14 14:48:43,452 | INFO | Página del portal 56/150: https://www.simple.sv/index.php/tramite/emision-de-certificacion-de-notas-para-graduados-de-ena/modalidad-unica
+2026-10-14 14:48:44,919 | INFO | Página del portal 57/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-dui-y-no-dui/ciudadano
+2026-10-14 14:48:46,375 | INFO | Página del portal 58/150: https://www.simple.sv/index.php/tramite/constancia-de-homonimo/ciudadano
+2026-10-14 14:48:47,798 | INFO | Página del portal 59/150: https://www.simple.sv/index.php/tramite/certificacion-de-partidas/ciudadano
+2026-10-14 14:48:49,235 | INFO | Página del portal 60/150: https://www.simple.sv/index.php/tramite/renovacion-de-licencia-piloto-privado-avion/modalidad-unica
+2026-10-14 14:48:50,691 | INFO | Página del portal 61/150: https://www.simple.sv/index.php/tramite/renovacion-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:48:52,131 | INFO | Página del portal 62/150: https://www.simple.sv/index.php/tramite/renovacion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:48:53,580 | INFO | Página del portal 63/150: https://www.simple.sv/index.php/tramite/reposicion-de-licencia-piloto-privado-avion/modalidad-unica
+2026-10-14 14:48:55,013 | INFO | Página del portal 64/150: https://www.simple.sv/index.php/tramite/reposicion-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:48:56,486 | INFO | Página del portal 65/150: https://www.simple.sv/index.php/tramite/reposicion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:48:57,924 | INFO | Página del portal 66/150: https://www.simple.sv/index.php/tramite/reposicion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:48:59,374 | INFO | Página del portal 67/150: https://www.simple.sv/index.php/tramite/autorizacion-de-centros-de-atencion-a-primera-infancia/modalidad-unica
+2026-10-14 14:49:00,809 | INFO | Página del portal 68/150: https://www.simple.sv/index.php/tramite/solicitud-del-servicio-vip-en-el-aeropuerto-internacional-de-el-salvador/modalidad-unica
+2026-10-14 14:49:02,256 | INFO | Página del portal 69/150: https://www.simple.sv/index.php/tramite/importar-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:49:03,713 | INFO | Página del portal 70/150: https://www.simple.sv/index.php/tramite/solicitud-de-informacion-gratuita-de-fenomenos-naturales/solicitud-de-informacion-gratuita-de-fenomenos-naturales
+2026-10-14 14:49:05,147 | INFO | Página del portal 71/150: https://www.simple.sv/index.php/tramite/solicitud-de-fijacion-cuota-alimenticia/solicitud-de-fijacion-cuota-alimenticia
+2026-10-14 14:49:06,593 | INFO | Página del portal 72/150: https://www.simple.sv/index.php/tramite/importacion-de-valvulas-para-cilindros-portatiles-para-glp/modalidad-unica
+2026-10-14 14:49:08,049 | INFO | Página del portal 73/150: http://www.simple.sv/index.php/tramites-filtrados?page=6
+2026-10-14 14:49:09,548 | INFO | Página del portal 74/150: https://www.simple.sv/index.php/tramite/modificacion-o-actualizacion-de-opspecs/modalidad-unica
+2026-10-14 14:49:11,049 | INFO | Página del portal 75/150: http://www.simple.sv/index.php/tramites-filtrados?page=13
+2026-10-14 14:49:12,525 | INFO | Página del portal 76/150: http://www.simple.sv/contactanos?page=1
+2026-10-14 14:49:13,967 | INFO | Página del portal 77/150: http://www.simple.sv/index.php/contactanos?page=1
+2026-10-14 14:49:15,453 | INFO | Página del portal 78/150: https://www.simple.sv/storage/1VjmBzv43MJwtD1Ja46RtsC7sgtMyBZooTuagRsh.docx
+2026-10-14 14:49:16,868 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/1VjmBzv43MJwtD1Ja46RtsC7sgtMyBZooTuagRsh.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:49:16,868 | INFO | Página del portal 79/150: https://www.simple.sv/storage/bhUm5xT2ySskFrKYOYc6XPRBrkGUEGQbrbkQEizL.docx
+2026-10-14 14:49:18,301 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/bhUm5xT2ySskFrKYOYc6XPRBrkGUEGQbrbkQEizL.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:49:18,301 | INFO | Página del portal 80/150: https://www.simple.sv/storage/oO6iYl4OwptCDu9MVwjO23JxsfYa1XWem8FJN2xF.docx
+2026-10-14 14:49:19,706 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/oO6iYl4OwptCDu9MVwjO23JxsfYa1XWem8FJN2xF.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:49:19,707 | INFO | Página del portal 81/150: https://simple.sv/tramite/autorizacion-y-registro-de-agentes-maritimos/modalidad-unica
+2026-10-14 14:49:21,191 | INFO | Página del portal 82/150: https://www.simple.sv/storage/6CF1nAHscHiQzQRUp9fZMTGzeRmalDWkgATgMODJ.docx
+2026-10-14 14:49:22,600 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/6CF1nAHscHiQzQRUp9fZMTGzeRmalDWkgATgMODJ.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:49:22,600 | INFO | Página del portal 83/150: https://www.simple.sv/storage/mtrUUOKAZG8NDeKbQ8woJAr7x40MorpmjXRlkPSH.xlsx
+2026-10-14 14:49:24,028 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/mtrUUOKAZG8NDeKbQ8woJAr7x40MorpmjXRlkPSH.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-10-14 14:49:24,028 | INFO | Página del portal 84/150: https://www.simple.sv/storage/J6TXzrQ5q0ic8mt5N0RqTNOr87iOqM4WogBAHhRl.pdf
+2026-10-14 14:49:25,563 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/J6TXzrQ5q0ic8mt5N0RqTNOr87iOqM4WogBAHhRl.pdf (application/pdf)
+2026-10-14 14:49:25,563 | INFO | Página del portal 85/150: https://www.simple.sv/index.php/tramite/exportar-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:49:27,018 | INFO | Página del portal 86/150: https://www.simple.sv/index.php/tramite/importacion-de-accesorios-para-cilindros-portatiles-para-glp/modalidad-unica
+2026-10-14 14:49:28,469 | INFO | Página del portal 87/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-fianza/solicitud-de-anotacioninscripcion-de-fianza
+2026-10-14 14:49:29,917 | INFO | Página del portal 88/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-tarifas/solicitud-de-anotacioninscripcion-de-tarifas
+2026-10-14 14:49:31,394 | INFO | Página del portal 89/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-polizas-de-seguro/solicitud-de-anotacioninscripcion-de-polizas-de-seguro
+2026-10-14 14:49:32,833 | INFO | Página del portal 90/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos/solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos
+2026-10-14 14:49:34,259 | INFO | Página del portal 91/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos/solicitud-de-certificacion-de-expedientes-de-aeronaves
+2026-10-14 14:49:35,727 | INFO | Página del portal 92/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos
+2026-10-14 14:49:37,206 | INFO | Página del portal 93/150: https://www.simple.sv/index.php/tramite/importar-reguladores-de-baja-presion-para-glp-juridico/modalidad-unica
+2026-10-14 14:49:38,665 | INFO | Página del portal 94/150: http://www.simple.sv/index.php/tramites-filtrados?page=7
+2026-10-14 14:49:40,167 | INFO | Página del portal 95/150: https://www.simple.sv/index.php/tramite/beneficio-de-ayuda-economica-para-gastos-funerarios/unica
+2026-10-14 14:49:41,621 | INFO | Página del portal 96/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-estacion-de-servicio/transferencia-de-funcionamiento-de-estacion-de-servicio
+2026-10-14 14:49:43,100 | INFO | Página del portal 97/150: https://www.simple.sv/index.php/tramite/resolucion-emitida-por-la-direccion-general-de-energia-hidrocarburos-y-minas-transfiriendo-la-autorizacion-de-funcionamiento-de-un-operador-a-otro/transferencia-de-funcionamiento-de-fabrica-de-cilindros-portatiles-para-envasado-de-glp
+2026-10-14 14:49:44,566 | INFO | Página del portal 98/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-planta-de-envasado-de-glp/transferencia-de-funcionamiento-de-planta-de-envasado-de-glp
+2026-10-14 14:49:45,996 | INFO | Página del portal 99/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-deposito-de-aprovisionamiento/transferencia-de-funcionamiento-de-deposito-de-aprovisionamiento
+2026-10-14 14:49:47,450 | INFO | Página del portal 100/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-taller-de-reparacion-y-mantenimiento-de-cilindros-para-glp/transferencia-de-funcionamiento-de-taller-de-reparacion-y-mantenimiento-de-cilindros-para-glp
+2026-10-14 14:49:48,908 | INFO | Página del portal 101/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-taller-para-instalacion-de-glp-vehicular/transferencia-de-funcionamiento-de-taller-para-instalacion-de-equipos-para-la-utilizacion-de-glp-v
+2026-10-14 14:49:50,343 | INFO | Página del portal 102/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-tanque-para-consumo-privado/transferencia-de-funcionamiento-de-tanque-para-consumo-privado
+2026-10-14 14:49:51,782 | INFO | Página del portal 103/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-tanque-para-consumo-privado-temporal/transferencia-de-funcionamiento-de-tanque-para-consumo-privado-temporal
+2026-10-14 14:49:53,221 | INFO | Página del portal 104/150: http://www.simple.sv/index.php/tramites-filtrados?page=12
+2026-10-14 14:49:54,718 | INFO | Página del portal 105/150: https://simple.sv/
+2026-10-14 14:49:56,190 | INFO | Página del portal 106/150: https://simple.sv/login
+2026-10-14 14:49:57,840 | WARNING | No se pudo leer https://simple.sv/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fsimple.sv%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wk1Y8Ri2HpUXx6ADR60lwlDlWBYSr4Uu0Eh9hogZ
+2026-10-14 14:49:57,840 | INFO | Página del portal 107/150: https://simple.sv/contactanos
+2026-10-14 14:49:59,278 | INFO | Página del portal 108/150: https://simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:50:00,596 | WARNING | No se pudo leer https://simple.sv/cdn-cgi/l/email-protection: 404 Client Error: Not Found for url: https://simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:50:00,596 | INFO | Página del portal 109/150: https://www.simple.sv/index.php/tramite/utilizar-en-el-mercado-nacional-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:50:02,063 | INFO | Página del portal 110/150: https://www.simple.sv/index.php/tramite/exportar-glp-a-granel/modalidad-unica
+2026-10-14 14:50:03,517 | INFO | Página del portal 111/150: https://www.simple.sv/index.php/tramite/reexportar-glp-a-granel/modalidad-unica
+2026-10-14 14:50:05,042 | INFO | Página del portal 112/150: https://www.simple.sv/index.php/tramite/comercializacion-local-de-reguladores-de-baja-presion-para-glp/modalidad-unica
+2026-10-14 14:50:06,482 | INFO | Página del portal 113/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancias-de-estudios/solicitud-de-constancias-de-estudios
+2026-10-14 14:50:07,932 | INFO | Página del portal 114/150: https://www.simple.sv/index.php/tramite/solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla/solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla-persona-natural
+2026-10-14 14:50:09,394 | INFO | Página del portal 115/150: https://www.simple.sv/index.php/tramite/acreditacion-de-programas-y-registro-de-miembros-de-la-rea/conapina-acreditacion-de-programas-y-registro-de-miembros-de-la-rea-administrativo
+2026-10-14 14:50:10,843 | INFO | Página del portal 116/150: https://www.simple.sv/index.php/tramite/registro-de-proyectos-de-atencion-de-primera-infancia-ninez-y-adolescencia/conapina-administrativo
+2026-10-14 14:50:12,278 | INFO | Página del portal 117/150: https://www.simple.sv/index.php/tramite/solicitud-de-matricula-de-fierro-para-herrar-ganado/ciudadano
+2026-10-14 14:50:13,719 | INFO | Página del portal 118/150: http://www.simple.sv/index.php/tramites-filtrados?page=8
+2026-10-14 14:50:15,223 | INFO | Página del portal 119/150: https://www.simple.sv/index.php/tramite/certificacion-tecnica-para-fines-judiciales-y-de-seguros/persona-natural-o-juridica
+2026-10-14 14:50:16,686 | INFO | Página del portal 120/150: https://www.simple.sv/index.php/tramite/constancia-del-tribunal-de-etica-gubernamental-sobre-existencia-o-no-de-sanciones-procedimientos-activos-o-fenecidos-por-infracciones-a-la-ley-de-etica-gubernamental/persona-natural
+2026-10-14 14:50:18,140 | INFO | Página del portal 121/150: https://www.simple.sv/index.php/tramite/certificacion-de-tarifario/persona-juridica
+2026-10-14 14:50:19,621 | INFO | Página del portal 122/150: https://www.simple.sv/index.php/tramite/constancia-para-la-obtencion-de-la-exencion-de-iva/persona-juridica
+2026-10-14 14:50:21,058 | INFO | Página del portal 123/150: https://www.simple.sv/index.php/tramite/boleta-de-resultados-paes-avanzo/ciudadano
+2026-10-14 14:50:22,502 | INFO | Página del portal 124/150: https://www.simple.sv/index.php/tramite/renovacion-de-registro-de-transportistas-de-carga-nacional-e-internacional/ciudadano
+2026-10-14 14:50:23,956 | INFO | Página del portal 125/150: https://www.simple.sv/index.php/tramite/ayuda-economica-por-la-adquisicion-de-anteojos/modalidad-unica
+2026-10-14 14:50:25,361 | INFO | Página del portal 126/150: https://www.simple.sv/index.php/tramite/solicitud-de-carnet-de-identificacion-para-el-ingreso-a-las-instalaciones-de-las-empresas-de-cepa/modalidad-unica
+2026-10-14 14:50:26,832 | INFO | Página del portal 127/150: https://www.simple.sv/index.php/tramite/solicitud-para-la-devolucion-de-armas-de-fuego-de-persona-natural/modalidad-unica
+2026-10-14 14:50:28,273 | INFO | Página del portal 128/150: http://www.simple.sv/index.php/tramites-filtrados?page=11
+2026-10-14 14:50:29,737 | INFO | Página del portal 129/150: https://simple.sv/categorias-home?page=2
+2026-10-14 14:50:31,153 | INFO | Se omite contenido no HTML: https://simple.sv/categorias-home?page=2 (application/json)
+2026-10-14 14:50:31,154 | INFO | Página del portal 130/150: https://simple.sv/instrucciones
+2026-10-14 14:50:32,590 | INFO | Página del portal 131/150: http://simple.sv/contactanos?page=2
+2026-10-14 14:50:34,106 | INFO | Página del portal 132/150: https://www.simple.sv/index.php/tramite/renovacion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma/ciudadano
+2026-10-14 14:50:35,559 | INFO | Página del portal 133/150: https://www.simple.sv/index.php/tramite/registro-de-transportista-de-carga-nacional-e-internacional/persona-natural
+2026-10-14 14:50:36,997 | INFO | Página del portal 134/150: https://www.simple.sv/index.php/tramite/permiso-especial-para-el-transporte-de-materiales-peligrosos-nacional-e-internacional/persona-natural
+2026-10-14 14:50:38,434 | INFO | Página del portal 135/150: https://www.simple.sv/index.php/tramite/permiso-especial-para-el-transporte-de-objetos-que-sobrepasen-el-peso-yo-dimensiones-establecidas-en-la-ley-nacional-e-internacional-autorizacion-de-transporte-de-cargas-mayores-a-las-permitidas/persona-natural
+2026-10-14 14:50:39,894 | INFO | Página del portal 136/150: https://www.simple.sv/index.php/tramite/consulta-y-pago-de-prestamos-fsv/persona-natural
+2026-10-14 14:50:41,312 | INFO | Página del portal 137/150: https://www.simple.sv/index.php/tramite/autorizacion-de-realizacion-de-emision-de-gases/persona-natural
+2026-10-14 14:50:42,769 | INFO | Página del portal 138/150: https://www.simple.sv/index.php/tramite/solicitud-de-estado-de-cuenta/personal
+2026-10-14 14:50:44,220 | INFO | Página del portal 139/150: https://www.simple.sv/index.php/tramite/otorgamiento-de-cita-medica/persona-natural
+2026-10-14 14:50:45,661 | INFO | Página del portal 140/150: https://www.simple.sv/index.php/tramite/autentica-de-documentos-academicos/ciudadano
+2026-10-14 14:50:47,084 | INFO | Página del portal 141/150: http://www.simple.sv/index.php/tramites-filtrados?page=9
+2026-10-14 14:50:48,582 | INFO | Página del portal 142/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss/solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss
+2026-10-14 14:50:50,005 | INFO | Página del portal 143/150: https://www.simple.sv/index.php/tramite/constancia-de-competencia/modalidad-unica
+2026-10-14 14:50:51,443 | INFO | Página del portal 144/150: https://www.simple.sv/index.php/tramite/constancia-de-afiliacion-y-beneficio/persona-natural
+2026-10-14 14:50:52,880 | INFO | Página del portal 145/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancias-de-cotizante-no-pensionado/solicitud-de-constancias-de-cotizante-no-pensionado
+2026-10-14 14:50:54,332 | INFO | Página del portal 146/150: https://www.simple.sv/index.php/tramite/constancias-de-pensionados/constancia-de-pensionados
+2026-10-14 14:50:55,765 | INFO | Página del portal 147/150: https://www.simple.sv/index.php/tramite/constancia-de-numero-de-afiliacion/constancia-de-numero-de-afiliacion
+2026-10-14 14:50:57,238 | INFO | Página del portal 148/150: https://www.simple.sv/index.php/tramite/constancias-de-beneficiarios-inscritos/constancias-de-beneficiarios-inscritos
+2026-10-14 14:50:58,696 | INFO | Página del portal 149/150: https://www.simple.sv/index.php/tramite/formulario-de-inscripcion-registro-nacional-de-consultores/formulario-de-inscripcion-registro-nacional-de-consultores
+2026-10-14 14:51:00,134 | INFO | Página del portal 150/150: https://www.simple.sv/index.php/tramite/constancia-de-deposito-de-pension/en-linea
+2026-10-14 14:51:02,221 | INFO | Proceso finalizado: {"tramites_unicos": 118, "total_declarado": 118, "paginas_html": 129, "errores": 6, "coincide_total": true, "salidas": ["simple_sv_completo.json", "simple_sv_documentacion.txt", "simple_sv_documentacion.md", "scraper.log"]}
+2026-10-14 14:55:22,699 | INFO | robots.txt consultado: HTTP 200. Revísalo antes de una extracción extensa.
+2026-10-14 14:55:22,700 | INFO | Consultando endpoint JSON: http://simple.sv/tramites-filtro?page=1&per_page=9
+2026-10-14 14:55:24,607 | INFO | Página JSON 2/14: http://simple.sv/tramites-filtro?page=2&per_page=9
+2026-10-14 14:55:26,053 | INFO | Página 2: 9 registros; 9 nuevos
+2026-10-14 14:55:26,053 | INFO | Página JSON 3/14: http://simple.sv/tramites-filtro?page=3&per_page=9
+2026-10-14 14:55:27,496 | INFO | Página 3: 9 registros; 9 nuevos
+2026-10-14 14:55:27,497 | INFO | Página JSON 4/14: http://simple.sv/tramites-filtro?page=4&per_page=9
+2026-10-14 14:55:28,929 | INFO | Página 4: 9 registros; 9 nuevos
+2026-10-14 14:55:28,930 | INFO | Página JSON 5/14: http://simple.sv/tramites-filtro?page=5&per_page=9
+2026-10-14 14:55:30,376 | INFO | Página 5: 9 registros; 9 nuevos
+2026-10-14 14:55:30,376 | INFO | Página JSON 6/14: http://simple.sv/tramites-filtro?page=6&per_page=9
+2026-10-14 14:55:31,839 | INFO | Página 6: 9 registros; 9 nuevos
+2026-10-14 14:55:31,839 | INFO | Página JSON 7/14: http://simple.sv/tramites-filtro?page=7&per_page=9
+2026-10-14 14:55:33,297 | INFO | Página 7: 9 registros; 9 nuevos
+2026-10-14 14:55:33,297 | INFO | Página JSON 8/14: http://simple.sv/tramites-filtro?page=8&per_page=9
+2026-10-14 14:55:34,749 | INFO | Página 8: 9 registros; 9 nuevos
+2026-10-14 14:55:34,750 | INFO | Página JSON 9/14: http://simple.sv/tramites-filtro?page=9&per_page=9
+2026-10-14 14:55:36,231 | INFO | Página 9: 9 registros; 9 nuevos
+2026-10-14 14:55:36,231 | INFO | Página JSON 10/14: http://simple.sv/tramites-filtro?page=10&per_page=9
+2026-10-14 14:55:37,668 | INFO | Página 10: 9 registros; 9 nuevos
+2026-10-14 14:55:37,668 | INFO | Página JSON 11/14: http://simple.sv/tramites-filtro?page=11&per_page=9
+2026-10-14 14:55:39,140 | INFO | Página 11: 9 registros; 9 nuevos
+2026-10-14 14:55:39,141 | INFO | Página JSON 12/14: http://simple.sv/tramites-filtro?page=12&per_page=9
+2026-10-14 14:55:40,596 | INFO | Página 12: 9 registros; 9 nuevos
+2026-10-14 14:55:40,597 | INFO | Página JSON 13/14: http://simple.sv/tramites-filtro?page=13&per_page=9
+2026-10-14 14:55:42,040 | INFO | Página 13: 9 registros; 9 nuevos
+2026-10-14 14:55:42,041 | INFO | Página JSON 14/14: http://simple.sv/tramites-filtro?page=14&per_page=9
+2026-10-14 14:55:43,516 | INFO | Página 14: 1 registros; 1 nuevos
+2026-10-14 14:55:43,517 | INFO | Página del portal 1/150: https://www.simple.sv/
+2026-10-14 14:55:45,129 | INFO | Página del portal 2/150: https://www.simple.sv/index.php/tramites-filtrados
+2026-10-14 14:55:46,662 | INFO | Página del portal 3/150: https://www.simple.sv/instrucciones
+2026-10-14 14:55:48,143 | INFO | Página del portal 4/150: https://www.simple.sv/login
+2026-10-14 14:55:50,739 | WARNING | No se pudo leer https://www.simple.sv/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fwww.simple.sv%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wEWvFv5w3eW7Qa4p8xsmP4WGkanjwbitPN28Xz56
+2026-10-14 14:55:50,739 | INFO | Página del portal 5/150: https://www.simple.sv/contactanos
+2026-10-14 14:55:52,223 | INFO | Página del portal 6/150: https://www.simple.sv/categorias-home?page=2
+2026-10-14 14:55:53,628 | INFO | Se omite contenido no HTML: https://www.simple.sv/categorias-home?page=2 (application/json)
+2026-10-14 14:55:53,629 | INFO | Página del portal 7/150: https://www.simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:55:54,936 | WARNING | No se pudo leer https://www.simple.sv/cdn-cgi/l/email-protection: 404 Client Error: Not Found for url: https://www.simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:55:54,937 | INFO | Página del portal 8/150: https://www.simple.sv/index.php
+2026-10-14 14:55:56,439 | INFO | Página del portal 9/150: https://www.simple.sv/index.php/login
+2026-10-14 14:55:58,108 | WARNING | No se pudo leer https://www.simple.sv/index.php/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fwww.simple.sv%2Findex.php%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wEWvFv5w3eW7Qa4p8xsmP4WGkanjwbitPN28Xz56
+2026-10-14 14:55:58,108 | INFO | Página del portal 10/150: https://www.simple.sv/index.php/contactanos
+2026-10-14 14:55:59,597 | INFO | Página del portal 11/150: https://www.simple.sv/index.php/tramite/constancia-de-no-servicio-de-agua-potable-yo-alcantarillado/ciudadano
+2026-10-14 14:56:01,124 | INFO | Página del portal 12/150: https://www.simple.sv/index.php/tramite/solvencia-de-cuenta-de-agua-potable-yo-alcantarillados/ciudadano
+2026-10-14 14:56:02,648 | INFO | Página del portal 13/150: https://www.simple.sv/index.php/tramite/emision-de-certificacion-de-antecedentes-penales/nacionales-personas-naturales
+2026-10-14 14:56:04,133 | INFO | Página del portal 14/150: https://www.simple.sv/index.php/tramite/constancia-de-antecedentes-policiales/nacionales
+2026-10-14 14:56:05,643 | INFO | Página del portal 15/150: https://www.simple.sv/index.php/tramite/permiso-para-la-incubacion-de-huevos-de-tortugas-marinas-en-condiciones-controladas/persona-natural
+2026-10-14 14:56:07,187 | INFO | Página del portal 16/150: https://www.simple.sv/index.php/tramite/autorizacion-de-fianza-moral/modalidad-unica
+2026-10-14 14:56:08,693 | INFO | Página del portal 17/150: https://www.simple.sv/index.php/tramite/ampliacion-de-servicios-educativos-sector-privado/modalidad-unica
+2026-10-14 14:56:10,174 | INFO | Página del portal 18/150: https://www.simple.sv/index.php/tramite/cambio-de-domicilio-centros-educativos-oficiales/modalidad-unica
+2026-10-14 14:56:11,684 | INFO | Página del portal 19/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-titulo-de-educacion-media/modalidad-unica
+2026-10-14 14:56:13,177 | INFO | Página del portal 20/150: http://www.simple.sv/index.php/tramites-filtrados?page=1
+2026-10-14 14:56:14,791 | INFO | Página del portal 21/150: http://www.simple.sv/index.php/tramites-filtrados?page=2
+2026-10-14 14:56:16,384 | INFO | Página del portal 22/150: http://www.simple.sv/index.php/tramites-filtrados?page=3
+2026-10-14 14:56:17,965 | INFO | Página del portal 23/150: http://www.simple.sv/index.php/tramites-filtrados?page=4
+2026-10-14 14:56:19,499 | INFO | Página del portal 24/150: http://www.simple.sv/index.php/tramites-filtrados?page=5
+2026-10-14 14:56:21,107 | INFO | Página del portal 25/150: http://www.simple.sv/index.php/tramites-filtrados?page=14
+2026-10-14 14:56:22,648 | INFO | Página del portal 26/150: http://www.simple.sv/contactanos?page=2
+2026-10-14 14:56:24,140 | INFO | Página del portal 27/150: https://www.simple.sv/index.php/categorias-home?page=2
+2026-10-14 14:56:25,559 | INFO | Se omite contenido no HTML: https://www.simple.sv/index.php/categorias-home?page=2 (application/json)
+2026-10-14 14:56:25,559 | INFO | Página del portal 28/150: https://www.simple.sv/index.php/instrucciones
+2026-10-14 14:56:27,011 | INFO | Página del portal 29/150: http://www.simple.sv/index.php/contactanos?page=2
+2026-10-14 14:56:28,514 | INFO | Página del portal 30/150: https://www.simple.sv/storage/Constancia_de_No_Servicio_L0a3fBC.pdf
+2026-10-14 14:56:30,023 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/Constancia_de_No_Servicio_L0a3fBC.pdf (application/pdf)
+2026-10-14 14:56:30,023 | INFO | Página del portal 31/150: https://www.simple.sv/storage/Solicitud_Solvencia_de_Cuenta_h43XMpI.pdf
+2026-10-14 14:56:31,403 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/Solicitud_Solvencia_de_Cuenta_h43XMpI.pdf (application/pdf)
+2026-10-14 14:56:31,404 | INFO | Página del portal 32/150: https://www.simple.sv/index.php/mis-documentos
+2026-10-14 14:56:32,817 | WARNING | No se pudo leer https://www.simple.sv/index.php/mis-documentos: 401 Client Error: Unauthorized for url: https://www.simple.sv/index.php/mis-documentos
+2026-10-14 14:56:32,818 | INFO | Página del portal 33/150: https://www.simple.sv/storage/EAM-PVS-PR-06-FO-01_Solicitud_incubacion_05_feb_2021.pdf
+2026-10-14 14:56:34,183 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/EAM-PVS-PR-06-FO-01_Solicitud_incubacion_05_feb_2021.pdf (application/pdf)
+2026-10-14 14:56:34,183 | INFO | Página del portal 34/150: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO_Hwbzap6.docx
+2026-10-14 14:56:35,525 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO_Hwbzap6.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:56:35,526 | INFO | Página del portal 35/150: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO.docx
+2026-10-14 14:56:36,863 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/2._AMPLIACION_PRIVADO.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:56:36,864 | INFO | Página del portal 36/150: https://www.simple.sv/storage/3._CAMBIO_DE_DOMICILIO_OFICIALES.docx
+2026-10-14 14:56:38,194 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/3._CAMBIO_DE_DOMICILIO_OFICIALES.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:56:38,195 | INFO | Página del portal 37/150: https://www.simple.sv/index.php/tramite/solicitud-de-tramites-de-factibilidad-para-una-vivienda/ciudadano
+2026-10-14 14:56:39,673 | INFO | Página del portal 38/150: https://www.simple.sv/index.php/tramite/solicitud-de-tramites-de-cambio-de-nombre-del-titular-de-la-cuenta/ciudadano
+2026-10-14 14:56:41,172 | INFO | Página del portal 39/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-notas-de-educacion-basica-y-media/ciudadano
+2026-10-14 14:56:42,635 | INFO | Página del portal 40/150: https://www.simple.sv/index.php/tramite/creacion-nominacion-y-funcionamiento-de-centros-educativos/ciudadano
+2026-10-14 14:56:44,150 | INFO | Página del portal 41/150: https://www.simple.sv/index.php/tramite/prospectos-escolares/empresarial
+2026-10-14 14:56:45,650 | INFO | Página del portal 42/150: https://www.simple.sv/index.php/tramite/productos-lidar-tecnica-de-teledeteccion-optica-que-utiliza-la-luz-de-laser-para-obtener-una-muestra-densa-de-la-superficie-de-la-tierra-produciendo-mediciones-exactas-de-x-y-y-z/modalidad-unica
+2026-10-14 14:56:47,158 | INFO | Página del portal 43/150: https://www.simple.sv/index.php/tramite/solvencias-y-constancias-patronales/solicitud-de-solvencia-patronal-de-regimen-salud
+2026-10-14 14:56:48,621 | INFO | Página del portal 44/150: https://www.simple.sv/index.php/tramite/autorizacion-y-registro-de-agentes-maritimos/modalidad-unica
+2026-10-14 14:56:50,099 | INFO | Página del portal 45/150: https://www.simple.sv/index.php/tramite/solicitud-de-estado-de-cuenta/ciudadano
+2026-10-14 14:56:51,617 | INFO | Página del portal 46/150: https://www.simple.sv/index.php/tramite/extension-de-permiso-de-aprendiz-tecnico-en-mantenimiento-de-aeronaves/modalidad-unica
+2026-10-14 14:56:53,117 | INFO | Página del portal 47/150: https://www.simple.sv/index.php/tramite/constancia-de-homonimos-para-registros-de-armas-de-fuego/modalidad-unica
+2026-10-14 14:56:54,632 | INFO | Página del portal 48/150: https://www.simple.sv/index.php/tramite/solicitud-de-publicacion-en-el-diario-oficial/modalidad-unica
+2026-10-14 14:56:56,140 | INFO | Página del portal 49/150: https://www.simple.sv/index.php/tramite/nota-de-exoneracion-de-visado-de-importacion-de-productos-agricola/modalidad-unica
+2026-10-14 14:56:57,626 | INFO | Página del portal 50/150: https://www.simple.sv/index.php/tramite/nota-de-exoneracion-de-visado-de-importacion-de-productos-veterinarios/modalidad-unica
+2026-10-14 14:56:59,202 | INFO | Página del portal 51/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-medica/modalidad-unica
+2026-10-14 14:57:00,699 | INFO | Página del portal 52/150: https://www.simple.sv/index.php/tramite/notificacion-de-asamblea-general/modalidad-unica
+2026-10-14 14:57:02,183 | INFO | Página del portal 53/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-horarios-de-atencion-en-los-servicios-de-rehabilitacion/modalidad-unica
+2026-10-14 14:57:03,679 | INFO | Página del portal 54/150: https://www.simple.sv/index.php/tramite/extension-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:57:05,172 | INFO | Página del portal 55/150: https://www.simple.sv/index.php/tramite/certificado-inscripcion-de-registro-de-desarrollador-parcelario/ciudadano
+2026-10-14 14:57:06,674 | INFO | Página del portal 56/150: https://www.simple.sv/index.php/tramite/emision-de-certificacion-de-notas-para-graduados-de-ena/modalidad-unica
+2026-10-14 14:57:08,178 | INFO | Página del portal 57/150: https://www.simple.sv/index.php/tramite/certificacion-de-registro-de-dui-y-no-dui/ciudadano
+2026-10-14 14:57:09,699 | INFO | Página del portal 58/150: https://www.simple.sv/index.php/tramite/constancia-de-homonimo/ciudadano
+2026-10-14 14:57:11,190 | INFO | Página del portal 59/150: https://www.simple.sv/index.php/tramite/certificacion-de-partidas/ciudadano
+2026-10-14 14:57:12,714 | INFO | Página del portal 60/150: https://www.simple.sv/index.php/tramite/renovacion-de-licencia-piloto-privado-avion/modalidad-unica
+2026-10-14 14:57:14,210 | INFO | Página del portal 61/150: https://www.simple.sv/index.php/tramite/renovacion-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:57:15,747 | INFO | Página del portal 62/150: https://www.simple.sv/index.php/tramite/renovacion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:57:17,219 | INFO | Página del portal 63/150: https://www.simple.sv/index.php/tramite/reposicion-de-licencia-piloto-privado-avion/modalidad-unica
+2026-10-14 14:57:18,766 | INFO | Página del portal 64/150: https://www.simple.sv/index.php/tramite/reposicion-de-permiso-de-piloto-estudiante/modalidad-unica
+2026-10-14 14:57:20,285 | INFO | Página del portal 65/150: https://www.simple.sv/index.php/tramite/reposicion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:57:21,808 | INFO | Página del portal 66/150: https://www.simple.sv/index.php/tramite/reposicion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma/modalidad-unica
+2026-10-14 14:57:23,301 | INFO | Página del portal 67/150: https://www.simple.sv/index.php/tramite/autorizacion-de-centros-de-atencion-a-primera-infancia/modalidad-unica
+2026-10-14 14:57:24,801 | INFO | Página del portal 68/150: https://www.simple.sv/index.php/tramite/solicitud-del-servicio-vip-en-el-aeropuerto-internacional-de-el-salvador/modalidad-unica
+2026-10-14 14:57:26,311 | INFO | Página del portal 69/150: https://www.simple.sv/index.php/tramite/importar-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:57:27,814 | INFO | Página del portal 70/150: https://www.simple.sv/index.php/tramite/solicitud-de-informacion-gratuita-de-fenomenos-naturales/solicitud-de-informacion-gratuita-de-fenomenos-naturales
+2026-10-14 14:57:29,299 | INFO | Página del portal 71/150: https://www.simple.sv/index.php/tramite/solicitud-de-fijacion-cuota-alimenticia/solicitud-de-fijacion-cuota-alimenticia
+2026-10-14 14:57:30,799 | INFO | Página del portal 72/150: https://www.simple.sv/index.php/tramite/importacion-de-valvulas-para-cilindros-portatiles-para-glp/modalidad-unica
+2026-10-14 14:57:32,295 | INFO | Página del portal 73/150: http://www.simple.sv/index.php/tramites-filtrados?page=6
+2026-10-14 14:57:33,835 | INFO | Página del portal 74/150: https://www.simple.sv/index.php/tramite/modificacion-o-actualizacion-de-opspecs/modalidad-unica
+2026-10-14 14:57:35,338 | INFO | Página del portal 75/150: http://www.simple.sv/index.php/tramites-filtrados?page=13
+2026-10-14 14:57:36,865 | INFO | Página del portal 76/150: http://www.simple.sv/contactanos?page=1
+2026-10-14 14:57:38,374 | INFO | Página del portal 77/150: http://www.simple.sv/index.php/contactanos?page=1
+2026-10-14 14:57:40,121 | INFO | Página del portal 78/150: https://www.simple.sv/storage/1VjmBzv43MJwtD1Ja46RtsC7sgtMyBZooTuagRsh.docx
+2026-10-14 14:57:41,505 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/1VjmBzv43MJwtD1Ja46RtsC7sgtMyBZooTuagRsh.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:57:41,505 | INFO | Página del portal 79/150: https://www.simple.sv/storage/bhUm5xT2ySskFrKYOYc6XPRBrkGUEGQbrbkQEizL.docx
+2026-10-14 14:57:42,826 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/bhUm5xT2ySskFrKYOYc6XPRBrkGUEGQbrbkQEizL.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:57:42,827 | INFO | Página del portal 80/150: https://www.simple.sv/storage/oO6iYl4OwptCDu9MVwjO23JxsfYa1XWem8FJN2xF.docx
+2026-10-14 14:57:44,150 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/oO6iYl4OwptCDu9MVwjO23JxsfYa1XWem8FJN2xF.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:57:44,151 | INFO | Página del portal 81/150: https://simple.sv/tramite/autorizacion-y-registro-de-agentes-maritimos/modalidad-unica
+2026-10-14 14:57:45,628 | INFO | Página del portal 82/150: https://www.simple.sv/storage/6CF1nAHscHiQzQRUp9fZMTGzeRmalDWkgATgMODJ.docx
+2026-10-14 14:57:46,970 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/6CF1nAHscHiQzQRUp9fZMTGzeRmalDWkgATgMODJ.docx (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
+2026-10-14 14:57:46,971 | INFO | Página del portal 83/150: https://www.simple.sv/storage/mtrUUOKAZG8NDeKbQ8woJAr7x40MorpmjXRlkPSH.xlsx
+2026-10-14 14:57:48,302 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/mtrUUOKAZG8NDeKbQ8woJAr7x40MorpmjXRlkPSH.xlsx (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
+2026-10-14 14:57:48,302 | INFO | Página del portal 84/150: https://www.simple.sv/storage/J6TXzrQ5q0ic8mt5N0RqTNOr87iOqM4WogBAHhRl.pdf
+2026-10-14 14:57:49,718 | INFO | Se omite contenido no HTML: https://www.simple.sv/storage/J6TXzrQ5q0ic8mt5N0RqTNOr87iOqM4WogBAHhRl.pdf (application/pdf)
+2026-10-14 14:57:49,719 | INFO | Página del portal 85/150: https://www.simple.sv/index.php/tramite/exportar-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:57:51,198 | INFO | Página del portal 86/150: https://www.simple.sv/index.php/tramite/importacion-de-accesorios-para-cilindros-portatiles-para-glp/modalidad-unica
+2026-10-14 14:57:52,764 | INFO | Página del portal 87/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-fianza/solicitud-de-anotacioninscripcion-de-fianza
+2026-10-14 14:57:54,240 | INFO | Página del portal 88/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-tarifas/solicitud-de-anotacioninscripcion-de-tarifas
+2026-10-14 14:57:55,723 | INFO | Página del portal 89/150: https://www.simple.sv/index.php/tramite/solicitud-de-anotacioninscripcion-de-polizas-de-seguro/solicitud-de-anotacioninscripcion-de-polizas-de-seguro
+2026-10-14 14:57:57,227 | INFO | Página del portal 90/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos/solicitud-de-certificacion-extractada-de-documentos-anotadosinscritos
+2026-10-14 14:57:58,740 | INFO | Página del portal 91/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos/solicitud-de-certificacion-de-expedientes-de-aeronaves
+2026-10-14 14:58:00,251 | INFO | Página del portal 92/150: https://www.simple.sv/index.php/tramite/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos/solicitud-de-certificacion-literal-de-documentos-anotadosinscritos
+2026-10-14 14:58:01,776 | INFO | Página del portal 93/150: https://www.simple.sv/index.php/tramite/importar-reguladores-de-baja-presion-para-glp-juridico/modalidad-unica
+2026-10-14 14:58:03,281 | INFO | Página del portal 94/150: http://www.simple.sv/index.php/tramites-filtrados?page=7
+2026-10-14 14:58:04,961 | INFO | Página del portal 95/150: https://www.simple.sv/index.php/tramite/beneficio-de-ayuda-economica-para-gastos-funerarios/unica
+2026-10-14 14:58:06,463 | INFO | Página del portal 96/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-estacion-de-servicio/transferencia-de-funcionamiento-de-estacion-de-servicio
+2026-10-14 14:58:08,024 | INFO | Página del portal 97/150: https://www.simple.sv/index.php/tramite/resolucion-emitida-por-la-direccion-general-de-energia-hidrocarburos-y-minas-transfiriendo-la-autorizacion-de-funcionamiento-de-un-operador-a-otro/transferencia-de-funcionamiento-de-fabrica-de-cilindros-portatiles-para-envasado-de-glp
+2026-10-14 14:58:09,568 | INFO | Página del portal 98/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-planta-de-envasado-de-glp/transferencia-de-funcionamiento-de-planta-de-envasado-de-glp
+2026-10-14 14:58:11,074 | INFO | Página del portal 99/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-deposito-de-aprovisionamiento/transferencia-de-funcionamiento-de-deposito-de-aprovisionamiento
+2026-10-14 14:58:12,603 | INFO | Página del portal 100/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-taller-de-reparacion-y-mantenimiento-de-cilindros-para-glp/transferencia-de-funcionamiento-de-taller-de-reparacion-y-mantenimiento-de-cilindros-para-glp
+2026-10-14 14:58:14,130 | INFO | Página del portal 101/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-taller-para-instalacion-de-glp-vehicular/transferencia-de-funcionamiento-de-taller-para-instalacion-de-equipos-para-la-utilizacion-de-glp-v
+2026-10-14 14:58:15,654 | INFO | Página del portal 102/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-tanque-para-consumo-privado/transferencia-de-funcionamiento-de-tanque-para-consumo-privado
+2026-10-14 14:58:17,153 | INFO | Página del portal 103/150: https://www.simple.sv/index.php/tramite/transferencia-de-funcionamiento-de-tanque-para-consumo-privado-temporal/transferencia-de-funcionamiento-de-tanque-para-consumo-privado-temporal
+2026-10-14 14:58:18,650 | INFO | Página del portal 104/150: http://www.simple.sv/index.php/tramites-filtrados?page=12
+2026-10-14 14:58:20,193 | INFO | Página del portal 105/150: https://simple.sv/
+2026-10-14 14:58:21,660 | INFO | Página del portal 106/150: https://simple.sv/login
+2026-10-14 14:58:23,246 | WARNING | No se pudo leer https://simple.sv/login: 401 Client Error: Unauthorized for url: https://login.gob.sv/oauth/authorize?client_id=955d3772-3d25-4932-8fb5-88fc15e57e63&redirect_uri=https%3A%2F%2Fsimple.sv%2Flogin%2Fclaveunica%2Fcallback&response_type=code&scope=openid+profile+email&state=wEWvFv5w3eW7Qa4p8xsmP4WGkanjwbitPN28Xz56
+2026-10-14 14:58:23,246 | INFO | Página del portal 107/150: https://simple.sv/contactanos
+2026-10-14 14:58:24,679 | INFO | Página del portal 108/150: https://simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:58:25,967 | WARNING | No se pudo leer https://simple.sv/cdn-cgi/l/email-protection: 404 Client Error: Not Found for url: https://simple.sv/cdn-cgi/l/email-protection
+2026-10-14 14:58:25,967 | INFO | Página del portal 109/150: https://www.simple.sv/index.php/tramite/utilizar-en-el-mercado-nacional-cilindros-portatiles-para-envasado-de-glp/modalidad-unica
+2026-10-14 14:58:27,455 | INFO | Página del portal 110/150: https://www.simple.sv/index.php/tramite/exportar-glp-a-granel/modalidad-unica
+2026-10-14 14:58:28,977 | INFO | Página del portal 111/150: https://www.simple.sv/index.php/tramite/reexportar-glp-a-granel/modalidad-unica
+2026-10-14 14:58:30,478 | INFO | Página del portal 112/150: https://www.simple.sv/index.php/tramite/comercializacion-local-de-reguladores-de-baja-presion-para-glp/modalidad-unica
+2026-10-14 14:58:31,993 | INFO | Página del portal 113/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancias-de-estudios/solicitud-de-constancias-de-estudios
+2026-10-14 14:58:33,475 | INFO | Página del portal 114/150: https://www.simple.sv/index.php/tramite/solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla/solicitud-de-servicio-extraordinario-en-el-puerto-de-acajutla-persona-natural
+2026-10-14 14:58:34,967 | INFO | Página del portal 115/150: https://www.simple.sv/index.php/tramite/acreditacion-de-programas-y-registro-de-miembros-de-la-rea/conapina-acreditacion-de-programas-y-registro-de-miembros-de-la-rea-administrativo
+2026-10-14 14:58:36,493 | INFO | Página del portal 116/150: https://www.simple.sv/index.php/tramite/registro-de-proyectos-de-atencion-de-primera-infancia-ninez-y-adolescencia/conapina-administrativo
+2026-10-14 14:58:37,973 | INFO | Página del portal 117/150: https://www.simple.sv/index.php/tramite/solicitud-de-matricula-de-fierro-para-herrar-ganado/ciudadano
+2026-10-14 14:58:39,497 | INFO | Página del portal 118/150: http://www.simple.sv/index.php/tramites-filtrados?page=8
+2026-10-14 14:58:41,120 | INFO | Página del portal 119/150: https://www.simple.sv/index.php/tramite/certificacion-tecnica-para-fines-judiciales-y-de-seguros/persona-natural-o-juridica
+2026-10-14 14:58:42,629 | INFO | Página del portal 120/150: https://www.simple.sv/index.php/tramite/constancia-del-tribunal-de-etica-gubernamental-sobre-existencia-o-no-de-sanciones-procedimientos-activos-o-fenecidos-por-infracciones-a-la-ley-de-etica-gubernamental/persona-natural
+2026-10-14 14:58:44,158 | INFO | Página del portal 121/150: https://www.simple.sv/index.php/tramite/certificacion-de-tarifario/persona-juridica
+2026-10-14 14:58:45,679 | INFO | Página del portal 122/150: https://www.simple.sv/index.php/tramite/constancia-para-la-obtencion-de-la-exencion-de-iva/persona-juridica
+2026-10-14 14:58:47,165 | INFO | Página del portal 123/150: https://www.simple.sv/index.php/tramite/boleta-de-resultados-paes-avanzo/ciudadano
+2026-10-14 14:58:48,654 | INFO | Página del portal 124/150: https://www.simple.sv/index.php/tramite/renovacion-de-registro-de-transportistas-de-carga-nacional-e-internacional/ciudadano
+2026-10-14 14:58:50,152 | INFO | Página del portal 125/150: https://www.simple.sv/index.php/tramite/ayuda-economica-por-la-adquisicion-de-anteojos/modalidad-unica
+2026-10-14 14:58:51,679 | INFO | Página del portal 126/150: https://www.simple.sv/index.php/tramite/solicitud-de-carnet-de-identificacion-para-el-ingreso-a-las-instalaciones-de-las-empresas-de-cepa/modalidad-unica
+2026-10-14 14:58:53,186 | INFO | Página del portal 127/150: https://www.simple.sv/index.php/tramite/solicitud-para-la-devolucion-de-armas-de-fuego-de-persona-natural/modalidad-unica
+2026-10-14 14:58:54,813 | INFO | Página del portal 128/150: http://www.simple.sv/index.php/tramites-filtrados?page=11
+2026-10-14 14:58:56,398 | INFO | Página del portal 129/150: https://simple.sv/categorias-home?page=2
+2026-10-14 14:58:57,789 | INFO | Se omite contenido no HTML: https://simple.sv/categorias-home?page=2 (application/json)
+2026-10-14 14:58:57,789 | INFO | Página del portal 130/150: https://simple.sv/instrucciones
+2026-10-14 14:58:59,235 | INFO | Página del portal 131/150: http://simple.sv/contactanos?page=2
+2026-10-14 14:59:00,728 | INFO | Página del portal 132/150: https://www.simple.sv/index.php/tramite/renovacion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma/ciudadano
+2026-10-14 14:59:02,213 | INFO | Página del portal 133/150: https://www.simple.sv/index.php/tramite/registro-de-transportista-de-carga-nacional-e-internacional/persona-natural
+2026-10-14 14:59:03,716 | INFO | Página del portal 134/150: https://www.simple.sv/index.php/tramite/permiso-especial-para-el-transporte-de-materiales-peligrosos-nacional-e-internacional/persona-natural
+2026-10-14 14:59:05,201 | INFO | Página del portal 135/150: https://www.simple.sv/index.php/tramite/permiso-especial-para-el-transporte-de-objetos-que-sobrepasen-el-peso-yo-dimensiones-establecidas-en-la-ley-nacional-e-internacional-autorizacion-de-transporte-de-cargas-mayores-a-las-permitidas/persona-natural
+2026-10-14 14:59:06,771 | INFO | Página del portal 136/150: https://www.simple.sv/index.php/tramite/consulta-y-pago-de-prestamos-fsv/persona-natural
+2026-10-14 14:59:08,296 | INFO | Página del portal 137/150: https://www.simple.sv/index.php/tramite/autorizacion-de-realizacion-de-emision-de-gases/persona-natural
+2026-10-14 14:59:09,768 | INFO | Página del portal 138/150: https://www.simple.sv/index.php/tramite/solicitud-de-estado-de-cuenta/personal
+2026-10-14 14:59:11,303 | INFO | Página del portal 139/150: https://www.simple.sv/index.php/tramite/otorgamiento-de-cita-medica/persona-natural
+2026-10-14 14:59:12,786 | INFO | Página del portal 140/150: https://www.simple.sv/index.php/tramite/autentica-de-documentos-academicos/ciudadano
+2026-10-14 14:59:14,262 | INFO | Página del portal 141/150: http://www.simple.sv/index.php/tramites-filtrados?page=9
+2026-10-14 14:59:15,808 | INFO | Página del portal 142/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss/solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss
+2026-10-14 14:59:17,287 | INFO | Página del portal 143/150: https://www.simple.sv/index.php/tramite/constancia-de-competencia/modalidad-unica
+2026-10-14 14:59:18,786 | INFO | Página del portal 144/150: https://www.simple.sv/index.php/tramite/constancia-de-afiliacion-y-beneficio/persona-natural
+2026-10-14 14:59:20,288 | INFO | Página del portal 145/150: https://www.simple.sv/index.php/tramite/solicitud-de-constancias-de-cotizante-no-pensionado/solicitud-de-constancias-de-cotizante-no-pensionado
+2026-10-14 14:59:21,777 | INFO | Página del portal 146/150: https://www.simple.sv/index.php/tramite/constancias-de-pensionados/constancia-de-pensionados
+2026-10-14 14:59:23,315 | INFO | Página del portal 147/150: https://www.simple.sv/index.php/tramite/constancia-de-numero-de-afiliacion/constancia-de-numero-de-afiliacion
+2026-10-14 14:59:24,823 | INFO | Página del portal 148/150: https://www.simple.sv/index.php/tramite/constancias-de-beneficiarios-inscritos/constancias-de-beneficiarios-inscritos
+2026-10-14 14:59:26,313 | INFO | Página del portal 149/150: https://www.simple.sv/index.php/tramite/formulario-de-inscripcion-registro-nacional-de-consultores/formulario-de-inscripcion-registro-nacional-de-consultores
+2026-10-14 14:59:27,800 | INFO | Página del portal 150/150: https://www.simple.sv/index.php/tramite/constancia-de-deposito-de-pension/en-linea
+2026-10-14 14:59:30,907 | INFO | Proceso finalizado: {"tramites_unicos": 118, "total_declarado": 118, "paginas_html": 129, "errores": 6, "coincide_total": true, "salidas": ["simple_sv_completo.json", "simple_sv_documentacion.txt", "simple_sv_documentacion.md", "indice_instituciones.json", "indice_instituciones.txt", "indice_instituciones.md", "scraper.log"]}

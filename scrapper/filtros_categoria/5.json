@@ -1,0 +1,335 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 34,
+                "rnt_id": 1414,
+                "institucion_id": 11,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de antecedentes policiales",
+                "slug": "constancia-de-antecedentes-policiales",
+                "sub_titulo": "Unidad de Registro y Antecedentes Policiales",
+                "descripcion_busqueda": "La presente tiene por objeto, verificar las bases de datos que para los efectos de ley consulta la Unidad de Registro y Antecedentes Policiales, en el marco de sus facultades, a efecto de hacer constar si el ciudadano\/a mencionado\/a presenta o no, antecedentes Policiales, entendidos estos como la existencia de registros vinculados a investigaciones, denuncias, aprehensiones en flagrancia, detenciones administrativas o judiciales",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/Diseno-sin-titulo-1-700x400.jpg",
+                "institucion": {
+                    "id": 11,
+                    "nombre": "Polic\u00eda Nacional Civil de El Salvador",
+                    "siglas": "PNC"
+                },
+                "modalidades": [
+                    {
+                        "id": 50,
+                        "tramite_id": 34,
+                        "institucion_id": 11,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Nacionales",
+                        "slug": "nacionales",
+                        "sub_titulo": "Unidad de Registro y Antecedentes Policiales",
+                        "descripcion_busqueda": "Solvencia de la polic\u00eda, Solvencia polic\u00edaca, Solvencia PNC, Antecedentes policiales",
+                        "descripcion": "<div style=\"text-align: justify;\">La presente tiene por objeto, verificar las bases de datos que para los efectos de ley consulta la Unidad de Registro y Antecedentes Policiales, en el marco de sus facultades, a efecto de hacer constar si el ciudadano\/a mencionado\/a presenta o no, antecedentes Policiales, entendidos estos como la existencia de registros vinculados a investigaciones, denuncias, aprehensiones en flagrancia, detenciones administrativas o judiciales<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$3.50",
+                        "url_sitio": "https:\/\/pnc.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/pnc.ventanilla.simple.sv\/tramites\/iniciar\/51&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 447,
+                                "modalidad_id": 50,
+                                "costo": "3.50",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1104,
+                "rnt_id": null,
+                "institucion_id": 49,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia IAIP",
+                "slug": "solvencia-iaip",
+                "sub_titulo": "Gerencia Legal",
+                "descripcion_busqueda": "Solicitud para la emisi\u00f3n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci\u00f3n Condenatoria, en el Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-20 at 1.33.10 PM.jpeg",
+                "institucion": {
+                    "id": 49,
+                    "nombre": "Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                    "siglas": "IAIP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2367,
+                        "tramite_id": 1104,
+                        "institucion_id": 49,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Gerencia Legal",
+                        "descripcion_busqueda": "Solicitud para la emisi\u00f3n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci\u00f3n Condenatoria, en el Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Solicitud para la emisi&oacute;n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci&oacute;n Condenatoria, en el Instituto de Acceso a la Informaci&oacute;n P&uacute;blica<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/iaip.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/iaip.ventanilla.simple.sv\/tramites\/iniciar\/360&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1105,
+                "rnt_id": null,
+                "institucion_id": 50,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de cierre de casos",
+                "slug": "entrega-de-constancia-de-cierre-de-casos",
+                "sub_titulo": "Centro de Soluci\u00f3n de Controversias",
+                "descripcion_busqueda": "Solicitud de constancia de cierre de casos en avenimiento, conciliaci\u00f3n, en general los cierres de casos cual sea su resoluci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/SIMPLE_SV_DC.png",
+                "institucion": {
+                    "id": 50,
+                    "nombre": "Defensor\u00eda del Consumidor",
+                    "siglas": ""
+                },
+                "modalidades": [
+                    {
+                        "id": 2368,
+                        "tramite_id": 1105,
+                        "institucion_id": 50,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Centro de Soluci\u00f3n de Controversias",
+                        "descripcion_busqueda": "Solicitud de constancia de cierre de casos en avenimiento, conciliaci\u00f3n, en general los cierres de casos cual sea su resoluci\u00f3n",
+                        "descripcion": "<span style=\"font-weight: 400;\">Solicitud de constancia de cierre de casos en avenimiento, conciliaci&oacute;n, en general los cierres de casos cual sea su resoluci&oacute;n<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/defensoria.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/defensoria.ventanilla.simple.sv\/tramites\/iniciar\/352&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1120,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de n\u00famero de afiliaci\u00f3n",
+                "slug": "constancia-de-numero-de-afiliacion",
+                "sub_titulo": "Departamento de prestaciones",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el n\u00famero de afiliaci\u00f3n que tiene asignado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6888d8c01de52.jpg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2385,
+                        "tramite_id": 1120,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Constancia de n\u00famero de afiliaci\u00f3n",
+                        "slug": "constancia-de-numero-de-afiliacion",
+                        "sub_titulo": "Departamento de prestaciones",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el n\u00famero de afiliaci\u00f3n que tiene asignado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar el n&uacute;mero de afiliaci&oacute;n que tiene asignado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/392&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1118,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de cotizante no pensionado",
+                "slug": "solicitud-de-constancias-de-cotizante-no-pensionado",
+                "sub_titulo": "Departamento de Tesorer\u00eda",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el \u00faltimo periodo de cotizaci\u00f3n que se tiene registrado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6887e1d9f2667.jpeg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2383,
+                        "tramite_id": 1118,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de constancias de cotizante no pensionado",
+                        "slug": "solicitud-de-constancias-de-cotizante-no-pensionado",
+                        "sub_titulo": "Departamento de Tesorer\u00eda",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar el \u00faltimo periodo de cotizaci\u00f3n que se tiene registrado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar el &uacute;ltimo periodo de cotizaci&oacute;n que se tiene registrado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/389&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1128,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia para la obtenci\u00f3n de la exenci\u00f3n de IVA",
+                "slug": "constancia-para-la-obtencion-de-la-exencion-de-iva",
+                "sub_titulo": "Viceministerio de Transporte",
+                "descripcion_busqueda": "Este tr\u00e1mite sirve para que toda persona jur\u00eddica concesionaria y\/ o permisionaria que realice importaciones o internaciones definitivas de autobuses, microbuses y \/ o veh\u00edculos de alquiler dedicados al transporte p\u00fablico de pasajeros pueda obtener una constancia para tramitar la exenci\u00f3n del impuesto IVA ante la autoridad competente",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/690e0f7486994.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2394,
+                        "tramite_id": 1128,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Unidad Jur\u00eddica de Transporte Terrestre",
+                        "descripcion_busqueda": "Este tr\u00e1mite sirve para que toda persona jur\u00eddica concesionaria y\/ o permisionaria que realice importaciones o internaciones definitivas de autobuses, microbuses y \/ o veh\u00edculos de alquiler dedicados al transporte p\u00fablico de pasajeros pueda obtener una constancia para tramitar la exenci\u00f3n del impuesto IVA ante la autoridad competente",
+                        "descripcion": "<span style=\"font-weight: 400;\">Este tr&aacute;mite sirve para que toda persona jur&iacute;dica concesionaria y\/ o permisionaria que realice importaciones o internaciones definitivas de autobuses, microbuses y \/ o veh&iacute;culos de alquiler dedicados al transporte p&uacute;blico de pasajeros pueda obtener una constancia para tramitar la exenci&oacute;n del impuesto IVA ante la autoridad competente<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 a 10  d\u00edas h\u00e1biles despu\u00e9s de solicitar el tr\u00e1mite correspondiente",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/361&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 279,
+                                "modalidad_id": 2394,
+                                "costo": "3.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1121,
+                "rnt_id": null,
+                "institucion_id": 57,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de beneficiario inscrito",
+                "slug": "constancias-de-beneficiarios-inscritos",
+                "sub_titulo": "Departamento de prestaciones",
+                "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6888dfb777868.jpeg",
+                "institucion": {
+                    "id": 57,
+                    "nombre": "Instituto Salvadore\u00f1o de Pensiones",
+                    "siglas": "ISP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2386,
+                        "tramite_id": 1121,
+                        "institucion_id": 57,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Constancias de beneficiarios inscritos",
+                        "slug": "constancias-de-beneficiarios-inscritos",
+                        "sub_titulo": "Departamento de prestaciones",
+                        "descripcion_busqueda": "Gesti\u00f3n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Gesti&oacute;n que se realiza para solicitar los beneficiarios inscritos por el afiliado o pensionado en ISP<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "10 minutos",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/isp.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isp.ventanilla.simple.sv\/tramites\/iniciar\/388&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 7,
+        "total": 7
+    },
+    "categoria": {
+        "id": 12,
+        "nombre": "Documentos ciudadanos y migratorios",
+        "icono": "public\/Documentos_ciudadanos_y_migratorios.svg",
+        "img_1": "public\/84817_64e8c6c2dd808.png",
+        "img_2": "public\/7_62193e6638841.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:24:35.000000Z",
+        "updated_at": "2023-08-25T15:20:34.000000Z",
+        "icono_header": "public\/Documentos_ciudadanos_y_migratorios_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 7,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

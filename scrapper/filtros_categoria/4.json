@@ -1,0 +1,94 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1046,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n y Renovaci\u00f3n para el Funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia (C\u0410\u0420\u0406)",
+                "slug": "autorizacion-de-centros-de-atencion-a-primera-infancia",
+                "sub_titulo": "Departamento de Autorizaci\u00f3n y Registro de Centros de Atenci\u00f3n a Primera Infancia.",
+                "descripcion_busqueda": "Tr\u00e1mite mediante el cual se otorga la autorizaci\u00f3n oficial para el funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t\u00e9cnicos y de calidad necesarios para brindar atenci\u00f3n integral, segura y adecuada a ni\u00f1as y ni\u00f1os en sus primeros a\u00f1os de vida",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7960935f.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2291,
+                        "tramite_id": 1046,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Departamento de Autorizaci\u00f3n y Registro P\u00fablico de Centros de Atenci\u00f3n a Primera Infancia",
+                        "descripcion_busqueda": "Tr\u00e1mite mediante el cual se otorga la autorizaci\u00f3n oficial para el funcionamiento de Centros de Atenci\u00f3n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t\u00e9cnicos y de calidad necesarios para brindar atenci\u00f3n integral, segura y adecuada a ni\u00f1as y ni\u00f1os en sus primeros a\u00f1os de vida",
+                        "descripcion": "Tr&aacute;mite mediante el cual se otorga la autorizaci&oacute;n oficial para el funcionamiento de Centros de Atenci&oacute;n a la Primera Infancia, asegurando el cumplimiento de los requisitos legales, t&eacute;cnicos y de calidad necesarios para brindar atenci&oacute;n integral, segura y adecuada a ni&ntilde;as y ni&ntilde;os en sus primeros a&ntilde;os de vida",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "20 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$45.85",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/458&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 420,
+                                "modalidad_id": 2291,
+                                "costo": "45.85",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    },
+    "categoria": {
+        "id": 21,
+        "nombre": "Construcci\u00f3n",
+        "icono": "public\/Construccion.svg",
+        "img_1": null,
+        "img_2": null,
+        "descripcion": "-",
+        "created_at": "2022-04-21T16:47:25.000000Z",
+        "updated_at": "2023-07-09T17:59:07.000000Z",
+        "icono_header": "public\/Construccion_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 1,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

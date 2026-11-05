@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Pago seguro — Simple.sv</title>
+  <meta name="description" content="Pago con tarjeta de las solicitudes hechas por WhatsApp en Simple.sv (simulado).">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+
+  <style>
+    /* Pago de Simple.sv para las solicitudes de WhatsApp. Se abre desde el botón "Ir a pagar" del chat (whatsapp.html):
+       el sitio de Simple.sv con la pasarela SERFINSA de tramite.html abierta, el mismo modal de los demás trámites */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-subtle); color: var(--text-primary); font-family: var(--font-family); font-size: 16px; line-height: 1.5; }
+    button, input { font: inherit; }
+    .l2-wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+    /* Botones: un principal por pantalla, tamaño táctil de 44 px o más */
+    .l2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: var(--radius-pill); border: 1.5px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-btn-primary { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-btn-primary:hover { background: var(--color-blue-hover); }
+    .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
+    .l2-btn-outline:hover { background: var(--color-blue-soft); }
+    .l2-btn i { font-size: 18px; }
+    .l2-btn:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Encabezado: solo la marca y el candado; quien llega desde WhatsApp no necesita el menú del sitio */
+    .l2-header { background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
+    .l2-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .l2-logo { display: inline-flex; align-items: center; min-height: 44px; }
+    .l2-logo svg { width: 110px; height: auto; }
+    .l2-logo:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+    .l2-seguro { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--radius-pill); background: var(--color-emerald-soft); color: var(--color-emerald); font-size: 14px; font-weight: 800; }
+    .l2-seguro i { font-size: 17px; }
+    @media (min-width: 900px) { .l2-logo svg { width: 132px; } }
+
+    /* Detrás del modal: la solicitud y cómo volver a abrir el pago si se cierra */
+    .l2-solicitud { width: 100%; max-width: 520px; margin: 32px auto; padding: 24px; border: 1px solid var(--border-subtle); border-radius: var(--radius-card); background: #FFFFFF; box-shadow: var(--shadow-card); }
+    .l2-origen { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: var(--radius-pill); background: #E7F8F1; color: #047857; font-size: 13px; font-weight: 800; }
+    .l2-origen i { font-size: 16px; }
+    .l2-solicitud h1 { margin: 12px 0 4px; font-size: clamp(26px, 5vw, 32px); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+    .l2-solicitud > p { margin: 0; color: var(--text-secondary); font-size: 16px; }
+    .l2-solicitud .l2-pasarela-acciones { margin-top: 20px; }
+
+    /* Filas dato · valor */
+    .l2-filas { margin: 0; }
+    .l2-filas > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 16px; padding: 10px 0; border-top: 1px solid var(--border-subtle); }
+    .l2-filas > div:first-child { border-top: 0; }
+    .l2-filas dt { color: var(--text-muted); font-size: 14px; }
+    .l2-filas dd { margin: 0 0 0 auto; color: var(--text-primary); font-size: 15px; font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+    .l2-pago { margin-top: 22px; padding: 16px 20px; border: 1px solid var(--border-subtle); border-radius: 18px; background: var(--bg-subtle); }
+
+    /* Campos de la tarjeta (de prueba, bloqueados) y aviso, como en tramite.html */
+    .l2-campo { padding-top: 16px; }
+    .l2-campo > label { display: block; margin-bottom: 6px; color: var(--color-blue-primary); font-size: 15px; font-weight: 800; }
+    .l2-input { width: 100%; min-height: 52px; padding: 0 44px 0 16px; border: 1.5px solid #64748B; border-radius: 14px; background: var(--bg-subtle); color: var(--text-secondary); font: inherit; font-size: 16px; outline: none; }
+    .l2-input:focus { border-color: var(--color-blue-primary); box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12); }
+    .l2-campo-solo { position: relative; }
+    .l2-campo-solo i { position: absolute; top: 50%; right: 16px; color: var(--text-muted); font-size: 18px; transform: translateY(-50%); }
+    .l2-nota { display: flex; gap: 14px; margin-top: 22px; padding: 16px 18px; border-radius: 18px; background: var(--color-blue-soft); color: var(--text-secondary); font-size: 15px; line-height: 1.55; }
+    .l2-nota > i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 24px; }
+    .l2-nota-aviso { align-items: flex-start; border: 1px solid var(--border-subtle); background: var(--bg-subtle); }
+    .l2-nota-aviso > i { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--color-amber-soft); color: var(--color-amber); font-size: 22px; }
+    .l2-nota-cuerpo { min-width: 0; }
+    .l2-nota-cuerpo strong.l2-nota-titulo { display: block; margin-bottom: 4px; color: var(--color-blue-primary); font-size: 16px; font-weight: 800; }
+    .l2-nota-cuerpo p { margin: 0; }
+
+    /* Pasarela de pago SERFINSA (simulada): el modal de tramite.html.
+       Encabezado azul oscuro con el total; la tarjeta, la medalla de "procesando" y la de "aprobado" montan sobre él */
+    .l2-pasarela { width: min(460px, calc(100% - 32px)); max-height: min(94dvh, 920px); margin: auto; padding: 0; border: none; border-radius: var(--radius-card); background: #FFFFFF; color: var(--text-primary); box-shadow: 0 30px 60px rgba(14, 20, 40, 0.25); overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; }
+    .l2-pasarela[open] { animation: l2-pasarela-entra 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .l2-pasarela::backdrop { background: rgba(14, 20, 40, 0.55); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+    @keyframes l2-pasarela-entra { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: none; } }
+
+    .l2-pasarela-cab { position: relative; isolation: isolate; overflow: hidden; padding: 20px 20px 92px 24px; background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-deep) 58%, var(--color-blue-primary) 100%); color: #FFFFFF; }
+    .l2-pasarela-cab svg { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
+    .l2-pasarela-marca { display: flex; align-items: center; gap: 12px; }
+    .l2-pasarela-marca > i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 14px; background: #FFFFFF; color: var(--color-navy-deep); font-size: 22px; }
+    .l2-pasarela-marca > div { flex: 1; min-width: 0; line-height: 1.25; }
+    .l2-pasarela-marca strong { display: block; font-size: 17px; font-weight: 800; }
+    .l2-pasarela-marca small { color: rgba(255, 255, 255, 0.78); font-size: 13px; font-weight: 600; }
+    .l2-pasarela-cerrar { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; border: none; border-radius: 50%; background: rgba(255, 255, 255, 0.14); color: #FFFFFF; font-size: 20px; cursor: pointer; }
+    .l2-pasarela-cerrar:hover { background: rgba(255, 255, 255, 0.26); }
+    .l2-pasarela-cerrar[hidden] { display: none; }
+    .l2-pasarela-cerrar:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+    .l2-pasarela-monto { margin-top: 22px; }
+    .l2-pasarela-monto-etiqueta { margin: 0; color: rgba(255, 255, 255, 0.78); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .l2-pasarela-monto strong { display: block; margin-top: 2px; font-size: 42px; font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+    .l2-pasarela-monto-detalle { margin: 6px 0 0; color: rgba(255, 255, 255, 0.86); font-size: 14px; line-height: 1.4; }
+
+    .l2-pasarela-vista { padding: 0 24px 24px; }
+    .l2-pasarela-vista h2 { margin: 22px 0 0; color: var(--color-blue-primary); font-size: 20px; font-weight: 800; line-height: 1.25; }
+    .l2-pasarela-vista h2:focus { outline: none; }
+    .l2-pasarela-vista > p { margin: 4px 0 0; color: var(--text-secondary); font-size: 15px; }
+
+    /* Vista previa de la tarjeta */
+    .l2-tarjeta { position: relative; z-index: 1; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; width: min(100%, 320px); aspect-ratio: 1.586; margin: -72px auto 0; padding: 18px 20px; border-radius: 18px; background: radial-gradient(120% 140% at 100% 0%, rgba(159, 216, 255, 0.5) 0%, rgba(159, 216, 255, 0) 55%), linear-gradient(135deg, #2A2D6E 0%, var(--color-blue-sapphire) 55%, var(--color-blue-primary) 100%); color: #FFFFFF; box-shadow: 0 18px 40px rgba(0, 62, 170, 0.35); }
+    .l2-tarjeta::before, .l2-tarjeta::after { content: ''; position: absolute; border: 1.5px solid rgba(255, 255, 255, 0.16); border-radius: 50%; pointer-events: none; }
+    .l2-tarjeta::before { right: -50px; bottom: -80px; width: 200px; height: 200px; }
+    .l2-tarjeta::after { right: -10px; bottom: -40px; width: 120px; height: 120px; }
+    .l2-tarjeta-arriba, .l2-tarjeta-abajo { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .l2-tarjeta-chip { width: 40px; height: 30px; border-radius: 7px; background: linear-gradient(135deg, #E9F6FF 0%, #9FD8FF 100%); box-shadow: inset 0 0 0 1px rgba(28, 30, 77, 0.15); }
+    .l2-tarjeta-red { font-size: 20px; font-style: italic; font-weight: 800; letter-spacing: 0.04em; }
+    .l2-tarjeta-numero { position: relative; font-size: clamp(16px, 5vw, 20px); font-weight: 700; letter-spacing: 0.12em; white-space: nowrap; }
+    .l2-tarjeta-abajo { align-items: flex-end; }
+    .l2-tarjeta-abajo span { display: flex; flex-direction: column; min-width: 0; }
+    .l2-tarjeta-abajo small { color: rgba(255, 255, 255, 0.72); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .l2-tarjeta-abajo strong { overflow: hidden; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-overflow: ellipsis; white-space: nowrap; }
+    .l2-pasarela-fila { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; }
+
+    /* Botones del mismo ancho: en columna en celular (pagar primero), lado a lado desde 480 px */
+    .l2-pasarela-acciones { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-top: 24px; }
+    .l2-pasarela-acciones .l2-btn { width: 100%; }
+    .l2-pasarela-acciones .l2-btn-primary { order: -1; }
+    @media (min-width: 480px) {
+      .l2-pasarela-acciones:not(.una) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .l2-pasarela-acciones .l2-btn-primary { order: 0; }
+    }
+
+    /* Procesando y aprobado: medalla sobre el encabezado */
+    .l2-pasarela-estado { text-align: center; }
+    .l2-pasarela-medalla { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 112px; height: 112px; margin: -60px auto 0; border-radius: 50%; background: #FFFFFF; box-shadow: var(--shadow-hover); }
+    .l2-pasarela-medalla::before { content: ''; position: absolute; inset: 12px; border: 5px solid var(--color-blue-soft); border-top-color: var(--color-blue-primary); border-radius: 50%; animation: l2-gira 0.9s linear infinite; }
+    .l2-pasarela-medalla i { position: relative; color: var(--color-blue-primary); font-size: 36px; }
+    .l2-pasarela-medalla.exito::before { border: 0; background: var(--color-emerald); animation: l2-medalla-pop 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    .l2-pasarela-medalla.exito::after { content: ''; position: absolute; inset: 12px; border-radius: 50%; animation: l2-medalla-halo 1.2s 0.3s ease-out both; }
+    .l2-pasarela-medalla.exito i { color: #FFFFFF; font-size: 44px; animation: l2-medalla-pop 0.45s 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    @keyframes l2-gira { to { transform: rotate(360deg); } }
+    @keyframes l2-pop { from { transform: scale(0.4); } to { transform: scale(1); } }
+    @keyframes l2-medalla-pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: none; } }
+    @keyframes l2-medalla-halo { from { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4); } to { box-shadow: 0 0 0 22px rgba(5, 150, 105, 0); } }
+    .l2-pasarela-estado h2 { color: var(--text-primary); font-size: 22px; }
+    .l2-pasarela-estado .l2-pago { text-align: left; }
+
+    /* Etapas del pago: pendiente, en curso (gira) y lista (check) */
+    .l2-pasarela-pasos { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; text-align: left; }
+    .l2-pasarela-pasos li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-subtle); color: var(--text-muted); font-size: 15px; font-weight: 700; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+    .l2-pasarela-pasos .punto { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 26px; height: 26px; border: 2.5px solid var(--border-subtle); border-radius: 50%; color: transparent; font-size: 14px; }
+    .l2-pasarela-pasos li.activo { border-color: var(--border-active); background: var(--color-blue-soft); color: var(--text-primary); }
+    .l2-pasarela-pasos li.activo .punto { border-color: var(--border-active); border-top-color: var(--color-blue-primary); animation: l2-gira 0.8s linear infinite; }
+    .l2-pasarela-pasos li.hecho { color: var(--text-primary); }
+    .l2-pasarela-pasos li.hecho .punto { border-color: var(--color-emerald); background: var(--color-emerald); color: #FFFFFF; animation: l2-pop 0.25s ease; }
+
+    /* Vuelta automática a WhatsApp después del pago, con opción de quedarse */
+    .l2-regreso { margin: 12px 0 0; color: var(--text-secondary); font-size: 14px; }
+    .l2-quedarme { min-height: 44px; padding: 0 4px; border: 0; background: none; color: var(--color-blue-primary); font-size: 14px; font-weight: 700; text-decoration: underline; cursor: pointer; }
+    .l2-quedarme:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+
+    .l2-pasarela-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 10px; margin: 0; padding: 14px 20px; border-top: 1px solid var(--border-subtle); background: var(--bg-subtle); color: var(--text-muted); font-size: 13px; font-weight: 600; }
+    .l2-pasarela-pie > i { color: var(--color-emerald); font-size: 17px; }
+    .l2-pasarela-red { padding: 2px 8px; border: 1px solid var(--border-subtle); border-radius: var(--radius-badge); background: #FFFFFF; color: var(--color-navy-deep); font-size: 11px; font-weight: 800; letter-spacing: 0.04em; }
+
+    /* Enlace de pago que no corresponde a ninguna solicitud por pagar */
+    .l2-no-disponible { text-align: center; }
+    .l2-no-disponible > i { color: var(--border-active); font-size: 44px; }
+    .l2-no-disponible h1 { margin: 8px 0 4px; font-size: 24px; }
+    .l2-no-disponible p { margin: 0 0 18px; color: var(--text-secondary); }
+
+    @media (max-width: 420px) {
+      .l2-pasarela-cab { padding-left: 20px; }
+      .l2-pasarela-vista { padding: 0 18px 20px; }
+      .l2-solicitud { padding: 20px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-pasarela[open], .l2-pasarela-medalla.exito::before, .l2-pasarela-medalla.exito::after, .l2-pasarela-medalla.exito i, .l2-pasarela-pasos li.hecho .punto { animation: none; }
+      .l2-pasarela-medalla::before, .l2-pasarela-pasos li.activo .punto { animation-duration: 3s; }
+      .l2-pasarela-pasos li, .l2-btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="l2-header">
+    <div class="l2-wrap l2-header-inner">
+      <a href="../index.html" class="l2-logo" aria-label="Simple.sv, ir al inicio">
+        <svg viewBox="0 0 252 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <path d="M2.02 35.92C4.19 38.02 7.08 39.2 10.1 39.2C13.02 39.2 15.55 37.75 15.55 34.89C15.55 28.95 0.93 30.41 0.93 21.56C0.93 16.71 5.3 14.06 10.2 14.06C15.92 14.06 18.56 17.03 18.56 17.03L16.9 19.85C16.9 19.85 14.58 17.37 10.1 17.37C7.35 17.37 4.71 18.55 4.71 21.57C4.71 27.56 19.33 25.94 19.33 34.9C19.33 39.32 15.5 42.5 10.06 42.5C3.48 42.5 0.02 38.56 0.02 38.56L2.02 35.92Z" fill="#1C1E4D"/>
+          <path d="M25.56 3.92H29.39V8.51H25.56V3.92ZM25.66 14.71H29.33V41.85H25.66V14.71Z" fill="#1C1E4D"/>
+          <path d="M37.68 14.71H41.29V18.75C41.29 19.94 41.18 20.91 41.18 20.91H41.29C42.59 17.24 46.9 14.06 51.11 14.06C56.13 14.06 58.72 16.38 59.53 20.86H59.64C61.09 17.19 65.03 14.06 69.62 14.06C76.2 14.06 78.63 17.89 78.63 24.58V41.84H74.96V25.5C74.96 21.08 74.04 17.41 69.08 17.41C64.92 17.41 61.53 21.08 60.5 25.08C60.12 26.26 60.03 27.56 60.03 29.01V41.85H56.35V25.5C56.35 21.4 55.75 17.41 50.63 17.41C46.2 17.41 42.86 21.24 41.72 25.39C41.46 26.58 41.33 27.79 41.35 29.01V41.84H37.68V14.71Z" fill="#1C1E4D"/>
+          <path d="M86.89 14.71H90.4V17.36C90.4 18.06 90.37 18.76 90.29 19.46H90.4C90.4 19.46 92.61 14.06 99.79 14.06C107.07 14.06 111.6 19.89 111.6 28.31C111.6 36.89 106.48 42.5 99.46 42.5C92.94 42.5 90.56 37.32 90.56 37.32H90.46C90.46 37.32 90.56 38.29 90.56 39.7V52.65H86.89V14.71ZM99.09 39.26C103.89 39.26 107.83 35.22 107.83 28.31C107.83 21.67 104.32 17.41 99.25 17.41C94.72 17.41 90.45 20.65 90.45 28.36C90.46 33.81 93.48 39.26 99.09 39.26Z" fill="#1C1E4D"/>
+          <path d="M118.42 3.92H122.08V34.62C122.08 38.19 123.7 38.72 125.1 38.72C125.41 38.72 125.72 38.7 126.02 38.67V41.95C125.58 42.02 125.12 42.06 124.67 42.06C122.41 42.06 118.42 41.36 118.42 35.42V3.92Z" fill="#1C1E4D"/>
+          <path d="M142.75 14.06C150.25 14.06 154.08 19.84 154.08 26.58C154.08 27.23 153.97 28.47 153.97 28.47H133.14C133.3 35.43 138.05 39.21 143.66 39.21C148.62 39.21 151.91 35.92 151.91 35.92L153.58 38.72C150.79 41.13 147.23 42.47 143.54 42.5C135.45 42.5 129.35 36.67 129.35 28.31C129.37 19.4 135.42 14.06 142.75 14.06ZM150.36 25.45C150.14 19.78 146.69 17.14 142.65 17.14C138.11 17.14 134.17 19.99 133.31 25.46L150.36 25.45Z" fill="#1C1E4D"/>
+          <path d="M160.81 37.53H165.07V41.85H160.81V37.53Z" fill="#1C1E4D"/>
+          <path d="M173.79 35.92C175.95 38.02 178.85 39.2 181.87 39.2C184.78 39.2 187.32 37.75 187.32 34.89C187.32 28.95 172.69 30.41 172.69 21.56C172.69 16.71 177.07 14.06 181.97 14.06C187.68 14.06 190.33 17.03 190.33 17.03L188.66 19.84C188.66 19.84 186.35 17.36 181.87 17.36C179.11 17.36 176.47 18.54 176.47 21.56C176.47 27.55 191.09 25.93 191.09 34.89C191.09 39.31 187.26 42.5 181.82 42.5C175.24 42.5 171.79 38.56 171.79 38.56L173.79 35.92Z" fill="#1C1E4D"/>
+          <path d="M194.45 14.71H198.34L205.89 34.62C206.25 35.68 206.55 36.76 206.81 37.86H206.91C207.18 36.76 207.5 35.68 207.88 34.62L215.38 14.71H219.22L208.86 41.85H204.86L194.45 14.71Z" fill="#1C1E4D"/>
+          <path d="M251.96 14.61V23.78H223.44L226.83 14.61H251.96Z" fill="#0066FF"/>
+          <path d="M251.97 32.74V41.91H216.73L220.13 32.74H251.97Z" fill="#0066FF"/>
+          <path d="M223.44 23.78L220.13 32.74H251.96V23.78H223.44Z" fill="#E2E8F0"/>
+        </svg>
+      </a>
+      <span class="l2-seguro"><i class="ph ph-lock-simple" aria-hidden="true"></i>Pago seguro</span>
+    </div>
+  </header>
+
+  <main class="l2-wrap" id="contenido">
+    <!-- Lo que queda detrás del modal: si se cierra, desde aquí se vuelve a abrir el pago o a WhatsApp -->
+    <section class="l2-solicitud" aria-labelledby="solicitud-titulo">
+      <span class="l2-origen"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Enlace enviado por WhatsApp</span>
+      <h1 id="solicitud-titulo">Paga tu solicitud</h1>
+      <p id="solicitud-texto"></p>
+      <div class="l2-pasarela-acciones">
+        <a class="l2-btn l2-btn-outline" id="volver-sin-pagar">Volver a WhatsApp</a>
+        <button class="l2-btn l2-btn-primary" id="abrir-pago" type="button"><i class="ph ph-credit-card" aria-hidden="true"></i>Pagar con tarjeta</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pasarela de pago SERFINSA (simulada), la misma de tramite.html: usa una tarjeta de prueba y no envía nada ni cobra -->
+  <dialog class="l2-pasarela" id="pasarela" aria-labelledby="pasarela-titulo">
+    <header class="l2-pasarela-cab">
+      <!-- Líneas decorativas, como en el banner -->
+      <svg viewBox="0 0 460 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+        <path d="M-10,190 C 90,190 130,120 220,120 C 310,120 340,70 470,58" fill="none" stroke="#9FD8FF" stroke-opacity="0.35" stroke-width="1.6"/>
+        <path d="M-10,222 C 120,210 210,168 310,176 C 390,182 430,146 470,136" fill="none" stroke="#9FD8FF" stroke-opacity="0.2" stroke-width="1.2"/>
+        <path d="M300,-10 C 340,30 380,40 470,30" fill="none" stroke="#9FD8FF" stroke-opacity="0.25" stroke-width="1.2"/>
+        <circle cx="220" cy="120" r="3.2" fill="#FFFFFF" opacity="0.85"/>
+        <circle cx="400" cy="62" r="2.6" fill="#FFFFFF" opacity="0.6"/>
+      </svg>
+      <div class="l2-pasarela-marca">
+        <i class="ph ph-lock-key" aria-hidden="true"></i>
+        <div><strong id="pasarela-titulo">Pago seguro</strong><small>Procesado por SERFINSA</small></div>
+        <button class="l2-pasarela-cerrar" id="pasarela-cerrar" type="button" aria-label="Cerrar el pago"><i class="ph ph-x" aria-hidden="true"></i></button>
+      </div>
+      <div class="l2-pasarela-monto">
+        <p class="l2-pasarela-monto-etiqueta" id="pasarela-total-etiqueta">Total a pagar</p>
+        <strong id="pasarela-total"></strong>
+        <p class="l2-pasarela-monto-detalle"><span id="pasarela-concepto"></span> · <span id="pasarela-comercio"></span></p>
+      </div>
+    </header>
+
+    <section class="l2-pasarela-vista" data-vista="tarjeta">
+      <div class="l2-tarjeta" aria-hidden="true">
+        <div class="l2-tarjeta-arriba"><span class="l2-tarjeta-chip"></span><span class="l2-tarjeta-red">VISA</span></div>
+        <div class="l2-tarjeta-numero">•••• •••• •••• 1111</div>
+        <div class="l2-tarjeta-abajo">
+          <span><small>Titular</small><strong id="pasarela-titular"></strong></span>
+          <span><small>Vence</small><strong>12/30</strong></span>
+        </div>
+      </div>
+      <h2 tabindex="-1">Paga con tu tarjeta</h2>
+      <div class="l2-campo">
+        <label for="pasarela-tarjeta">Número de tarjeta</label>
+        <div class="l2-campo-solo"><input class="l2-input" id="pasarela-tarjeta" value="4111 1111 1111 1111" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+      </div>
+      <div class="l2-pasarela-fila">
+        <div class="l2-campo">
+          <label for="pasarela-vence">Vencimiento</label>
+          <div class="l2-campo-solo"><input class="l2-input" id="pasarela-vence" value="12/30" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+        </div>
+        <div class="l2-campo">
+          <label for="pasarela-cvv">CVV</label>
+          <div class="l2-campo-solo"><input class="l2-input" id="pasarela-cvv" value="123" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+        </div>
+      </div>
+      <div class="l2-campo">
+        <label for="pasarela-nombre">Nombre en la tarjeta</label>
+        <div class="l2-campo-solo"><input class="l2-input" id="pasarela-nombre" readonly><i class="ph ph-lock-simple" aria-hidden="true"></i></div>
+      </div>
+      <div class="l2-pasarela-acciones">
+        <a class="l2-btn l2-btn-outline" id="pasarela-cancelar">Cancelar</a>
+        <button class="l2-btn l2-btn-primary" id="pasarela-pagar" type="button"></button>
+      </div>
+    </section>
+
+    <section class="l2-pasarela-vista l2-pasarela-estado" data-vista="procesando" aria-live="polite" hidden>
+      <div class="l2-pasarela-medalla" aria-hidden="true"><i class="ph ph-credit-card"></i></div>
+      <h2 tabindex="-1">Procesando tu pago</h2>
+      <p>No cierres esta ventana; tarda unos segundos</p>
+      <ol class="l2-pasarela-pasos" id="pasarela-pasos">
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Verificando tu tarjeta</li>
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Autorizando con tu banco</li>
+        <li><span class="punto" aria-hidden="true"><i class="ph ph-check"></i></span>Confirmando el pago</li>
+      </ol>
+    </section>
+
+    <section class="l2-pasarela-vista l2-pasarela-estado" data-vista="aprobado" hidden>
+      <div class="l2-pasarela-medalla exito" aria-hidden="true"><i class="ph ph-check"></i></div>
+      <h2 tabindex="-1">¡Pago aprobado!</h2>
+      <p id="pasarela-aprobado-texto"></p>
+      <div class="l2-pago"><dl class="l2-filas" id="pasarela-comprobante"></dl></div>
+      <div class="l2-pasarela-acciones una">
+        <a class="l2-btn l2-btn-primary" id="volver-whatsapp"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i>Volver a WhatsApp</a>
+      </div>
+      <p class="l2-regreso" id="regreso">Te llevamos de vuelta a WhatsApp en <span id="regreso-segundos">6</span> s <button class="l2-quedarme" id="quedarme" type="button">Quedarme aquí</button></p>
+    </section>
+
+    <p class="l2-pasarela-pie"><i class="ph ph-shield-check" aria-hidden="true"></i>Conexión cifrada · SERFINSA<span class="l2-pasarela-red">VISA</span><span class="l2-pasarela-red">Mastercard</span></p>
+  </dialog>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="pasos-tramite.js"></script>
+  <script src="ciudadano.js"></script>
+  <script src="pasarela-serfinsa.js"></script>
+  <script>
+    /* Pago de una solicitud hecha por WhatsApp (?n=número del trámite&solicitud=N.º de 7 cifras).
+       Al llegar se abre la pasarela; pagar simula el cobro por etapas y, aprobado, vuelve a whatsapp.html con la
+       autorización y la referencia. Cancelar vuelve sin pagar; la X cierra el modal y deja volver a abrirlo.
+       El chat se retoma donde quedó (lo guarda whatsapp.html antes de abrir este enlace). */
+    (() => {
+      const { costoDe } = window.PASOS_TRAMITE;
+      const CUENTA = window.CIUDADANO || {};
+      const parametros = new URLSearchParams(location.search);
+      const numero = Number(parametros.get('n'));
+      const solicitud = /^\d{7}$/.test(parametros.get('solicitud') || '') ? parametros.get('solicitud') : '';
+      const tramite = (window.CATALOGO_TRAMITES || []).find(t => t.numero === numero);
+      // El catálogo trae la dependencia con punto final; aquí se muestra sin él
+      if (tramite?.dependencia) tramite.dependencia = tramite.dependencia.replace(/(?<!\.)\.$/, '');
+      // El total lo fija el chat al pedir el pago (puede depender de lo respondido); si no quedó guardado, el del catálogo
+      const chat = (() => { try { return JSON.parse(localStorage.getItem('simple-whatsapp-chat')); } catch { return null; } })();
+      const deEsteChat = chat?.numero === numero && chat.codigo === solicitud;
+      const total = deEsteChat && chat.total ? chat.total : tramite && costoDe(tramite).pago?.replace('desde ', '');
+      const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const pausa = ms => new Promise(r => setTimeout(r, ms));
+      const numeroAlAzar = cifras => String(Math.floor(Math.random() * 10 ** cifras)).padStart(cifras, '0');
+      const volverA = extra => `whatsapp.html?n=${numero}&solicitud=${solicitud}${extra}`;
+
+      function el(tag, clase, texto) {
+        const nodo = document.createElement(tag);
+        if (clase) nodo.className = clase;
+        if (texto !== undefined) nodo.textContent = texto;
+        return nodo;
+      }
+
+      // Enlace que no corresponde a una solicitud por pagar, o que ya se usó (el chat ya pasó del pago)
+      const yaPagada = deEsteChat && chat.fase && chat.fase !== 'pagando';
+      if (!tramite || !total || !solicitud || yaPagada) {
+        const caja = el('section', 'l2-solicitud l2-no-disponible');
+        const icono = el('i', yaPagada ? 'ph ph-check-circle' : 'ph ph-link-break');
+        icono.setAttribute('aria-hidden', 'true');
+        const volver = el('a', 'l2-btn l2-btn-primary', tramite ? 'Volver a WhatsApp' : 'Ir a Simple.sv');
+        volver.href = tramite ? (yaPagada ? volverA('') : `whatsapp.html?n=${numero}`) : '../index.html';
+        caja.append(icono,
+          el('h1', '', yaPagada ? 'Esta solicitud ya está pagada' : 'Este enlace de pago no es válido'),
+          el('p', '', yaPagada ? 'Mira cómo va en el chat de WhatsApp de Simple.sv' : 'Puede que esté incompleto. Pide uno nuevo en el chat de WhatsApp de Simple.sv'),
+          volver);
+        document.getElementById('contenido').replaceChildren(caja);
+        document.title = `${yaPagada ? 'Solicitud pagada' : 'Enlace de pago no válido'} — Simple.sv`;
+        return;
+      }
+
+      const pasarela = document.getElementById('pasarela');
+      const titular = [CUENTA.nombres, CUENTA.apellidos].filter(Boolean).join(' ').toUpperCase();
+      document.getElementById('solicitud-texto').textContent = `Solicitud N.º ${solicitud} · ${tramite.nombre} · ${total}`;
+      document.getElementById('pasarela-total').textContent = total;
+      document.getElementById('pasarela-concepto').textContent = tramite.nombre;
+      document.getElementById('pasarela-comercio').textContent = tramite.dependencia || tramite.institucion;
+      document.getElementById('pasarela-titular').textContent = titular || 'TITULAR';
+      document.getElementById('pasarela-nombre').value = titular;
+      PasarelaSerfinsa.montar(pasarela, { alPagar: () => pagar.click(), alCerrar: () => document.getElementById('pasarela-cerrar').click() });
+      PasarelaSerfinsa.datos({ total, concepto: tramite.nombre, dui: CUENTA.numero_de_documento, titular });
+      const pagar = document.getElementById('pasarela-pagar');
+      pagar.append(el('i', 'ph ph-lock-simple'), 'Pagar');
+      pagar.firstChild.setAttribute('aria-hidden', 'true');
+      document.getElementById('pasarela-cancelar').href = volverA('&pago=cancelado');
+      document.getElementById('volver-sin-pagar').href = volverA('&pago=cancelado');
+
+      let estadoPasarela = 'tarjeta';
+      let destino = '';
+      function vistaPasarela(nombre) {
+        estadoPasarela = nombre;
+        pasarela.querySelectorAll('[data-vista]').forEach(v => { v.hidden = v.dataset.vista !== nombre; });
+        // La pantalla real de SERFINSA va arriba y, debajo, la propuesta de Simple.sv; al procesar y aprobar solo se ve esta
+        PasarelaSerfinsa.mostrar(nombre === 'tarjeta');
+        // Mientras procesa no se puede cerrar
+        document.getElementById('pasarela-cerrar').hidden = nombre === 'procesando';
+        document.getElementById('pasarela-total-etiqueta').textContent = nombre === 'aprobado' ? 'Total pagado' : 'Total a pagar';
+        pasarela.scrollTop = 0;
+        pasarela.querySelector(nombre === 'tarjeta' ? '.l2-sf h2' : `[data-vista="${nombre}"] h2`).focus({ preventScroll: true });
+      }
+
+      function abrirPasarela() {
+        pasarela.showModal();
+        vistaPasarela(estadoPasarela);
+      }
+
+      // Aprobado: vuelve solo a WhatsApp después de unos segundos, salvo que la persona prefiera quedarse
+      let cuenta = null;
+      function volverSolo() {
+        let segundos = 6;
+        const numeroSegundos = document.getElementById('regreso-segundos');
+        cuenta = setInterval(() => {
+          segundos -= 1;
+          numeroSegundos.textContent = segundos;
+          if (segundos <= 0) { clearInterval(cuenta); location.href = destino; }
+        }, 1000);
+      }
+      document.getElementById('quedarme').addEventListener('click', () => {
+        clearInterval(cuenta);
+        document.getElementById('regreso').textContent = 'Cuando quieras, vuelve a WhatsApp con el botón de arriba';
+      });
+
+      pagar.addEventListener('click', async () => {
+        vistaPasarela('procesando');
+        for (const etapa of document.querySelectorAll('#pasarela-pasos li')) {
+          etapa.classList.add('activo');
+          await pausa(sinMovimiento ? 300 : 850);
+          etapa.classList.replace('activo', 'hecho');
+        }
+        await pausa(350);
+        const autorizacion = numeroAlAzar(6);
+        const referencia = numeroAlAzar(12);
+        document.getElementById('pasarela-aprobado-texto').textContent = `Se cargaron ${total} a tu tarjeta VISA terminada en 1111`;
+        document.getElementById('pasarela-comprobante').replaceChildren(...[
+          ['Autorización', autorizacion],
+          ['Referencia', referencia],
+          ['Fecha', new Date().toLocaleString('es-SV', { dateStyle: 'long', timeStyle: 'short' })]
+        ].map(([titulo, valor]) => {
+          const fila = el('div');
+          fila.append(el('dt', '', titulo), el('dd', '', valor));
+          return fila;
+        }));
+        destino = volverA(`&pago=aprobado&aut=${autorizacion}&ref=${referencia}`);
+        document.getElementById('volver-whatsapp').href = destino;
+        vistaPasarela('aprobado');
+        volverSolo();
+      });
+
+      document.getElementById('abrir-pago').addEventListener('click', abrirPasarela);
+      // Ya pagado, cerrar es lo mismo que volver a WhatsApp
+      document.getElementById('pasarela-cerrar').addEventListener('click', () => {
+        if (estadoPasarela === 'aprobado') location.href = destino;
+        else pasarela.close();
+      });
+      // Escape: no cierra mientras procesa; ya pagado, vuelve a WhatsApp
+      pasarela.addEventListener('cancel', e => {
+        if (estadoPasarela === 'tarjeta') return;
+        e.preventDefault();
+        if (estadoPasarela === 'aprobado') location.href = destino;
+      });
+
+      abrirPasarela();
+    })();
+  </script>
+</body>
+</html>

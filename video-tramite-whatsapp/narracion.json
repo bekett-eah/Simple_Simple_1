@@ -1,0 +1,10 @@
+[
+  { "id": "intro", "texto": "¡Hola! Soy tu asistente de Simple punto ese ve. [[slnc 200]] Te enseño a hacer tu trámite por guatsap, en seis pasos muy fáciles." },
+  { "id": "p1", "texto": "Paso uno. [[slnc 150]] Entra a Simple punto ese ve, y toca: ¿Necesitas ayuda? [[slnc 150]] Ahí te recibe nuestro asistente." },
+  { "id": "p2", "texto": "Paso dos. [[slnc 150]] Escribe lo que necesitas, por ejemplo: solvencia de agua. [[slnc 150]] El asistente encuentra tu trámite al instante." },
+  { "id": "p3", "texto": "Paso tres. [[slnc 150]] Toca: Llevarlo por guatsap, [[slnc 100]] e inicia sesión con tu Identidad Digital. [[slnc 150]] Así confirmamos que eres tú." },
+  { "id": "p4", "texto": "Paso cuatro. [[slnc 150]] En guatsap te saludamos, te mostramos los pasos, y te pedimos los datos uno por uno. [[slnc 150]] Solo responde." },
+  { "id": "p5", "texto": "Paso cinco. [[slnc 150]] Revisa tu solicitud, y paga con tarjeta en el enlace seguro que te enviamos." },
+  { "id": "p6", "texto": "Paso seis. [[slnc 150]] Cuando tu trámite esté listo, te avisamos por guatsap y por correo. [[slnc 150]] Descarga tu documento en Mis documentos." },
+  { "id": "cierre", "texto": "¡Así de simple! [[slnc 200]] Tus trámites de gobierno, fáciles, rápidos y sin filas. [[slnc 150]] Entra hoy a Simple punto ese ve." }
+]

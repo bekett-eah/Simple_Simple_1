@@ -1,0 +1,404 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1069,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para comercializar reguladores de baja presi\u00f3n para GLP",
+                "slug": "comercializacion-local-de-reguladores-de-baja-presion-para-glp",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda comercializar en el mercado nacional reguladores de baja presi\u00f3n para GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e55e7c1d33.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2322,
+                        "tramite_id": 1069,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda comercializar en el mercado nacional reguladores de baja presi\u00f3n para GLP",
+                        "descripcion": "<br \/>Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona jur&iacute;dica pueda comercializar en el mercado nacional reguladores de baja presi&oacute;n para GLP",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1066,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para comercializar cilindros port\u00e1tiles para envasado de GLP",
+                "slug": "utilizar-en-el-mercado-nacional-cilindros-portatiles-para-envasado-de-glp",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda utilizar en el mercado nacional los cilindros port\u00e1tiles para el envasado del GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e51d1c6b0a.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2316,
+                        "tramite_id": 1066,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica pueda utilizar en el mercado nacional los cilindros port\u00e1tiles para el envasado del GLP",
+                        "descripcion": "Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona jur&iacute;dica pueda utilizar en el mercado nacional los cilindros port&aacute;tiles para el envasado del GLP",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/rnpn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1056,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para exportar cilindros port\u00e1tiles para envasado de GLP",
+                "slug": "exportar-cilindros-portatiles-para-envasado-de-glp",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas- Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda exportar cilindros port\u00e1tiles para envasado de GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e4fc4bba03.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2302,
+                        "tramite_id": 1056,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda Exportar cilindros port\u00e1tiles para envasado de GLP",
+                        "descripcion": "<span style=\"font-weight: 400;\">Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona natural pueda exportar cilindros port&aacute;tiles para envasado de GLP<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1065,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para importar reguladores de baja presi\u00f3n para GLP",
+                "slug": "importar-reguladores-de-baja-presion-para-glp-juridico",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, mediante la cual se autoriza a la persona natural la importaci\u00f3n de reguladores de baja presi\u00f3n destinados al uso de GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e5186420f3.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2312,
+                        "tramite_id": 1065,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Importaci\u00f3n de reguladores de baja presi\u00f3n para GLP",
+                        "descripcion": "Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, mediante la cual se autoriza a la persona natural la importaci&oacute;n de reguladores de baja presi&oacute;n destinados al uso de GLP",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "9 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1055,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para importaci\u00f3n de v\u00e1lvulas para cilindros de GLP",
+                "slug": "importacion-de-valvulas-para-cilindros-portatiles-para-glp",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica importe v\u00e1lvulas para GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e4f64d7a72.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2300,
+                        "tramite_id": 1055,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas- Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Tr\u00e1mite mediante el cual la Direcci\u00f3n de Hidrocarburos y Minas emite una resoluci\u00f3n que autoriza a una persona jur\u00eddica a importar v\u00e1lvulas destinadas al manejo, control o distribuci\u00f3n de Gas Licuado de Petr\u00f3leo (GLP). Esta autorizaci\u00f3n garantiza que los productos importados cumplen con los est\u00e1ndares t\u00e9cnicos y de seguridad establecidos por la normativa vigente en el sector de hidrocarburos",
+                        "descripcion": "Tr&aacute;mite mediante el cual la Direcci&oacute;n de Hidrocarburos y Minas emite una resoluci&oacute;n que autoriza a una persona jur&iacute;dica a importar v&aacute;lvulas destinadas al manejo, control o distribuci&oacute;n de Gas Licuado de Petr&oacute;leo (GLP). Esta autorizaci&oacute;n garantiza que los productos importados cumplen con los est&aacute;ndares t&eacute;cnicos y de seguridad establecidos por la normativa vigente en el sector de hidrocarburos",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "9 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1067,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para exportar GLP a granel",
+                "slug": "exportar-glp-a-granel",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas que autoriza a la persona jur\u00eddica a realizar la exportaci\u00f3n de GLP a granel",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e520c4f2c6.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2318,
+                        "tramite_id": 1067,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas que autoriza a la persona jur\u00eddica a realizar la exportaci\u00f3n de GLP a granel",
+                        "descripcion": "<br \/>Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas que autoriza a la persona jur&iacute;dica a realizar la exportaci&oacute;n de GLP a granel",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1068,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para reexportar GLP a granel",
+                "slug": "reexportar-glp-a-granel",
+                "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Tr\u00e1mite mediante el cual la Direcci\u00f3n de Hidrocarburos y Minas emite una resoluci\u00f3n que faculta a una persona jur\u00eddica a reexportar Gas Licuado de Petr\u00f3leo (GLP) a granel. Esta autorizaci\u00f3n certifica que la operaci\u00f3n cumple con los requisitos t\u00e9cnicos, de seguridad y aduaneros establecidos en la normativa vigente sobre hidrocarburos y comercio exterior, garantizando una gesti\u00f3n responsable y legal del producto durante su tr\u00e1nsito hacia el pa\u00eds de destino",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e5478dfc9e.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2320,
+                        "tramite_id": 1068,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Tr\u00e1mite mediante el cual la Direcci\u00f3n de Hidrocarburos y Minas emite una resoluci\u00f3n que faculta a una persona jur\u00eddica a reexportar Gas Licuado de Petr\u00f3leo (GLP) a granel. Esta autorizaci\u00f3n certifica que la operaci\u00f3n cumple con los requisitos t\u00e9cnicos, de seguridad y aduaneros establecidos en la normativa vigente sobre hidrocarburos y comercio exterior, garantizando una gesti\u00f3n responsable y legal del producto durante su tr\u00e1nsito hacia el pa\u00eds de destino",
+                        "descripcion": "<br \/><span style=\"font-weight: 400;\">Tr&aacute;mite mediante el cual la Direcci&oacute;n de Hidrocarburos y Minas emite una resoluci&oacute;n que faculta a una persona jur&iacute;dica a reexportar Gas Licuado de Petr&oacute;leo (GLP) a granel. Esta autorizaci&oacute;n certifica que la operaci&oacute;n cumple con los requisitos t&eacute;cnicos, de seguridad y aduaneros establecidos en la normativa vigente sobre hidrocarburos y comercio exterior, garantizando una gesti&oacute;n responsable y legal del producto durante su tr&aacute;nsito hacia el pa&iacute;s de destino<\/span>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "22 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1057,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n para importaci\u00f3n de accesorios para cilindros port\u00e1tiles para GLP",
+                "slug": "importacion-de-accesorios-para-cilindros-portatiles-para-glp",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas- Direcci\u00f3n de Hidrocarburos y Minas",
+                "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona importe accesorios para GLP",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/681e50058d92f.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2311,
+                        "tramite_id": 1057,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "\u200bModalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Direcci\u00f3n de Hidrocarburos y Minas",
+                        "descripcion_busqueda": "Resoluci\u00f3n extendida por la Direcci\u00f3n de Hidrocarburos y Minas, que autoriza para que la persona jur\u00eddica importe accesorios para GLP",
+                        "descripcion": "<br \/>Resoluci&oacute;n extendida por la Direcci&oacute;n de Hidrocarburos y Minas, que autoriza para que la persona jur&iacute;dica importe accesorios para GLP",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "9 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/234&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1135,
+                "rnt_id": null,
+                "institucion_id": 42,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Transferencia de Funcionamiento de Estaci\u00f3n de Servicio",
+                "slug": "transferencia-de-funcionamiento-de-estacion-de-servicio",
+                "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas (DGEHM)",
+                "descripcion_busqueda": "Resoluci\u00f3n emitida por la Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas, transfiriendo la autorizaci\u00f3n de funcionamiento de un operador a otro",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6a46d6a3e9410.png",
+                "institucion": {
+                    "id": 42,
+                    "nombre": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas",
+                    "siglas": "DGEHM"
+                },
+                "modalidades": [
+                    {
+                        "id": 2401,
+                        "tramite_id": 1135,
+                        "institucion_id": 42,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Transferencia de Funcionamiento de Estaci\u00f3n de Servicio",
+                        "slug": "transferencia-de-funcionamiento-de-estacion-de-servicio",
+                        "sub_titulo": "Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas (DGEHM",
+                        "descripcion_busqueda": "Resoluci\u00f3n emitida por la Direcci\u00f3n General de Energ\u00eda, Hidrocarburos y Minas, transfiriendo la autorizaci\u00f3n de funcionamiento de un operador a otro",
+                        "descripcion": "<span class=\"NormalTextRun SCXW51179151 BCX0\">Resoluci&oacute;n&nbsp;<\/span><span class=\"NormalTextRun SCXW51179151 BCX0\">emitida por la Direcci&oacute;n General de Energ&iacute;a, Hidrocarburos y Minas, transfiriendo la autorizaci&oacute;n de funcionamiento de un operador a otro<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "15 d\u00edas h\u00e1biles",
+                        "costo_tramite": null,
+                        "url_sitio": "https:\/\/dgehm.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/dgehm.ventanilla.simple.sv\/tramites\/iniciar\/450&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=1",
+        "from": 1,
+        "last_page": 2,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=2",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=energia-y-comunicaciones&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 16
+    },
+    "categoria": {
+        "id": 18,
+        "nombre": "Energ\u00eda y comunicaciones",
+        "icono": "public\/Documentos_ciudadanos_y_migratorios.svg",
+        "img_1": "public\/7_62193e3874ac6.png",
+        "img_2": "public\/7_62193e3874b25.png",
+        "descripcion": "-",
+        "created_at": "2022-02-11T01:46:12.000000Z",
+        "updated_at": "2023-07-09T18:00:05.000000Z",
+        "icono_header": "public\/Documentos_ciudadanos_y_migratorios_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 16,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=energia-y-comunicaciones&amp;page=2\">2<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=energia-y-comunicaciones&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

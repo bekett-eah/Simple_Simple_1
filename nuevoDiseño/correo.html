@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Correo de Simple.sv — Simulación</title>
+  <meta name="description" content="Simulación del correo que Simple.sv envía cuando un trámite finaliza, abierto en la app de Gmail.">
+  <meta name="theme-color" content="#1C1E4D">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <style>
+    /* Simulación del correo de trámite finalizado, abierto en la app de Gmail. Se llega desde el botón "Ver en mi correo"
+       del aviso de WhatsApp (whatsapp.html). En escritorio, un teléfono junto a la explicación; en móvil ocupa toda la pantalla */
+    :root {
+      --gm-fondo: #FFFFFF; --gm-texto: #1F1F1F; --gm-secundario: #444746; --gm-tenue: #5F6368; --gm-linea: #E1E3E1;
+      --gm-chip: #E9EEF6; --gm-boton: #F2F6FC;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: radial-gradient(1200px 600px at 80% -10%, rgba(0, 102, 255, 0.35), transparent 60%), linear-gradient(160deg, var(--color-navy-deep), #0E102F); color: var(--gm-texto); font-family: var(--font-family); }
+    a { color: inherit; }
+
+    .co-escena { display: flex; align-items: center; justify-content: center; gap: 56px; min-height: 100%; padding: 24px; }
+    .co-explica { display: none; max-width: 380px; color: #FFFFFF; }
+    .co-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: var(--radius-pill); background: rgba(255, 255, 255, 0.12); font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    .co-explica h1 { margin: 16px 0 10px; font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; }
+    .co-explica p { margin: 0 0 12px; color: rgba(255, 255, 255, 0.82); font-size: 16px; line-height: 1.55; }
+    .co-explica .co-nota { color: rgba(255, 255, 255, 0.62); font-size: 14px; }
+    .co-volver { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0 18px; border: 1.5px solid rgba(255, 255, 255, 0.35); border-radius: var(--radius-pill); color: #FFFFFF; font-weight: 700; text-decoration: none; }
+    .co-volver:hover { background: rgba(255, 255, 255, 0.12); }
+    .co-volver:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+
+    /* Teléfono con la app de correo (tema claro, como Gmail en Android) */
+    .co-telefono { display: flex; flex-direction: column; width: min(400px, 100%); height: min(860px, calc(100dvh - 48px)); overflow: hidden; border: 10px solid #0A0A0A; border-radius: 46px; background: var(--gm-fondo); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; }
+    .co-barra { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 14px 10px 8px; }
+    .co-icono { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: var(--gm-secundario); font-size: 22px; text-decoration: none; }
+    .co-icono:hover { background: rgba(68, 71, 70, 0.08); }
+    .co-icono:focus-visible { outline: 2px solid var(--color-blue-primary); outline-offset: 1px; }
+    .co-acciones { display: flex; gap: 22px; padding-right: 10px; color: var(--gm-secundario); font-size: 22px; }
+    .co-contenido { flex: 1; overflow-y: auto; padding: 0 16px 20px; scrollbar-width: thin; }
+
+    .co-asunto { display: flex; align-items: flex-start; gap: 10px; margin: 4px 0 18px; }
+    .co-asunto h1 { flex: 1; margin: 0; font-size: 21px; font-weight: 400; line-height: 1.3; }
+    .co-asunto h1 .co-etiqueta { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; background: var(--gm-chip); color: var(--gm-secundario); font-size: 12px; font-weight: 500; vertical-align: 3px; }
+    .co-asunto > i { margin-top: 3px; color: var(--gm-tenue); font-size: 22px; }
+
+    .co-remitente { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .co-avatar { width: 40px; height: 40px; flex-shrink: 0; padding: 4px; border-radius: 50%; background: var(--color-navy-deep); }
+    .co-de { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.35; }
+    .co-de strong { display: flex; align-items: baseline; gap: 8px; font-size: 15px; font-weight: 500; }
+    .co-de strong small { color: var(--gm-tenue); font-size: 12px; font-weight: 400; }
+    .co-de span { display: inline-flex; align-items: center; gap: 2px; color: var(--gm-tenue); font-size: 13px; }
+    .co-de span i { font-size: 12px; }
+    .co-responder { display: flex; gap: 18px; color: var(--gm-secundario); font-size: 20px; }
+
+    .co-pie-acciones { display: flex; gap: 10px; margin-top: 18px; }
+    .co-pie-acciones span { display: inline-flex; flex: 1; align-items: center; justify-content: center; gap: 8px; min-height: 40px; border: 1px solid #747775; border-radius: var(--radius-pill); color: var(--gm-secundario); font-size: 14px; font-weight: 500; }
+    .co-pie-acciones i { font-size: 18px; }
+
+    .co-vacio { display: grid; place-items: center; gap: 12px; height: 100%; padding: 24px; text-align: center; color: var(--gm-secundario); }
+    .co-vacio i { color: var(--gm-tenue); font-size: 44px; }
+    .co-vacio strong { color: var(--gm-texto); font-size: 18px; }
+
+    /* ===== Plantilla del correo: lo que diseña Simple.sv (marca, Manrope) ===== */
+    .em { overflow: hidden; border: 1px solid var(--border-subtle); border-radius: 18px; background: #FFFFFF; color: var(--text-primary); font-family: var(--font-family); }
+    .em-cabeza { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 22px; background: var(--color-navy-deep); }
+    .em-cabeza img { display: block; width: 104px; height: auto; }
+    .em-cabeza span { color: rgba(255, 255, 255, 0.72); font-size: 12px; font-weight: 600; text-align: right; }
+    .em-cuerpo { padding: 26px 22px 22px; }
+    .em-sello { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; background: var(--color-emerald-soft); color: var(--color-emerald); font-size: 30px; }
+    .em-cuerpo h2 { margin: 16px 0 8px; color: var(--color-navy-deep); font-size: 23px; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em; }
+    .em-saludo { margin: 0 0 20px; color: var(--text-secondary); font-size: 15px; line-height: 1.55; }
+    .em-saludo strong { color: var(--text-primary); }
+
+    .em-datos { display: grid; gap: 0; margin: 0 0 22px; padding: 4px 16px; border-radius: 14px; background: var(--bg-subtle); }
+    .em-datos div { display: grid; gap: 2px; padding: 11px 0; border-bottom: 1px solid var(--border-subtle); }
+    .em-datos div:last-child { border-bottom: 0; }
+    .em-datos dt { color: var(--text-muted); font-size: 12px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+    .em-datos dd { margin: 0; color: var(--text-primary); font-size: 15px; font-weight: 700; line-height: 1.4; }
+
+    .em-boton { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 20px; border-radius: var(--radius-pill); background: var(--color-blue-primary); color: #FFFFFF; font-size: 16px; font-weight: 800; text-decoration: none; }
+    .em-boton:hover { background: var(--color-blue-hover); }
+    .em-boton:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .em-boton i { font-size: 20px; }
+
+    .em-pasos-titulo { margin: 24px 0 10px; color: var(--color-navy-deep); font-size: 15px; font-weight: 800; }
+    .em-pasos { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; counter-reset: paso; }
+    .em-pasos li { display: flex; align-items: flex-start; gap: 10px; color: var(--text-secondary); font-size: 14px; line-height: 1.45; counter-increment: paso; }
+    .em-pasos li::before { content: counter(paso); display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 13px; font-weight: 800; }
+
+    .em-seguro { display: flex; align-items: flex-start; gap: 10px; margin: 22px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--color-blue-soft); color: var(--color-navy-deep); font-size: 13px; line-height: 1.45; }
+    .em-seguro i { color: var(--color-blue-primary); font-size: 18px; }
+
+    .em-pie { padding: 18px 22px 22px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 12px; line-height: 1.5; text-align: center; }
+    .em-pie p { margin: 0 0 6px; }
+    .em-pie p:last-child { margin: 0; }
+    .em-pie a { color: var(--color-blue-primary); font-weight: 700; text-decoration: none; }
+    .em-pie a:hover { text-decoration: underline; }
+    .em-pie a:focus-visible { outline: 2px solid var(--border-focus); outline-offset: 2px; border-radius: 4px; }
+
+    @media (min-width: 960px) {
+      .co-explica { display: block; }
+    }
+    @media (max-width: 560px) {
+      .co-escena { padding: 0; }
+      .co-telefono { width: 100%; height: 100dvh; border: 0; border-radius: 0; box-shadow: none; }
+      .co-barra { padding-top: calc(10px + env(safe-area-inset-top)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="co-escena">
+    <aside class="co-explica">
+      <span class="co-chip"><i class="ph ph-envelope-simple" aria-hidden="true"></i>Simulación</span>
+      <h1>Tu aviso, por correo</h1>
+      <p>Así se vería en tu app de Gmail el correo que te enviamos cuando tu trámite finaliza: el resumen de tu solicitud y el botón para descargar tu documento en Simple.sv</p>
+      <p class="co-nota">Vista de diseño: no se envió ningún correo. En tu celular, «Ver en mi correo» abre tu app de correo en este mensaje</p>
+      <a class="co-volver" data-volver href="whatsapp.html"><i class="ph ph-arrow-left" aria-hidden="true"></i>Volver a WhatsApp</a>
+    </aside>
+
+    <main class="co-telefono" aria-label="Correo de Simple.sv en la app de Gmail">
+      <header class="co-barra">
+        <a class="co-icono" data-volver href="whatsapp.html" aria-label="Volver a WhatsApp"><i class="ph ph-arrow-left" aria-hidden="true"></i></a>
+        <span class="co-acciones" aria-hidden="true"><i class="ph ph-archive-box"></i><i class="ph ph-trash"></i><i class="ph ph-envelope-simple"></i><i class="ph ph-dots-three-vertical"></i></span>
+      </header>
+
+      <div class="co-contenido" id="contenido">
+        <div class="co-asunto">
+          <h1><span id="asunto"></span><span class="co-etiqueta">Recibidos</span></h1>
+          <i class="ph ph-star" aria-hidden="true"></i>
+        </div>
+
+        <div class="co-remitente">
+          <img class="co-avatar" src="../src/assets/brand/simple-robot-asistente.svg" alt="" width="40" height="40">
+          <div class="co-de">
+            <strong>Simple.sv <small id="hora"></small></strong>
+            <span>para mí <i class="ph ph-caret-down" aria-hidden="true"></i></span>
+          </div>
+          <span class="co-responder" aria-hidden="true"><i class="ph ph-arrow-bend-up-left"></i><i class="ph ph-dots-three-vertical"></i></span>
+        </div>
+
+        <article class="em" aria-label="Contenido del correo">
+          <header class="em-cabeza">
+            <img src="../src/assets/brand/simple-logo.svg" alt="Simple.sv" width="104" height="24">
+            <span>Gobierno de<br>El Salvador</span>
+          </header>
+          <div class="em-cuerpo">
+            <span class="em-sello" aria-hidden="true"><i class="ph ph-seal-check"></i></span>
+            <h2 id="em-titulo">Tu trámite finalizó</h2>
+            <p class="em-saludo" id="em-saludo"></p>
+            <dl class="em-datos" id="em-datos"></dl>
+            <a class="em-boton" id="em-boton" href="#"><i class="ph ph-download-simple" aria-hidden="true"></i><span id="em-boton-texto">Descargar mi documento</span></a>
+            <h3 class="em-pasos-titulo">Cómo descargarlo</h3>
+            <ol class="em-pasos">
+              <li>Entra a Simple.sv con tu Identidad Digital</li>
+              <li id="em-paso-buscar">Abre Mis documentos y busca tu solicitud</li>
+              <li>Descárgalo cuando quieras: queda guardado en tu cuenta</li>
+            </ol>
+            <p class="em-seguro"><i class="ph ph-shield-check" aria-hidden="true"></i>Simple.sv nunca te pedirá tu contraseña ni los datos de tu tarjeta por correo</p>
+          </div>
+          <footer class="em-pie">
+            <p>Recibes este correo porque hiciste un trámite en Simple.sv con tu Identidad Digital</p>
+            <p><a href="contactanos.html">Contáctanos</a> · <a href="#" data-terminos>Términos y condiciones</a></p>
+            <p>Simple.sv · Gobierno de El Salvador</p>
+          </footer>
+        </article>
+
+        <div class="co-pie-acciones" aria-hidden="true">
+          <span><i class="ph ph-arrow-bend-up-left"></i>Responder</span>
+          <span><i class="ph ph-arrow-bend-up-right"></i>Reenviar</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../src/data/catalogo-landing.js"></script>
+  <script src="ciudadano.js"></script>
+  <script src="canales.js"></script>
+  <script src="terminos.js"></script>
+  <script>
+    /* ===== Correo del trámite finalizado: correo.html?n=<trámite>&solicitud=<N.º de 7 cifras> =====
+       En los trámites sensibles (nivel r) y judiciales de canales.js, igual que el aviso de WhatsApp, no se nombra el trámite */
+    (() => {
+      const parametros = new URLSearchParams(location.search);
+      const numero = Number(parametros.get('n'));
+      const codigo = /^\d{7}$/.test(parametros.get('solicitud') || '') ? parametros.get('solicitud') : '';
+      const tramite = (window.CATALOGO_TRAMITES || []).find(t => t.numero === numero);
+      const CUENTA = window.CIUDADANO || {};
+      const CANAL = window.CANAL_WHATSAPP || {};
+      const LOGIN = '../SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html';
+      const el = (etiqueta, texto) => { const nodo = document.createElement(etiqueta); if (texto !== undefined) nodo.textContent = texto; return nodo; };
+
+      // De vuelta al chat, con su historial (whatsapp.html lo retoma con ?solicitud=)
+      const volver = tramite ? `whatsapp.html?n=${numero}${codigo ? `&solicitud=${codigo}` : ''}` : 'whatsapp.html';
+      document.querySelectorAll('[data-volver]').forEach(a => { a.href = volver; });
+
+      if (!tramite || !codigo) {
+        const contenido = document.getElementById('contenido');
+        const vacio = el('div');
+        vacio.className = 'co-vacio';
+        vacio.innerHTML = '<i class="ph ph-envelope-open" aria-hidden="true"></i>';
+        vacio.append(el('strong', 'No encontramos este correo'), el('p', 'Vuelve al WhatsApp y toca «Ver en mi correo» en el aviso de tu trámite finalizado'));
+        contenido.replaceChildren(vacio);
+        return;
+      }
+
+      const reservado = CANAL.niveles?.[numero] === 'r' || (CANAL.judiciales || []).includes(numero);
+      const entidad = (tramite.dependencia || tramite.institucion).replace(/(?<!\.)\.$/, '');
+      const ahora = new Date();
+      const nombre = CUENTA.nombres || '';
+
+      document.getElementById('asunto').textContent = reservado ? 'Tienes un trámite finalizado en Simple.sv' : `Tu documento está listo: ${tramite.nombre}`;
+      document.getElementById('hora').textContent = ahora.toLocaleTimeString('es-SV', { hour: 'numeric', minute: '2-digit' });
+      document.getElementById('em-titulo').textContent = reservado ? 'Tienes un trámite finalizado' : 'Tu trámite finalizó';
+
+      const saludo = document.getElementById('em-saludo');
+      if (reservado) {
+        saludo.append(`Hola${nombre ? `, ${nombre}` : ''}: tu solicitud N.º ${codigo} ya terminó. Por tu privacidad, este correo no dice de qué trámite se trata; míralo en Simple.sv`);
+      } else {
+        saludo.append(`Hola${nombre ? `, ${nombre}` : ''}: tu solicitud de `, el('strong', tramite.nombre), ' ya terminó y tu documento está listo para descargar');
+      }
+
+      const datos = reservado
+        ? [['N.º de solicitud', codigo], ['Finalizó', ahora.toLocaleDateString('es-SV', { day: 'numeric', month: 'long', year: 'numeric' })]]
+        : [['Trámite', tramite.nombre], ['N.º de solicitud', codigo], ['Institución', entidad], ['Finalizó', ahora.toLocaleDateString('es-SV', { day: 'numeric', month: 'long', year: 'numeric' })]];
+      document.getElementById('em-datos').replaceChildren(...datos.map(([dt, dd]) => { const fila = el('div'); fila.append(el('dt', dt), el('dd', dd)); return fila; }));
+
+      const boton = document.getElementById('em-boton');
+      boton.href = `${LOGIN}?destino=documentos&tramite=${codigo}`;
+      if (reservado) {
+        boton.querySelector('i').className = 'ph ph-arrow-square-out';
+        document.getElementById('em-boton-texto').textContent = 'Ver el detalle en Simple.sv';
+      }
+      document.getElementById('em-paso-buscar').textContent = `Abre Mis documentos y busca la solicitud N.º ${codigo}`;
+    })();
+  </script>
+</body>
+</html>

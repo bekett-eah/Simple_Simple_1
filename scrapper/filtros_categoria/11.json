@@ -1,0 +1,509 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1034,
+                "rnt_id": null,
+                "institucion_id": 20,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Certificaci\u00f3n de partidas",
+                "slug": "certificacion-de-partidas",
+                "sub_titulo": "Registro Nacional de las Personas Naturales",
+                "descripcion_busqueda": "Documento emitido por el RNPN que certifica la o las partidas que se encontraron con los datos proporcionados para la b\u00fasqueda en los sistemas que esta instituci\u00f3n administra",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/CERTIFICACION_PARTIDAS_OK",
+                "institucion": {
+                    "id": 20,
+                    "nombre": "Registro Nacional de las Personas Naturales",
+                    "siglas": "RNPN"
+                },
+                "modalidades": [
+                    {
+                        "id": 2279,
+                        "tramite_id": 1034,
+                        "institucion_id": 20,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Registro Nacional de las Personas Naturales",
+                        "descripcion_busqueda": "Documento emitido por el RNPN que certifica la o las partidas que se encontraron con los datos proporcionados para la b\u00fasqueda en los sistemas que esta instituci\u00f3n administra",
+                        "descripcion": "<div style=\"text-align: justify;\">Documento emitido por el RNPN que certifica la o las partidas que se encontraron con los datos proporcionados para la b&uacute;squeda en los sistemas que esta instituci&oacute;n administra<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "24 horas h\u00e1biles a partir del ingreso del formulario de la solicitud",
+                        "costo_tramite": "$3.00 Constancia de inexistencia<br>\r\n$3.00 Certificaci\u00f3n de NO partida<br>\r\n$5.00 Certificaci\u00f3n de partida de El Salvador <br>\r\n$8.00 Certificaci\u00f3n de registro hist\u00f3rico<br>\r\n$35.00 Certificaci\u00f3n de partidas en el exterior",
+                        "url_sitio": "https:\/\/rnpn.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/rnpn.ventanilla.simple.sv\/tramites\/iniciar\/93&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 367,
+                                "modalidad_id": 2279,
+                                "costo": "3.00",
+                                "descripcion": "Constancia de inexistencia"
+                            },
+                            {
+                                "id": 368,
+                                "modalidad_id": 2279,
+                                "costo": "3.00",
+                                "descripcion": "Certificaci\u00f3n de NO partida"
+                            },
+                            {
+                                "id": 369,
+                                "modalidad_id": 2279,
+                                "costo": "5.00",
+                                "descripcion": "Certificaci\u00f3n de partida de El Salvador"
+                            },
+                            {
+                                "id": 370,
+                                "modalidad_id": 2279,
+                                "costo": "8.00",
+                                "descripcion": "Certificaci\u00f3n de registro hist\u00f3rico"
+                            },
+                            {
+                                "id": 371,
+                                "modalidad_id": 2279,
+                                "costo": "35.00",
+                                "descripcion": "Certificaci\u00f3n de partidas en el exterior"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 999,
+                "rnt_id": null,
+                "institucion_id": 31,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia patronal de r\u00e9gimen salud",
+                "slug": "solvencias-y-constancias-patronales",
+                "sub_titulo": "Secci\u00f3n administraci\u00f3n cuentas por cobrar y secci\u00f3n aseguramiento",
+                "descripcion_busqueda": "Este tr\u00e1mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore\u00f1o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d\u00eda en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci\u00f3n",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b0f93b1462.jpeg",
+                "institucion": {
+                    "id": 31,
+                    "nombre": "Instituto Salvadore\u00f1o del Seguro Social",
+                    "siglas": "ISSS"
+                },
+                "modalidades": [
+                    {
+                        "id": 2239,
+                        "tramite_id": 999,
+                        "institucion_id": 31,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de solvencia patronal de r\u00e9gimen salud",
+                        "slug": "solicitud-de-solvencia-patronal-de-regimen-salud",
+                        "sub_titulo": "Secci\u00f3n Administraci\u00f3n Cuentas por Cobrar",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore\u00f1o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d\u00eda en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci\u00f3n",
+                        "descripcion": "Este tr&aacute;mite permite a los empleadores (patronos) solicitar la constancia o solvencia patronal emitida por el Instituto Salvadore&ntilde;o del Seguro Social (ISSS). Esta constancia certifica que el empleador se encuentra al d&iacute;a en el cumplimiento de sus obligaciones legales y previsionales ante dicha instituci&oacute;n",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 minutos",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isss.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isss.ventanilla.simple.sv\/tramites\/iniciar\/22&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1053,
+                "rnt_id": null,
+                "institucion_id": 43,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Fijaci\u00f3n de cuota alimenticia a obligados nacionales y residentes en el extranjero",
+                "slug": "solicitud-de-fijacion-cuota-alimenticia",
+                "sub_titulo": "Procuradur\u00eda Especializada de Familia",
+                "descripcion_busqueda": "El tr\u00e1mite para la gesti\u00f3n de cuotas alimenticias en el exterior inicia con la solicitud ante la Procuradur\u00eda, quien brinda informaci\u00f3n sobre los requisitos y remite la solicitud al Viceministerio de Di\u00e1spora y Movilidad Humana. Este \u00faltimo coordina con la representaci\u00f3n diplom\u00e1tica o consular para citar al obligado y realizar las gestiones pertinentes. La Procuradur\u00eda, tras recibir el acta de comparecencia, informa al solicitante sobre el resultado y gestiona el pago de la cuota alimenticia. Los pagos se realizan mediante giros postales o transferencias electr\u00f3nicas, y el cumplimiento se verifica antes de efectuar el dep\u00f3sito correspondiente",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6824cfdc713c5.jpg",
+                "institucion": {
+                    "id": 43,
+                    "nombre": "Procuradur\u00eda General de la Rep\u00fablica",
+                    "siglas": "PGR"
+                },
+                "modalidades": [
+                    {
+                        "id": 2299,
+                        "tramite_id": 1053,
+                        "institucion_id": 43,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de fijaci\u00f3n cuota alimenticia",
+                        "slug": "solicitud-de-fijacion-cuota-alimenticia",
+                        "sub_titulo": "Procuradur\u00eda Especializada de Familia",
+                        "descripcion_busqueda": "El tr\u00e1mite para la gesti\u00f3n de cuotas alimenticias en el exterior inicia con la solicitud ante la Procuradur\u00eda, quien brinda informaci\u00f3n sobre los requisitos y remite la solicitud al Viceministerio de Di\u00e1spora y Movilidad Humana. Este \u00faltimo coordina con la representaci\u00f3n diplom\u00e1tica o consular para citar al obligado y realizar las gestiones pertinentes. La Procuradur\u00eda, tras recibir el acta de comparecencia, informa al solicitante sobre el resultado y gestiona el pago de la cuota alimenticia. Los pagos se realizan mediante giros postales o transferencias electr\u00f3nicas, y el cumplimiento se verifica antes de efectuar el dep\u00f3sito correspondiente",
+                        "descripcion": "<span style=\"font-weight: 400;\">El tr&aacute;mite para la gesti&oacute;n de cuotas alimenticias en el exterior inicia con la solicitud ante la Procuradur&iacute;a, quien brinda informaci&oacute;n sobre los requisitos y remite la solicitud al Viceministerio de Di&aacute;spora y Movilidad Humana. Este &uacute;ltimo coordina con la representaci&oacute;n diplom&aacute;tica o consular para citar al obligado y realizar las gestiones pertinentes. La Procuradur&iacute;a, tras recibir el acta de comparecencia, informa al solicitante sobre el resultado y gestiona el pago de la cuota alimenticia. Los pagos se realizan mediante giros postales o transferencias electr&oacute;nicas, y el cumplimiento se verifica antes de efectuar el dep&oacute;sito correspondiente<\/span>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "Hasta 55 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/pgr.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/pgr.ventanilla.simple.sv\/tramites\/iniciar\/386&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1088,
+                "rnt_id": null,
+                "institucion_id": 46,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Autorizaci\u00f3n de realizaci\u00f3n de emisi\u00f3n de gases",
+                "slug": "autorizacion-de-realizacion-de-emision-de-gases",
+                "sub_titulo": "Unidad de Medio Ambiente, de la Direcci\u00f3n General de Tr\u00e1nsito, del Viceministerio de Transporte",
+                "descripcion_busqueda": "Este tr\u00e1mite es obligatorio para los usuarios que posean veh\u00edculo que se encuentra de baja en el Registro P\u00fablico de Veh\u00edculos Automotores (RPVA) y se encuentren realizando el proceso de reincorporaci\u00f3n, para los usuarios a quienes se les haya decomisado la tarjeta de circulaci\u00f3n, hayan extraviado dicha tarjeta o que esta haya sufrido un da\u00f1o irreparable que dificulte la lectura de sus datos. Este proceso permite que los veh\u00edculos sean sometidos a la prueba de emisiones de gases en un centro de emisiones de gases autorizado por el Viceministerio de Transporte, a solicitud de los usuarios",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/6830a5d5002e9.jpeg",
+                "institucion": {
+                    "id": 46,
+                    "nombre": "Viceministerio de Transporte",
+                    "siglas": "VMT"
+                },
+                "modalidades": [
+                    {
+                        "id": 2345,
+                        "tramite_id": 1088,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Unidad de Medio Ambiente, de la Direcci\u00f3n General de Tr\u00e1nsito, del Viceministerio de Transporte",
+                        "descripcion_busqueda": "Este tr\u00e1mite es obligatorio para los usuarios que posean veh\u00edculo que se encuentra de baja en el Registro P\u00fablico de Veh\u00edculos Automotores (RPVA) y se encuentren realizando el proceso de reincorporaci\u00f3n, para los usuarios a quienes se les haya decomisado la tarjeta de circulaci\u00f3n, hayan extraviado dicha tarjeta o que esta haya sufrido un da\u00f1o irreparable que dificulte la lectura de sus datos. Este proceso permite que los veh\u00edculos sean sometidos a la prueba de emisiones de gases en un centro de emisiones de gases autorizado por el Viceministerio de Transporte, a solicitud de los usuarios",
+                        "descripcion": "<div style=\"text-align: justify;\">Este tr&aacute;mite es obligatorio para los usuarios que posean veh&iacute;culo que se encuentra de baja en el Registro P&uacute;blico de Veh&iacute;culos Automotores (RPVA) y se encuentren realizando el proceso de reincorporaci&oacute;n, para los usuarios a quienes se les haya decomisado la tarjeta de circulaci&oacute;n, hayan extraviado dicha tarjeta o que esta haya sufrido un da&ntilde;o irreparable que dificulte la lectura de sus datos. Este proceso permite que los veh&iacute;culos sean sometidos a la prueba de emisiones de gases en un centro de emisiones de gases autorizado por el Viceministerio de Transporte, a solicitud de los usuarios<\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$5.00",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/307&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 273,
+                                "modalidad_id": 2345,
+                                "costo": "5.00",
+                                "descripcion": null
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2346,
+                        "tramite_id": 1088,
+                        "institucion_id": 46,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Jur\u00eddica",
+                        "slug": "persona-juridica",
+                        "sub_titulo": "Unidad de Medio Ambiente, de la Direcci\u00f3n General de Tr\u00e1nsito, del Viceministerio de Transporte",
+                        "descripcion_busqueda": "Este tr\u00e1mite es obligatorio para los usuarios que posean veh\u00edculo que se encuentra de baja en el Registro P\u00fablico de Veh\u00edculos Automotores (RPVA) y se encuentren realizando el proceso de reincorporaci\u00f3n, para los usuarios a quienes se les haya decomisado la tarjeta de circulaci\u00f3n, hayan extraviado dicha tarjeta o que esta haya sufrido un da\u00f1o irreparable que dificulte la lectura de sus datos. Este proceso permite que los veh\u00edculos sean sometidos a la prueba de emisiones de gases en un centro de emisiones de gases autorizado por el Viceministerio de Transporte, a solicitud de los usuarios",
+                        "descripcion": "<div style=\"text-align: justify;\">Este tr&aacute;mite es obligatorio para los usuarios que posean veh&iacute;culo que se encuentra de baja en el Registro P&uacute;blico de Veh&iacute;culos Automotores (RPVA) y se encuentren realizando el proceso de reincorporaci&oacute;n, para los usuarios a quienes se les haya decomisado la tarjeta de circulaci&oacute;n, hayan extraviado dicha tarjeta o que esta haya sufrido un da&ntilde;o irreparable que dificulte la lectura de sus datos. Este proceso permite que los veh&iacute;culos sean sometidos a la prueba de emisiones de gases en un centro de emisiones de gases autorizado por el Viceministerio de Transporte, a solicitud de los usuarios<\/div>",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "3 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$5.00",
+                        "url_sitio": "https:\/\/vmt.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/vmt.ventanilla.simple.sv\/tramites\/iniciar\/307&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 80,
+                                "modalidad_id": 2346,
+                                "costo": "5.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1073,
+                "rnt_id": null,
+                "institucion_id": 41,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Acreditaci\u00f3n de programas y registro de miembros de la REA",
+                "slug": "acreditacion-de-programas-y-registro-de-miembros-de-la-rea",
+                "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA.",
+                "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento. \r\nTodo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685ea7bc5f589.jpeg",
+                "institucion": {
+                    "id": 41,
+                    "nombre": "Consejo Nacional de la Primera Infancia, Ni\u00f1ez y Adolescencia",
+                    "siglas": "CONAPINA"
+                },
+                "modalidades": [
+                    {
+                        "id": 2326,
+                        "tramite_id": 1073,
+                        "institucion_id": 41,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "CONAPINA - Acreditaci\u00f3n de Programas y Registro de miembros de la REA (Administrativo)",
+                        "slug": "conapina-acreditacion-de-programas-y-registro-de-miembros-de-la-rea-administrativo",
+                        "sub_titulo": "Unidad de Registro, Autorizaci\u00f3n y Supervisi\u00f3n - Departamento de Acreditaci\u00f3n, Registro de Programas y REA",
+                        "descripcion_busqueda": "La acreditaci\u00f3n de los programas constituye la autorizaci\u00f3n administrativa para su ejecuci\u00f3n y funcionamiento Todo programa en materia de primera infancia, ni\u00f1ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber\u00e1n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser\u00e1n registradas para formar parte de la REA",
+                        "descripcion": "<h5>La acreditaci&oacute;n de los programas constituye la autorizaci&oacute;n administrativa para su ejecuci&oacute;n y funcionamiento todo programa en materia de primera infancia, ni&ntilde;ez y adolescencia desarrollados por instituciones privadas y organizaciones de la sociedad civil deber&aacute;n ser acreditados ante el CONAPINA, solo las entidades sin fines de lucro ser&aacute;n registradas para formar parte de la REA<\/h5>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "50 d\u00edas h\u00e1biles",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/conapina.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/conapina.ventanilla.simple.sv\/tramites\/iniciar\/297&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1114,
+                "rnt_id": null,
+                "institucion_id": 31,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                "slug": "solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss",
+                "sub_titulo": "Secci\u00f3n administraci\u00f3n cuentas por cobrar y secci\u00f3n aseguramiento",
+                "descripcion_busqueda": "Generaci\u00f3n de constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b1e4f0df5e.jpg",
+                "institucion": {
+                    "id": 31,
+                    "nombre": "Instituto Salvadore\u00f1o del Seguro Social",
+                    "siglas": "ISSS"
+                },
+                "modalidades": [
+                    {
+                        "id": 2379,
+                        "tramite_id": 1114,
+                        "institucion_id": 31,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Solicitud de constancia de no inscrito para persona natural o jur\u00eddica como patrono en el ISSS",
+                        "slug": "solicitud-de-constancia-de-no-inscrito-para-persona-natural-o-juridica-como-patrono-en-el-isss",
+                        "sub_titulo": "Secci\u00f3n Aseguramiento",
+                        "descripcion_busqueda": "Generaci\u00f3n de constancia de no inscrito como patrono para persona natural o jur\u00eddica, Instituto Salvadore\u00f1o del Seguro Social, ISSS, constancia, patrono, patronal",
+                        "descripcion": "Generaci&oacute;n de constancia de no inscrito para persona natural o jur&iacute;dica como patrono en el ISSS",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "5 minutos",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/isss.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/isss.ventanilla.simple.sv\/tramites\/iniciar\/39&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1040,
+                "rnt_id": null,
+                "institucion_id": 26,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Renovaci\u00f3n de permiso de aprendiz de t\u00e9cnico de mantenimiento de aeronaves TMA",
+                "slug": "renovacion-de-permiso-de-aprendiz-de-tecnico-de-mantenimiento-de-aeronaves-tma",
+                "sub_titulo": "Departamento de Licencias",
+                "descripcion_busqueda": "Este tr\u00e1mite permite gestionar la renovaci\u00f3n del permiso de aprendiz de T\u00e9cnico de Mantenimiento de Aeronaves (TMA) antes de su vencimiento. Su objetivo es extender la vigencia del permiso y mantener activas las atribuciones que este otorga, conforme a la normativa aeron\u00e1utica vigente",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/5 Renovaci\u00f3n de permiso de aprendiz de T\u00e9cnico de Mantenimiento de Aeronaves TMA.jpg",
+                "institucion": {
+                    "id": 26,
+                    "nombre": "Autoridad de Aviaci\u00f3n Civil (AAC)",
+                    "siglas": "AAC"
+                },
+                "modalidades": [
+                    {
+                        "id": 2285,
+                        "tramite_id": 1040,
+                        "institucion_id": 26,
+                        "tipo_tramite": 0,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Modalidad \u00fanica",
+                        "slug": "modalidad-unica",
+                        "sub_titulo": "Departamento de Licencias",
+                        "descripcion_busqueda": "Este tr\u00e1mite permite gestionar la renovaci\u00f3n del permiso de aprendiz de T\u00e9cnico de Mantenimiento de Aeronaves (TMA) antes de su vencimiento. Su objetivo es extender la vigencia del permiso y mantener activas las atribuciones que este otorga, conforme a la normativa aeron\u00e1utica vigente",
+                        "descripcion": "Este tr&aacute;mite permite gestionar la renovaci&oacute;n del permiso de aprendiz de T&eacute;cnico de Mantenimiento de Aeronaves (TMA) antes de su vencimiento. Su objetivo es extender la vigencia del permiso y mantener activas las atribuciones que este otorga, conforme a la normativa aeron&aacute;utica vigente",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "2 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$10.00",
+                        "url_sitio": "https:\/\/aac.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/aac.ventanilla.simple.sv\/tramites\/iniciar\/117&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 215,
+                                "modalidad_id": 2285,
+                                "costo": "10.00",
+                                "descripcion": null
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1002,
+                "rnt_id": null,
+                "institucion_id": 32,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Estado de cuenta",
+                "slug": "solicitud-de-estado-de-cuenta",
+                "sub_titulo": "Corporaci\u00f3n Salvadore\u00f1a de Inversiones",
+                "descripcion_busqueda": "Emisi\u00f3n del estado de cuenta de la cartera de pr\u00e9stamos, provenientes de la privatizaci\u00f3n de los ingenios azucareros",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/685b0b3d81dc3.jpg",
+                "institucion": {
+                    "id": 32,
+                    "nombre": "Corporaci\u00f3n Salvadore\u00f1a de Inversiones",
+                    "siglas": "CORSAIN"
+                },
+                "modalidades": [
+                    {
+                        "id": 2244,
+                        "tramite_id": 1002,
+                        "institucion_id": 32,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Corporaci\u00f3n Salvadore\u00f1a de Inversiones",
+                        "descripcion_busqueda": "Emisi\u00f3n del estado de cuenta de la cartera de pr\u00e9stamos, provenientes de la privatizaci\u00f3n de los ingenios azucareros",
+                        "descripcion": "Emisi&oacute;n del estado de cuenta de la cartera de pr&eacute;stamos, provenientes de la privatizaci&oacute;n de los ingenios azucareros",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "30 minutos h\u00e1biles (m\u00e1ximo 5 d\u00edas h\u00e1biles, seg\u00fan el caso)",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/corsain.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/corsain.ventanilla.simple.sv\/tramites\/iniciar\/50&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    },
+                    {
+                        "id": 2245,
+                        "tramite_id": 1002,
+                        "institucion_id": 32,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Empresarial",
+                        "slug": "empresarial",
+                        "sub_titulo": "Corporaci\u00f3n Salvadore\u00f1a de Inversiones",
+                        "descripcion_busqueda": "Emisi\u00f3n del estado de cuenta de la cartera de pr\u00e9stamos, provenientes de la privatizaci\u00f3n de los ingenios azucareros",
+                        "descripcion": "Emisi&oacute;n del estado de cuenta de la cartera de pr&eacute;stamos, provenientes de la privatizaci&oacute;n de los ingenios azucareros",
+                        "clasificacion": "Empresarial",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "30 minutos h\u00e1biles (m\u00e1ximo 5 d\u00edas h\u00e1biles, seg\u00fan el caso)",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/corsain.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/corsain.ventanilla.simple.sv\/tramites\/iniciar\/50&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            },
+            {
+                "id": 1078,
+                "rnt_id": null,
+                "institucion_id": 26,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Renovaci\u00f3n de licencia de t\u00e9cnico de mantenimiento de aeronaves TMA",
+                "slug": "renovacion-de-licencia-tecnico-mantenimiento-de-aeronaves-tma",
+                "sub_titulo": "Departamento de Licencias",
+                "descripcion_busqueda": "Renovaci\u00f3n de Licencia de T\u00e9cnico de Mantenimiento de Aeronaves TMA para efectuar los privilegios de esta en una Organizaci\u00f3n de Mantenimiento Aprobada",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/15 Renovaci\u00f3n de Licencia de T\u00e9cnico de Mantenimiento de Aeronaves TMA.jpg",
+                "institucion": {
+                    "id": 26,
+                    "nombre": "Autoridad de Aviaci\u00f3n Civil (AAC)",
+                    "siglas": "AAC"
+                },
+                "modalidades": [
+                    {
+                        "id": 2332,
+                        "tramite_id": 1078,
+                        "institucion_id": 26,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Ciudadano",
+                        "slug": "ciudadano",
+                        "sub_titulo": "Departamento de Licencias",
+                        "descripcion_busqueda": "Renovaci\u00f3n de la Licencia de T\u00e9cnico de Mantenimiento de Aeronaves para efectuar los privilegios de esta en una Organizaci\u00f3n de Mantenimiento Aprobada",
+                        "descripcion": "<div style=\"text-align: justify;\"><strong>Renovaci&oacute;n de licencia de T&eacute;cnico de Mantenimiento de Aeronaves TMA para efectuar los privilegios de esta en una Organizaci&oacute;n de Mantenimiento Aprobada<\/strong><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "6 d\u00edas h\u00e1biles",
+                        "costo_tramite": "$25.00 1 habilitaci\u00f3n aeronave <br>\r\n$35.00 2 habilitaciones (aeronave + motores)",
+                        "url_sitio": "https:\/\/aac.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/aac.ventanilla.simple.sv\/tramites\/iniciar\/301&provider=16",
+                        "url_costo": null,
+                        "costos": [
+                            {
+                                "id": 234,
+                                "modalidad_id": 2332,
+                                "costo": "25.00",
+                                "descripcion": "1 habilitaci\u00f3n aeronave"
+                            },
+                            {
+                                "id": 235,
+                                "modalidad_id": 2332,
+                                "costo": "35.00",
+                                "descripcion": "2 habilitaciones (aeronave + motores)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=1",
+        "from": 1,
+        "last_page": 2,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=2",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=2",
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": "http:\/\/simple.sv\/tramites-filtro?per_page=9&categoria=otros-servicios&page=2",
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 9,
+        "total": 17
+    },
+    "categoria": {
+        "id": 9,
+        "nombre": "Otros servicios",
+        "icono": "public\/Otros_servicios.svg",
+        "img_1": "public\/7_62193ecea7fd6.png",
+        "img_2": "public\/7_62193ecea7f75.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:24:05.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Otros_servicios_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 17,
+    "pagination": "<nav>\n        <ul class=\"pagination\">\n            \n                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"pagination.previous\">\n                    <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;<\/span>\n                <\/li>\n            \n            \n                            \n                \n                \n                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=otros-servicios&amp;page=2\">2<\/a><\/li>\n                                                                        \n            \n                            <li class=\"page-item\">\n                    <a class=\"page-link\" href=\"http:\/\/simple.sv\/tramites-filtro?per_page=9&amp;categoria=otros-servicios&amp;page=2\" rel=\"next\" aria-label=\"pagination.next\">&rsaquo;<\/a>\n                <\/li>\n                    <\/ul>\n    <\/nav>\n"
+}

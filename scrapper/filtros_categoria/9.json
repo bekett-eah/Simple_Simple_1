@@ -1,0 +1,87 @@
+{
+    "tramites": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1104,
+                "rnt_id": null,
+                "institucion_id": 49,
+                "estado": 1,
+                "estado_tramite": 1,
+                "titulo": "Solvencia IAIP",
+                "slug": "solvencia-iaip",
+                "sub_titulo": "Gerencia Legal",
+                "descripcion_busqueda": "Solicitud para la emisi\u00f3n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci\u00f3n Condenatoria, en el Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                "imagen": "https:\/\/simple.sv\/storage\/imagenes_tramites\/WhatsApp Image 2025-03-20 at 1.33.10 PM.jpeg",
+                "institucion": {
+                    "id": 49,
+                    "nombre": "Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                    "siglas": "IAIP"
+                },
+                "modalidades": [
+                    {
+                        "id": 2367,
+                        "tramite_id": 1104,
+                        "institucion_id": 49,
+                        "tipo_tramite": 1,
+                        "estado": 1,
+                        "estado_modalidad": 1,
+                        "titulo": "Persona Natural",
+                        "slug": "persona-natural",
+                        "sub_titulo": "Gerencia Legal",
+                        "descripcion_busqueda": "Solicitud para la emisi\u00f3n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci\u00f3n Condenatoria, en el Instituto de Acceso a la Informaci\u00f3n P\u00fablica",
+                        "descripcion": "<div style=\"text-align: justify;\"><span style=\"font-weight: 400;\">Solicitud para la emisi&oacute;n de documento indicando que carece de procesos administrativos pendientes y de responsabilidad administrativa dictada por Resoluci&oacute;n Condenatoria, en el Instituto de Acceso a la Informaci&oacute;n P&uacute;blica<\/span><\/div>",
+                        "clasificacion": "Ciudadano",
+                        "medios_presentacion": "En l\u00ednea",
+                        "duracion_promedio": "1 d\u00eda",
+                        "costo_tramite": "No tiene costo",
+                        "url_sitio": "https:\/\/iaip.ventanilla.simple.sv\/login\/claveunica?redirect=https:\/\/iaip.ventanilla.simple.sv\/tramites\/iniciar\/360&provider=16",
+                        "url_costo": null,
+                        "costos": []
+                    }
+                ]
+            }
+        ],
+        "first_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "pagination.previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/simple.sv\/tramites-filtro?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "pagination.next",
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http:\/\/simple.sv\/tramites-filtro",
+        "per_page": "9",
+        "prev_page_url": null,
+        "to": 1,
+        "total": 1
+    },
+    "categoria": {
+        "id": 14,
+        "nombre": "Industria",
+        "icono": "public\/Industria.svg",
+        "img_1": "public\/7_62193dece911f.png",
+        "img_2": "public\/7_62193dece917c.png",
+        "descripcion": null,
+        "created_at": "2022-02-11T01:28:53.000000Z",
+        "updated_at": "2022-04-05T04:18:01.000000Z",
+        "icono_header": "public\/Industria_header.svg"
+    },
+    "institucion": null,
+    "countTramites": 1,
+    "pagination": "\n                    <ul class=\"pagination\">\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"\u00ab Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u2039<\/span>\n                        <\/li>\n                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1<\/span><\/li>\n                        <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"Next \u00bb\">\n                            <span class=\"page-link\" aria-hidden=\"true\">\u203a<\/span>\n                        <\/li>\n                    <\/ul>"
+}

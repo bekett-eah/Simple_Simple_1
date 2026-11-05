@@ -1,0 +1,302 @@
+10.20.182.181 - - [29/Oct/2026 08:21:07] "GET /index.html HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/asistente.js?v=4 HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/asistente.css?v=3 HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/modulos.css HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /src/styles/simple-light-vibrant.css HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /src/data/catalogo-landing.js HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/formularios.js HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/citas.js HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/pasos-tramite.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /src/assets/brand/simple-robot-asistente-sin-fondo.png HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /video-banners/salida/video_asistente_azul-poster.jpg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /assets/landing/platzi-poster.jpg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /src/assets/brand/simple-robot-asistente.svg HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /nuevoDise%C3%B1o/img/ayuda-simple-salvadoreno.png HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /video-banners/salida/video_whatsapp_azul-poster.jpg HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.181', 50029)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.181 - - [29/Oct/2026 08:21:08] "GET /assets/landing/antecedentes-wa-h-mini.jpg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 08:21:28] "GET /video_platzi_azul.mp4 HTTP/1.1" 206 -
+10.20.182.181 - - [29/Oct/2026 08:21:29] "GET /assets/landing/slide-2.jpg HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:29] "GET /assets/landing/slide-4.jpg HTTP/1.1" 304 -
+10.20.182.181 - - [29/Oct/2026 08:21:29] "GET /assets/landing/slide-5.jpg HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /index.html HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/asistente.css?v=3 HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /src/styles/simple-light-vibrant.css HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/modulos.css HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /src/assets/brand/simple-robot-asistente.svg HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /assets/landing/platzi-poster.jpg HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/img/ayuda-simple-salvadoreno.png HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /src/assets/brand/simple-robot-asistente-sin-fondo.png HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/pasos-tramite.js HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/citas.js HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /src/data/catalogo-landing.js HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/formularios.js HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /nuevoDise%C3%B1o/asistente.js?v=4 HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:21:49] "GET /video-banners/salida/video_asistente_azul-poster.jpg HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /video-banners/salida/video_whatsapp_azul-poster.jpg HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /assets/landing/antecedentes-wa-v-mini.jpg HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:21:50] "GET /assets/landing/antecedentes-wa-h-mini.jpg HTTP/1.1" 200 -
+10.20.182.228 - - [29/Oct/2026 08:22:42] "GET /assets/landing/slide-2.jpg HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:22:42] "GET /assets/landing/slide-4.jpg HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:22:42] "GET /assets/landing/slide-5.jpg HTTP/1.1" 304 -
+10.20.182.228 - - [29/Oct/2026 08:34:15] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:15] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:15] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:15] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:15] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51709)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51710)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.228 - - [29/Oct/2026 08:34:25] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51721)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.228 - - [29/Oct/2026 08:34:52] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:52] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:52] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:34:52] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51733)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.228 - - [29/Oct/2026 08:35:08] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:08] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:08] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:08] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51743)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51744)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.228 - - [29/Oct/2026 08:35:42] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:42] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:42] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:42] "GET /video-banners/salida/video_asistente_azul.mp4?v=3 HTTP/1.1" 206 -
+10.20.182.228 - - [29/Oct/2026 08:35:42] "GET /video-banners/salida/video_whatsapp_azul.mp4?v=3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51758)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('10.20.182.228', 51757)
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 683, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 660, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 667, in do_GET
+    self.copyfile(f, self.wfile)
+  File "/Users/usuario/Documents/SIMPLE_SV/servidor.py", line 61, in copyfile
+    destino.write(bloque)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador.html HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/3.4_hygv.17 HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/cdn.min_hygv.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/jquery-3.6.0.min_hygv.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/bootstrap.min_hygv.css HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/bootstrap.bundle.min_hygv.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/jquery.mask.min_hygv.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/toastr_hygv.css HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/toastr.min_hygv.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/login2025_hygv.svg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:54] "GET /SIMPLE%20ACTUAL/Login%20-%20Gobierno%20de%20El%20Salvador_files/RNPN_GOES_hygv.svg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:55] code 404, message File not found
+10.20.182.181 - - [29/Oct/2026 09:03:55] "GET /favicon.ico HTTP/1.1" 404 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/Indexlogin.html HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/cambio-vista.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/transicion-vistas.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/terminos.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/ciudadano.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/canales.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/usuario-avatar.png HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/img/tramites/34-constancia-de-antecedentes-policiales.jpg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:56] "GET /nuevoDise%C3%B1o/img/tramites/8-emision-de-certificacion-de-antecedentes-penales.jpg HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:58] "GET /nuevoDise%C3%B1o/tramite.html?n=99 HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:58] "GET /nuevoDise%C3%B1o/radios.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:58] "GET /nuevoDise%C3%B1o/requisitos-tramite.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:58] "GET /nuevoDise%C3%B1o/pasarela-serfinsa.js HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:03:58] "GET /nuevoDise%C3%B1o/img/escudo-el-salvador.png HTTP/1.1" 200 -
+10.20.182.181 - - [29/Oct/2026 09:05:17] "GET /video_platzi_azul.mp4 HTTP/1.1" 206 -

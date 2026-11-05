@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Simple.sv — Trámites de El Salvador sin filas</title>
+  <meta name="description" content="Encuentra tu trámite del gobierno de El Salvador, revisa cuánto cuesta y cuánto tarda, y sigue los pasos sin ayuda externa.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="src/styles/simple-light-vibrant.css">
+  <link rel="stylesheet" href="nuevoDiseño/asistente.css?v=3">
+  <script src="nuevoDiseño/transicion-vistas.js"></script>
+  <script src="nuevoDiseño/cambio-vista.js"></script>
+  <script src="nuevoDiseño/terminos.js" defer></script>
+
+  <style>
+    /* Landing 2 · Simple.sv. Tokens de color en src/styles/simple-light-vibrant.css */
+    *, *::before, *::after { box-sizing: border-box; }
+    body { overflow-x: clip; margin: 0; background: var(--bg-canvas); color: var(--text-primary); font-family: var(--font-family); font-size: 16px; line-height: 1.5; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    .l2-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    .l2-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Botones: un principal por pantalla, tamaño táctil de 44 px o más */
+    .l2-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 20px; border-radius: var(--radius-pill); border: 1.5px solid transparent; font-weight: 700; font-size: 16px; cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-btn-primary { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-btn-primary:hover { background: var(--color-blue-hover); }
+    .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
+    .l2-btn-outline:hover { background: var(--color-blue-soft); }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Encabezado */
+    .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
+    .l2-header-inner { max-width: none; }
+    .l2-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
+    .l2-logo { display: inline-flex; align-items: center; min-height: 44px; }
+    .l2-logo svg { width: 110px; height: auto; }
+    .l2-nav { display: none; flex: 1; justify-content: center; gap: 28px; }
+    .l2-nav a { color: var(--text-secondary); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .l2-nav a:hover { color: var(--color-blue-primary); }
+    .l2-header-actions { display: flex; gap: 12px; align-items: center; }
+    .l2-profile-trigger { position: relative; }
+    html:not([data-sesion]) .l2-profile-trigger { display: none; }
+    html[data-sesion] .l2-login-btn { display: none; }
+    .l2-icon-button, .l2-profile-trigger > button { border: 1.5px solid transparent; background: transparent; color: var(--color-blue-primary); cursor: pointer; }
+    .l2-icon-button { position: relative; width: 44px; height: 44px; border-radius: 50%; font-size: 22px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+    .l2-icon-button[aria-current="page"] { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:hover, .l2-profile-trigger > button:hover { background: var(--color-blue-soft); border-color: var(--border-active); }
+    .l2-icon-button:focus-visible, .l2-profile-trigger > button:focus-visible, .l2-menu-item:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-profile-menu { position: absolute; top: calc(100% + 10px); right: 0; z-index: 70; width: min(320px, calc(100vw - 32px)); padding: 8px; border: 1px solid var(--border-subtle); border-radius: 16px; background: #FFFFFF; box-shadow: var(--shadow-card); visibility: hidden; opacity: 0; transform: translateY(-6px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s; }
+    .l2-profile-menu.open { visibility: visible; opacity: 1; transform: translateY(0); }
+    .l2-profile-trigger > button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 3px 8px 3px 3px; border-radius: var(--radius-pill); font-weight: 700; }
+    .l2-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .l2-profile-chevron { font-size: 16px; }
+    .l2-menu-item { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 10px 12px; border: none; border-radius: 10px; background: transparent; color: var(--text-primary); font: inherit; text-decoration: none; text-align: left; cursor: pointer; }
+    .l2-menu-item:hover { background: var(--color-blue-soft); color: var(--color-blue-primary); }
+    .l2-menu-item i { width: 20px; color: var(--color-blue-primary); font-size: 18px; }
+    .l2-menu-divider { height: 1px; margin: 6px 4px; background: var(--border-subtle); }
+
+    /* Hero */
+    .l2-hero { padding: 32px 0 20px; text-align: center; }
+    .l2-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--color-blue-soft); color: var(--color-blue-sapphire); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 14px; font-weight: 700; }
+    .l2-hero h1 { font-size: clamp(22px, 3.4vw, 30px); line-height: 1.2; font-weight: 800; letter-spacing: -0.01em; margin: 14px auto 8px; max-width: 760px; }
+    .l2-hero h1 span { color: var(--color-blue-primary); }
+    .l2-lead { font-size: 16px; color: var(--text-secondary); max-width: 640px; margin: 0 auto; }
+
+    /* Catálogo */
+    .l2-section { padding: 56px 0 8px; }
+    .l2-section h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
+    .l2-section > .l2-wrap > p { color: var(--text-secondary); margin: 0 0 24px; }
+    .l2-catalog-intro {
+      position: relative; isolation: isolate; overflow: hidden;
+      width: 100vw; margin: 0 0 24px calc(50% - 50vw); padding: 26px max(28px, calc((100vw - 1168px) / 2));
+      border-radius: var(--radius-card); background: linear-gradient(135deg, var(--color-navy-deep) 0%, var(--color-navy-deep) 0%, var(--color-blue-primary) 100%);
+      color: #FFFFFF; box-shadow: var(--shadow-card);
+    }
+    /* El catálogo (banner, pestañas y tarjetas) ocupa siempre el 97% del ancho de la pantalla */
+    #tramites > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-catalog-intro { width: 100%; margin-left: 0; margin-right: 0; padding-inline: max(28px, 3vw); }
+    .l2-catalog-intro h1 { font-size: 1.5em; position: relative; z-index: 1; margin: 0 0 8px; color: #FFFFFF; text-shadow: 0 1px 14px rgba(10, 42, 140, 0.55); }
+    .l2-catalog-intro p { position: relative; z-index: 1; margin: 0; max-width: 34ch; color: rgba(255, 255, 255, 0.86); text-shadow: 0 1px 12px rgba(10, 42, 140, 0.55); }
+
+    /* ===== Animación de líneas del banner de Trámites =====
+       Fondo vivo inspirado en Aura/n8n: líneas que fluyen y respiran,
+       un rayo que recorre la curva principal y nodos que laten. */
+    .l2-catalog-intro {
+      --sky: #9FD8FF;
+      --speed-flow: 18s; --speed-breath: 7.5s; --speed-node: 4.5s;
+      --speed-bolt: 10s; --speed-glow: 2.4s;
+      --line-opacity-min: 0.25; --line-opacity-max: 0.6; --line-opacity-static: 0.45;
+      --node-halo: 0.35; --node-halo-hover: 0.85; --node-scale: 1.15;
+      --decor-opacity: 0.5; --icon-opacity: 0.14; --hover-time: 600ms;
+    }
+    .l2-fondo-lineas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+    .l2-linea {
+      fill: none; stroke-width: 1.6; stroke-linecap: round;
+      stroke-dasharray: var(--dash); opacity: var(--line-opacity-min);
+      animation:
+        l2-flujo   calc(var(--speed-flow)   * var(--flow-m))   linear                      infinite,
+        l2-respira calc(var(--speed-breath) * var(--breath-m)) cubic-bezier(.37, 0, .63, 1) infinite;
+      animation-delay: var(--d), var(--d);
+    }
+    @keyframes l2-flujo { from { stroke-dashoffset: 0; } to { stroke-dashoffset: calc(var(--period) * -1); } }
+    @keyframes l2-respira { 0%, 100% { opacity: var(--line-opacity-min); } 50% { opacity: var(--line-opacity-max); } }
+    .l2-rayo { fill: none; stroke-linecap: round; stroke-dasharray: 60 2000; stroke-dashoffset: 60; opacity: 0; animation: l2-rayo-mov var(--speed-bolt) infinite; }
+    .l2-rayo-halo   { stroke: var(--sky); stroke-width: 12; opacity: 0; animation: l2-rayo-mov var(--speed-bolt) infinite, l2-brillo var(--speed-glow) ease-in-out infinite; }
+    .l2-rayo-brillo { stroke: var(--sky); stroke-width: 5; }
+    .l2-rayo-nucleo { stroke: #FFFFFF; stroke-width: 1.8; }
+    @keyframes l2-rayo-mov {
+      0%   { stroke-dashoffset: 60;    opacity: 0; animation-timing-function: ease-out; }
+      15%  { stroke-dashoffset: 40;    opacity: 1; animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+      36%  { stroke-dashoffset: -470;  opacity: 1; }
+      56%  { stroke-dashoffset: -470;  opacity: 1; animation-timing-function: cubic-bezier(.45, 0, .55, 1); }
+      90%  { stroke-dashoffset: -1000; opacity: 1; }
+      98%  { stroke-dashoffset: -1020; opacity: 0; }
+      100% { stroke-dashoffset: 60;    opacity: 0; }
+    }
+    @keyframes l2-brillo { 0%, 100% { stroke-width: 9; } 50% { stroke-width: 15; } }
+    .l2-nodo { transform-box: fill-box; transform-origin: center; animation: l2-pulso var(--speed-node) ease-in-out infinite; }
+    .l2-nodo-halo { opacity: var(--node-halo); transition: opacity var(--hover-time) ease; }
+    .l2-nodo-nucleo { fill: #FFFFFF; }
+    @keyframes l2-pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(var(--node-scale)); } }
+    .l2-catalog-intro:hover .l2-nodo-halo { opacity: var(--node-halo-hover); }
+    .l2-catalog-intro.l2-en-pausa .l2-linea,
+    .l2-catalog-intro.l2-en-pausa .l2-rayo,
+    .l2-catalog-intro.l2-en-pausa .l2-nodo { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-linea { animation: none; stroke-dasharray: none; opacity: var(--line-opacity-static); }
+      .l2-rayo, .l2-rayo-halo { display: none; }
+      .l2-nodo { animation: none; }
+      .l2-nodo-halo { transition: none; }
+    }
+
+    /* ===== Línea de tiempo "Cómo funciona" =====
+       Flotante sobre el botón del asistente. Primera visita: cada paso se enciende e irradia 3 s con su tarjeta.
+       Después se esconde (sin hover). En el chat va fija, sin animación. */
+    .l2-pasos { position: fixed; right: 16px; bottom: 84px; z-index: 59; padding: 0 12px 8px; }
+    /* Terminada la intro, los pasos se esconden y ya no reaparecen al pasar el cursor por el botón del asistente */
+    .l2-pasos.listo { opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s; }
+    .l2-pasos-linea { display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; }
+    .l2-pasos-linea li { position: relative; }
+    .l2-pasos-linea li:not(:last-child)::after { content: '\2192'; position: absolute; left: calc(100% + 20px); top: 50%; transform: translate(-50%, -50%); font-size: 18px; line-height: 1; color: #94A3B8; pointer-events: none; transition: color 0.5s ease, text-shadow 0.5s ease; }
+    .l2-pasos-linea li:has(+ li > .hecho)::after { color: var(--color-blue-primary); text-shadow: 0 0 10px rgba(0, 102, 255, 0.45); }
+    .l2-paso.actual { transform: scale(1.12); animation: l2-paso-enciende 0.6s ease-out, l2-paso-pulso 1.5s ease-in-out 0.6s infinite; }
+    .l2-paso.actual::after { animation: l2-paso-onda 1.5s ease-out infinite; }
+    .listo .l2-paso { cursor: pointer; }
+    .listo .l2-paso:hover, .listo .l2-paso:focus-visible { transform: scale(1.12); }
+    .l2-paso:focus-visible { outline: 3px solid var(--color-blue-primary); outline-offset: 3px; }
+    @keyframes l2-paso-enciende { 0% { transform: scale(0.8); } 55% { transform: scale(1.3); } 100% { transform: scale(1.12); } }
+    @keyframes l2-paso-pulso {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.18), 0 0 14px rgba(0, 102, 255, 0.45); }
+      50% { box-shadow: 0 0 0 9px rgba(0, 102, 255, 0.1), 0 0 22px rgba(0, 102, 255, 0.7); }
+    }
+    @keyframes l2-paso-onda { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(2.3); opacity: 0; } }
+
+    /* Tarjeta de cada paso: aparece sobre la línea (flotante) o debajo (chat), con la flecha apuntando al paso */
+    .l2-paso-card { position: absolute; display: block; padding: 14px 16px 18px; border-radius: 16px; background: #FFFFFF; color: var(--text-primary); box-shadow: 0 18px 40px rgba(14, 20, 40, 0.25); text-align: left; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s; --i: 0; }
+    .l2-paso-card.visible { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s; }
+    .l2-paso-card::after { content: ''; position: absolute; width: 12px; height: 12px; border-radius: 2px; background: #FFFFFF; transform: rotate(45deg); }
+    .l2-paso-card strong { display: block; margin-bottom: 2px; font-size: 16px; font-weight: 800; color: var(--color-blue-primary); }
+    .l2-paso-card-tiempo { position: absolute; left: 16px; right: 16px; bottom: 7px; display: none; height: 3px; overflow: hidden; border-radius: 3px; background: var(--color-blue-soft); }
+    .l2-paso-card-tiempo::after { content: ''; position: absolute; inset: 0; background: var(--color-blue-primary); transform-origin: left; transform: scaleX(0); }
+    .en-intro .l2-paso-card-tiempo { display: block; }
+    .l2-paso-card.contando .l2-paso-card-tiempo::after { animation: l2-tiempo 3s linear forwards; }
+    @keyframes l2-tiempo { to { transform: scaleX(1); } }
+
+    .l2-pasos .l2-paso-card { right: 0; bottom: calc(100% + 12px); width: min(280px, calc(100vw - 32px)); }
+    .l2-pasos .l2-paso-card::after { bottom: -6px; left: calc(100% - 186px + var(--i) * 72px); }
+
+    /* En el chat: mensaje inicial desplegable. Abierto (por defecto) muestra los pasos en vertical como tarjetas;
+       cerrado vuelve a la línea horizontal, con la tarjeta al pasar el cursor. */
+    .l2-bot.l2-pasos-chat { position: relative; z-index: 2; width: 270px; max-width: calc(100% - 44px); box-sizing: border-box; }
+    /* Encabezado "Cómo funciona": botón-tarjeta con acción visible para abrir o cerrar */
+    .l2-pasos-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin: 0 0 10px; padding: 0; border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
+    .l2-pasos-toggle:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; border-radius: 12px; }
+    /* Un título largo ("Cómo funciona por WhatsApp") pasa a dos líneas: la flecha siempre queda dentro de la card */
+    .l2-pasos-chat .l2-pasos-titulo { min-width: 0; margin: 0; font-size: 13px; line-height: 1.35; }
+    .l2-pasos-chat:not(.abierto) .l2-pasos-accion i { transform: rotate(180deg); }
+    .l2-pasos-chat .l2-pasos-linea[hidden], .l2-pasos-vert[hidden] { display: none; }
+    /* Cerrado: tarjeta emergente debajo de la línea, como antes */
+    .l2-pasos-chat .l2-paso-card { top: calc(100% + 10px); left: 0; right: 0; border: 1px solid var(--border-subtle); box-shadow: 0 14px 32px rgba(14, 20, 40, 0.18); transform: translateY(-8px); }
+    .l2-pasos-chat .l2-paso-card.visible { transform: none; }
+    .l2-pasos-chat .l2-paso-card::after { top: -7px; left: calc(25px + var(--i) * 72px); border-top: 1px solid var(--border-subtle); border-left: 1px solid var(--border-subtle); }
+    /* Abierto: sin burbuja contenedora; cada paso es una tarjeta-mensaje */
+    .l2-bot.l2-pasos-chat.abierto { padding: 0; border: 0; background: none; box-shadow: none; border-radius: 0; }
+    .l2-pasos-chat.abierto .l2-pasos-toggle { padding: 9px 10px 9px 14px; border: 1px solid var(--border-active); border-radius: 12px; background: #FFFFFF; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); }
+    /* Miniatura del video de antecedentes por WhatsApp, como primer mensaje del chat (arriba de "Cómo funciona"), del
+       mismo ancho que esa tarjeta. Igual que en la landing (index.html): al tocarla se abre el video en grande */
+    .l2-chat-video { position: relative; display: block; width: 270px; max-width: calc(100% - 44px); aspect-ratio: 16 / 9; padding: 0; border: 1px solid var(--border-subtle); border-radius: 14px; border-bottom-left-radius: 4px; overflow: hidden; background: #050B1F; cursor: pointer; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); }
+    .l2-chat-video img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    /* El play va un poco a la derecha para no tapar el título "Busca tus antecedentes" */
+    .l2-chat-video-play { position: absolute; inset: 0 0 0 22%; margin: auto; width: 42px; height: 42px; border-radius: 50%; background: rgba(0, 102, 255, 0.92); color: #FFFFFF; font-size: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0, 102, 255, 0.5); transition: transform 0.2s ease; }
+    .l2-chat-video-play i { margin-left: 3px; }     /* el triángulo de play se ve centrado al correrlo un poco */
+    .l2-chat-video-duracion { position: absolute; right: 6px; bottom: 6px; padding: 1px 6px; border-radius: 6px; background: rgba(10, 14, 40, 0.8); color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 1.5; }
+    .l2-chat-video:hover .l2-chat-video-play, .l2-chat-video:focus-visible .l2-chat-video-play { transform: scale(1.1); }
+    .l2-chat-video:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+    /* Video en grande: horizontal en computadora y vertical en celular, con sonido y controles */
+    /* margin: auto lo centra (el reset global de simple-light-vibrant.css le quita el margen que trae el navegador) */
+    .l2-video-modal { overflow: visible; max-width: none; max-height: none; margin: auto; padding: 0; border: 0; background: transparent; }
+    .l2-video-modal::backdrop { background: rgba(5, 11, 31, 0.88); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+    .l2-video-modal video { display: block; width: min(92vw, calc(85vh * 16 / 9)); width: min(92vw, calc(85dvh * 16 / 9)); aspect-ratio: 16 / 9; border-radius: 16px; background: #050B1F; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); }
+    .l2-video-modal.vertical video { width: min(92vw, calc(85vh * 9 / 16)); width: min(92vw, calc(85dvh * 9 / 16)); aspect-ratio: 9 / 16; }
+    .l2-video-modal-cerrar { position: absolute; top: -12px; right: -12px; z-index: 1; width: 44px; height: 44px; border: 2px solid #FFFFFF; border-radius: 50%; background: var(--color-navy-deep); color: #FFFFFF; font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); }
+    .l2-video-modal-cerrar:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-pasos, .l2-pasos-linea li::after, .l2-paso, .l2-paso-card { transition: none; }
+      .l2-paso.actual, .l2-paso.actual::after { animation: none; }
+      .l2-chat-video-play { transition: none; }
+    }
+    .l2-mensaje-intro { margin: 0 0 28px; text-align: center; }
+    .l2-mensaje-intro h2 { margin: 0 0 8px; font-size: clamp(32px, 6vw, 42px); font-weight: 800; color: var(--text-primary); line-height: 1.2; letter-spacing: -0.02em; }
+    .l2-mensaje-intro p { margin: 0; font-size: 16px; color: var(--text-secondary); line-height: 1.5; }
+
+
+    .l2-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; scrollbar-width: none; }
+    /* El botón flotante del asistente no tapa el final de la lista en móvil/tablet */
+    @media (max-width: 999px) { main { padding-bottom: 72px; } }
+    @media (max-width: 999px) { .l2-tabs { padding-right: 36px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); } }
+    .l2-tabs::-webkit-scrollbar { display: none; }
+    .l2-tab { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); background: #FFFFFF; color: var(--text-secondary); font-weight: 700; font-size: 15px; cursor: pointer; }
+    .l2-tab i { font-size: 16px; line-height: 1; }
+    .l2-tab[aria-selected="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+
+    /* Buscador de la lista: aro azul que se dibuja y sombra que se eleva al enfocar, como la barra de Google */
+    .l2-search { position: relative; isolation: isolate; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; transition: border-color 0.25s ease, box-shadow 0.3s ease; animation: l2-search-in 0.35s ease; }
+    .l2-search[hidden] { display: none; }
+    .l2-search::before { content: ''; position: absolute; inset: -3.5px; z-index: -1; border-radius: inherit; background: linear-gradient(90deg, var(--color-blue-primary), var(--border-active), var(--color-blue-sapphire), var(--color-blue-primary)); background-size: 300% 100%; opacity: 0; transition: opacity 0.25s ease; }
+    .l2-search::after { content: ''; position: absolute; inset: -1.5px; z-index: -1; border-radius: inherit; background: #FFFFFF; opacity: 0; transition: opacity 0.25s ease; }
+    .l2-search:focus-within::after { opacity: 1; }
+    .l2-search:hover { border-color: var(--border-active); box-shadow: var(--shadow-sm); }
+    .l2-search:focus-within { border-color: transparent; box-shadow: 0 8px 28px rgba(0, 102, 255, 0.2); }
+    .l2-search:focus-within::before { opacity: 1; animation: l2-aro 1.1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .l2-search > i { font-size: 20px; color: var(--text-muted); flex-shrink: 0; transition: color 0.25s ease; }
+    .l2-search:focus-within > i { color: var(--color-blue-primary); animation: l2-lupa 0.5s ease; }
+    .l2-search input { flex: 1; min-width: 0; min-height: 48px; padding: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 16px; color: var(--text-primary); }
+    .l2-search input::placeholder { color: var(--text-muted); }
+    .l2-search-borrar { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: none; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 16px; cursor: pointer; flex-shrink: 0; }
+    .l2-search-borrar:hover { background: var(--border-active); }
+    .l2-search-borrar:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-search.tiene-texto .l2-search-borrar { display: inline-flex; animation: l2-pop 0.2s ease; }
+    @keyframes l2-aro { from { background-position: 100% 0; } to { background-position: 0 0; } }
+    @keyframes l2-lupa { 0% { transform: scale(1) rotate(0); } 50% { transform: scale(1.3) rotate(-18deg); } 100% { transform: scale(1) rotate(0); } }
+    @keyframes l2-pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes l2-search-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+    .l2-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    /* Tarjeta de trámite: imagen, institución, nombre y costo. Toda la tarjeta es clicable. */
+    .l2-card { position: relative; display: flex; flex-direction: column; overflow: hidden; background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; box-shadow: var(--shadow-sm); transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    .l2-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-active); }
+    .l2-card:has(.l2-card-link:focus-visible) { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-card-media { position: relative; }
+    .l2-card-photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--color-blue-soft); }
+    .l2-card-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .l2-card:hover .l2-card-photo img { transform: scale(1.04); }
+    .l2-card-photo::after { content: ""; position: absolute; inset: auto 0 0; height: 40%; background: linear-gradient(to top, rgba(14, 20, 40, 0.18), transparent); pointer-events: none; }
+    .l2-card-price { position: absolute; z-index: 1; top: 12px; right: 12px; display: inline-flex; align-items: center; padding: 3px 12px; border-radius: var(--radius-pill); background: #FFFFFF; border: 1px solid var(--border-active); color: var(--color-blue-primary); font-size: 14px; font-weight: 800; line-height: 1.4; box-shadow: var(--shadow-sm); }
+    .l2-card-body { display: flex; flex-direction: column; gap: 4px; flex: 1; padding: 14px 16px 16px; }
+    .l2-card-body.con-costo { padding-top: 24px; }
+    .l2-card-inst { display: flex; align-items: center; gap: 6px; margin: 0; font-size: 12px; font-weight: 600; color: var(--text-muted); line-height: 1.4; }
+    .l2-card-inst i { flex-shrink: 0; font-size: 15px; color: var(--color-blue-primary); }
+    .l2-card h3 { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.3; }
+    .l2-card-link { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; width: 100%; min-height: 2.6em; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; text-decoration: none; cursor: pointer; }
+    .l2-card-link::after { content: ""; position: absolute; inset: 0; z-index: 2; }
+    .l2-card-link:focus-visible { outline: none; }
+    .l2-empty { grid-column: 1 / -1; text-align: center; padding: 32px 16px; background: var(--bg-subtle); border-radius: var(--radius-card); }
+    .l2-empty p { color: var(--text-secondary); margin: 0; }
+    /* Carrusel: páginas de 8 tarjetas; en escritorio se muestra una página a la vez y los controles quedan debajo */
+    .l2-carrusel { display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 6px; scrollbar-width: none; padding: 10px 6px 30px; margin: -10px -6px -30px; }
+    /* En pantallas angostas el margen de 3vw no alcanza para los 6 px de sombra del carrusel: se reduce para no crear scroll lateral */
+    @media (max-width: 420px) { .l2-carrusel { margin-inline: -4px; padding-inline: 4px; scroll-padding-inline: 4px; } }
+    .l2-carrusel::-webkit-scrollbar { display: none; }
+    .l2-carrusel:focus-visible { outline: 3px solid var(--border-focus); outline-offset: -3px; border-radius: 24px; }
+    .l2-page { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; align-content: start; }
+    .l2-carrusel > .l2-empty { flex: 0 0 100%; }
+    .l2-visor { position: relative; }
+    .l2-visor[hidden] { display: none; }
+    .l2-more { display: none; align-items: center; justify-content: center; gap: 16px; margin-top: 18px; }
+    .l2-more.activo { display: flex; }
+    .l2-nav-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--border-active); background: #FFFFFF; color: var(--color-blue-primary); font-size: 20px; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+    .l2-nav-btn:hover:not(:disabled) { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-nav-btn:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-nav-btn:disabled { color: var(--text-muted); border-color: var(--border-subtle); cursor: default; opacity: 0.55; }
+    .l2-pager { min-width: 96px; text-align: center; font-size: 15px; font-weight: 700; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+
+    .l2-footer { margin-top: 64px; padding: 28px 0 40px; border-top: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 14px; }
+    /* El pie ocupa el mismo ancho que el contenido, para que sus enlaces queden siempre a la izquierda, bajo las tarjetas */
+    .l2-footer > .l2-wrap { max-width: none; width: 97vw; padding: 0; }
+    .l2-footer-enlaces { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-bottom: 10px; }
+    .l2-footer-enlaces a, .l2-footer-enlaces button { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .l2-footer-enlaces a:hover, .l2-footer-enlaces button:hover { text-decoration: underline; }
+    .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
+
+
+    /* Vista "Categorías": tarjetas por tema y listado de sus trámites */
+    .l2-temas[hidden], .l2-tema-actual[hidden], .l2-carrusel[hidden] { display: none; }
+    .l2-tema { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 24px; text-align: left; font: inherit; color: inherit; background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    .l2-tema:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-active); }
+    .l2-tema:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-tema-icono { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 14px; border-radius: 16px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 26px; transition: background 0.25s ease, color 0.25s ease; }
+    .l2-tema:hover .l2-tema-icono { background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tema strong { font-size: 19px; font-weight: 800; color: var(--color-blue-primary); }
+    .l2-tema-desc { color: var(--text-secondary); font-size: 15px; line-height: 1.45; }
+    .l2-tema-pie { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
+    .l2-tema-pie i { font-size: 18px; color: var(--color-blue-primary); transition: transform 0.25s ease; }
+    .l2-tema:hover .l2-tema-pie i { transform: translateX(5px); }
+    /* Fila de la categoría elegida; el buscador va aparte, encima de las pestañas */
+    .l2-barra { display: flex; align-items: stretch; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+    .l2-barra[hidden] { display: none; }
+    .l2-search-top { margin-bottom: 16px; }
+    /* Tarjeta de la categoría elegida: una sola línea, con la misma altura que el buscador */
+    .l2-tema-actual { display: flex; align-items: center; gap: 12px; flex: 1 1 100%; min-width: 0; min-height: 52px; padding: 0 6px; background: #FFFFFF; border: 1.5px solid var(--border-active); border-radius: var(--radius-pill); box-shadow: var(--shadow-sm); }
+    .l2-tema-actual .l2-tema-icono { width: 38px; height: 38px; margin: 0; flex-shrink: 0; border-radius: 50%; font-size: 19px; background: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tema-actual-texto { display: flex; align-items: baseline; gap: 10px; min-width: 0; flex: 1; white-space: nowrap; }
+    .l2-tema-actual h3 { flex-shrink: 0; margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: var(--color-blue-primary); }
+    .l2-tema-actual h3:focus-visible { outline: none; }
+    .l2-tema-actual .l2-tema-desc { order: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
+    .l2-tema-total { order: 1; flex-shrink: 0; font-size: 13px; font-weight: 700; color: var(--color-blue-primary); }
+    .l2-tema-volver { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; flex-shrink: 0; border: 1.5px solid var(--border-active); border-radius: 50%; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .l2-tema-volver:hover { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    .l2-tema-volver:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+
+    /* Escritorio */
+    @media (min-width: 720px) {
+      .l2-logo svg { width: 132px; }
+      .l2-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    /* Una página a la vez en todos los anchos (en celular, una sola columna con scroll vertical); los controles de paginación van debajo de las tarjetas */
+    .l2-carrusel { display: block; overflow: visible; scroll-snap-type: none; }
+    .l2-page:not(.activa) { display: none; }
+    .l2-page.activa { animation: l2-pagina-sube 0.35s ease both; }
+    @media (min-width: 720px) {
+      .l2-card-photo { aspect-ratio: 2 / 1; }
+    }
+    @media (min-width: 1000px) {
+      .l2-nav { display: flex; }
+      .l2-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .l2-grid.l2-page { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .l2-profile-chevron { display: none; }
+      .l2-profile-trigger > button { padding-right: 3px; }
+    }
+    @keyframes l2-pagina-sube { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-page.activa { animation: none; }
+      .l2-track, .l2-panel { transition: none; }
+      .l2-tema, .l2-tema-icono, .l2-tema-pie i { transition: none; }
+      .l2-search, .l2-search::before, .l2-search::after, .l2-search > i { transition: none; }
+      .l2-search, .l2-search:focus-within::before, .l2-search:focus-within > i, .l2-search.tiene-texto .l2-search-borrar { animation: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="nuevoDiseño/modulos.css">
+  <script src="nuevoDiseño/sesion.js"></script>
+  <!-- Con sesión iniciada el inicio es la vista con los accesos a Trámites y Mis documentos -->
+  <script>if (document.documentElement.dataset.sesion) location.replace('nuevoDiseño/Indexlogin.html' + location.search + location.hash);</script>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="l2-header">
+    <div class="l2-wrap l2-header-inner">
+      <a href="index.html" class="l2-logo" aria-label="Simple.sv, inicio">
+        <svg viewBox="0 0 252 57" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <path d="M2.02 35.92C4.19 38.02 7.08 39.2 10.1 39.2C13.02 39.2 15.55 37.75 15.55 34.89C15.55 28.95 0.93 30.41 0.93 21.56C0.93 16.71 5.3 14.06 10.2 14.06C15.92 14.06 18.56 17.03 18.56 17.03L16.9 19.85C16.9 19.85 14.58 17.37 10.1 17.37C7.35 17.37 4.71 18.55 4.71 21.57C4.71 27.56 19.33 25.94 19.33 34.9C19.33 39.32 15.5 42.5 10.06 42.5C3.48 42.5 0.02 38.56 0.02 38.56L2.02 35.92Z" fill="#1C1E4D"/>
+          <path d="M25.56 3.92H29.39V8.51H25.56V3.92ZM25.66 14.71H29.33V41.85H25.66V14.71Z" fill="#1C1E4D"/>
+          <path d="M37.68 14.71H41.29V18.75C41.29 19.94 41.18 20.91 41.18 20.91H41.29C42.59 17.24 46.9 14.06 51.11 14.06C56.13 14.06 58.72 16.38 59.53 20.86H59.64C61.09 17.19 65.03 14.06 69.62 14.06C76.2 14.06 78.63 17.89 78.63 24.58V41.84H74.96V25.5C74.96 21.08 74.04 17.41 69.08 17.41C64.92 17.41 61.53 21.08 60.5 25.08C60.12 26.26 60.03 27.56 60.03 29.01V41.85H56.35V25.5C56.35 21.4 55.75 17.41 50.63 17.41C46.2 17.41 42.86 21.24 41.72 25.39C41.46 26.58 41.33 27.79 41.35 29.01V41.84H37.68V14.71Z" fill="#1C1E4D"/>
+          <path d="M86.89 14.71H90.4V17.36C90.4 18.06 90.37 18.76 90.29 19.46H90.4C90.4 19.46 92.61 14.06 99.79 14.06C107.07 14.06 111.6 19.89 111.6 28.31C111.6 36.89 106.48 42.5 99.46 42.5C92.94 42.5 90.56 37.32 90.56 37.32H90.46C90.46 37.32 90.56 38.29 90.56 39.7V52.65H86.89V14.71ZM99.09 39.26C103.89 39.26 107.83 35.22 107.83 28.31C107.83 21.67 104.32 17.41 99.25 17.41C94.72 17.41 90.45 20.65 90.45 28.36C90.46 33.81 93.48 39.26 99.09 39.26Z" fill="#1C1E4D"/>
+          <path d="M118.42 3.92H122.08V34.62C122.08 38.19 123.7 38.72 125.1 38.72C125.41 38.72 125.72 38.7 126.02 38.67V41.95C125.58 42.02 125.12 42.06 124.67 42.06C122.41 42.06 118.42 41.36 118.42 35.42V3.92Z" fill="#1C1E4D"/>
+          <path d="M142.75 14.06C150.25 14.06 154.08 19.84 154.08 26.58C154.08 27.23 153.97 28.47 153.97 28.47H133.14C133.3 35.43 138.05 39.21 143.66 39.21C148.62 39.21 151.91 35.92 151.91 35.92L153.58 38.72C150.79 41.13 147.23 42.47 143.54 42.5C135.45 42.5 129.35 36.67 129.35 28.31C129.37 19.4 135.42 14.06 142.75 14.06ZM150.36 25.45C150.14 19.78 146.69 17.14 142.65 17.14C138.11 17.14 134.17 19.99 133.31 25.46L150.36 25.45Z" fill="#1C1E4D"/>
+          <path d="M160.81 37.53H165.07V41.85H160.81V37.53Z" fill="#1C1E4D"/>
+          <path d="M173.79 35.92C175.95 38.02 178.85 39.2 181.87 39.2C184.78 39.2 187.32 37.75 187.32 34.89C187.32 28.95 172.69 30.41 172.69 21.56C172.69 16.71 177.07 14.06 181.97 14.06C187.68 14.06 190.33 17.03 190.33 17.03L188.66 19.84C188.66 19.84 186.35 17.36 181.87 17.36C179.11 17.36 176.47 18.54 176.47 21.56C176.47 27.55 191.09 25.93 191.09 34.89C191.09 39.31 187.26 42.5 181.82 42.5C175.24 42.5 171.79 38.56 171.79 38.56L173.79 35.92Z" fill="#1C1E4D"/>
+          <path d="M194.45 14.71H198.34L205.89 34.62C206.25 35.68 206.55 36.76 206.81 37.86H206.91C207.18 36.76 207.5 35.68 207.88 34.62L215.38 14.71H219.22L208.86 41.85H204.86L194.45 14.71Z" fill="#1C1E4D"/>
+          <path d="M251.96 14.61V23.78H223.44L226.83 14.61H251.96Z" fill="#0066FF"/>
+          <path d="M251.97 32.74V41.91H216.73L220.13 32.74H251.97Z" fill="#0066FF"/>
+          <path d="M223.44 23.78L220.13 32.74H251.96V23.78H223.44Z" fill="#E2E8F0"/>
+        </svg>
+      </a>
+
+      <div class="l2-header-actions">
+        <a class="l2-icon-button" href="nuevoDiseño/contactanos.html" aria-label="Contáctanos" title="Contáctanos" data-transicion="Contáctanos" data-transicion-icono="ph-headset"><i class="ph ph-headset" aria-hidden="true"></i></a>
+        <a class="l2-btn l2-btn-primary l2-login-btn" href="nuevoDiseño/login.html"><i class="ph ph-sign-in" aria-hidden="true"></i>Iniciar sesión</a>
+        <div class="l2-profile-trigger">
+          <button id="perfil-boton" type="button" aria-label="Abrir menú de usuario" aria-haspopup="menu" aria-controls="perfil-menu" aria-expanded="false">
+            <img class="l2-avatar" src="nuevoDiseño/usuario-avatar.png" alt="Foto de perfil de usuario">
+            <i class="ph ph-caret-down l2-profile-chevron" aria-hidden="true"></i>
+          </button>
+          <div class="l2-profile-menu" id="perfil-menu" role="menu" aria-label="Menú de usuario">
+            <a class="l2-menu-item" href="../SIMPLE ACTUAL/Identidad digital.html" role="menuitem"><i class="ph ph-user-circle" aria-hidden="true"></i>Mi cuenta</a>
+            <div class="l2-menu-divider" role="separator"></div>
+            <a class="l2-menu-item" href="index.html" role="menuitem"><i class="ph ph-sign-out" aria-hidden="true"></i>Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- CATÁLOGO -->
+    <section class="l2-section" id="tramites">
+      <div class="l2-wrap">
+        <div class="l2-mensaje-intro">
+          <h2>¿Qué trámite deseas realizar?</h2>
+          <p>Encuentra el trámite que necesitas de forma fácil y rápida</p>
+        </div>
+
+        <div class="l2-search l2-search-top" id="buscador" role="search">
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="buscador-input" placeholder="Buscar en todos los trámites…" aria-label="Buscar en todos los trámites" autocomplete="off" enterkeyhint="search">
+          <button type="button" class="l2-search-borrar" id="buscador-borrar" aria-label="Borrar búsqueda"><i class="ph ph-x" aria-hidden="true"></i></button>
+        </div>
+
+        <div class="l2-tabs" role="tablist" aria-label="Categorías de trámites">
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="empleo" aria-selected="false" tabindex="0"><i class="ph ph-briefcase" aria-hidden="true"></i>Judiciales</button>
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="documentos" aria-selected="false" tabindex="-1"><i class="ph ph-identification-card" aria-hidden="true"></i>DUI y partidas</button>
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="vivienda" aria-selected="false" tabindex="-1"><i class="ph ph-house-line" aria-hidden="true"></i>Agua y hogar</button>
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="estudio" aria-selected="false" tabindex="-1"><i class="ph ph-graduation-cap" aria-hidden="true"></i>Educación y títulos</button>
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="todos" aria-selected="false" tabindex="-1"><i class="ph ph-file-text" aria-hidden="true"></i>Todos</button>
+          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="categorias" aria-selected="false" tabindex="-1"><i class="ph ph-squares-four" aria-hidden="true"></i>Categorías</button>
+        </div>
+
+        <div class="l2-barra" id="barra" hidden>
+          <div class="l2-tema-actual" id="tema-head" hidden>
+            <span class="l2-tema-icono"><i class="ph" id="tema-icono" aria-hidden="true"></i></span>
+            <div class="l2-tema-actual-texto">
+              <h3 id="tema-titulo" tabindex="-1"></h3>
+              <span class="l2-tema-desc" id="tema-desc"></span>
+              <span class="l2-tema-total" id="tema-total"></span>
+            </div>
+            <button type="button" class="l2-tema-volver" id="tema-volver" aria-label="Volver a Categorías" title="Volver a Categorías"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+          </div>
+
+        </div>
+
+        <div class="l2-grid l2-temas" id="temas" role="list" aria-label="Categorías de trámites" hidden></div>
+        <div class="l2-visor" id="visor">
+          <div class="l2-carrusel" id="grid" role="tabpanel" aria-roledescription="carrusel" aria-label="Trámites disponibles" tabindex="0"></div>
+        </div>
+        <div class="l2-more" id="mas"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l2-footer" data-transicion-contenido>
+    <div class="l2-wrap">
+      <nav class="l2-footer-enlaces" aria-label="Ayuda y términos">
+        <a href="nuevoDiseño/contactanos.html" data-transicion="Contáctanos" data-transicion-icono="ph-headset"><i class="ph ph-headset" aria-hidden="true"></i>Contáctanos</a>
+        <button type="button" data-terminos><i class="ph ph-scroll" aria-hidden="true"></i>Términos y condiciones</button>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- CÓMO FUNCIONA: línea de tiempo flotante sobre el botón del asistente -->
+  <div class="l2-pasos" id="pasos">
+    <ol class="l2-pasos-linea" aria-label="Cómo funciona"></ol>
+    <div class="l2-paso-card" id="paso-card" role="tooltip">
+      <span class="l2-paso-card-num"></span>
+      <strong></strong>
+      <span class="l2-paso-card-texto"></span>
+      <span class="l2-paso-card-tiempo" aria-hidden="true"></span>
+    </div>
+  </div>
+
+
+  <!-- Video de antecedentes por WhatsApp en grande: el script elige el horizontal (computadora) o el vertical (celular) -->
+  <dialog class="l2-video-modal" id="video-modal" aria-label="Video: saca tus antecedentes por WhatsApp">
+    <button type="button" class="l2-video-modal-cerrar" aria-label="Cerrar el video"><i class="ph ph-x" aria-hidden="true"></i></button>
+    <video playsinline controls preload="none"></video>
+  </dialog>
+
+
+  <script src="src/data/catalogo-landing.js"></script>
+  <script src="nuevoDiseño/formularios.js"></script>
+  <script src="nuevoDiseño/canales.js"></script>
+  <script src="nuevoDiseño/citas.js"></script>
+  <script src="nuevoDiseño/ciudadano.js"></script>
+  <script src="nuevoDiseño/pasos-tramite.js"></script>
+  <script>
+    /* ===== Cómo funciona: línea de tiempo (flotante y dentro del chat) ===== */
+    const PASOS = [
+      { titulo: 'Dinos qué necesitas', texto: 'Elige una categoría o escribe tu trámite' },
+      { titulo: 'Revisa los requisitos', texto: 'Costo, tiempo de entrega e institución' },
+      { titulo: 'Recibe tu documento', texto: 'Sigue tu trámite y guarda tu comprobante' }
+    ];
+    // Al llegar desde el botón de WhatsApp de la landing (?whatsapp), el chat muestra cómo se hace el trámite por WhatsApp
+    // (asistente.js confirma el celular y lleva al chat de WhatsApp)
+    const DESDE_WHATSAPP = new URLSearchParams(location.search).has('whatsapp');
+    const PASOS_WHATSAPP = [
+      { titulo: 'Confirma tu número', texto: 'Te escribimos al celular registrado en tu Identidad Digital' },
+      { titulo: 'Dinos qué trámite quieres', texto: 'En el WhatsApp de Simple.sv te pedimos los datos uno por uno' },
+      { titulo: 'Paga y espera el aviso', texto: 'Pagas con un enlace seguro y te avisamos cuando finalice' }
+    ];
+    const SEGUNDOS_POR_PASO = 3;
+    const CLAVE_VISTO = 'simple-pasos-vistos-v2';
+    const espera = ms => new Promise(r => setTimeout(r, ms));
+
+    function crearPasos(raiz, pasos = PASOS) {
+      const linea = raiz.querySelector('.l2-pasos-linea');
+      const card = raiz.querySelector('.l2-paso-card');
+      linea.innerHTML = pasos.map((p, i) => `
+        <li><button type="button" class="l2-paso" aria-label="Paso ${i + 1}: ${p.titulo}" aria-describedby="${card.id}">${i + 1}</button></li>`).join('');
+      const botones = [...linea.querySelectorAll('.l2-paso')];
+      let pasoMostrado = -1;
+
+      function mostrar(i, contando) {
+        pasoMostrado = i;
+        card.querySelector('.l2-paso-card-num').textContent = `Paso ${i + 1} de ${pasos.length}`;
+        card.querySelector('strong').textContent = pasos[i].titulo;
+        card.querySelector('.l2-paso-card-texto').textContent = pasos[i].texto;
+        card.style.setProperty('--i', i);
+        card.classList.remove('contando');
+        void card.offsetWidth;
+        card.classList.add('visible');
+        card.classList.toggle('contando', !!contando);
+      }
+
+      function ocultar() {
+        pasoMostrado = -1;
+        card.classList.remove('visible', 'contando');
+      }
+
+      function dejarListo() {
+        botones.forEach(b => b.classList.remove('actual'));
+        botones.forEach(b => b.classList.add('hecho'));
+        raiz.classList.remove('en-intro');
+        raiz.classList.add('listo');
+      }
+
+      async function intro() {
+        raiz.classList.add('en-intro');
+        await espera(500);
+        for (let i = 0; i < pasos.length; i++) {
+          if (i > 0) botones[i - 1].classList.remove('actual');
+          botones[i].classList.add('hecho', 'actual');
+          mostrar(i, true);
+          await espera(SEGUNDOS_POR_PASO * 1000);
+        }
+        dejarListo();
+        ocultar();
+      }
+
+      // Tras la intro, la tarjeta aparece al pasar el cursor, con el foco o al tocar
+      const activo = () => raiz.classList.contains('listo');
+      botones.forEach((b, i) => {
+        b.addEventListener('mouseenter', () => { if (activo()) mostrar(i); });
+        b.addEventListener('mouseleave', () => { if (activo()) ocultar(); });
+        b.addEventListener('focus', () => { if (activo()) mostrar(i); });
+        b.addEventListener('blur', () => { if (activo()) ocultar(); });
+        b.addEventListener('click', () => {
+          if (!activo()) return;
+          pasoMostrado === i ? ocultar() : mostrar(i);
+        });
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && activo()) ocultar(); });
+
+      return { intro, dejarListo, ocultar };
+    }
+
+    // Flotante: la intro corre solo la primera visita; después queda encendida
+    const pasosFlotante = crearPasos(document.getElementById('pasos'));
+    let pasosVistos = false;
+    try { pasosVistos = localStorage.getItem(CLAVE_VISTO) === '1'; } catch (e) {}
+    if (pasosVistos) {
+      pasosFlotante.dejarListo();
+    } else {
+      setTimeout(() => {
+        pasosFlotante.intro().then(() => { try { localStorage.setItem(CLAVE_VISTO, '1'); } catch (e) {} });
+      }, 800);
+    }
+
+    /* ===== Utilidades ===== */
+    const CATEGORIAS = {
+      empleo: 'Judiciales',
+      documentos: 'DUI y partidas',
+      vivienda: 'Agua y hogar',
+      estudio: 'Educación y títulos'
+    };
+    const TRAMITES = window.CATALOGO_TRAMITES || [];
+    const POR_PAGINA = 8;
+
+    // Categorías temáticas: cada trámite (por su número en el catálogo) pertenece a una sola
+    const TEMAS = [
+      { id: 'documentos', nombre: 'Documentos', icono: 'file-text', desc: 'Identidad, constancias y registros', numeros: [73, 74, 75, 95, 96, 99, 100, 104, 110, 112, 113, 114] },
+      { id: 'educacion', nombre: 'Educación', icono: 'graduation-cap', desc: 'Estudios, títulos y certificaciones', numeros: [[48, 55], [85, 87]] },
+      { id: 'trabajo', nombre: 'Trabajo y negocio', icono: 'briefcase', desc: 'Permisos, solvencias y actividad económica', numeros: [[18, 34], 68, 91, 92, 97, 98, 102, 107, 115, 118] },
+      { id: 'salud', nombre: 'Salud y bienestar', icono: 'heart', desc: 'Atención, rehabilitación y beneficios', numeros: [[76, 78], [88, 90], 108, 111] },
+      { id: 'vivienda', nombre: 'Vivienda y servicios', icono: 'house-line', desc: 'Tu hogar y servicios básicos', numeros: [[61, 64], 101, 103, 105, 109] },
+      { id: 'transporte', nombre: 'Transporte', icono: 'bus', desc: 'Vehículos, aviación y movilidad', numeros: [[1, 17], [35, 47], [79, 81], 106, 117] },
+      { id: 'ambiente', nombre: 'Medio ambiente', icono: 'leaf', desc: 'Recursos naturales y sostenibilidad', numeros: [[65, 67], [69, 72]] },
+      { id: 'familia', nombre: 'Familia', icono: 'users-three', desc: 'Protección social, niñez y adultos mayores', numeros: [[56, 60], [82, 84], 93, 94, 116] }
+    ];
+    // Trámites con formulario en el nuevo diseño (formularios.js): su ícono acompaña la transición al abrir tramite.html
+    const FORMULARIOS = window.FORMULARIOS_TRAMITES || {};
+    const ICONO_CATEGORIA = { empleo: 'ph-briefcase', documentos: 'ph-identification-card', vivienda: 'ph-house-line', estudio: 'ph-graduation-cap' };
+    const TEMA_DE = {};
+    TEMAS.forEach(tema => tema.numeros.forEach(n => {
+      const [desde, hasta] = Array.isArray(n) ? n : [n, n];
+      for (let i = desde; i <= hasta; i++) TEMA_DE[i] = tema.id;
+    }));
+    let temaActivo = null;
+    let categoriaActiva = null;
+    let busqueda = '';
+
+    // Quita tildes y pasa a minúsculas para comparar
+    function normalizar(texto) {
+      return texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    // Frases simples que la gente usa en lugar del nombre oficial
+    const SINONIMOS = {
+      trabajo: ['antecedentes', 'solvencia', 'policial', 'penal'],
+      trabajar: ['antecedentes', 'solvencia', 'policial', 'penal'],
+      empleo: ['antecedentes', 'solvencia', 'policial', 'penal'],
+      contratar: ['antecedentes', 'solvencia', 'policial', 'penal'],
+      partida: ['partida', 'nacimiento', 'matrimonio', 'defuncion'],
+      nacimiento: ['partida', 'nacimiento'],
+      dui: ['identidad', 'dui'],
+      agua: ['anda', 'agua'],
+      recibo: ['anda', 'agua'],
+      bachiller: ['bachiller', 'titulo', 'educacion media'],
+      titulo: ['titulo', 'bachiller'],
+      notas: ['notas', 'calificaciones', 'boleta'],
+      viajar: ['migra', 'extranjer', 'salida'],
+      pasaporte: ['migra', 'extranjer']
+    };
+    const PALABRAS_VACIAS = ['quiero', 'necesito', 'un', 'una', 'de', 'del', 'el', 'la', 'los', 'las', 'para', 'mi', 'y', 'en', 'a', 'que', 'hacer', 'sacar'];
+
+    // Texto donde se busca cada trámite
+    function textoDeBusqueda(t) {
+      return normalizar([t.nombre, t.descripcion, t.institucion, t.dependencia, CATEGORIAS[t.categoria] || ''].join(' '));
+    }
+
+    function palabrasDeBusqueda(texto) {
+      const palabras = normalizar(texto).split(/[^a-z0-9ñ]+/).filter(p => p.length > 1 && !PALABRAS_VACIAS.includes(p));
+      const expandidas = new Set(palabras);
+      palabras.forEach(p => (SINONIMOS[p] || []).forEach(s => expandidas.add(s)));
+      return [...expandidas];
+    }
+
+    // Costo corto para la tarjeta: "Gratis" o el primer monto en dólares
+    function costoCorto(t) {
+      const texto = normalizar(t.costo);
+      if (texto.startsWith('no tiene costo') || texto.includes('gratu')) return { texto: 'Gratis', gratis: true };
+      const monto = t.costo.match(/\$\s?[\d.,]+/);
+      return { texto: monto ? monto[0].replace(/\s/, '') : 'Ver costo', gratis: false };
+    }
+
+    // Trámites de la pestaña (o de la categoría temática elegida), sin aplicar la búsqueda
+    function tramitesDelAmbito() {
+      if (categoriaActiva === 'categorias') return TRAMITES.filter(t => temaActivo && TEMA_DE[t.numero] === temaActivo);
+      if (categoriaActiva === 'todos') return TRAMITES;
+      return TRAMITES.filter(t => t.categoria === categoriaActiva);
+    }
+
+    // El buscador es independiente de las pestañas: con texto, busca en todos los trámites
+    function buscando() {
+      return busqueda.trim().length > 0;
+    }
+
+    function tramitesFiltrados() {
+      let lista = buscando() ? TRAMITES : tramitesDelAmbito();
+      if (buscando()) {
+        const palabras = palabrasDeBusqueda(busqueda);
+        if (palabras.length) lista = lista
+          .map(t => {
+            const texto = textoDeBusqueda(t);
+            const aciertos = palabras.filter(p => texto.includes(p)).length;
+            return { t, aciertos };
+          })
+          .filter(x => x.aciertos > 0)
+          .sort((a, b) => b.aciertos - a.aciertos)
+          .map(x => x.t);
+      }
+      return lista;
+    }
+
+    /* ===== Catálogo ===== */
+    // Solo deja pasar enlaces http(s); cualquier otro esquema (p. ej. javascript:) se descarta
+    function urlSegura(url) {
+      return /^https?:\/\//i.test(String(url || '')) ? url : '#';
+    }
+
+    function escapar(texto) {
+      return String(texto).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function sincronizarBuscador() {
+      if (buscadorInput.value !== busqueda) buscadorInput.value = busqueda;
+      buscador.classList.toggle('tiene-texto', busqueda.length > 0);
+      actualizarBarra();
+    }
+
+    // La fila solo se muestra si tiene la tarjeta de la categoría elegida
+    function actualizarBarra() {
+      document.getElementById('barra').hidden = document.getElementById('tema-head').hidden;
+    }
+
+    const buscador = document.getElementById('buscador');
+    const buscadorInput = document.getElementById('buscador-input');
+    const buscadorBorrar = document.getElementById('buscador-borrar');
+
+    buscadorInput.addEventListener('input', () => {
+      busqueda = buscadorInput.value;
+      renderCatalogo();
+    });
+
+    buscadorInput.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && busqueda) {
+        busqueda = '';
+        renderCatalogo();
+      }
+    });
+
+    buscadorBorrar.addEventListener('click', () => {
+      busqueda = '';
+      renderCatalogo();
+      buscadorInput.focus();
+    });
+
+    function renderTemas() {
+      document.getElementById('temas').innerHTML = TEMAS.map(tema => {
+        const total = TRAMITES.filter(t => TEMA_DE[t.numero] === tema.id).length;
+        return `
+          <button type="button" class="l2-tema" role="listitem" onclick="abrirTema('${tema.id}')" aria-label="${escapar(tema.nombre)}, ${total} trámites">
+            <span class="l2-tema-icono"><i class="ph ph-${tema.icono}" aria-hidden="true"></i></span>
+            <strong>${escapar(tema.nombre)}</strong>
+            <span class="l2-tema-desc">${escapar(tema.desc)}</span>
+            <span class="l2-tema-pie">${total} trámite${total === 1 ? '' : 's'}<i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+          </button>`;
+      }).join('');
+    }
+
+    function abrirTema(id) {
+      temaActivo = id;
+      busqueda = '';
+      renderCatalogo();
+      const titulo = document.getElementById('tema-titulo');
+      titulo.focus({ preventScroll: true });
+      document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('tema-volver').addEventListener('click', () => {
+      temaActivo = null;
+      busqueda = '';
+      renderCatalogo();
+      document.querySelector('.l2-tab[data-cat="categorias"]').focus({ preventScroll: true });
+    });
+
+    function renderCatalogo() {
+      // Si no hay categoría seleccionada, no mostrar nada
+      if (!categoriaActiva && !buscando()) {
+        document.getElementById('temas').hidden = true;
+        document.getElementById('tema-head').hidden = true;
+        document.getElementById('visor').hidden = true;
+        document.getElementById('mas').innerHTML = '';
+        return;
+      }
+      const verTemas = categoriaActiva === 'categorias' && !temaActivo && !buscando();
+      const tema = TEMAS.find(x => x.id === temaActivo);
+      document.getElementById('temas').hidden = !verTemas;
+      document.getElementById('tema-head').hidden = !(categoriaActiva === 'categorias' && tema && !buscando());
+      document.getElementById('visor').hidden = verTemas;
+      if (tema) {
+        const total = tramitesDelAmbito().length;
+        document.getElementById('tema-titulo').textContent = tema.nombre;
+        document.getElementById('tema-desc').textContent = tema.desc;
+        document.getElementById('tema-total').textContent = `${total} trámite${total === 1 ? '' : 's'}`;
+        document.getElementById('tema-icono').className = `ph ph-${tema.icono}`;
+      }
+      sincronizarBuscador();
+      const grid = document.getElementById('grid');
+      const mas = document.getElementById('mas');
+      if (verTemas) {
+        mas.innerHTML = '';
+        mas.classList.remove('activo');
+        renderTemas();
+        return;
+      }
+      const lista = tramitesFiltrados();
+
+      if (lista.length === 0) {
+        grid.innerHTML = `
+          <div class="l2-empty">
+            <p>No encontramos trámites con «${escapar(busqueda)}». Prueba con otra palabra</p>
+          </div>`;
+        mas.innerHTML = '';
+        mas.classList.remove('activo');
+        return;
+      }
+
+      const tarjeta = t => {
+        const costo = costoCorto(t);
+        const conCosto = costo.gratis || costo.texto !== 'Ver costo';
+        return `
+          <article class="l2-card">
+            <div class="l2-card-media">
+              <div class="l2-card-photo">
+                <img src="nuevoDiseño/${escapar(t.imagen)}" alt="" loading="lazy" decoding="async" onerror="this.remove()">
+              </div>
+              ${conCosto ? `<span class="l2-card-price">${escapar(costo.texto)}</span>` : ''}
+            </div>
+            <div class="l2-card-body ${conCosto ? 'con-costo' : ''}">
+              <p class="l2-card-inst"><i class="ph ph-buildings" aria-hidden="true"></i>${escapar(t.institucion)}</p>
+              <h3><a class="l2-card-link" href="nuevoDiseño/login.html?destino=tramite&n=${t.numero}" data-transicion="${escapar(t.nombre)}" data-transicion-icono="${FORMULARIOS[t.numero]?.icono || ICONO_CATEGORIA[t.categoria] || 'ph-file-text'}" data-transicion-rapida>${escapar(t.nombre)}</a></h3>
+            </div>
+          </article>`;
+      };
+
+      // Grupos de 8 tarjetas: cada grupo es una página del carrusel
+      const grupos = [];
+      for (let i = 0; i < lista.length; i += POR_PAGINA) grupos.push(lista.slice(i, i + POR_PAGINA));
+      grid.innerHTML = grupos.map((grupo, i) => `
+        <div class="l2-grid l2-page" role="group" aria-label="Trámites ${i * POR_PAGINA + 1} a ${i * POR_PAGINA + grupo.length} de ${lista.length}">
+          ${grupo.map(tarjeta).join('')}
+        </div>`).join('');
+      grid.scrollLeft = 0;
+      grid.querySelector('.l2-page')?.classList.add('activa');
+
+      if (grupos.length > 1) {
+        mas.innerHTML = `
+          <button type="button" class="l2-nav-btn" id="pagina-anterior" aria-label="Trámites anteriores" onclick="irAPagina(-1)"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+          <span class="l2-pager" id="pagina-indicador" role="status" aria-live="polite"></span>
+          <button type="button" class="l2-nav-btn" id="pagina-siguiente" aria-label="Más trámites" onclick="irAPagina(1)"><i class="ph ph-caret-right" aria-hidden="true"></i></button>`;
+        mas.classList.add('activo');
+        actualizarControles();
+      } else {
+        mas.innerHTML = '';
+        mas.classList.remove('activo');
+      }
+    }
+
+    /* ===== Paginación (controles debajo de las tarjetas) ===== */
+    function paginaVisible() {
+      return Math.max(0, [...document.querySelectorAll('#grid .l2-page')].findIndex(p => p.classList.contains('activa')));
+    }
+
+    function actualizarControles() {
+      const indicador = document.getElementById('pagina-indicador');
+      if (!indicador) return;
+      const total = document.querySelectorAll('#grid .l2-page').length;
+      const actual = Math.min(paginaVisible(), total - 1);
+      indicador.textContent = `Página ${actual + 1} de ${total}`;
+      document.getElementById('pagina-anterior').disabled = actual === 0;
+      document.getElementById('pagina-siguiente').disabled = actual >= total - 1;
+    }
+
+    function irAPagina(delta) {
+      const paginas = document.querySelectorAll('#grid .l2-page');
+      const destino = Math.max(0, Math.min(paginas.length - 1, paginaVisible() + delta));
+      paginas.forEach((p, i) => p.classList.toggle('activa', i === destino));
+      actualizarControles();
+      document.getElementById('visor').scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+
+    function marcarPestana(cat) {
+      categoriaActiva = cat;
+      temaActivo = null;
+      document.querySelectorAll('.l2-tab').forEach(b => {
+        const activa = b.dataset.cat === cat;
+        b.setAttribute('aria-selected', activa ? 'true' : 'false');
+        b.tabIndex = activa ? 0 : -1;
+        if (activa) centrarPestana(b);
+      });
+    }
+
+    // En móvil las pestañas se desplazan: la activa siempre queda a la vista
+    function centrarPestana(pestana) {
+      const barra = pestana.parentElement;
+      if (barra.scrollWidth <= barra.clientWidth) return;
+      const izquierda = barra.scrollLeft + pestana.getBoundingClientRect().left - barra.getBoundingClientRect().left - (barra.clientWidth - pestana.offsetWidth) / 2;
+      barra.scrollTo({ left: Math.max(0, izquierda), behavior: 'smooth' });
+    }
+
+    function irACategoria(cat) {
+      marcarPestana(cat);
+      busqueda = '';
+      renderCatalogo();
+      document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
+    }
+
+
+    /* ===== Menús del encabezado ===== */
+    const perfilBoton = document.getElementById('perfil-boton');
+    const perfilMenu = document.getElementById('perfil-menu');
+
+    function cerrarMenusEncabezado() {
+      // Si el foco estaba dentro de lo que se cierra, vuelve al botón que lo abrió
+      const foco = document.activeElement;
+      if (perfilMenu.contains(foco)) perfilBoton.focus();
+      perfilMenu.classList.remove('open');
+      perfilBoton.setAttribute('aria-expanded', 'false');
+    }
+
+    perfilBoton.addEventListener('click', () => {
+      const abierto = perfilMenu.classList.toggle('open');
+      perfilBoton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+    });
+
+    /* ===== Inicio ===== */
+    document.querySelectorAll('.l2-tab').forEach(b => {
+      b.addEventListener('click', () => {
+        busqueda = '';
+        marcarPestana(b.dataset.cat);
+        renderCatalogo();
+      });
+    });
+
+    // Flechas, Inicio y Fin entre pestañas (patrón de pestañas de WAI-ARIA)
+    document.querySelector('.l2-tabs').addEventListener('keydown', e => {
+      const pestanas = [...document.querySelectorAll('.l2-tab')];
+      const i = pestanas.indexOf(document.activeElement);
+      if (i < 0) return;
+      const destino = { ArrowRight: (i + 1) % pestanas.length, ArrowLeft: (i - 1 + pestanas.length) % pestanas.length, Home: 0, End: pestanas.length - 1 }[e.key];
+      if (destino === undefined) return;
+      e.preventDefault();
+      pestanas[destino].focus();
+      pestanas[destino].click();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') cerrarMenusEncabezado();
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.l2-profile-trigger')) cerrarMenusEncabezado();
+    });
+
+    // Al abrir, Judiciales aparece seleccionada y con sus trámites cargados
+    marcarPestana('empleo');
+    renderCatalogo();
+  </script>
+</body>
+</html>
