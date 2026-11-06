@@ -8,7 +8,8 @@ ni se paga sin un clic del ciudadano. El conocimiento sale de bd/base_conocimien
 
 Sin el paquete anthropic, sin credenciales o si la API falla, responde 503 {"modo": "sin_ia"} y el navegador sigue
 con su intérprete local. Variables: ANTHROPIC_API_KEY (o un perfil de `ant auth login`), SIMPLE_MODELO
-(claude-opus-5-5 por defecto), SIMPLE_ESFUERZO (high por defecto) y SIMPLE_IA=0 para apagarla.
+(claude-opus-5-5 por defecto), SIMPLE_ESFUERZO (high por defecto), SIMPLE_IA=0 para apagarla y SIMPLE_ORIGENES para
+aceptar otros orígenes, como el de la app móvil.
 """
 import json
 import os
@@ -361,11 +362,37 @@ def consultar(cliente, base, peticion):
     return json.loads(texto), resumen_uso, respuesta.stop_reason
 
 
+def origenes_permitidos():
+    """Otros orígenes que pueden llamar al asistente, por ejemplo la app móvil (app/): https://localhost en Android y
+    capacitor://localhost en iOS. Se leen de SIMPLE_ORIGENES, separados por comas; por defecto, ninguno. Es una
+    defensa del navegador, no una autenticación: el límite por minuto sigue aplicando a todos."""
+    return {o.strip().rstrip("/").lower() for o in os.environ.get("SIMPLE_ORIGENES", "").split(",") if o.strip()}
+
+
 def origen_valido(cabeceras):
     origen = cabeceras.get("Origin")
     if not origen:
         return True
-    return urlparse(origen).netloc == cabeceras.get("Host")
+    return urlparse(origen).netloc == cabeceras.get("Host") or origen.lower() in origenes_permitidos()
+
+
+def cabeceras_cors(cabeceras):
+    """Cabeceras CORS de la respuesta: el origen solo se autoriza si está en SIMPLE_ORIGENES."""
+    origen = cabeceras.get("Origin")
+    cors = {"Vary": "Origin"}
+    if origen and origen.lower() in origenes_permitidos():
+        cors["Access-Control-Allow-Origin"] = origen
+    return cors
+
+
+def responder_preflight(cabeceras):
+    """Atiende OPTIONS /api/asistente, la consulta previa del navegador antes de un POST desde otro origen.
+    Devuelve (código HTTP, cabeceras)."""
+    cors = cabeceras_cors(cabeceras)
+    if "Access-Control-Allow-Origin" not in cors or cabeceras.get("Access-Control-Request-Method") != "POST":
+        return 403, cors
+    return 204, {**cors, "Access-Control-Allow-Methods": "POST", "Access-Control-Allow-Headers": "Content-Type",
+                 "Access-Control-Max-Age": "600"}
 
 
 def responder(cuerpo, cabeceras, ip, cliente=None):

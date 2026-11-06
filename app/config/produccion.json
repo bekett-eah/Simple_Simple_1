@@ -1,0 +1,29 @@
+{
+  "entorno": "produccion",
+  "descripcion": "Producción. Los valores en null dependen de la documentación y autorización institucional (plan, fases 3 a 5): mientras falten, el build de producción se detiene a propósito.",
+  "depuracion": false,
+  "servicios": {
+    "asistente": null
+  },
+  "backend": {
+    "tipo": "http",
+    "url": null
+  },
+  "identidad": {
+    "proveedor": "oidc",
+    "emisor": null,
+    "clienteId": null,
+    "redireccion": "sv.simple.app:/oauth2redirect",
+    "alcances": ["openid"]
+  },
+  "pagos": {
+    "pasarela": "backend"
+  },
+  "sesion": {
+    "minutosInactividad": 5,
+    "segundosRenovacionAnticipada": 60
+  },
+  "enlaces": {
+    "crearIdentidad": "https://login.gob.sv/"
+  }
+}

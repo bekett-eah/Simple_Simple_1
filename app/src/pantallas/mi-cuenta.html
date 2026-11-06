@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" data-pantalla="mi-cuenta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Mi cuenta · Simple.sv</title>
+  <link rel="stylesheet" href="../vendor/fuentes/fuentes.css">
+  <link rel="stylesheet" href="../vendor/phosphor/regular/style.css">
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <link rel="stylesheet" href="pantallas.css">
+</head>
+<body>
+  <!-- En la app reemplaza a "SIMPLE ACTUAL/Identidad digital.html" (copia capturada del portal oficial) -->
+  <main class="app-pantalla">
+    <header class="app-encabezado">
+      <img src="logo.svg" alt="Simple.sv" width="120" height="27">
+      <a class="app-volver" href="../nuevoDiseno/Indexlogin.html"><i class="ph ph-arrow-left" aria-hidden="true"></i>Volver</a>
+    </header>
+    <section class="app-tarjeta" aria-labelledby="titulo">
+      <span class="app-icono-grande" aria-hidden="true"><i class="ph ph-user-circle"></i></span>
+      <h1 id="titulo">Mi cuenta</h1>
+      <dl class="app-datos">
+        <dt>Nombre</dt><dd id="nombre">—</dd>
+        <dt>Documento</dt><dd id="documento">—</dd>
+      </dl>
+      <p class="app-nota"><i class="ph ph-info" aria-hidden="true"></i><span>Tus datos personales se administran en Identidad Digital. <a class="app-enlace" id="ir-identidad" href="https://login.gob.sv/">Abrir login.gob.sv</a></span></p>
+    </section>
+    <section class="app-tarjeta" aria-labelledby="titulo-seguridad">
+      <h2 class="app-seccion-titulo" id="titulo-seguridad">Ingreso en este teléfono</h2>
+      <div class="app-interruptor">
+        <span id="estado-biometria">Huella o rostro: desactivado</span>
+        <button class="app-boton app-boton-secundario" type="button" id="alternar-biometria">Activar</button>
+      </div>
+      <div class="app-acciones">
+        <button class="app-boton app-boton-secundario" type="button" id="cerrar-sesion"><i class="ph ph-sign-out" aria-hidden="true"></i>Cerrar sesión</button>
+        <button class="app-boton app-boton-peligro" type="button" id="desvincular"><i class="ph ph-device-mobile-slash" aria-hidden="true"></i>Desvincular este teléfono</button>
+      </div>
+      <p class="app-mensaje" id="mensaje" role="status" aria-live="polite"></p>
+    </section>
+    <p class="app-pie" id="pie"></p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,89 @@
+# App móvil de Simple.sv (app/): pruebas, build del ambiente de pruebas, revisión del paquete y APK de depuración.
+# No usa secretos: el APK de depuración se firma con la clave de depuración que genera Gradle en el runner.
+# Las acciones van fijadas por commit (la etiqueta de versión queda en el comentario).
+name: App móvil (Android)
+
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'index.html'
+      - 'nuevoDiseño/**'
+      - 'src/**'
+      - 'SIMPLE ACTUAL/**'
+      - 'servidor.py'
+      - 'asistente_ia.py'
+      - 'pruebas/**'
+      - '.github/workflows/app-movil.yml'
+  push:
+    branches: [main, feature/app-movil]
+    paths:
+      - 'app/**'
+      - 'index.html'
+      - 'nuevoDiseño/**'
+      - 'src/**'
+      - 'SIMPLE ACTUAL/**'
+      - 'servidor.py'
+      - 'asistente_ia.py'
+      - 'pruebas/**'
+      - '.github/workflows/app-movil.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-movil-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Dependencias
+        run: npm ci
+
+      - name: Pruebas del frontend y del asistente (repositorio)
+        working-directory: .
+        run: |
+          node --test pruebas/*.test.mjs
+          python3 -m unittest discover -s pruebas -p 'test_*.py'
+
+      - name: Pruebas de la app, build de pruebas, cap sync y revisión del paquete
+        run: npm run verificar
+
+      - uses: gradle/actions/wrapper-validation@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: APK de depuración (ambiente de pruebas)
+        working-directory: app/android
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Revisión del APK
+        run: node scripts/verificar-paquete.mjs --apk=android/app/build/outputs/apk/debug/app-debug.apk
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: simple-sv-pruebas-${{ github.sha }}
+          path: app/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14

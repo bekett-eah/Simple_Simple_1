@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" data-pantalla="desbloqueo">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect y=%2711%27 width=%2732%27 height=%277%27 rx=%273%27 fill=%27%230066FF%27/%3E%3Crect y=%2721%27 width=%2724%27 height=%277%27 rx=%273%27 fill=%27%231C1E4D%27/%3E%3C/svg%3E">
+  <title>Ingresa · Simple.sv</title>
+  <link rel="stylesheet" href="../vendor/fuentes/fuentes.css">
+  <link rel="stylesheet" href="../vendor/phosphor/regular/style.css">
+  <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <link rel="stylesheet" href="pantallas.css">
+</head>
+<body>
+  <main class="app-pantalla">
+    <header class="app-encabezado">
+      <img src="logo.svg" alt="Simple.sv" width="120" height="27">
+    </header>
+    <section class="app-tarjeta" aria-labelledby="titulo">
+      <span class="app-icono-grande" aria-hidden="true"><i class="ph ph-lock-key"></i></span>
+      <h1 id="titulo">Hola de nuevo</h1>
+      <p>Usa tu huella o tu rostro para entrar a tu cuenta.</p>
+      <div class="app-acciones">
+        <button class="app-boton app-boton-principal" type="button" id="desbloquear"><i class="ph ph-fingerprint" aria-hidden="true"></i>Ingresar con huella o rostro</button>
+        <a class="app-boton app-boton-secundario" id="usar-identidad" href="inicio-sesion.html"><i class="ph ph-identification-card" aria-hidden="true"></i>Usar Identidad Digital</a>
+        <button class="app-boton app-boton-secundario" type="button" id="sin-sesion">Seguir sin iniciar sesión</button>
+      </div>
+      <p class="app-mensaje" id="mensaje" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>

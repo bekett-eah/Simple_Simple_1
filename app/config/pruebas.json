@@ -1,0 +1,25 @@
+{
+  "entorno": "pruebas",
+  "descripcion": "Pruebas en dispositivos y piloto interno. Mientras no existan los ambientes de prueba del backend, de Identidad Digital y de la pasarela, usa los mismos simuladores que desarrollo.",
+  "depuracion": false,
+  "servicios": {
+    "asistente": null
+  },
+  "backend": {
+    "tipo": "simulado",
+    "url": null
+  },
+  "identidad": {
+    "proveedor": "simulado"
+  },
+  "pagos": {
+    "pasarela": "simulada"
+  },
+  "sesion": {
+    "minutosInactividad": 5,
+    "segundosRenovacionAnticipada": 60
+  },
+  "enlaces": {
+    "crearIdentidad": "https://login.gob.sv/"
+  }
+}
