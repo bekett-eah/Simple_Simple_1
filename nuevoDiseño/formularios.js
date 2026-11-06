@@ -60,8 +60,8 @@
     titulo: 'Nota informativa',
     subtitulo: 'Lee la información antes de continuar',
     campos: [
-      { tipo: 'nota', estilo: 'info', titulo: '¡Hola!', lineas: costo },
-      { tipo: 'nota', estilo: 'aviso', titulo: terminosTitulo, lineas: terminos },
+      { tipo: 'nota', estilo: 'info', titulo: '¡Hola!', desplegable: true, lineas: costo },
+      { tipo: 'nota', estilo: 'aviso', titulo: terminosTitulo, desplegable: true, abierta: false, lineas: terminos },
       { tipo: 'opciones', nombre: 'acepta_terminos', etiqueta: aceptaEtiqueta, marcado: true, opciones: [{ valor: 'acepto', texto: 'Acepto los términos', icono: 'ph-handshake' }] }
     ]
   });

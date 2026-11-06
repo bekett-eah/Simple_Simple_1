@@ -265,6 +265,17 @@
     .l2-nota-cuerpo li { margin-bottom: 4px; }
     .l2-nota-cuerpo li::marker { color: var(--color-blue-primary); }
     .l2-nota-cuerpo h4 { margin: 18px 0 8px; color: var(--color-blue-sapphire); font-size: 14px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+    /* Notas desplegables: título como botón con chevron; el panel anima su alto con grid */
+    .l2-nota-toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; margin: -8px 0; padding: 8px 0; border: none; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+    .l2-nota-toggle:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 4px; border-radius: 8px; }
+    .l2-nota-cuerpo .l2-nota-toggle strong.l2-nota-titulo { margin-bottom: 0; }
+    .l2-nota-toggle > i { flex-shrink: 0; color: var(--color-blue-primary); font-size: 20px; transition: transform 0.25s ease; }
+    .l2-nota-cerrada .l2-nota-toggle > i { transform: rotate(-90deg); }
+    .l2-nota-panel { display: grid; grid-template-rows: 1fr; margin-top: 12px; transition: grid-template-rows 0.3s ease, margin-top 0.3s ease; }
+    .l2-nota-panel-interior { min-height: 0; overflow: hidden; }
+    .l2-nota-cerrada .l2-nota-panel { grid-template-rows: 0fr; margin-top: 0; }
+    .l2-nota-cerrada .l2-nota-panel-interior { visibility: hidden; transition: visibility 0s 0.3s; }
+    @media (prefers-reduced-motion: reduce) { .l2-nota-panel, .l2-nota-toggle > i { transition: none; } }
     .l2-nota-requisitos .l2-nota-cuerpo { max-height: min(520px, 70vh); overflow-y: auto; padding-right: 8px; scrollbar-width: thin; scrollbar-color: #64748B transparent; }
     .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar { width: 8px; }
     .l2-nota-requisitos .l2-nota-cuerpo::-webkit-scrollbar-thumb { border-radius: 8px; background: #64748B; }
@@ -302,6 +313,15 @@
       .l2-campos-dos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .l2-campos-tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
+    /* Campos en la misma fila: aunque un rótulo ocupe más líneas, los controles quedan alineados abajo */
+    /* (un campo con condición va envuelto en .l2-condicional > div, y ese bloque también se estira) */
+    .l2-campos-dos > .l2-condicional > div, .l2-campos-tres > .l2-condicional > div { display: flex; flex-direction: column; }
+    .l2-campos-dos > .l2-campo, .l2-campos-tres > .l2-campo,
+    .l2-campos-dos > .l2-condicional > div > .l2-campo, .l2-campos-tres > .l2-condicional > div > .l2-campo { display: flex; flex: 1; flex-direction: column; }
+    /* Si un campo de la fila muestra su error, el vecino reserva el mismo espacio (invisible) para que los controles sigan alineados */
+    :is(.l2-campos-dos, .l2-campos-tres):has(.l2-campo.con-error) .l2-campo:not(.con-error) > .l2-error { display: flex; visibility: hidden; }
+    .l2-campos-dos > .l2-campo > :is(.l2-input, .l2-campo-solo), .l2-campos-tres > .l2-campo > :is(.l2-input, .l2-campo-solo),
+    .l2-campos-dos > .l2-condicional > div > .l2-campo > :is(.l2-input, .l2-campo-solo), .l2-campos-tres > .l2-condicional > div > .l2-campo > :is(.l2-input, .l2-campo-solo) { margin-top: auto; }
 
     /* Revisión y pago: filas dato · respuesta */
     .l2-revision { display: grid; gap: 16px; margin-top: 22px; }
@@ -330,11 +350,34 @@
     .l2-desp-cuerpo > .l2-nota:first-child { margin-top: 0; }
     .l2-desp .l2-revision { margin-top: 0; }
     /* Los campos de lectura de un desplegable "comoFilas" no se ven: se muestran como filas */
-    .l2-desp[data-como-filas] .l2-campo, .l2-desp[data-como-filas] .l2-campos-dos { display: none; }
+    .l2-desp[data-como-filas]:not([data-editando]) .l2-campo, .l2-desp[data-como-filas]:not([data-editando]) .l2-campos-dos { display: none; }
+    .l2-desp-acciones { display: flex; justify-content: flex-end; margin-top: -4px; }
+    .l2-desp-acciones .l2-editar { min-height: 36px; font-size: 14px; }
+    .l2-desp[data-editando] .l2-desp-vista { display: none; }
     .l2-desp-cuerpo > .l2-filas { margin-top: 8px; }
     .l2-desp-cuerpo > .l2-filas > div:first-child { border-top: 0; }
     .l2-desp .l2-revision-grupo { padding: 0; border: 0; background: none; }
     .l2-desp .l2-revision-cab { justify-content: flex-end; }
+    /* Cards desplegables más delgadas y compactas: cabecera, campos, opciones y secciones de adentro */
+    .l2-desp { margin-top: 12px; border-radius: 14px; }
+    .l2-desp > summary { gap: 10px; min-height: 48px; padding: 6px 14px; border-radius: 14px; }
+    .l2-desp-icono { width: 30px; height: 30px; border-radius: 10px; font-size: 16px; }
+    .l2-desp-titulo { font-size: 15px; }
+    .l2-desp-vista { font-size: 13px; }
+    .l2-desp-caret { font-size: 18px; }
+    .l2-desp-cuerpo { padding: 0 14px 12px; }
+    .l2-desp-cuerpo .l2-campo { padding-top: 10px; }
+    .l2-desp-cuerpo .l2-campo > label:not(.l2-archivo) { margin-bottom: 4px; font-size: 14px; }
+    .l2-desp-cuerpo .l2-input { min-height: 44px; border-radius: 12px; font-size: 15px; }
+    .l2-desp-cuerpo .l2-select { background-position: right 14px center; }
+    .l2-desp-cuerpo .l2-seccion { margin-top: 16px; padding-top: 12px; font-size: 16px; }
+    .l2-desp-cuerpo .l2-opciones { gap: 8px; margin-top: 8px; }
+    .l2-desp-cuerpo .l2-opcion { gap: 10px; min-height: 52px; padding: 8px 12px; border-radius: 12px; }
+    .l2-desp-cuerpo .l2-opcion-icono { width: 32px; height: 32px; border-radius: 10px; font-size: 17px; }
+    .l2-desp-cuerpo .l2-opcion-texto strong { font-size: 14px; }
+    .l2-desp-cuerpo .l2-opcion-texto small { margin-top: 1px; font-size: 12px; }
+    .l2-desp-cuerpo .l2-opcion-check { width: 20px; height: 20px; font-size: 12px; }
+    .l2-desp-cuerpo .l2-nota { gap: 10px; margin-top: 12px; padding: 10px 14px; border-radius: 12px; font-size: 14px; }
     .l2-desp .l2-revision-cab + .l2-filas > div:first-child { border-top: 0; }
     @media (prefers-reduced-motion: reduce) { .l2-desp-caret { transition: none; } }
     .l2-filas { margin: 0; }
@@ -764,20 +807,43 @@
       return p;
     }
 
+    let contadorNotas = 0;
     function crearNota(campo) {
       const caja = el('div', `l2-nota l2-nota-${campo.estilo || 'info'}`);
       caja.append(icono(campo.estilo === 'aviso' ? 'ph-warning' : 'ph-info'));
       const cuerpo = el('div', 'l2-nota-cuerpo');
-      if (campo.titulo) cuerpo.append(el('strong', 'l2-nota-titulo', campo.titulo));
+      // Desplegable: el título pasa a ser un botón y el texto va en un panel que se abre y se cierra
+      const desplegable = !!(campo.desplegable && campo.titulo);
+      let contenido = cuerpo;
+      if (desplegable) {
+        const id = `l2-nota-${++contadorNotas}`;
+        const boton = el('button', 'l2-nota-toggle');
+        boton.type = 'button';
+        boton.setAttribute('aria-controls', id);
+        boton.append(el('strong', 'l2-nota-titulo', campo.titulo), icono('ph-caret-down'));
+        const panel = el('div', 'l2-nota-panel');
+        panel.id = id;
+        const interior = el('div', 'l2-nota-panel-interior');
+        panel.append(interior);
+        const abrir = abierta => {
+          caja.classList.toggle('l2-nota-cerrada', !abierta);
+          boton.setAttribute('aria-expanded', String(abierta));
+          panel.inert = !abierta;
+        };
+        boton.addEventListener('click', () => abrir(boton.getAttribute('aria-expanded') !== 'true'));
+        cuerpo.append(boton, panel);
+        contenido = interior;
+        abrir(campo.abierta !== false);
+      } else if (campo.titulo) cuerpo.append(el('strong', 'l2-nota-titulo', campo.titulo));
       let lista = null;
       (campo.lineas || []).forEach(linea => {
         if (linea.startsWith('- ')) {
-          if (!lista) { lista = el('ul'); cuerpo.append(lista); }
+          if (!lista) { lista = el('ul'); contenido.append(lista); }
           lista.append(el('li', '', linea.slice(2)));
           return;
         }
         lista = null;
-        cuerpo.append(linea.startsWith('## ') ? el('h4', '', linea.slice(3)) : el('p', '', linea));
+        contenido.append(linea.startsWith('## ') ? el('h4', '', linea.slice(3)) : el('p', '', linea));
       });
       // Cuadro con scroll interno: alcanzable con teclado y con nombre
       if (campo.estilo === 'requisitos') {
@@ -971,6 +1037,7 @@
       detalles.open = !!campo.abierto;
       if (campo.comoFilas) detalles.dataset.comoFilas = '';
       if (campo.ocultarVacio) detalles.dataset.ocultarVacio = '';
+      if (campo.soloSesion) detalles.dataset.soloSesion = '';
       const cabecera = el('summary');
       if (campo.icono) { const cajaIcono = el('span', 'l2-desp-icono'); cajaIcono.append(icono(campo.icono)); cabecera.append(cajaIcono); }
       const titulo = el('span', 'l2-desp-titulo', campo.titulo);
@@ -984,6 +1051,29 @@
         cabecera.append(titulo, icono('ph-caret-down l2-desp-caret'));
       }
       const cuerpo = el('div', 'l2-desp-cuerpo');
+      // Editable: se ve como filas de solo lectura y "Editar" cambia a los campos del formulario; "Listo" vuelve a las filas
+      if (campo.editable) {
+        const acciones = el('div', 'l2-desp-acciones');
+        const editar = el('button', 'l2-editar');
+        editar.type = 'button';
+        const rotular = () => {
+          const editando = 'editando' in detalles.dataset;
+          editar.replaceChildren(icono(editando ? 'ph-check' : 'ph-pencil-simple'), editando ? 'Listo' : 'Editar');
+          editar.setAttribute('aria-label', `${editando ? 'Terminar de editar' : 'Editar'} ${campo.titulo.toLowerCase()}`);
+        };
+        editar.addEventListener('click', () => {
+          const editando = 'editando' in detalles.dataset;
+          if (editando) { const mal = validar(detalles); if (mal) { mal.focus(); return; } }
+          if (editando) delete detalles.dataset.editando; else detalles.dataset.editando = '';
+          rotular();
+          pintarFilas(detalles);
+          if (!editando) detalles.querySelector('.l2-campo input, .l2-campo select')?.focus();
+        });
+        rotular();
+        acciones.append(editar);
+        cuerpo.append(acciones);
+        detalles.rotular = rotular;
+      }
       detalles.append(cabecera, cuerpo);
       return { detalles, cuerpo };
     }
@@ -1106,7 +1196,8 @@
       });
     }
 
-    const visible = nodo => !nodo.closest('.l2-condicional:not(.abierto)');
+    // Lo que solo existe con sesión (la card "Tus datos") no cuenta mientras no se haya iniciado: ni se ve ni se valida
+    const visible = nodo => !nodo.closest('.l2-condicional:not(.abierto)') && (haySesion() || !nodo.closest('[data-solo-sesion]'));
 
     // Cambia el texto del error de un campo sin perder su ícono
     function fijarMensaje(error, texto) {
@@ -1207,7 +1298,35 @@
       d.querySelector('.l2-desp-vista').textContent = valores.slice(0, 3).join(' · ');
     }
     // Al cerrar el desplegable, la vista previa refleja lo que se cambió adentro
-    formulario.addEventListener('toggle', e => { if (e.target.matches?.('.l2-desp[data-vista-previa]')) actualizarVista(e.target); }, true);
+    formulario.addEventListener('toggle', e => {
+      if (e.target.matches?.('.l2-desp[data-vista-previa]')) actualizarVista(e.target);
+      // Flujo corto: un solo desplegable abierto a la vez en el paso
+      if (flujoCorto && e.target.matches?.('.l2-desp') && e.target.open) {
+        e.target.closest('.l2-paso-campos')?.querySelectorAll('.l2-desp[open]').forEach(otro => { if (otro !== e.target && !otro.contains(e.target)) otro.open = false; });
+      }
+    }, true);
+
+    // Los campos de lectura de un desplegable "comoFilas" se ven como filas; si se está editando, se ven los campos
+    function pintarFilas(d) {
+      const cuerpo = d.querySelector('.l2-desp-cuerpo');
+      cuerpo.querySelector(':scope > .l2-filas')?.remove();
+      if ('editando' in d.dataset) return;
+      cuerpo.append(filas([...cuerpo.querySelectorAll('.l2-campo')].filter(visible).map(c => {
+        const etiqueta = c.querySelector('label').cloneNode(true);
+        etiqueta.querySelectorAll('span').forEach(n => n.remove());
+        const control = c.querySelector('input, select');
+        const valor = control.tagName === 'SELECT' ? (control.value ? control.selectedOptions[0].textContent : '') : control.value;
+        return [etiqueta.textContent.trim(), valor.trim()];
+      })));
+    }
+
+    // Si un dato con error está en un desplegable cerrado, se abre; si es una card de lectura, pasa a los campos para poder corregirlo
+    function revelar(control) {
+      for (let d = control.closest('details'); d; d = d.parentElement?.closest('details')) {
+        d.open = true;
+        if (typeof d.rotular === 'function' && !('editando' in d.dataset)) { d.dataset.editando = ''; d.rotular(); pintarFilas(d); }
+      }
+    }
 
     function mostrarPaso(i, enfocar = true) {
       actual = i;
@@ -1216,11 +1335,7 @@
       formulario.querySelectorAll('.l2-paso-campos').forEach(c => { c.hidden = c !== caja; });
       if (pasos[i].tipo === 'revision') pintarRevision(caja.querySelector('.l2-revision'));
       // "Tus datos": los campos de lectura (llenados con la cuenta) se ven como filas, igual que el resumen de la solicitud
-      caja.querySelectorAll('.l2-desp[data-como-filas]').forEach(d => {
-        const cuerpo = d.querySelector('.l2-desp-cuerpo');
-        cuerpo.querySelector(':scope > .l2-filas')?.remove();
-        cuerpo.append(filas([...cuerpo.querySelectorAll('.l2-campo')].map(c => [c.querySelector('label').textContent, c.querySelector('input').value.trim()])));
-      });
+      caja.querySelectorAll('.l2-desp[data-como-filas]').forEach(pintarFilas);
       caja.querySelectorAll('.l2-desp[data-vista-previa]').forEach(actualizarVista);
       if (pasos[i].tipo === 'pago') pintarPago(caja.querySelector('.l2-pago'));
       document.getElementById('listo').classList.remove('visible');
@@ -1483,7 +1598,8 @@
       if (!(await restaurarBorrador())) return;
       actualizarCondicionales();
       prellenar();
-      if (validar(cajaDe(0))) return;
+      const mal = validar(cajaDe(0));
+      if (mal) { revelar(mal); mal.focus(); return; }
       const siguiente = pasosQueAplican().find(i => i > 0);
       if (siguiente === undefined) return;
       // Llega al paso 2; la pasarela se abre cuando la persona pulsa "Pagar"
@@ -1660,7 +1776,7 @@
         if (primero) {
           document.getElementById('listo').classList.remove('visible');
           // Si el dato con error está en un desplegable cerrado, se abre para que se vea
-          for (let d = primero.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
+          revelar(primero);
           primero.focus();
           return;
         }

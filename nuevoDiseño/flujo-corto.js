@@ -1,16 +1,16 @@
 /* Flujo corto de los trámites de las dos primeras páginas del catálogo (16 trámites en Indexlogin.html). Lo usa tramite.html.
    Toma el formulario completo de formularios.js (que no se toca: el chat y WhatsApp lo siguen usando tal cual) y lo
    resume en 2 pasos; entre uno y otro se pide iniciar sesión (tramite.html):
-     1. Tu solicitud: todo en el mismo paso. Solo lo que la persona tiene que escribir o elegir va a la vista; lo ya
-        elegido y lo opcional, en desplegables cerrados y editables.
-     2. Pago: lo que viene de la Identidad Digital, en una card desplegable editable (se llena al iniciar sesión), y el
-        total. Al volver del login se llega al paso 2; la pasarela se abre al pulsar "Pagar" y, al pagar, se va directo a Mis documentos.
+     1. Tu solicitud: todo en el mismo paso. Solo lo que la persona tiene que escribir o elegir va a la vista; lo que
+        viene de la Identidad Digital ("Tus datos", cerrada y de solo lectura; "Editar" abre los campos), lo ya elegido y
+        lo opcional, en desplegables editables. Solo uno abierto a la vez.
+     2. Pago: el total. Al volver del login se llega al paso 2; la pasarela se abre al pulsar "Pagar" y, al pagar, se va directo a Mis documentos.
         (La cita presencial del 99 no se paga: su paso 2 es "Confirma tu cita". Un trámite sin pago, o que solo a veces lo
         tiene, termina en un paso 2 "Confirma tu solicitud": tras confirmar va igual a Mis documentos.)
-   Qué va en la card de la Identidad Digital (paso 2):
+   Qué va en la card de la Identidad Digital (paso 1, solo con sesión iniciada):
      - los campos de solo lectura (vienen de la Identidad Digital): aquí se pueden editar;
      - los campos que la cuenta ya trae (ciudadano.js), salvo los que solo se llenan según lo respondido (prellenarSi).
-   Qué va en "Ya elegido por ti" (paso 1): lo que ya viene elegido (preguntas de opciones marcadas y listas con una sola
+   Qué va en "Datos de la solicitud" (paso 1): lo que ya viene elegido (preguntas de opciones marcadas y listas con una sola
    opción), aunque decida qué otras preguntas salen; se puede cambiar ahí mismo. Las aceptaciones de términos o
    condiciones siempre se ven.
    Condiciones: al juntar pasos, la condición de un paso se suma a la de cada uno de sus campos con "&&"
@@ -81,7 +81,8 @@
           return;
         }
         const lista = destino === 'preseleccionado' ? elegidos : destino === 'opcional' ? opcionales : requeridos;
-        lista.push(...pendientes, campo);
+        // En "Datos de la solicitud" no van los títulos de sección: la card ya los agrupa
+        lista.push(...(lista === elegidos ? pendientes.filter(x => x.tipo !== 'seccion') : pendientes), campo);
         pendientes = [];
       });
     });
@@ -90,9 +91,17 @@
     const campos = [...requeridos];
     if (elegidos.length) {
       campos.push(
-        { tipo: 'desplegable', titulo: 'Ya elegido por ti', icono: 'ph-check-circle', abierto: false, ocultarVacio: true, vistaPrevia: true },
-        { tipo: 'nota', estilo: 'info', lineas: ['Lo dejamos elegido por ti. Cámbialo si no es lo que necesitas'] },
+        { tipo: 'desplegable', titulo: 'Datos de la solicitud', icono: 'ph-file-text', abierto: true, ocultarVacio: true, vistaPrevia: true },
         ...elegidos,
+        { tipo: 'finDesplegable' }
+      );
+    }
+    // Lo de la Identidad Digital: siempre en el paso 1, en una card cerrada y de solo lectura; "Editar" abre los campos
+    if (cuenta.length) {
+      campos.push(
+        { tipo: 'desplegable', titulo: 'Tus datos', icono: 'ph-user-circle', abierto: false, ocultarVacio: true, vistaPrevia: true, comoFilas: true, editable: true, soloSesion: true },
+        { tipo: 'nota', estilo: 'info', lineas: ['Vienen de tu Identidad Digital. Si algo cambió, pulsa «Editar» y corrígelo'] },
+        ...cuenta,
         { tipo: 'finDesplegable' }
       );
     }
@@ -106,17 +115,9 @@
       campos
     }];
 
-    // Paso 2: pago (o confirmar la cita). Los datos de la Identidad Digital van en una card desplegable editable
+    // Paso 2: pago (o confirmar la cita). Los datos de la Identidad Digital ya van en el paso 1
     if (pago) {
       const camposDePago = [];
-      if (cuenta.length) {
-        camposDePago.push(
-          { tipo: 'desplegable', titulo: 'Tus datos', icono: 'ph-user-circle', abierto: false, ocultarVacio: true, vistaPrevia: true },
-          { tipo: 'nota', estilo: 'info', lineas: ['Vienen de tu Identidad Digital. Si algo cambió, corrígelo aquí'] },
-          ...cuenta,
-          { tipo: 'finDesplegable' }
-        );
-      }
       // El resumen del pago (trámite, institución y total) va después de la card de datos, y una sola nota informativa
       camposDePago.push({ tipo: 'resumenPago' });
       const notas = (pago.campos || []).filter(c => c.tipo === 'nota');
@@ -131,14 +132,6 @@
     };
     if (!fin && (!pago || (pago.si && complemento(pago.si)))) {
       const camposDeConfirmar = [];
-      if (!pago && cuenta.length) {
-        camposDeConfirmar.push(
-          { tipo: 'desplegable', titulo: 'Tus datos', icono: 'ph-user-circle', abierto: false, ocultarVacio: true, vistaPrevia: true },
-          { tipo: 'nota', estilo: 'info', lineas: ['Vienen de tu Identidad Digital. Si algo cambió, corrígelo aquí'] },
-          ...cuenta,
-          { tipo: 'finDesplegable' }
-        );
-      }
       camposDeConfirmar.push({ tipo: 'resumen', titulo: 'Tu solicitud', icono: 'ph-clipboard-text', abierto: true });
       const informativa = notasDeRevision.find(c => (c.estilo || 'info') === 'info') || notasDeRevision[0];
       if (informativa) camposDeConfirmar.push(informativa);
