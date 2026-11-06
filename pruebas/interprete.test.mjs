@@ -6,12 +6,15 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const raiz = new URL('..', import.meta.url);
-const window = {};
+const SCRIPTS = ['src/data/catalogo-landing.js', 'nuevoDiseño/formularios.js', 'nuevoDiseño/citas.js', 'nuevoDiseño/ciudadano.js',
+  'nuevoDiseño/pasos-tramite.js', 'nuevoDiseño/motor-tramite.js', 'nuevoDiseño/interprete.js'];
+function cargar(window, protocolo) {
+  const contexto = vm.createContext({ window, location: { protocol: protocolo, search: '' }, performance, setTimeout, clearTimeout });
+  SCRIPTS.forEach(ruta => vm.runInContext(readFileSync(new URL(ruta, raiz), 'utf8'), contexto, { filename: ruta }));
+  return window;
+}
 // Como una página abierta con file://: el intérprete no intenta llamar a la IA
-const contexto = vm.createContext({ window, location: { protocol: 'file:', search: '' }, performance, setTimeout, clearTimeout });
-['src/data/catalogo-landing.js', 'nuevoDiseño/formularios.js', 'nuevoDiseño/citas.js', 'nuevoDiseño/ciudadano.js',
-  'nuevoDiseño/pasos-tramite.js', 'nuevoDiseño/motor-tramite.js', 'nuevoDiseño/interprete.js']
-  .forEach(ruta => vm.runInContext(readFileSync(new URL(ruta, raiz), 'utf8'), contexto, { filename: ruta }));
+const window = cargar({}, 'file:');
 const I = window.INTERPRETE;
 const M = window.MOTOR_TRAMITE;
 const plano = x => JSON.parse(JSON.stringify(x));
@@ -74,4 +77,9 @@ test('sin IA: un mensaje ambiguo ofrece candidatos', () => {
   const r = I.interpretarLocal('antecedentes');
   assert.equal(r.intencion, 'buscar_tramite');
   assert.ok(r.candidatos.includes(99) && r.candidatos.includes(100));
+});
+
+test('en la app móvil sin asistente configurado el modo es básico; en la web con https se intenta la IA', () => {
+  assert.equal(cargar({ SIMPLE_CONFIG: { entorno: 'pruebas', asistenteUrl: null } }, 'https:').INTERPRETE.modo(), 'basico');
+  assert.equal(cargar({}, 'https:').INTERPRETE.modo(), 'ia');
 });

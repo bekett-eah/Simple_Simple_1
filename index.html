@@ -139,7 +139,7 @@
       .l2-nodo-halo { transition: none; }
     }
 
-    /* Al entrar: la pantalla se oscurece y el chat se abre de una vez (se quita al cerrar el chat o al tocar el fondo) */
+    /* La primera vez que se entra: la pantalla se oscurece 5 s y resalta el botón del chat bot (z-index 60, por encima) */
     .l2-foco { position: fixed; inset: 0; z-index: 59; background: rgba(10, 14, 40, 0.72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s 0.4s; }
     .l2-foco.visible { opacity: 1; visibility: visible; transition: opacity 0.4s ease; }
     @media (prefers-reduced-motion: reduce) { .l2-foco, .l2-foco.visible { transition: none; } }
@@ -342,7 +342,7 @@
     </div>
   </footer>
 
-  <!-- Fondo oscuro de la presentación al entrar (se quita al cerrar el chat o al tocarlo) -->
+  <!-- Fondo oscuro de la presentación de la primera visita: 5 s, o hasta tocarlo, pulsar Escape o abrir el chat -->
   <div class="l2-foco" id="foco" aria-hidden="true"></div>
 
   <div class="l2-flotantes" id="flotantes">
@@ -697,28 +697,39 @@
 
   </script>
   <script>
-    /* Al entrar (cualquier dispositivo): la pantalla se oscurece y el chat bot se abre de una vez con su saludo.
+    /* La primera vez que se entra (cualquier dispositivo): la pantalla se oscurece 5 segundos para que resalte el botón
+       del chat bot, que queda por encima del fondo. El chat no se abre solo.
        No corre al volver atrás desde un trámite ni cuando la URL ya pide algo al asistente (?whatsapp, ?asistente, …),
        porque ahí el chat se abre por su cuenta */
     (() => {
+      const CLAVE = 'simple-presentacion-chatbot';
       const volviendo = (performance.getEntriesByType('navigation')[0] || {}).type === 'back_forward';
-      if (volviendo || location.search) return;
+      let yaVista = false;
+      try { yaVista = localStorage.getItem(CLAVE) === '1'; } catch (e) { /* sin almacenamiento: se muestra igual */ }
+      if (volviendo || location.search || yaVista) return;
 
       const foco = document.getElementById('foco');
       const panel = document.getElementById('asistente');
-      let activo = true;
+      let reloj = null;
+      // Tocar el fondo, pulsar Escape o abrir el chat lo quitan antes de los 5 segundos
+      const alEscape = e => { if (e.key === 'Escape') terminar(); };
+      const observador = new MutationObserver(() => { if (panel.classList.contains('open')) terminar(); });
+      function terminar() {
+        clearTimeout(reloj);
+        foco.classList.remove('visible');
+        document.removeEventListener('keydown', alEscape);
+        observador.disconnect();
+      }
+      foco.addEventListener('click', terminar);
 
-      const terminar = () => { activo = false; foco.classList.remove('visible'); };
-      // Tocar el fondo oscuro cierra el chat y lo quita; cerrar el chat (X o Escape) también
-      foco.addEventListener('click', () => { alternarAsistente(false); terminar(); });
-      new MutationObserver(() => { if (activo && !panel.classList.contains('open')) terminar(); })
-        .observe(panel, { attributes: true, attributeFilter: ['class'] });
-
-      // asistente.js se carga después de este script: el chat se abre cuando ya está listo
       document.addEventListener('DOMContentLoaded', () => {
+        // Si el chat se abrió por su cuenta (un trámite a medias), no hay presentación
         if (panel.classList.contains('open')) return;
+        try { localStorage.setItem(CLAVE, '1'); } catch (e) { /* sin almacenamiento */ }
         foco.classList.add('visible');
-        alternarAsistente(true, true);
+        document.addEventListener('keydown', alEscape);
+        observador.observe(panel, { attributes: true, attributeFilter: ['class'] });
+        reloj = setTimeout(terminar, 5000);
       });
     })();
   </script>

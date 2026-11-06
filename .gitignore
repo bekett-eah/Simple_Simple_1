@@ -1,3 +1,7 @@
 registros/
 privado/
 __pycache__/
+
+# Levantamiento: dependencias y capturas sin revisar
+levantamiento/node_modules/
+levantamiento/salida/

@@ -1,0 +1,430 @@
+openapi: 3.1.0
+info:
+  title: Backend de la app móvil de Simple.sv (PROPUESTA)
+  version: 0.1.0
+  summary: Contrato propuesto para acordar con el equipo que opere el backend. Hoy no existe un servicio que lo implemente.
+  description: |
+    **PROPUESTA.** Lo usan `src/backend/backend-http.js` (ambiente de producción) y `src/backend/backend-simulado.js`
+    (desarrollo y pruebas), que responde con las mismas formas. Antes de implementarlo hay que confirmar el mecanismo
+    de Identidad Digital y la pasarela de pagos con sus responsables (docs/01-auditoria-repositorio.md, pregunta 9).
+
+    Principios:
+    - **El backend es el único que habla con los proveedores.** Canjea el código de autorización de Identidad Digital
+      (con el verificador PKCE) y valida sus tokens: firma con las claves publicadas por el emisor, `iss`, `aud`,
+      `exp`, `iat` y `nonce`. Crea el cobro en la pasarela y recibe sus notificaciones firmadas. La app nunca recibe los
+      tokens del proveedor, las claves de la pasarela ni datos de tarjeta.
+    - **Sesión propia de la app.** `accessToken` de vida corta (15 minutos en el simulador) que se envía como
+      `Authorization: Bearer`. `refreshToken` de un solo uso: si se presenta uno ya usado, se revoca toda la sesión
+      (detección de robo). Ambos van atados al `dispositivoId`.
+    - **Ingreso con biometría.** Al activarla, el backend entrega una credencial de dispositivo revocable que la app
+      guarda protegida por la biometría del teléfono (Android Keystore). Con ella se pide una sesión nueva sin pasar
+      otra vez por Identidad Digital. Debe vencer (30 días en el simulador) y poder revocarse desde el backend.
+    - **Pagos.** El monto lo calcula el backend a partir de la solicitud (en centavos, USD). El estado final de un pago
+      solo cambia por la notificación verificada de la pasarela o por una consulta del backend a la pasarela, nunca por
+      lo que informe la app. Las operaciones que crean algo exigen `Idempotency-Key`.
+    - **Errores** con `codigo` estable (la app decide por él) y `mensaje` legible. 429 y 503 pueden traer `Retry-After`.
+    - **CORS.** La app hace las peticiones desde el WebView con origen `https://localhost` (Android) y
+      `capacitor://localhost` (iOS). Esos orígenes, y solo esos, deben poder enviar `Authorization`, `Content-Type` e
+      `Idempotency-Key`. Sin cookies: la app usa `credentials: 'omit'`.
+    - **Fuera de este contrato:** el webhook de la pasarela hacia el backend (servidor a servidor, con firma verificada)
+      y la conciliación diaria.
+servers:
+  - url: https://{host}/app
+    variables:
+      host:
+        default: api.ejemplo.gob.sv
+        description: Por definir con la institución (config/produccion.json → backend.url)
+security:
+  - sesion: []
+tags:
+  - name: Sesiones
+    description: Identidad Digital, renovación y cierre (plan, fases 3 y 4)
+  - name: Dispositivos
+    description: Ingreso con biometría y desvinculación (plan, fase 4)
+  - name: Pagos
+    description: Órdenes e intentos de pago (plan, fase 5)
+
+paths:
+  /v1/sesiones:
+    post:
+      tags: [Sesiones]
+      operationId: crearSesion
+      summary: Crea la sesión de la app con el resultado del inicio de sesión en Identidad Digital
+      description: |
+        El backend canjea `code` con `codeVerifier` y `redirectUri` en el endpoint de tokens del proveedor, valida el
+        token de identidad (incluido que su `nonce` sea el recibido aquí) y crea o vincula al usuario.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ResultadoIdentidad' }
+      responses:
+        '201':
+          description: Sesión creada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Sesion' }
+        '400': { $ref: '#/components/responses/SolicitudInvalida' }
+        '401':
+          description: El proveedor rechazó el código o el token no es válido (`identidad_invalida`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '429': { $ref: '#/components/responses/DemasiadasPeticiones' }
+
+  /v1/sesiones/renovacion:
+    post:
+      tags: [Sesiones]
+      operationId: renovarSesion
+      summary: Entrega tokens nuevos a cambio del refreshToken (de un solo uso)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [refreshToken, dispositivoId]
+              properties:
+                refreshToken: { type: string }
+                dispositivoId: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Tokens nuevos; el refreshToken anterior deja de servir
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Sesion' }
+        '401':
+          description: Renovación vencida, revocada, ya usada o de otro dispositivo (`renovacion_invalida`). La app cierra la sesión.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+  /v1/sesiones/actual:
+    delete:
+      tags: [Sesiones]
+      operationId: cerrarSesion
+      summary: Cierra la sesión (revoca el accessToken y su refreshToken)
+      responses:
+        '204': { description: Sesión cerrada }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+
+  /v1/dispositivos:
+    post:
+      tags: [Dispositivos]
+      operationId: registrarDispositivo
+      summary: Activa el ingreso con biometría en el dispositivo de la sesión
+      description: El dispositivo debe ser el mismo de la sesión. Una activación nueva reemplaza la credencial anterior.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Dispositivo' }
+      responses:
+        '201':
+          description: Credencial del dispositivo. La app la guarda protegida por la biometría; no se vuelve a mostrar.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [credencial, expiraEnSegundos]
+                properties:
+                  credencial: { type: string, description: Secreto aleatorio de al menos 128 bits; el backend guarda solo su hash }
+                  expiraEnSegundos: { type: integer, minimum: 1 }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+        '403':
+          description: El dispositivo no coincide con el de la sesión (`dispositivo_distinto`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+  /v1/dispositivos/{dispositivoId}:
+    delete:
+      tags: [Dispositivos]
+      operationId: desvincularDispositivo
+      summary: Desvincula el dispositivo (revoca su credencial). También debe poder hacerse desde otro canal si se pierde el teléfono.
+      parameters:
+        - name: dispositivoId
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+      responses:
+        '204': { description: Dispositivo desvinculado }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+
+  /v1/sesiones/dispositivo:
+    post:
+      tags: [Dispositivos]
+      operationId: sesionConDispositivo
+      summary: Crea una sesión con la credencial del dispositivo (después de la biometría)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [credencial, dispositivoId]
+              properties:
+                credencial: { type: string }
+                dispositivoId: { type: string, format: uuid }
+      responses:
+        '200':
+          description: Sesión nueva
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Sesion' }
+        '401':
+          description: Credencial vencida, revocada o de otro dispositivo (`credencial_invalida`). La app la borra y pide Identidad Digital.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '429': { $ref: '#/components/responses/DemasiadasPeticiones' }
+
+  /v1/ordenes-pago:
+    post:
+      tags: [Pagos]
+      operationId: crearOrdenPago
+      summary: Crea (o devuelve, si ya existe) la orden de pago de una solicitud
+      description: |
+        El backend calcula el monto con el trámite de la solicitud y verifica que la solicitud sea del usuario. La misma
+        `Idempotency-Key` devuelve la misma orden (doble toque, recarga o reintento por falla de red). Una solicitud
+        tampoco tiene dos órdenes vigentes: si ya tiene una pendiente, procesando, rechazada o aprobada, se devuelve esa
+        aunque la clave sea otra (el teléfono pudo perder la suya, o el pago ya se aprobó). Solo una orden vencida o
+        reembolsada deja crear otra.
+      parameters:
+        - $ref: '#/components/parameters/ClaveIdempotencia'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [solicitudId]
+              properties:
+                solicitudId: { type: string }
+      responses:
+        '201':
+          description: Orden creada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Orden' }
+        '200':
+          description: La orden ya existía (misma clave de idempotencia u orden vigente de la solicitud)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Orden' }
+        '400': { $ref: '#/components/responses/SolicitudInvalida' }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+        '403':
+          description: La solicitud no es del usuario (`solicitud_ajena`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422':
+          description: La solicitud no tiene un pago pendiente (`sin_costo`) o la clave ya se usó para otra solicitud (`idempotencia_reutilizada`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+  /v1/ordenes-pago/{ordenId}:
+    get:
+      tags: [Pagos]
+      operationId: consultarOrden
+      summary: Estado verificado de la orden (la app lo consulta hasta llegar a un estado final)
+      parameters:
+        - $ref: '#/components/parameters/OrdenId'
+      responses:
+        '200':
+          description: Orden
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Orden' }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+        '404': { $ref: '#/components/responses/OrdenInexistente' }
+
+  /v1/ordenes-pago/{ordenId}/intentos:
+    post:
+      tags: [Pagos]
+      operationId: iniciarPago
+      summary: Inicia un intento de pago con uno de los métodos de la orden
+      description: |
+        Para la pasarela actual, el backend crea el cobro y devuelve la dirección de la página de pago alojada por la
+        pasarela, que la app abre en el navegador del sistema. Los datos de la tarjeta se escriben en esa página, nunca
+        en la app. Cada intento lleva su propia `Idempotency-Key`.
+      parameters:
+        - $ref: '#/components/parameters/OrdenId'
+        - $ref: '#/components/parameters/ClaveIdempotencia'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [metodo]
+              properties:
+                metodo: { $ref: '#/components/schemas/Metodo' }
+      responses:
+        '201':
+          description: Intento creado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Intento' }
+        '401': { $ref: '#/components/responses/NoAutorizado' }
+        '404': { $ref: '#/components/responses/OrdenInexistente' }
+        '409':
+          description: La orden no admite otro intento en su estado actual (`estado_invalido`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422':
+          description: El método no está entre los de la orden (`metodo_no_disponible`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+
+components:
+  securitySchemes:
+    sesion:
+      type: http
+      scheme: bearer
+      description: accessToken emitido por este backend (no el token de Identidad Digital)
+
+  parameters:
+    ClaveIdempotencia:
+      name: Idempotency-Key
+      in: header
+      required: true
+      description: UUID generado por la app; la misma clave repite la misma respuesta
+      schema: { type: string, format: uuid }
+    OrdenId:
+      name: ordenId
+      in: path
+      required: true
+      schema: { type: string }
+
+  responses:
+    SolicitudInvalida:
+      description: Faltan datos o tienen un formato inválido (`solicitud_invalida`; `falta_idempotencia` si falta la cabecera Idempotency-Key)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    NoAutorizado:
+      description: Sin sesión o con un accessToken vencido o revocado (`token_invalido`)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    OrdenInexistente:
+      description: No existe la orden o no es del usuario (`orden_inexistente`)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    DemasiadasPeticiones:
+      description: Límite de peticiones superado (`limite`)
+      headers:
+        Retry-After:
+          schema: { type: integer, minimum: 1 }
+          description: Segundos de espera antes de reintentar
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+
+  schemas:
+    Error:
+      type: object
+      required: [codigo, mensaje]
+      properties:
+        codigo: { type: string, examples: [token_invalido] }
+        mensaje: { type: string, description: Texto para mostrar a la persona }
+
+    Dispositivo:
+      type: object
+      required: [id, plataforma]
+      properties:
+        id: { type: string, format: uuid, description: Identificador aleatorio que la app genera al instalarse; no es un identificador del hardware }
+        plataforma: { type: string, enum: [android, ios, web] }
+
+    ResultadoIdentidad:
+      type: object
+      required: [proveedor, code, codeVerifier, nonce, redirectUri, dispositivo]
+      properties:
+        proveedor: { type: string, enum: [oidc], description: El simulador acepta además "simulado" }
+        code: { type: string, description: 'Código de autorización recibido en sv.simple.app:/oauth2redirect' }
+        codeVerifier: { type: string, minLength: 43, maxLength: 128, description: Verificador PKCE (RFC 7636) }
+        nonce: { type: string }
+        redirectUri: { type: string, examples: ['sv.simple.app:/oauth2redirect'] }
+        dispositivo: { $ref: '#/components/schemas/Dispositivo' }
+
+    Usuario:
+      type: object
+      required: [id, nombre]
+      properties:
+        id: { type: string }
+        nombre: { type: string }
+        documento: { type: string, description: Documento enmascarado (por ejemplo *****097-8); nunca completo, examples: ['*****097-8'] }
+
+    Sesion:
+      type: object
+      required: [accessToken, refreshToken, expiraEnSegundos, usuario]
+      properties:
+        accessToken: { type: string }
+        refreshToken: { type: string, description: De un solo uso }
+        expiraEnSegundos: { type: integer, minimum: 1, description: Vida del accessToken }
+        usuario: { $ref: '#/components/schemas/Usuario' }
+
+    Monto:
+      type: object
+      required: [centavos, moneda]
+      properties:
+        centavos: { type: integer, minimum: 1 }
+        moneda: { type: string, enum: [USD] }
+
+    EstadoPago:
+      type: string
+      enum: [pendiente, procesando, aprobado, rechazado, expirado, reembolsado]
+      description: |
+        Transiciones (src/pagos/estados.js): pendiente → procesando | expirado; procesando → aprobado | rechazado |
+        pendiente | expirado; rechazado → procesando | expirado; aprobado → reembolsado. La app deja de consultar en
+        aprobado, rechazado, expirado y reembolsado; un pago rechazado admite otro intento.
+
+    Metodo:
+      type: string
+      enum: [tarjeta]
+      description: Se agregan otros (por ejemplo google_pay) cuando la pasarela y el adquirente los confirmen
+
+    EventoPago:
+      type: object
+      required: [estado, en]
+      properties:
+        estado: { $ref: '#/components/schemas/EstadoPago' }
+        en: { type: string, format: date-time }
+        autorizacion: { type: string, description: Código de autorización de la pasarela (solo en aprobado) }
+
+    Orden:
+      type: object
+      required: [id, solicitudId, concepto, monto, estado, metodos, creadaEn, expiraEn, historial]
+      properties:
+        id: { type: string }
+        solicitudId: { type: string }
+        concepto: { type: string, description: Nombre del trámite }
+        monto: { $ref: '#/components/schemas/Monto' }
+        estado: { $ref: '#/components/schemas/EstadoPago' }
+        metodos:
+          type: array
+          items: { $ref: '#/components/schemas/Metodo' }
+        creadaEn: { type: string, format: date-time }
+        expiraEn: { type: string, format: date-time }
+        historial:
+          type: array
+          items: { $ref: '#/components/schemas/EventoPago' }
+        comprobanteUrl: { type: string, format: uri, description: Cuando el pago está aprobado }
+
+    Intento:
+      type: object
+      required: [id, ordenId, tipo]
+      properties:
+        id: { type: string }
+        ordenId: { type: string }
+        tipo: { type: string, enum: [redireccion], description: El simulador usa "simulada" }
+        url: { type: string, format: uri, pattern: '^https://', description: Página de pago alojada por la pasarela (con tipo redireccion) }

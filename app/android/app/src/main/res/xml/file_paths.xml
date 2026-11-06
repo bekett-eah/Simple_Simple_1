@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Lo único que la app comparte son los archivos que genera en cache/descargas (src/nucleo/navegacion.js) -->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <cache-path name="descargas" path="descargas/" />
+</paths>

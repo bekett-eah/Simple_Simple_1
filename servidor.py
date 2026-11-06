@@ -43,8 +43,22 @@ class ConRangos(SimpleHTTPRequestHandler):
         self.send_header("Content-Length", str(len(cuerpo)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("X-Content-Type-Options", "nosniff")
+        for nombre, valor in asistente_ia.cabeceras_cors(self.headers).items():
+            self.send_header(nombre, valor)
         self.end_headers()
         self.wfile.write(cuerpo)
+
+    def do_OPTIONS(self):
+        # Consulta previa (CORS) de los orígenes de SIMPLE_ORIGENES, como la app móvil
+        if self.path.split("?")[0] != "/api/asistente":
+            self.send_error(HTTPStatus.NOT_FOUND, "Ruta no encontrada")
+            return
+        estado, cabeceras = asistente_ia.responder_preflight(self.headers)
+        self.send_response(estado)
+        for nombre, valor in cabeceras.items():
+            self.send_header(nombre, valor)
+        self.send_header("Content-Length", "0")
+        self.end_headers()
 
     def send_head(self):
         if (os.path.realpath(self.translate_path(self.path)) + os.sep).startswith(PRIVADA + os.sep):

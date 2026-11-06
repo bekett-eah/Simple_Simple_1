@@ -55,6 +55,7 @@ class Base(unittest.TestCase):
         asistente_ia.REGISTRO = Path(self.temporal.name) / "asistente.jsonl"
         asistente_ia._peticiones.clear()
         os.environ.pop("SIMPLE_IA", None)
+        os.environ.pop("SIMPLE_ORIGENES", None)
 
     def tearDown(self):
         asistente_ia.REGISTRO = self.registro_original
@@ -87,6 +88,29 @@ class Controles(Base):
     def test_mismo_origen_se_acepta(self):
         estado, _ = asistente_ia.responder(cuerpo(), {**JSON, "Origin": "http://localhost:8080"}, "1", ClienteFalso(salida()))
         self.assertEqual(estado, 200)
+
+    def test_otros_origenes_solo_con_simple_origenes(self):
+        app = {**JSON, "Origin": "https://localhost"}
+        self.assertEqual(asistente_ia.responder(cuerpo(), app, "1", ClienteFalso(salida()))[0], 403, "por defecto, ninguno")
+        self.assertEqual(asistente_ia.cabeceras_cors(app), {"Vary": "Origin"})
+        os.environ["SIMPLE_ORIGENES"] = "https://localhost, Capacitor://localhost/"
+        self.assertEqual(asistente_ia.responder(cuerpo(), app, "1", ClienteFalso(salida()))[0], 200)
+        self.assertEqual(asistente_ia.responder(cuerpo(), {**JSON, "Origin": "capacitor://localhost"}, "1", ClienteFalso(salida()))[0], 200)
+        self.assertEqual(asistente_ia.responder(cuerpo(), {**JSON, "Origin": "https://malo.example"}, "1", ClienteFalso(salida()))[0], 403)
+        self.assertEqual(asistente_ia.cabeceras_cors(app), {"Vary": "Origin", "Access-Control-Allow-Origin": "https://localhost"})
+        self.assertEqual(asistente_ia.cabeceras_cors({**JSON, "Origin": "https://malo.example"}), {"Vary": "Origin"})
+
+    def test_consulta_previa(self):
+        os.environ["SIMPLE_ORIGENES"] = "https://localhost"
+        previa = {"Origin": "https://localhost", "Access-Control-Request-Method": "POST"}
+        estado, cabeceras = asistente_ia.responder_preflight(previa)
+        self.assertEqual(estado, 204)
+        self.assertEqual(cabeceras["Access-Control-Allow-Origin"], "https://localhost")
+        self.assertEqual(cabeceras["Access-Control-Allow-Headers"], "Content-Type")
+        self.assertEqual(asistente_ia.responder_preflight({**previa, "Access-Control-Request-Method": "DELETE"})[0], 403)
+        estado, cabeceras = asistente_ia.responder_preflight({**previa, "Origin": "https://malo.example"})
+        self.assertEqual(estado, 403)
+        self.assertNotIn("Access-Control-Allow-Origin", cabeceras)
 
     def test_limite_por_minuto(self):
         cliente = ClienteFalso(salida())
@@ -211,6 +235,31 @@ class Servidor(Base):
         self.assertEqual(self.pedir("/nuevoDise%C3%B1o/motor-tramite.js")[0], 200)
         self.assertEqual(self.pedir("/index.html")[0], 200)
         self.assertEqual(self.pedir("/api/otra", cuerpo())[0], 404)
+
+    def test_cors_para_la_app(self):
+        os.environ["SIMPLE_IA"] = "0"
+        os.environ["SIMPLE_ORIGENES"] = "https://localhost"
+        previa = urllib.request.Request(self.url + "/api/asistente", method="OPTIONS", headers={
+            "Origin": "https://localhost", "Access-Control-Request-Method": "POST", "Access-Control-Request-Headers": "content-type"})
+        with urllib.request.urlopen(previa) as r:
+            self.assertEqual(r.status, 204)
+            self.assertEqual(r.headers["Access-Control-Allow-Origin"], "https://localhost")
+            self.assertEqual(r.headers["Access-Control-Allow-Methods"], "POST")
+        envio = urllib.request.Request(self.url + "/api/asistente", data=cuerpo(), headers={"Content-Type": "application/json", "Origin": "https://localhost"})
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            urllib.request.urlopen(envio)
+        # Aunque responda 503 (IA apagada), el navegador debe poder leer {"modo": "sin_ia"}
+        self.assertEqual(error.exception.code, 503)
+        self.assertEqual(error.exception.headers["Access-Control-Allow-Origin"], "https://localhost")
+        self.assertEqual(error.exception.headers["Vary"], "Origin")
+        error.exception.close()
+        ajena = urllib.request.Request(self.url + "/api/asistente", method="OPTIONS", headers={"Origin": "https://malo.example", "Access-Control-Request-Method": "POST"})
+        with self.assertRaises(urllib.error.HTTPError) as error:
+            urllib.request.urlopen(ajena)
+        self.assertEqual(error.exception.code, 403)
+        self.assertIsNone(error.exception.headers["Access-Control-Allow-Origin"])
+        error.exception.close()
+        self.assertEqual(self.pedir("/index.html")[0], 200)
 
     def test_la_bitacora_no_se_sirve(self):
         privada = Path(servidor.PRIVADA)

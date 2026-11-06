@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondo de la app (src/styles/simple-light-vibrant.css y capacitor.config.json) -->
+    <color name="simple_fondo">#F4F8FE</color>
+</resources>

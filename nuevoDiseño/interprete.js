@@ -7,7 +7,8 @@
    La IA solo propone: cada dato pasa después por motor-tramite.js. Se carga después de motor-tramite.js. */
 window.INTERPRETE = (() => {
   const M = window.MOTOR_TRAMITE;
-  const RUTA = '/api/asistente';
+  // En la app móvil (app/) la dirección viene de su configuración; null: sin IA, solo el modo básico
+  const RUTA = window.SIMPLE_CONFIG ? window.SIMPLE_CONFIG.asistenteUrl : '/api/asistente';
   const ESPERA_MAXIMA = 60000;
   // Después de una falla, el modo básico dura un minuto antes de volver a intentar con la IA
   const REINTENTO = 60000;
@@ -71,7 +72,7 @@ window.INTERPRETE = (() => {
     const base = { tramite: 0, candidatos: [], datos: [], respuesta: '', fuente: 'ninguna' };
     if (protegido.bloqueo) return { ...base, modo: 'local', intencion: 'bloqueado', motivo: protegido.bloqueo };
     let resultado = null;
-    if (Date.now() >= sinIAHasta && /^https?:$/.test(location.protocol)) {
+    if (RUTA && Date.now() >= sinIAHasta && /^https?:$/.test(location.protocol)) {
       const inicio = performance.now();
       const control = new AbortController();
       const reloj = setTimeout(() => control.abort(), ESPERA_MAXIMA);
@@ -224,7 +225,7 @@ window.INTERPRETE = (() => {
     return { ...base, intencion: pareceTexto ? 'fuera_de_ambito' : 'sin_sentido' };
   }
 
-  const modo = () => (Date.now() < sinIAHasta || !/^https?:$/.test(location.protocol) ? 'basico' : 'ia');
+  const modo = () => (!RUTA || Date.now() < sinIAHasta || !/^https?:$/.test(location.protocol) ? 'basico' : 'ia');
 
   return { interpretar, interpretarLocal, proteger, restituir, recordar, olvidar, modo, datosDelTexto, responderPregunta, buscarLocal };
 })();

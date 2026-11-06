@@ -1,0 +1,25 @@
+{
+  "entorno": "desarrollo",
+  "descripcion": "Desarrollo local: identidad, sesión y pagos simulados dentro de la app; no se conecta a ningún sistema real.",
+  "depuracion": true,
+  "servicios": {
+    "asistente": null
+  },
+  "backend": {
+    "tipo": "simulado",
+    "url": null
+  },
+  "identidad": {
+    "proveedor": "simulado"
+  },
+  "pagos": {
+    "pasarela": "simulada"
+  },
+  "sesion": {
+    "minutosInactividad": 5,
+    "segundosRenovacionAnticipada": 60
+  },
+  "enlaces": {
+    "crearIdentidad": "https://login.gob.sv/"
+  }
+}

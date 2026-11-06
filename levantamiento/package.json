@@ -1,0 +1,12 @@
+{
+  "name": "levantamiento-simplesv",
+  "private": true,
+  "type": "module",
+  "description": "Levantamiento técnico de solo lectura del administrador de SimpleSV (entorno simple-dev)",
+  "scripts": {
+    "inspeccionar": "node inspect-admin.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.64.1"
+  }
+}

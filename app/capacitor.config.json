@@ -1,0 +1,40 @@
+{
+  "appId": "sv.simple.app",
+  "appName": "Simple.sv",
+  "webDir": "www",
+  "loggingBehavior": "debug",
+  "backgroundColor": "#F4F8FE",
+  "server": {
+    "androidScheme": "https",
+    "hostname": "localhost",
+    "errorPath": "app-movil/error.html"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": false,
+    "minWebViewVersion": 108,
+    "buildOptions": {
+      "releaseType": "AAB",
+      "signingType": "apksigner"
+    }
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "css",
+      "initialViewportFitValueHint": "auto",
+      "style": "LIGHT"
+    },
+    "SplashScreen": {
+      "launchShowDuration": 600,
+      "launchAutoHide": true,
+      "backgroundColor": "#F4F8FE",
+      "showSpinner": false
+    },
+    "CapacitorHttp": {
+      "enabled": false
+    },
+    "CapacitorCookies": {
+      "enabled": false
+    }
+  }
+}
