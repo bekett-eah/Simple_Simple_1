@@ -1,0 +1,287 @@
+- generic [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - link "Simple.sv, inicio" [ref=f3e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f3e18]:
+        - link "Trámites" [ref=f3e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f3e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f3e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f3e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f3e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f3e24]: 
+          - text: Contáctanos
+      - generic [ref=f3e25]:
+        - text: 
+        - button "Ver notificaciones" [ref=f3e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e28]: 
+          - generic "1 notificación nueva" [ref=f3e29]: "1"
+        - button "Abrir menú de usuario" [ref=f3e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f3e32]
+          - generic [aria-hidden] [ref=f3e33]: 
+        - text: 
+  - main [ref=f3e34]:
+    - generic [ref=f3e36]:
+      - heading "Trámites" [level=1] [ref=f3e37]
+      - search [ref=f3e38]:
+        - generic [aria-hidden] [ref=f3e39]: 
+        - textbox "Buscar en todos los trámites" [ref=f3e40]:
+          - /placeholder: Buscar en todos los trámites…
+        - text: 
+      - tablist "Categorías de trámites" [ref=f3e41]:
+        - tab "Judiciales" [selected] [ref=f3e42] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e43]: 
+          - text: Judiciales
+        - tab "DUI y partidas" [ref=f3e44] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e45]: 
+          - text: DUI y partidas
+        - tab "Agua y hogar" [ref=f3e46] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e47]: 
+          - text: Agua y hogar
+        - tab "Educación y títulos" [ref=f3e48] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e49]: 
+          - text: Educación y títulos
+        - tab "Todos" [ref=f3e50] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e51]: 
+          - text: Todos
+        - tab "Categorías" [ref=f3e52] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e53]: 
+          - text: Categorías
+      - text: 
+      - tabpanel "Trámites disponibles" [ref=f3e55]:
+        - group "Trámites 1 a 2 de 2" [ref=f3e56]:
+          - article [ref=f3e57]:
+            - generic [ref=f3e58]: $3.00
+            - generic [ref=f3e61]:
+              - paragraph [ref=f3e62]:
+                - generic [aria-hidden] [ref=f3e63]: 
+                - text: Ministerio de Justicia y Seguridad Pública (MJSP)
+              - heading [level=3] [ref=f3e64]:
+                - link "Constancia de antecedentes penales" [ref=f3e65] [cursor=pointer]:
+                  - /url: tramite.html?n=99
+          - article [ref=f3e66]:
+            - generic [ref=f3e67]: $3.50
+            - generic [ref=f3e70]:
+              - paragraph [ref=f3e71]:
+                - generic [aria-hidden] [ref=f3e72]: 
+                - text: Policía Nacional Civil de El Salvador (PNC)
+              - heading [level=3] [ref=f3e73]:
+                - link "Constancia de antecedentes policiales" [ref=f3e74] [cursor=pointer]:
+                  - /url: tramite.html?n=100
+  - text:  
+  - generic [ref=f3e75]:
+    - list "Cómo funciona" [ref=f3e76]:
+      - listitem [ref=f3e77]:
+        - 'button "Paso 1: Dinos qué necesitas" [ref=f3e78]': "1"
+      - listitem [ref=f3e79]:
+        - 'button "Paso 2: Revisa y confirma" [ref=f3e80]': "2"
+      - listitem [ref=f3e81]:
+        - 'button "Paso 3: Paga y listo" [ref=f3e82]': "3"
+    - tooltip [ref=f3e83]:
+      - strong
+  - generic [ref=f3e85]:
+    - 'button "Ayuda: abre el asistente de Simple.sv" [expanded] [ref=f3e86] [cursor=pointer]':
+      - generic [aria-hidden] [ref=f3e88]: Ayuda
+    - link "Hacer un trámite por WhatsApp" [ref=f3e89] [cursor=pointer]:
+      - /url: Indexlogin.html?whatsapp=1
+      - generic [aria-hidden] [ref=f3e91]: 
+      - generic [aria-hidden] [ref=f3e92]: WhatsApp
+  - text: 
+  - complementary "Asistente de Simple.sv" [ref=f3e93]:
+    - generic [ref=f3e94]:
+      - generic [ref=f3e96]:
+        - strong [ref=f3e97]: Asistente de Simple.sv
+        - text: Automatizado · no reemplaza a la institución
+      - button "Cerrar asistente" [ref=f3e98] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f3e99]: 
+    - log "Conversación con el asistente" [ref=f3e100]:
+      - generic [ref=f3e102]:
+        - 'button "Cómo funciona: ver pasos" [ref=f3e103]':
+          - text: Cómo funciona
+          - generic [aria-hidden] [ref=f3e105]: 
+        - 'button "Ver el video: saca tus antecedentes por WhatsApp (1 minuto y 55 segundos)" [ref=f3e106]':
+          - generic [ref=f3e108]: 
+          - text: 1:55
+      - generic [ref=f3e110]:
+        - text: ¡Hola! Soy el asistente de
+        - strong [ref=f3e111]: Simple.sv
+        - text: . ¿Qué trámite buscas?
+        - generic [ref=f3e112]:
+          - button "Judiciales" [ref=f3e113] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e114]: 
+            - text: Judiciales
+          - button "DUI y partidas" [ref=f3e115] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e116]: 
+            - text: DUI y partidas
+          - button "Agua y hogar" [ref=f3e117] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e118]: 
+            - text: Agua y hogar
+          - button "Educación y títulos" [ref=f3e119] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e120]: 
+            - text: Educación y títulos
+      - generic [ref=f3e121]: antecedentes penales
+      - generic [ref=f3e123]:
+        - text: "Perfecto:"
+        - strong [ref=f3e124]: Constancia de antecedentes penales
+        - group [ref=f3e125]:
+          - generic "Pasos a seguir 5 pasos" [ref=f3e126] [cursor=pointer]:
+            - generic [ref=f3e127]: Pasos a seguir
+            - generic [ref=f3e128]: 5 pasos
+            - generic [ref=f3e130]: 
+        - paragraph [ref=f3e131]: ¿Empezamos?
+        - button "Hacerlo aquí en el chat" [ref=f3e133] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e134]: 
+          - text: Hacerlo aquí en el chat
+        - paragraph [ref=f3e135]: Te avisamos por correo cuando finalice
+        - group [ref=f3e136]:
+          - generic "Otras formas" [ref=f3e137] [cursor=pointer]:
+            - text: Otras formas
+            - generic [aria-hidden] [ref=f3e138]: 
+          - text:   
+        - paragraph [ref=f3e139]:
+          - generic [aria-hidden] [ref=f3e140]: 
+          - text: "Estoy en modo básico: escribe una cosa a la vez, con palabras sencillas"
+      - generic [ref=f3e141]: Hacerlo aquí en el chat
+      - generic [ref=f3e143]:
+        - text: "Perfecto:"
+        - strong [ref=f3e144]: Constancia de antecedentes penales
+        - text: ". Ya tengo tus datos de la Identidad Digital. Solo me falta esto:"
+        - list [ref=f3e145]:
+          - listitem [ref=f3e146]:
+            - strong [ref=f3e147]: Tipo de trámite
+            - generic [ref=f3e148]: Para qué usarás la constancia
+            - generic [ref=f3e149]:
+              - button "Administrativos" [ref=f3e150] [cursor=pointer]
+              - button "De empleo" [ref=f3e151] [cursor=pointer]
+              - button "De estudio" [ref=f3e152] [cursor=pointer]
+              - button "Migratorios" [ref=f3e153] [cursor=pointer]
+              - button "Ministerio de la Defensa Nacional" [ref=f3e154] [cursor=pointer]
+              - button "De visita a centro penitenciario" [ref=f3e155] [cursor=pointer]
+              - button "Instituciones de seguridad pública" [ref=f3e156] [cursor=pointer]
+        - list "Avance de tu solicitud" [ref=f3e157]:
+          - listitem [ref=f3e158]: Datos
+          - listitem [ref=f3e159]: Confirmar
+          - listitem [ref=f3e160]: Pago
+          - listitem [ref=f3e161]: En revisión
+      - generic [ref=f3e162]: De empleo
+      - generic [ref=f3e164]:
+        - text: "Solo me falta esto:"
+        - list [ref=f3e165]:
+          - listitem [ref=f3e166]:
+            - strong [ref=f3e167]: Lugar donde presentarás la constancia
+            - generic [ref=f3e168]: Empresa o institución que te la pide
+        - paragraph [ref=f3e169]: Escríbelo abajo
+        - list "Avance de tu solicitud" [ref=f3e170]:
+          - listitem [ref=f3e171]: Datos
+          - listitem [ref=f3e172]: Confirmar
+          - listitem [ref=f3e173]: Pago
+          - listitem [ref=f3e174]: En revisión
+      - generic [ref=f3e175]: Banco Agrícola
+      - generic [ref=f3e177]:
+        - text: Revisa tu solicitud de
+        - strong [ref=f3e178]: Constancia de antecedentes penales
+        - list "Avance de tu solicitud" [ref=f3e179]:
+          - listitem [ref=f3e180]: Datos
+          - listitem [ref=f3e181]: Confirmar
+          - listitem [ref=f3e182]: Pago
+          - listitem [ref=f3e183]: En revisión
+        - generic [ref=f3e184]:
+          - generic [ref=f3e185]:
+            - term [ref=f3e186]: Tipo de trámite
+            - definition [ref=f3e187]: De empleo
+          - generic [ref=f3e188]:
+            - term [ref=f3e189]: Lugar donde presentarás la constancia
+            - definition [ref=f3e190]: Banco Agrícola
+          - generic [ref=f3e191]:
+            - term [ref=f3e192]: Costo
+            - definition [ref=f3e193]:
+              - text: Pagas
+              - strong [ref=f3e194]: $3.00
+              - text: con tarjeta, en la pasarela segura
+          - generic [ref=f3e195]:
+            - term [ref=f3e196]: Tarda
+            - definition [ref=f3e197]: 12 horas hábiles (máximo 20 días hábiles, según el caso)
+        - group [ref=f3e198]:
+          - generic "Más detalles de la solicitud (3)" [ref=f3e199] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e200]: 
+            - text: Más detalles de la solicitud (3)
+        - group [ref=f3e201]:
+          - generic "Tus datos de Identidad Digital (11)" [ref=f3e202] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e203]: 
+            - text: Tus datos de Identidad Digital (11)
+        - paragraph [ref=f3e204]:
+          - text: Al confirmar aceptas los
+          - button "términos y condiciones" [ref=f3e205] [cursor=pointer]
+        - generic [ref=f3e206]:
+          - button "Confirmar y pagar $3.00" [ref=f3e207] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e208]: 
+            - text: Confirmar y pagar $3.00
+          - button "Prefiero ir con cita" [ref=f3e209] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e210]: 
+            - text: Prefiero ir con cita
+          - button "Corregir algo" [ref=f3e211] [cursor=pointer]:
+            - generic [aria-hidden] [ref=f3e212]: 
+            - text: Corregir algo
+        - paragraph [ref=f3e213]: También puedes escribir el cambio, por ejemplo «cambia el lugar a…»
+      - generic [ref=f3e214]: Confirmar y pagar $3.00
+      - generic [ref=f3e216]:
+        - text: Te abro la pasarela segura para pagar
+        - strong [ref=f3e217]: $3.00
+        - text: . Nunca escribas los datos de tu tarjeta en el chat
+        - list "Avance de tu solicitud" [ref=f3e218]:
+          - listitem [ref=f3e219]: Datos
+          - listitem [ref=f3e220]: Confirmar
+          - listitem [ref=f3e221]: Pago
+          - listitem [ref=f3e222]: En revisión
+        - button "Volver al paso anterior" [ref=f3e224] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f3e225]: 
+          - text: Volver al paso anterior
+    - generic [ref=f3e226]:
+      - generic [ref=f3e227]: Escribe tu duda
+      - textbox "Escribe tu duda" [ref=f3e228]:
+        - /placeholder: Escribe tu duda aquí
+      - button "Enviar audio" [ref=f3e229] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f3e230]: 
+      - button "Enviar" [ref=f3e231] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f3e232]: 
+  - iframe [active] [ref=f3e233]:
+    - text:   
+    - dialog [ref=f4e1]:
+      - text:    
+      - banner [ref=f4e51]:
+        - generic [ref=f4e58]:
+          - generic [aria-hidden] [ref=f4e59]: 
+          - generic [ref=f4e60]:
+            - strong [ref=f4e61]: Pago seguro
+            - text: Procesado por SERFINSA
+          - text: 
+        - generic [ref=f4e64]:
+          - paragraph [ref=f4e65]: Total a pagar
+          - strong [ref=f4e66]: $3.00
+          - paragraph [ref=f4e67]: Constancia de antecedentes penales · Dirección General de Centros Penales
+      - text:     
+      - generic [ref=f4e123]:
+        - generic [ref=f4e125]: 
+        - heading "Procesando tu pago" [active] [level=2] [ref=f4e126]
+        - paragraph [ref=f4e127]: No cierres esta ventana; tarda unos segundos
+        - list [ref=f4e128]:
+          - listitem [ref=f4e129]:
+            - generic [ref=f4e131]: 
+            - text: Verificando tu tarjeta
+          - listitem [ref=f4e132]:
+            - generic [ref=f4e134]: 
+            - text: Autorizando con tu banco
+          - listitem [ref=f4e135]:
+            - generic [ref=f4e137]: 
+            - text: Confirmando el pago
+      - text: 
+      - paragraph [ref=f4e119]:
+        - generic [aria-hidden] [ref=f4e120]: 
+        - text: Conexión cifrada · SERFINSA
+        - generic [ref=f4e121]: VISA
+        - generic [ref=f4e122]: Mastercard

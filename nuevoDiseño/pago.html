@@ -165,6 +165,12 @@
     .l2-no-disponible h1 { margin: 8px 0 4px; font-size: 24px; }
     .l2-no-disponible p { margin: 0 0 18px; color: var(--text-secondary); }
 
+    /* Dentro del chat del asistente (?modo=asistente, en un iframe de Indexlogin.html): solo la pasarela, sobre la
+       conversación; la página de fondo no se ve */
+    .incrustado, .incrustado body { background: transparent; }
+    .incrustado body > :not(dialog) { display: none; }
+    .incrustado .l2-regreso { display: none; }
+
     @media (max-width: 420px) {
       .l2-pasarela-cab { padding-left: 20px; }
       .l2-pasarela-vista { padding: 0 18px 20px; }
@@ -297,14 +303,17 @@
   </dialog>
 
   <script src="../src/data/catalogo-landing.js"></script>
-  <script src="pasos-tramite.js"></script>
+  <script src="pasos-tramite.js?v=3"></script>
   <script src="ciudadano.js"></script>
   <script src="pasarela-serfinsa.js"></script>
   <script>
     /* Pago de una solicitud hecha por WhatsApp (?n=número del trámite&solicitud=N.º de 7 cifras).
        Al llegar se abre la pasarela; pagar simula el cobro por etapas y, aprobado, vuelve a whatsapp.html con la
        autorización y la referencia. Cancelar vuelve sin pagar; la X cierra el modal y deja volver a abrirlo.
-       El chat se retoma donde quedó (lo guarda whatsapp.html antes de abrir este enlace). */
+       El chat se retoma donde quedó (lo guarda whatsapp.html antes de abrir este enlace).
+       Con ?modo=asistente se abre dentro del chat de Indexlogin.html (en un iframe): el total lo deja el asistente
+       ('simple-asistente-pago', integraciones.js) y, en lugar de volver a WhatsApp, avisa al chat con postMessage
+       { tipo: 'simple-pago', resultado: 'aprobado' | 'cancelado', … }. */
     (() => {
       const { costoDe } = window.PASOS_TRAMITE;
       const CUENTA = window.CIUDADANO || {};
@@ -312,11 +321,15 @@
       const numero = Number(parametros.get('n'));
       const solicitud = /^\d{7}$/.test(parametros.get('solicitud') || '') ? parametros.get('solicitud') : '';
       const tramite = (window.CATALOGO_TRAMITES || []).find(t => t.numero === numero);
+      const incrustado = parametros.get('modo') === 'asistente' && window.parent !== window;
+      document.documentElement.classList.toggle('incrustado', incrustado);
+      const leerGuardado = clave => { try { return JSON.parse(localStorage.getItem(clave)); } catch { return null; } };
+      const avisarAlChat = (resultado, extra = {}) => window.parent.postMessage({ tipo: 'simple-pago', resultado, numero, solicitud, ...extra }, location.origin === 'null' ? '*' : location.origin);
       // El catálogo trae la dependencia con punto final; aquí se muestra sin él
       if (tramite?.dependencia) tramite.dependencia = tramite.dependencia.replace(/(?<!\.)\.$/, '');
       // El total lo fija el chat al pedir el pago (puede depender de lo respondido); si no quedó guardado, el del catálogo
-      const chat = (() => { try { return JSON.parse(localStorage.getItem('simple-whatsapp-chat')); } catch { return null; } })();
-      const deEsteChat = chat?.numero === numero && chat.codigo === solicitud;
+      const chat = leerGuardado(incrustado ? 'simple-asistente-pago' : 'simple-whatsapp-chat');
+      const deEsteChat = chat?.numero === numero && (incrustado ? chat.solicitud : chat.codigo) === solicitud;
       const total = deEsteChat && chat.total ? chat.total : tramite && costoDe(tramite).pago?.replace('desde ', '');
       const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const pausa = ms => new Promise(r => setTimeout(r, ms));
@@ -331,7 +344,8 @@
       }
 
       // Enlace que no corresponde a una solicitud por pagar, o que ya se usó (el chat ya pasó del pago)
-      const yaPagada = deEsteChat && chat.fase && chat.fase !== 'pagando';
+      const yaPagada = !incrustado && deEsteChat && chat.fase && chat.fase !== 'pagando';
+      if (incrustado && (!tramite || !total || !solicitud)) { avisarAlChat('invalido'); return; }
       if (!tramite || !total || !solicitud || yaPagada) {
         const caja = el('section', 'l2-solicitud l2-no-disponible');
         const icono = el('i', yaPagada ? 'ph ph-check-circle' : 'ph ph-link-break');
@@ -365,6 +379,7 @@
 
       let estadoPasarela = 'tarjeta';
       let destino = '';
+      let regresarAlChat = null; // en el chat del asistente, ya pagado: avisa al chat una sola vez
       function vistaPasarela(nombre) {
         estadoPasarela = nombre;
         pasarela.querySelectorAll('[data-vista]').forEach(v => { v.hidden = v.dataset.vista !== nombre; });
@@ -418,23 +433,43 @@
           fila.append(el('dt', '', titulo), el('dd', '', valor));
           return fila;
         }));
+        if (incrustado) {
+          // En el chat: se ve la aprobación un momento (o hasta tocar «Regresar») y el asistente sigue con el comprobante
+          regresarAlChat = () => { regresarAlChat = null; avisarAlChat('aprobado', { total, autorizacion, referencia }); };
+          vistaPasarela('aprobado');
+          await pausa(sinMovimiento ? 400 : 1600);
+          regresarAlChat?.();
+          return;
+        }
         destino = volverA(`&pago=aprobado&aut=${autorizacion}&ref=${referencia}`);
         document.getElementById('volver-whatsapp').href = destino;
         vistaPasarela('aprobado');
         volverSolo();
       });
 
+      if (incrustado) {
+        // Cancelar o cerrar sin pagar vuelve al chat, donde la solicitud queda guardada sin pagar
+        document.getElementById('pasarela-cancelar').addEventListener('click', e => { e.preventDefault(); avisarAlChat('cancelado'); });
+        pasarela.addEventListener('close', () => { if (estadoPasarela !== 'aprobado') avisarAlChat('cancelado'); });
+        // Aquí no se vuelve a WhatsApp, sino al chat del asistente
+        const regresar = document.getElementById('volver-whatsapp');
+        regresar.replaceChildren('Regresar');
+        regresar.href = '#';
+        regresar.addEventListener('click', e => { e.preventDefault(); regresarAlChat?.(); });
+      }
+
       document.getElementById('abrir-pago').addEventListener('click', abrirPasarela);
-      // Ya pagado, cerrar es lo mismo que volver a WhatsApp
+      // Ya pagado, cerrar es lo mismo que volver a WhatsApp (o al chat del asistente)
+      const volverYaPagado = () => { if (destino) location.href = destino; else regresarAlChat?.(); };
       document.getElementById('pasarela-cerrar').addEventListener('click', () => {
-        if (estadoPasarela === 'aprobado') location.href = destino;
+        if (estadoPasarela === 'aprobado') volverYaPagado();
         else pasarela.close();
       });
-      // Escape: no cierra mientras procesa; ya pagado, vuelve a WhatsApp
+      // Escape: no cierra mientras procesa; ya pagado, vuelve a WhatsApp (o al chat del asistente)
       pasarela.addEventListener('cancel', e => {
         if (estadoPasarela === 'tarjeta') return;
         e.preventDefault();
-        if (estadoPasarela === 'aprobado') location.href = destino;
+        if (estadoPasarela === 'aprobado') volverYaPagado();
       });
 
       abrirPasarela();

@@ -318,6 +318,11 @@
     .l2-desp > summary::-webkit-details-marker { display: none; }
     .l2-desp > summary:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
     .l2-desp-icono { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border-radius: 12px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 18px; }
+    .l2-desp-textos { display: flex; flex: 1; flex-direction: column; gap: 2px; min-width: 0; }
+    .l2-desp-textos .l2-desp-titulo { flex: none; }
+    .l2-desp-vista { color: var(--text-secondary); font-size: 14px; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .l2-desp-vista:empty { display: none; }
+    .l2-desp[open] .l2-desp-vista { display: none; }
     .l2-desp-titulo { flex: 1; min-width: 0; color: var(--color-blue-primary); font-size: 17px; font-weight: 800; }
     .l2-desp-caret { flex-shrink: 0; color: var(--color-blue-primary); font-size: 20px; transition: transform 0.2s ease; }
     .l2-desp[open] > summary .l2-desp-caret { transform: rotate(180deg); }
@@ -444,6 +449,9 @@
     }
     /* Contáctanos y Términos y condiciones van en el menú del encabezado */
     .l2-footer-enlaces, .l2-header-actions > a.l2-icon-button[href="contactanos.html"] { display: none; }
+    /* Sin sesión (se llega desde el chat de la landing): solo el logo y "Iniciar sesión"; el resto del encabezado es de quien ya entró */
+    html[data-sesion] .l2-login-btn { display: none; }
+    html:not([data-sesion]) .l2-nav, html:not([data-sesion]) .l2-notifications, html:not([data-sesion]) .l2-profile-trigger, html:not([data-sesion]) .l2-menu-toggle { display: none; }
     .l2-footer:not(:has(> .l2-wrap > p)) { display: none; }
   </style>
   <link rel="stylesheet" href="modulos.css">
@@ -479,6 +487,7 @@
       </nav>
 
       <div class="l2-header-actions">
+        <a class="l2-btn l2-btn-primary l2-login-btn" id="login-enlace" href="login.html"><i class="ph ph-sign-in" aria-hidden="true"></i>Iniciar sesión</a>
         <a class="l2-icon-button" href="contactanos.html" aria-label="Contáctanos" title="Contáctanos"><i class="ph ph-headset" aria-hidden="true"></i></a>
         <div class="l2-notifications">
           <button class="l2-icon-button" id="notificaciones-boton" type="button" aria-label="Ver notificaciones" aria-controls="notificaciones-panel" aria-expanded="false">
@@ -656,13 +665,15 @@
   </dialog>
 
   <script src="../src/data/catalogo-landing.js"></script>
-  <script src="formularios.js"></script>
+  <script src="formularios.js?v=8"></script>
   <script src="citas.js"></script>
-  <script src="pasos-tramite.js"></script>
+  <script src="pasos-tramite.js?v=3"></script>
   <script src="ciudadano.js"></script>
+  <script src="flujo-corto.js"></script>
   <script src="radios.js"></script>
   <script src="requisitos-tramite.js"></script>
   <script src="pasarela-serfinsa.js"></script>
+  <script src="integraciones.js"></script>
   <script>
     /* ===== Trámite: datos del catálogo + pasos del formulario hasta el pago (no envía ni cobra nada) ===== */
     const numero = Number(new URLSearchParams(location.search).get('n'));
@@ -678,8 +689,16 @@
       horarioDe, horarioCorto, diasDisponibles, horariosLibres, horaLegible, isoDe, fechaDe, fechaCorta, fechaLarga,
       capitalizar, queLlevar, descargarCalendario
     } = window.PASOS_TRAMITE;
-    // El primer paso va en la raíz de la definición; los siguientes, en pasos
-    const pasos = definicion ? [definicion, ...(definicion.pasos || [])] : [];
+    // Sin sesión solo se entra a los trámites del flujo corto (flujo-corto.js): la sesión se pide al pasar al pago.
+    // Los demás pasan primero por el login, como siempre
+    const haySesion = () => !!document.documentElement.dataset.sesion;
+    const flujoCorto = !!window.FLUJO_CORTO?.aplica(numero);
+    if (!haySesion() && !flujoCorto && numero) location.replace(`login.html?destino=tramite&n=${numero}`);
+    // El primer paso va en la raíz de la definición; los siguientes, en pasos. Los primeros 8 trámites del catálogo
+    // van en un flujo corto de hasta 3 pasos (flujo-corto.js): datos requeridos, revisión con tus datos y pago
+    const pasos = !definicion ? []
+      : window.FLUJO_CORTO?.aplica(numero) ? window.FLUJO_CORTO.reducir(definicion, window.CIUDADANO)
+      : [definicion, ...(definicion.pasos || [])];
     const CAMPOS = {};
     let actual = 0;
 
@@ -951,9 +970,19 @@
       const detalles = el('details', 'l2-desp');
       detalles.open = !!campo.abierto;
       if (campo.comoFilas) detalles.dataset.comoFilas = '';
+      if (campo.ocultarVacio) detalles.dataset.ocultarVacio = '';
       const cabecera = el('summary');
       if (campo.icono) { const cajaIcono = el('span', 'l2-desp-icono'); cajaIcono.append(icono(campo.icono)); cabecera.append(cajaIcono); }
-      cabecera.append(el('span', 'l2-desp-titulo', campo.titulo), icono('ph-caret-down l2-desp-caret'));
+      const titulo = el('span', 'l2-desp-titulo', campo.titulo);
+      // Con vista previa, debajo del título se ven los primeros datos de adentro (por ejemplo, el nombre y el DUI)
+      if (campo.vistaPrevia) {
+        detalles.dataset.vistaPrevia = '';
+        const bloque = el('span', 'l2-desp-textos');
+        bloque.append(titulo, el('small', 'l2-desp-vista'));
+        cabecera.append(bloque, icono('ph-caret-down l2-desp-caret'));
+      } else {
+        cabecera.append(titulo, icono('ph-caret-down l2-desp-caret'));
+      }
       const cuerpo = el('div', 'l2-desp-cuerpo');
       detalles.append(cabecera, cuerpo);
       return { detalles, cuerpo };
@@ -968,12 +997,14 @@
         caja.hidden = i !== 0;
         // El resumen (revisión) y el total (pago) se arman al abrir el paso; sus notas van debajo.
         // En una revisión con un campo "resumen", el resumen va donde está ese campo
-        if (paso.tipo && !paso.campos.some(c => c.tipo === 'resumen')) caja.append(el('div', paso.tipo === 'pago' ? 'l2-pago' : 'l2-revision'));
+        if (paso.tipo && !paso.campos.some(c => c.tipo === 'resumen' || c.tipo === 'resumenPago')) caja.append(el('div', paso.tipo === 'pago' ? 'l2-pago' : 'l2-revision'));
         let fila = null;
         // Un campo "desplegable" abre un grupo: lo que sigue va dentro de él hasta el próximo desplegable o resumen
         let grupo = null;
         paso.campos.forEach(campo => {
           if (campo.tipo === 'finDesplegable') { grupo = null; fila = null; return; }
+          // El resumen del pago donde se pida, en vez de al principio del paso (flujo-corto.js)
+          if (campo.tipo === 'resumenPago') { caja.append(el('div', 'l2-pago')); grupo = null; fila = null; return; }
           if (campo.tipo === 'desplegable' || campo.tipo === 'resumen') {
             fila = null;
             const { detalles, cuerpo } = crearDesplegable(campo);
@@ -1022,6 +1053,8 @@
     // mientras se cumpla: al cumplirse se escriben en los campos vacíos y, al dejar de cumplirse, se borran los que nadie
     // cambió. Lo que la persona borre a propósito no se vuelve a escribir.
     function prellenar() {
+      // Los datos de la cuenta solo se escriben con sesión iniciada
+      if (!haySesion()) return;
       Object.entries(window.CIUDADANO || {}).forEach(([nombre, valor]) => {
         formulario.querySelectorAll(`input[name="${nombre}"]:not([type="radio"]):not([type="checkbox"]):not([type="file"])`).forEach(control => {
           const toca = !control.dataset.prellenarSi || cumple(control.dataset.prellenarSi);
@@ -1046,12 +1079,16 @@
       return otro ? otro.value : '';
     }
 
-    // "campo=valor" o "campo!=valor", con lo que hay respondido; "campo=a|b" se cumple con cualquiera de los dos
+    // "campo=valor" o "campo!=valor", con lo que hay respondido; "campo=a|b" se cumple con cualquiera de los dos.
+    // En una pregunta de varias opciones cuenta cualquiera de las marcadas
+    // Varias condiciones juntas ('a=1&&b!=2', flujo-corto.js): deben cumplirse todas
     function cumple(si) {
+      if (si.includes('&&')) return si.split('&&').every(cumple);
       const [, nombre, operador, valor] = si.match(/^(\w+)(!?=)(.*)$/);
-      const respuesta = valorDe(nombre);
-      const coincide = valor.split('|').includes(respuesta);
-      return operador === '=' ? coincide : respuesta !== '' && !coincide;
+      const marcadas = [...formulario.querySelectorAll(`input[name="${nombre}"]:checked:not(:disabled)`)].map(c => c.value);
+      const respuestas = marcadas.length ? marcadas : [valorDe(nombre)];
+      const coincide = valor.split('|').some(v => respuestas.includes(v));
+      return operador === '=' ? coincide : respuestas.some(r => r !== '') && !coincide;
     }
 
     function actualizarCondicionales() {
@@ -1063,6 +1100,10 @@
           bloque.querySelectorAll('input, select, textarea').forEach(c => { c.disabled = !abierto; });
         });
       }
+      // Un desplegable sin ninguna pregunta a la vista (todas condicionadas) no se muestra
+      formulario.querySelectorAll('.l2-desp[data-ocultar-vacio]').forEach(d => {
+        d.hidden = ![...d.querySelectorAll('.l2-campo, .l2-pregunta')].some(visible);
+      });
     }
 
     const visible = nodo => !nodo.closest('.l2-condicional:not(.abierto)');
@@ -1155,6 +1196,19 @@
       if (ver) document.querySelector('.l2-lateral').animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250, delay: 300, fill: 'backwards' });
     }
 
+    // Vista previa de un desplegable cerrado: los primeros datos de adentro (lo escrito, lo elegido en listas y opciones)
+    function actualizarVista(d) {
+      const valores = [...d.querySelectorAll('.l2-desp-cuerpo .l2-campo, .l2-desp-cuerpo fieldset.l2-pregunta')].filter(visible).map(n => {
+        if (n.matches('fieldset')) return [...n.querySelectorAll('input:checked')].map(i => i.closest('.l2-opcion')?.querySelector('.l2-opcion-texto strong')?.textContent).join(', ');
+        const c = n.querySelector('input.l2-input, select');
+        if (!c || c.disabled || !c.value.trim()) return '';
+        return c.tagName === 'SELECT' ? c.selectedOptions[0].textContent : c.value;
+      }).map(v => (v || '').trim()).filter(Boolean);
+      d.querySelector('.l2-desp-vista').textContent = valores.slice(0, 3).join(' · ');
+    }
+    // Al cerrar el desplegable, la vista previa refleja lo que se cambió adentro
+    formulario.addEventListener('toggle', e => { if (e.target.matches?.('.l2-desp[data-vista-previa]')) actualizarVista(e.target); }, true);
+
     function mostrarPaso(i, enfocar = true) {
       actual = i;
       mostrarResumen(i === 0);
@@ -1167,6 +1221,7 @@
         cuerpo.querySelector(':scope > .l2-filas')?.remove();
         cuerpo.append(filas([...cuerpo.querySelectorAll('.l2-campo')].map(c => [c.querySelector('label').textContent, c.querySelector('input').value.trim()])));
       });
+      caja.querySelectorAll('.l2-desp[data-vista-previa]').forEach(actualizarVista);
       if (pasos[i].tipo === 'pago') pintarPago(caja.querySelector('.l2-pago'));
       document.getElementById('listo').classList.remove('visible');
       actualizarCabecera();
@@ -1237,8 +1292,18 @@
       vistaPasarela('aprobado');
     }
 
+    // Pagado: en el flujo corto la solicitud queda en Mis documentos y se va directo allá
+    // pago es null en un trámite sin pago: la solicitud queda igual en Mis documentos
+    async function guardarYIrADocumentos(pago) {
+      const respuestas = {};
+      Object.values(CAMPOS).forEach(c => { const v = respuestaDe(c); if (v) respuestas[c.nombre] = { valor: v }; });
+      const id = pago?.solicitud || numeroAlAzar(7);
+      await window.INTEGRACIONES.presentar({ id, numero, respuestas, canal: 'web', pago });
+      location.href = `mis-tramites.html?tramite=${id}`;
+    }
     function continuarDesdePasarela() {
       pasarela.close();
+      if (flujoCorto && window.INTEGRACIONES) { guardarYIrADocumentos(pagoAprobado); return; }
       mostrarEnviada(pagoAprobado);
     }
 
@@ -1346,6 +1411,84 @@
       e.preventDefault();
       if (estadoPasarela === 'aprobado') continuarDesdePasarela();
     });
+
+    /* ----- Iniciar sesión: se va a la página de login y se vuelve aquí, con lo escrito (borrador) ----- */
+    const CLAVE_BORRADOR = 'simple-tramite-borrador';
+    const controlesDelFormulario = () => [...formulario.querySelectorAll('input[name], select[name], textarea[name]')];
+    const abrirBorradores = () => new Promise((ok, error) => {
+      const r = indexedDB.open('simple-tramite-borrador', 1);
+      r.onupgradeneeded = () => r.result.createObjectStore('archivos');
+      r.onsuccess = () => ok(r.result);
+      r.onerror = () => error(r.error);
+    });
+    const esperarTransaccion = tx => new Promise((ok, error) => { tx.oncomplete = ok; tx.onerror = () => error(tx.error); tx.onabort = () => error(tx.error); });
+
+    // Lo escrito y elegido queda en este navegador (los archivos, en IndexedDB) mientras se inicia sesión
+    async function guardarBorrador() {
+      const valores = [];
+      const archivos = [];
+      controlesDelFormulario().forEach((c, i) => {
+        if (c.type === 'file') { if (c.files.length) archivos.push([i, c.files[0]]); return; }
+        if (c.type === 'radio' || c.type === 'checkbox') { if (c.checked) valores.push({ i, marcado: true }); return; }
+        if (c.value) valores.push({ i, v: c.value });
+      });
+      try { sessionStorage.setItem(CLAVE_BORRADOR, JSON.stringify({ numero, valores })); } catch (e) { /* sin almacenamiento */ }
+      try {
+        const bd = await abrirBorradores();
+        const tx = bd.transaction('archivos', 'readwrite');
+        tx.objectStore('archivos').clear();
+        archivos.forEach(([i, archivo]) => tx.objectStore('archivos').put(archivo, i));
+        await esperarTransaccion(tx);
+        bd.close();
+      } catch (e) { /* sin IndexedDB: los archivos se vuelven a adjuntar */ }
+    }
+
+    // Al volver del login: se pone cada respuesta donde estaba. Varias pasadas, porque una respuesta abre otras preguntas
+    // y las listas dependientes (municipios) se llenan al elegir la anterior
+    async function restaurarBorrador() {
+      let borrador = null;
+      try { borrador = JSON.parse(sessionStorage.getItem(CLAVE_BORRADOR)); sessionStorage.removeItem(CLAVE_BORRADOR); } catch (e) { /* sin borrador */ }
+      if (!borrador || borrador.numero !== numero) return false;
+      const controles = controlesDelFormulario();
+      const avisar = c => { c.dispatchEvent(new Event('input', { bubbles: true })); c.dispatchEvent(new Event('change', { bubbles: true })); };
+      for (let pasada = 0; pasada < 5; pasada++) {
+        borrador.valores.forEach(({ i, v, marcado }) => {
+          const c = controles[i];
+          if (!c) return;
+          if (marcado) { if (!c.checked) { c.checked = true; avisar(c); } return; }
+          if (c.value !== v) { c.value = v; if (c.value === v) avisar(c); }
+        });
+      }
+      try {
+        const bd = await abrirBorradores();
+        const tx = bd.transaction('archivos', 'readwrite');
+        const almacen = tx.objectStore('archivos');
+        almacen.openCursor().onsuccess = e => {
+          const cursor = e.target.result;
+          if (!cursor) return;
+          const c = controles[cursor.key];
+          if (c && c.type === 'file') { const dt = new DataTransfer(); dt.items.add(cursor.value); c.files = dt.files; avisar(c); }
+          cursor.continue();
+        };
+        await esperarTransaccion(tx);
+        bd.close();
+        const limpiar = (await abrirBorradores()).transaction('archivos', 'readwrite');
+        limpiar.objectStore('archivos').clear();
+      } catch (e) { /* los archivos se vuelven a adjuntar */ }
+      return true;
+    }
+    // Ya con sesión (de vuelta del login): sigue donde iba, en el paso 2
+    async function continuarTrasLogin() {
+      history.replaceState(null, '', `tramite.html?n=${numero}`);
+      if (!(await restaurarBorrador())) return;
+      actualizarCondicionales();
+      prellenar();
+      if (validar(cajaDe(0))) return;
+      const siguiente = pasosQueAplican().find(i => i > 0);
+      if (siguiente === undefined) return;
+      // Llega al paso 2; la pasarela se abre cuando la persona pulsa "Pagar"
+      mostrarPaso(siguiente);
+    }
 
     // Lo que se ve de una respuesta en el resumen
     function respuestaDe(campo) {
@@ -1484,11 +1627,19 @@
       pintarBanner();
       pintarPortal();
     } else {
+      // Sin sesión: el logo y "Volver" van a la landing, y "Iniciar sesión" regresa a este trámite
+      if (!haySesion()) {
+        document.getElementById('volver').href = '../index.html';
+        document.querySelector('.l2-logo').href = '../index.html';
+        document.getElementById('login-enlace').href = `login.html?destino=tramite&n=${numero}`;
+      }
       pintarBanner();
       pintarInformacionTramite(definicion.informacion, document.getElementById('lateral'));
       pintarPasos();
       actualizarCondicionales();
       mostrarPaso(0, false);
+      // De vuelta del login (?continuar=1): se recupera lo escrito y se sigue al pago (se hace al final, con los eventos listos)
+      const volviendoDelLogin = flujoCorto && haySesion() && new URLSearchParams(location.search).has('continuar');
 
       formulario.addEventListener('change', e => {
         if (['sedes', 'dias'].includes(CAMPOS[e.target.name]?.origen)) refrescarHoras();
@@ -1508,20 +1659,30 @@
         const primero = validar(cajaDe(actual));
         if (primero) {
           document.getElementById('listo').classList.remove('visible');
+          // Si el dato con error está en un desplegable cerrado, se abre para que se vea
+          for (let d = primero.closest('details'); d; d = d.parentElement?.closest('details')) d.open = true;
           primero.focus();
           return;
         }
         // En el pago se abre la pasarela SERFINSA (simulada)
         if (pasos[actual].tipo === 'pago') { abrirPasarela(); return; }
+        // Flujo corto sin pago: al confirmar, la solicitud queda en Mis documentos y se va directo allá
+        if (flujoCorto && pasos[actual].tipo === 'revision' && !pasos[actual].fin && window.INTEGRACIONES) { guardarYIrADocumentos(null); return; }
         // La cita presencial termina al confirmarla: se paga en la sede
-        if (pasos[actual].fin === 'cita' && CITA) { mostrarCitaAgendada(); return; }
+        if (pasos[actual].fin === 'cita' && (!pasos[actual].finSi || cumple(pasos[actual].finSi)) && CITA) { mostrarCitaAgendada(); return; }
         const siguiente = pasosQueAplican().find(i => i > actual);
         if (siguiente === undefined) { mostrarListo(); return; }
+        // Flujo corto sin sesión: se guarda lo escrito, se va a la página de login y se vuelve aquí, al pago
+        if (flujoCorto && !haySesion()) {
+          guardarBorrador().finally(() => { location.href = `login.html?destino=pago&n=${numero}`; });
+          return;
+        }
         mostrarPaso(siguiente);
       });
       document.getElementById('anterior').addEventListener('click', () => {
         mostrarPaso(pasosQueAplican().filter(i => i < actual).pop());
       });
+      if (volviendoDelLogin) continuarTrasLogin();
     }
 
     /* ===== Menús del encabezado ===== */

@@ -1,0 +1,119 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - link "Simple.sv, inicio" [ref=f2e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f2e18]:
+        - link "Trámites" [ref=f2e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f2e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f2e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f2e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f2e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f2e24]: 
+          - text: Contáctanos
+      - generic [ref=f2e25]:
+        - text: 
+        - button "Ver notificaciones" [ref=f2e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e28]: 
+          - generic "1 notificación nueva" [ref=f2e29]: "1"
+        - button "Abrir menú de usuario" [ref=f2e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f2e32]
+          - generic [aria-hidden] [ref=f2e33]: 
+        - text: 
+  - main [ref=f2e34]:
+    - generic [ref=f2e36]:
+      - heading "Trámites" [level=1] [ref=f2e37]
+      - search [ref=f2e38]:
+        - generic [aria-hidden] [ref=f2e39]: 
+        - textbox "Buscar en todos los trámites" [ref=f2e40]:
+          - /placeholder: Buscar en todos los trámites…
+        - text: 
+      - tabpanel "Trámites disponibles" [ref=f2e42]:
+        - group "Trámites 1 a 8 de 118" [ref=f2e43]:
+          - article [ref=f2e44]:
+            - generic [ref=f2e45]: $3.00
+            - generic [ref=f2e48]:
+              - paragraph [ref=f2e49]:
+                - generic [aria-hidden] [ref=f2e50]: 
+                - text: Ministerio de Justicia y Seguridad Pública (MJSP)
+              - heading [level=3] [ref=f2e51]:
+                - link "Constancia de antecedentes penales" [ref=f2e52] [cursor=pointer]:
+                  - /url: tramite.html?n=99
+          - article [ref=f2e53]:
+            - generic [ref=f2e54]: $3.50
+            - generic [ref=f2e57]:
+              - paragraph [ref=f2e58]:
+                - generic [aria-hidden] [ref=f2e59]: 
+                - text: Policía Nacional Civil de El Salvador (PNC)
+              - heading [level=3] [ref=f2e60]:
+                - link "Constancia de antecedentes policiales" [ref=f2e61] [cursor=pointer]:
+                  - /url: tramite.html?n=100
+          - article [ref=f2e62]:
+            - generic [ref=f2e63]: $3.00
+            - generic [ref=f2e66]:
+              - paragraph [ref=f2e67]:
+                - generic [aria-hidden] [ref=f2e68]: 
+                - text: Registro Nacional de las Personas Naturales (RNPN)
+              - heading [level=3] [ref=f2e69]:
+                - link "Certificación de partidas" [ref=f2e70] [cursor=pointer]:
+                  - /url: tramite.html?n=73
+          - article [ref=f2e71]:
+            - generic [ref=f2e72]: $5.00
+            - generic [ref=f2e75]:
+              - paragraph [ref=f2e76]:
+                - generic [aria-hidden] [ref=f2e77]: 
+                - text: Registro Nacional de las Personas Naturales (RNPN)
+              - heading [level=3] [ref=f2e78]:
+                - link "Certificación de registro de DUI y no DUI" [ref=f2e79] [cursor=pointer]:
+                  - /url: tramite.html?n=74
+          - article [ref=f2e80]:
+            - generic [ref=f2e81]: $10.00
+            - generic [ref=f2e84]:
+              - paragraph [ref=f2e85]:
+                - generic [aria-hidden] [ref=f2e86]: 
+                - text: Registro Nacional de las Personas Naturales (RNPN)
+              - heading [level=3] [ref=f2e87]:
+                - link "Constancia de homónimo" [ref=f2e88] [cursor=pointer]:
+                  - /url: tramite.html?n=75
+          - article [ref=f2e89]:
+            - generic [ref=f2e90]: $10.00
+            - generic [ref=f2e93]:
+              - paragraph [ref=f2e94]:
+                - generic [aria-hidden] [ref=f2e95]: 
+                - text: Dirección General de Migración y Extranjería
+              - heading [level=3] [ref=f2e96]:
+                - link "Constancia de no restricción migratoria" [ref=f2e97] [cursor=pointer]:
+                  - /url: tramite.html?n=113
+          - article [ref=f2e98]:
+            - generic [ref=f2e99]: $2.26
+            - generic [ref=f2e102]:
+              - paragraph [ref=f2e103]:
+                - generic [aria-hidden] [ref=f2e104]: 
+                - text: Administración Nacional de Acueductos y Alcantarillados (ANDA)
+              - heading [level=3] [ref=f2e105]:
+                - link "Cambio de nombre del titular de la cuenta" [ref=f2e106] [cursor=pointer]:
+                  - /url: tramite.html?n=61
+          - article [ref=f2e107]:
+            - generic [ref=f2e108]: $3.39
+            - generic [ref=f2e111]:
+              - paragraph [ref=f2e112]:
+                - generic [aria-hidden] [ref=f2e113]: 
+                - text: Administración Nacional de Acueductos y Alcantarillados (ANDA)
+              - heading [level=3] [ref=f2e114]:
+                - link "Constancia de no servicio de agua potable y/o alcantarillado" [ref=f2e115] [cursor=pointer]:
+                  - /url: tramite.html?n=62
+        - text:                                                                                                              
+      - generic [ref=f2e116]:
+        - button "Trámites anteriores" [disabled] [ref=f2e117]:
+          - generic [aria-hidden] [ref=f2e118]: 
+        - status [ref=f2e119]: Página 1 de 15
+        - button "Más trámites" [ref=f2e120] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f2e121]: 
+  - text:  
+  - 'button "Chat bot: abre el asistente de Simple.sv" [ref=f2e123] [cursor=pointer]':
+    - generic [aria-hidden] [ref=f2e125]: Chat bot

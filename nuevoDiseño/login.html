@@ -579,14 +579,19 @@
 
 <protonpass-root-c97f data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-c97f><script>
     // Maqueta: no envía credenciales; solo lleva a la vista elegida en index.html (?destino=tramites | documentos)
-    // o, desde un trámite del inicio (?destino=tramite | whatsapp | cita &n=número), a ese trámite: su formulario,
-    // el chat de WhatsApp de Simple.sv o el asistente con sesión listo para agendar la cita.
-    // Sin número, ?destino=whatsapp (botón de WhatsApp de la landing) abre el asistente para confirmar el celular;
-    // ?destino=documentos&tramite=N.º (enlaces de los avisos de WhatsApp) abre Mis documentos con ese trámite resaltado
+    // o, desde un trámite del inicio (?destino=tramite | whatsapp | cita | asistente &n=número), a ese trámite: su formulario,
+    // el chat de WhatsApp de Simple.sv, el asistente con sesión listo para agendar la cita o el asistente que sigue
+    // haciendo el trámite con lo que se dijo en la landing.
+    // ?destino=whatsapp (botón de WhatsApp de la landing, con o sin número) abre de una vez el chat de WhatsApp con el
+    // "Hola" ya enviado: con número, sigue con ese trámite; sin número, pregunta cuál;
+    // ?destino=documentos&tramite=N.º (enlaces de los avisos de WhatsApp) abre Mis documentos con ese trámite resaltado.
+    // ?destino=inicio (el chat de la landing) vuelve a la landing con sesión y el chat sigue con lo que se iba a hacer.
+    // ?destino=pago&n=N (el formulario de un trámite pide iniciar sesión antes de pagar): vuelve a ese formulario con
+    // ?continuar=1, que recupera lo escrito y sigue al pago.
     function irADestino() {
         try { localStorage.setItem('simple-sesion', '1'); } catch (e) {}
-        const destinos = { tramites: 'Indexlogin.html', documentos: 'mis-tramites.html', whatsapp: 'Indexlogin.html?whatsapp=1' };
-        const conNumero = { tramite: 'tramite.html?n=', whatsapp: 'whatsapp.html?n=', cita: 'Indexlogin.html?cita=' };
+        const destinos = { tramites: 'Indexlogin.html', documentos: 'mis-tramites.html', whatsapp: 'whatsapp.html?hola=1', inicio: '../index.html' };
+        const conNumero = { tramite: 'tramite.html?n=', pago: 'tramite.html?continuar=1&n=', whatsapp: 'whatsapp.html?hola=1&n=', cita: 'Indexlogin.html?cita=', asistente: 'Indexlogin.html?asistente=', inicio: '../index.html?asistente=' };
         const parametros = new URLSearchParams(location.search);
         const destino = parametros.get('destino');
         const numero = parametros.get('n') || '';

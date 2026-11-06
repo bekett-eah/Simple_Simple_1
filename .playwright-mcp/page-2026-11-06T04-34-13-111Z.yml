@@ -1,0 +1,40 @@
+- generic [ref=f70e5]:
+  - generic [ref=f70e8]:
+    - generic [ref=f70e9]:
+      - generic [ref=f70e10]: Bienvenidos al portal del Gobierno de El Salvador,
+      - text: "donde podrás crear tu perfil digital. Tu usuario te dará acceso a:"
+    - generic [ref=f70e11]:
+      - generic [ref=f70e12]: Trámites en línea
+      - generic [ref=f70e13]: Pagos en línea
+      - generic [ref=f70e14]: Portales virtuales
+      - generic [ref=f70e15]: Credenciales seguras
+  - generic [ref=f70e17]:
+    - generic [ref=f70e19]:
+      - paragraph [ref=f70e20]: Bienvenido/a
+      - paragraph [ref=f70e21]: Elige cómo iniciar sesión
+    - generic [ref=f70e23]:
+      - generic [ref=f70e24]:
+        - paragraph [ref=f70e26] [cursor=pointer]: DUI
+        - paragraph [ref=f70e28] [cursor=pointer]: Pasaporte
+        - paragraph [ref=f70e30] [cursor=pointer]: Carnet de residente
+      - generic [ref=f70e31]:
+        - paragraph [ref=f70e32]: Ingresa tus datos
+        - textbox "número de documento" [ref=f70e34]: 06245097-8
+        - generic [ref=f70e35]:
+          - textbox "contraseña" [ref=f70e36]: Maria2026!
+          - button [ref=f70e37] [cursor=pointer]
+      - generic [ref=f70e41]:
+        - link "¿Olvidaste tu contraseña?" [ref=f70e42] [cursor=pointer]:
+          - /url: https://login.gob.sv/password/reset
+        - link "¿Olvidaste tu correo?" [ref=f70e43] [cursor=pointer]:
+          - /url: https://login.gob.sv/email/forgot
+        - link "¿Olvidaste tu número de dui?" [ref=f70e44] [cursor=pointer]:
+          - /url: https://login.gob.sv/document/forgot
+      - button [ref=f70e45] [cursor=pointer]:
+        - paragraph [ref=f70e46]: Iniciar sesión
+    - generic [ref=f70e47]:
+      - generic [ref=f70e48]:
+        - paragraph [ref=f70e49]: ¿Aún no tienes cuenta?
+        - link "Regístrate aquí" [ref=f70e50] [cursor=pointer]:
+          - /url: https://login.gob.sv/verificar-dui
+      - paragraph [ref=f70e51]: "Si tienes problemas para crear tu cuenta puedes comunicarte al correo: contacto@login.gob.sv"

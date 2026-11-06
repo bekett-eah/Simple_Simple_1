@@ -1,0 +1,136 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link "Simple.sv, volver a Trámites" [ref=f9e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f9e18]:
+        - link "Trámites" [ref=f9e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f9e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f9e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f9e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f9e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f9e24]: 
+          - text: Contáctanos
+      - generic [ref=f9e25]:
+        - text: 
+        - button "Ver notificaciones" [ref=f9e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f9e28]: 
+          - generic "1 notificación nueva" [ref=f9e29]: "1"
+        - button "Abrir menú de usuario" [ref=f9e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f9e32]
+          - generic [aria-hidden] [ref=f9e33]: 
+        - text: 
+  - main [ref=f9e34]:
+    - generic [ref=f9e36]:
+      - heading "Constancia de antecedentes policiales" [level=1] [ref=f9e37]
+      - generic [ref=f9e38]:
+        - generic [ref=f9e39]:
+          - complementary [ref=f9e40]:
+            - generic [ref=f9e41]:
+              - heading "Sobre este trámite" [level=3] [ref=f9e42]:
+                - generic [aria-hidden] [ref=f9e44]: 
+                - text: Sobre este trámite
+              - text: 
+            - generic [ref=f9e45]:
+              - paragraph [ref=f9e46]: La presente tiene por objeto verificar las bases de datos que para los efectos de ley consulta la Unidad de Registro y Antecedentes Policiales, en el marco de sus facultades, a efecto de hacer constar si el ciudadano/a mencionado/a presenta o no, antecedentes policiales, entendidos estos como la existencia de registros vinculados a investigaciones, denuncias, aprehensiones en flagrancia, detenciones administrativas o judiciales
+              - generic [ref=f9e47]:
+                - generic [ref=f9e48]:
+                  - generic [aria-hidden] [ref=f9e49]: 
+                  - generic [ref=f9e50]:
+                    - term [ref=f9e51]: Dependencia
+                    - definition [ref=f9e52]: Unidad de Registro y Antecedentes Policiales
+                - generic [ref=f9e53]:
+                  - generic [aria-hidden] [ref=f9e54]: 
+                  - generic [ref=f9e55]:
+                    - term [ref=f9e56]: Costo
+                    - definition [ref=f9e57]: $3.50
+                - generic [ref=f9e58]:
+                  - generic [aria-hidden] [ref=f9e59]: 
+                  - generic [ref=f9e60]:
+                    - term [ref=f9e61]: Tiempo de respuesta
+                    - definition [ref=f9e62]: 5 días hábiles
+                - generic [ref=f9e63]:
+                  - generic [aria-hidden] [ref=f9e64]: 
+                  - generic [ref=f9e65]:
+                    - term [ref=f9e66]: Dirigido a
+                    - definition [ref=f9e67]: Ciudadano
+          - note [ref=f9e68]:
+            - generic [aria-hidden] [ref=f9e69]: 
+            - paragraph [ref=f9e70]:
+              - strong [ref=f9e71]: "Importante:"
+              - text: no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura
+          - group [ref=f9e72]:
+            - generic "Requisitos, detalles y leyes Lo que debes saber antes de empezar" [ref=f9e73] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f9e75]: 
+              - generic [ref=f9e76]:
+                - strong [ref=f9e77]: Requisitos, detalles y leyes
+                - generic [ref=f9e78]: Lo que debes saber antes de empezar
+              - generic [aria-hidden] [ref=f9e79]: 
+            - text:          
+        - generic [ref=f9e80]:
+          - generic [ref=f9e81]:
+            - generic [ref=f9e82]: "1"
+            - generic [ref=f9e83]:
+              - paragraph [ref=f9e84]: Paso 1 de 3
+              - heading "Datos requeridos" [level=3] [ref=f9e85]
+              - paragraph [ref=f9e86]: Solo lo que necesitamos de ti; lo demás ya lo tenemos
+          - generic [ref=f9e89]:
+            - generic [ref=f9e90]:
+              - group "País de residencia" [ref=f9e91]:
+                - generic [ref=f9e92]: País de residencia *
+                - generic [ref=f9e93]:
+                  - generic [ref=f9e94] [cursor=pointer]:
+                    - radio "El Salvador"
+                    - generic [aria-hidden] [ref=f9e96]: 
+                    - strong [ref=f9e98]: El Salvador
+                    - generic [aria-hidden] [ref=f9e100]: 
+                  - generic [ref=f9e101] [cursor=pointer]:
+                    - radio "En el extranjero"
+                    - generic [aria-hidden] [ref=f9e103]: 
+                    - strong [ref=f9e105]: En el extranjero
+                    - generic [aria-hidden] [ref=f9e107]: 
+                - text: 
+              - generic:  
+              - generic [ref=f9e108]:
+                - generic [ref=f9e109]: Dirección *
+                - paragraph [ref=f9e110]: Calle, avenida, pasaje y número de casa
+                - textbox "Dirección" [ref=f9e111]
+                - text: 
+              - heading "Detalles de la solicitud" [level=4] [ref=f9e112]
+              - generic [ref=f9e113]:
+                - generic [ref=f9e114]: Rubro para el que pides la constancia *
+                - combobox "Rubro para el que pides la constancia" [ref=f9e115] [cursor=pointer]:
+                  - option "Seleccionar" [selected]
+                  - option "Empleo"
+                  - option "Estudio"
+                  - option "Migración"
+                  - option "Transporte"
+                  - option "Seguridad privada"
+                  - option "ANSP/PNC"
+                  - option "Arma"
+                  - option "Centros penales"
+                  - option "Fuerza Armada"
+                  - option "Otros"
+                - text: 
+              - generic [ref=f9e116]:
+                - generic [ref=f9e117]: Empresa o institución donde la presentarás *
+                - paragraph [ref=f9e118]: Escribe su nombre exacto. No uses frases generales como "a quien interese", "no sé", "mi trabajo" o "varias partes"
+                - textbox "Empresa o institución donde la presentarás" [ref=f9e119]
+                - text: 
+            - text:             
+          - text: 
+          - generic [ref=f9e120]:
+            - link "Volver a trámites" [ref=f9e121] [cursor=pointer]:
+              - /url: Indexlogin.html
+              - generic [aria-hidden] [ref=f9e122]: 
+              - text: Volver a trámites
+            - text: 
+            - button "Siguiente" [ref=f9e123] [cursor=pointer]:
+              - text: Siguiente
+              - generic [aria-hidden] [ref=f9e124]: 
+  - text:                   

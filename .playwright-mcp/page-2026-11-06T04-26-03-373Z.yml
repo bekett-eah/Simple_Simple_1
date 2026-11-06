@@ -1,0 +1,412 @@
+- generic [active] [ref=f57e1]:
+  - banner [ref=f57e2]:
+    - generic [ref=f57e3]:
+      - link "Simple.sv, volver a Trámites" [ref=f57e4] [cursor=pointer]:
+        - /url: ../index.html
+      - text:   
+      - generic [ref=f57e18]:
+        - link "Iniciar sesión" [ref=f57e19] [cursor=pointer]:
+          - /url: login.html?destino=tramite&n=61
+          - generic [aria-hidden] [ref=f57e20]: 
+          - text: Iniciar sesión
+        - text:    
+  - main [ref=f57e21]:
+    - generic [ref=f57e23]:
+      - heading "Cambio de nombre del titular de la cuenta" [level=1] [ref=f57e24]
+      - generic [ref=f57e25]:
+        - generic [ref=f57e26]:
+          - complementary [ref=f57e27]:
+            - generic [ref=f57e28]:
+              - heading "Sobre este trámite" [level=3] [ref=f57e29]:
+                - generic [aria-hidden] [ref=f57e31]: 
+                - text: Sobre este trámite
+              - text: 
+            - generic [ref=f57e32]:
+              - paragraph [ref=f57e33]: Este trámite permite al usuario solicitar el cambio de nombre del titular registrado en la cuenta de un servicio de agua potable y/o alcantarillado. Es aplicable cuando, por razones legales, de compraventa, herencia u otros motivos justificables, se requiere actualizar la información del titular del servicio asociado a un inmueble
+              - generic [ref=f57e34]:
+                - generic [ref=f57e35]:
+                  - generic [aria-hidden] [ref=f57e36]: 
+                  - generic [ref=f57e37]:
+                    - term [ref=f57e38]: Dependencia
+                    - definition [ref=f57e39]: Dirección de Ingresos y Comercialización
+                - generic [ref=f57e40]:
+                  - generic [aria-hidden] [ref=f57e41]: 
+                  - generic [ref=f57e42]:
+                    - term [ref=f57e43]: Costo
+                    - definition [ref=f57e44]: $2.26
+                - generic [ref=f57e45]:
+                  - generic [aria-hidden] [ref=f57e46]: 
+                  - generic [ref=f57e47]:
+                    - term [ref=f57e48]: Tiempo de respuesta
+                    - definition [ref=f57e49]: 3 días hábiles
+                - generic [ref=f57e50]:
+                  - generic [aria-hidden] [ref=f57e51]: 
+                  - generic [ref=f57e52]:
+                    - term [ref=f57e53]: Dirigido a
+                    - definition [ref=f57e54]: Empresarial
+          - note [ref=f57e55]:
+            - generic [aria-hidden] [ref=f57e56]: 
+            - paragraph [ref=f57e57]:
+              - strong [ref=f57e58]: "Importante:"
+              - text: no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura
+        - generic [ref=f57e59]:
+          - generic [ref=f57e60]:
+            - generic [ref=f57e61]: "1"
+            - generic [ref=f57e62]:
+              - paragraph [ref=f57e63]: Paso 1 de 2
+              - heading "Tu solicitud" [level=3] [ref=f57e64]
+              - paragraph [ref=f57e65]: Completa lo que falta; lo demás ya está listo
+          - generic [ref=f57e68]:
+            - generic [ref=f57e69]:
+              - generic [ref=f57e72]:
+                - generic [ref=f57e73]: N.º de cuenta *
+                - textbox "N.º de cuenta" [ref=f57e74]
+                - text: 
+              - generic [ref=f57e77]:
+                - generic [ref=f57e78]: Adjunta imagen de tu última factura *
+                - generic [ref=f57e79] [cursor=pointer]:
+                  - 'button "Adjunta imagen de tu última factura Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [ref=f57e80]'
+                  - generic [aria-hidden] [ref=f57e81]: 
+                  - generic [ref=f57e82]:
+                    - strong [ref=f57e83]: Seleccionar archivo
+                    - generic [ref=f57e84]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e87]:
+                - generic [aria-hidden] [ref=f57e88]: 
+                - generic [ref=f57e89]:
+                  - strong [ref=f57e90]: Nota
+                  - paragraph [ref=f57e91]: Como tu solicitud es de cambio de nombre, la información que coloques en las pantallas siguientes es la del nuevo responsable de la cuenta, según la documentación que presentas
+              - group "Tipo de persona" [ref=f57e92]:
+                - generic [ref=f57e93]: Tipo de persona *
+                - generic [ref=f57e94]:
+                  - generic [ref=f57e95] [cursor=pointer]:
+                    - radio "Persona natural"
+                    - generic [aria-hidden] [ref=f57e97]: 
+                    - strong [ref=f57e99]: Persona natural
+                    - generic [aria-hidden] [ref=f57e101]: 
+                  - generic [ref=f57e102] [cursor=pointer]:
+                    - radio "Persona jurídica"
+                    - generic [aria-hidden] [ref=f57e104]: 
+                    - strong [ref=f57e106]: Persona jurídica
+                    - generic [aria-hidden] [ref=f57e108]: 
+                - text: 
+              - group "Tipo de documento de identidad" [ref=f57e109]:
+                - generic [ref=f57e110]: Tipo de documento de identidad *
+                - generic [ref=f57e111]:
+                  - generic [ref=f57e112] [cursor=pointer]:
+                    - radio "Documento Único de Identidad DUI" [disabled]
+                    - generic [aria-hidden] [ref=f57e114]: 
+                    - generic [ref=f57e115]:
+                      - strong [ref=f57e116]: Documento Único de Identidad
+                      - generic [ref=f57e117]: DUI
+                    - generic [aria-hidden] [ref=f57e119]: 
+                  - generic [ref=f57e120] [cursor=pointer]:
+                    - radio "Pasaporte" [disabled]
+                    - generic [aria-hidden] [ref=f57e122]: 
+                    - strong [ref=f57e124]: Pasaporte
+                    - generic [aria-hidden] [ref=f57e126]: 
+                  - generic [ref=f57e127] [cursor=pointer]:
+                    - radio "Carnet de residente" [disabled]
+                    - generic [aria-hidden] [ref=f57e129]: 
+                    - strong [ref=f57e131]: Carnet de residente
+                    - generic [aria-hidden] [ref=f57e133]: 
+                - text: 
+              - generic [ref=f57e134]:
+                - generic [ref=f57e135]: Adjuntar imagen de documento *
+                - generic [ref=f57e136] [cursor=pointer]:
+                  - 'button "Adjuntar imagen de documento Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e137]'
+                  - generic [aria-hidden] [ref=f57e138]: 
+                  - generic [ref=f57e139]:
+                    - strong [ref=f57e140]: Seleccionar archivo
+                    - generic [ref=f57e141]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e142]:
+                - generic [ref=f57e143]: Documento legal que demuestre la disponibilidad del inmueble *
+                - generic [ref=f57e144] [cursor=pointer]:
+                  - 'button "Documento legal que demuestre la disponibilidad del inmueble Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e145]'
+                  - generic [aria-hidden] [ref=f57e146]: 
+                  - generic [ref=f57e147]:
+                    - strong [ref=f57e148]: Seleccionar archivo
+                    - generic [ref=f57e149]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - group "¿Necesitas factura de consumidor final o comprobante de crédito fiscal?" [ref=f57e150]:
+                - generic [ref=f57e151]: ¿Necesitas factura de consumidor final o comprobante de crédito fiscal? *
+                - generic [ref=f57e152]:
+                  - generic [ref=f57e153] [cursor=pointer]:
+                    - radio "Factura consumidor final" [disabled]
+                    - generic [aria-hidden] [ref=f57e155]: 
+                    - strong [ref=f57e157]: Factura consumidor final
+                    - generic [aria-hidden] [ref=f57e159]: 
+                  - generic [ref=f57e160] [cursor=pointer]:
+                    - radio "Comprobante de crédito fiscal" [disabled]
+                    - generic [aria-hidden] [ref=f57e162]: 
+                    - strong [ref=f57e164]: Comprobante de crédito fiscal
+                    - generic [aria-hidden] [ref=f57e166]: 
+                  - generic [ref=f57e167] [cursor=pointer]:
+                    - radio "No necesito ningún documento en físico" [disabled]
+                    - generic [aria-hidden] [ref=f57e169]: 
+                    - strong [ref=f57e171]: No necesito ningún documento en físico
+                    - generic [aria-hidden] [ref=f57e173]: 
+                - text: 
+              - generic [ref=f57e174]:
+                - generic [ref=f57e175]: Escoge la sucursal para retirar el documento físico *
+                - paragraph [ref=f57e176]: Lo retiras de 3 a 5 días hábiles después de recibir la resolución
+                - combobox "Escoge la sucursal para retirar el documento físico" [disabled] [ref=f57e177] [cursor=pointer]:
+                  - option "Seleccionar" [selected]
+                  - option "Ahuachapán - 3ª Calle Oriente y 1ª Avenida Sur"
+                  - option "Apopa - Centro Comercial Plaza Mundo Apopa"
+                  - option "Centro - Calle Rubén Darío, entre 11 y 13 Avenida Sur"
+                  - option "Cojutepeque - Final Av. Raúl Contreras"
+                  - option "Galerías Escalón - Centro Comercial Galerías Escalón"
+                  - option "La Unión - Avenida General Cabañas, Centro de Gobierno"
+                  - option "Las Cascadas - Centro Comercial Las Cascadas, local 201"
+                  - option "Metrosur - Centro Comercial Metrosur, locales C-11 a C-13"
+                  - option "Quezaltepeque - 9ª Calle Oriente, costado sur de Parque Morán"
+                  - option "San Miguel - 8ª Avenida Sur y 15 Calle Oriente, Centro de Gobierno"
+                  - 'option "San Vicente - 3ª Calle Poniente #1, barrio El Calvario"'
+                  - option "Santa Ana 25 - 10ª Avenida Sur y 23ª Calle Poniente"
+                  - option "Santa Tecla - Calle Daniel Hernández, Plaza Concepción"
+                  - option "Sensuntepeque - Centro de Gobierno, 5ª Avenida Sur"
+                  - option "Sonsonate - Avenida Claudia Lars y 5ª Calle Poniente"
+                  - option "Soyapango - Centro Comercial Plaza Mundo, local 87"
+                  - option "Universitaria - Centro Urbano Libertad, Avenida Don Bosco"
+                  - option "Usulután - 4ª Avenida Norte, costado poniente de 6ª Brigada"
+                  - option "Zacatecoluca - Centro Comercial San Antonio, Carretera Litoral"
+                - text: 
+              - generic [ref=f57e178]:
+                - generic [ref=f57e179]: Número de Registro de Contribuyentes (NRC) *
+                - textbox "Número de Registro de Contribuyentes (NRC)" [disabled] [ref=f57e180]
+                - text: 
+              - generic [ref=f57e181]:
+                - generic [ref=f57e182]: Adjuntar imagen de NRC *
+                - generic [ref=f57e183] [cursor=pointer]:
+                  - 'button "Adjuntar imagen de NRC Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e184]'
+                  - generic [aria-hidden] [ref=f57e185]: 
+                  - generic [ref=f57e186]:
+                    - strong [ref=f57e187]: Seleccionar archivo
+                    - generic [ref=f57e188]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e189]:
+                - generic [ref=f57e190]: Razón y constancia o certificación extractada del CNR *
+                - generic [ref=f57e191] [cursor=pointer]:
+                  - 'button "Razón y constancia o certificación extractada del CNR Seleccionar archivo Formato permitido: PDF" [disabled] [ref=f57e192]'
+                  - generic [aria-hidden] [ref=f57e193]: 
+                  - generic [ref=f57e194]:
+                    - strong [ref=f57e195]: Seleccionar archivo
+                    - generic [ref=f57e196]: "Formato permitido: PDF"
+                - text: 
+              - generic:  
+              - generic [ref=f57e197]:
+                - generic [ref=f57e198]: Adjuntar imagen de NIT *
+                - generic [ref=f57e199] [cursor=pointer]:
+                  - 'button "Adjuntar imagen de NIT Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e200]'
+                  - generic [aria-hidden] [ref=f57e201]: 
+                  - generic [ref=f57e202]:
+                    - strong [ref=f57e203]: Seleccionar archivo
+                    - generic [ref=f57e204]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e205]:
+                - generic [ref=f57e206]: Adjuntar escritura de constitución de sociedad *
+                - generic [ref=f57e207] [cursor=pointer]:
+                  - 'button "Adjuntar escritura de constitución de sociedad Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e208]'
+                  - generic [aria-hidden] [ref=f57e209]: 
+                  - generic [ref=f57e210]:
+                    - strong [ref=f57e211]: Seleccionar archivo
+                    - generic [ref=f57e212]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e213]:
+                - generic [ref=f57e214]: Adjuntar credencial de representante legal o administrador único (vigente) *
+                - generic [ref=f57e215] [cursor=pointer]:
+                  - 'button "Adjuntar credencial de representante legal o administrador único (vigente) Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e216]'
+                  - generic [aria-hidden] [ref=f57e217]: 
+                  - generic [ref=f57e218]:
+                    - strong [ref=f57e219]: Seleccionar archivo
+                    - generic [ref=f57e220]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic:   
+              - generic [ref=f57e221]:
+                - generic [ref=f57e222]: Documento legal que demuestre la disponibilidad del inmueble *
+                - generic [ref=f57e223] [cursor=pointer]:
+                  - 'button "Documento legal que demuestre la disponibilidad del inmueble Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e224]'
+                  - generic [aria-hidden] [ref=f57e225]: 
+                  - generic [ref=f57e226]:
+                    - strong [ref=f57e227]: Seleccionar archivo
+                    - generic [ref=f57e228]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - group "¿Necesitas factura de consumidor final o comprobante de crédito fiscal?" [ref=f57e229]:
+                - generic [ref=f57e230]: ¿Necesitas factura de consumidor final o comprobante de crédito fiscal? *
+                - generic [ref=f57e231]:
+                  - generic [ref=f57e232] [cursor=pointer]:
+                    - radio "Factura consumidor final" [disabled]
+                    - generic [aria-hidden] [ref=f57e234]: 
+                    - strong [ref=f57e236]: Factura consumidor final
+                    - generic [aria-hidden] [ref=f57e238]: 
+                  - generic [ref=f57e239] [cursor=pointer]:
+                    - radio "Comprobante de crédito fiscal" [disabled]
+                    - generic [aria-hidden] [ref=f57e241]: 
+                    - strong [ref=f57e243]: Comprobante de crédito fiscal
+                    - generic [aria-hidden] [ref=f57e245]: 
+                  - generic [ref=f57e246] [cursor=pointer]:
+                    - radio "No necesito ningún documento en físico" [disabled]
+                    - generic [aria-hidden] [ref=f57e248]: 
+                    - strong [ref=f57e250]: No necesito ningún documento en físico
+                    - generic [aria-hidden] [ref=f57e252]: 
+                - text: 
+              - generic [ref=f57e253]:
+                - generic [ref=f57e254]: Escoge la sucursal para retirar el documento físico *
+                - paragraph [ref=f57e255]: Lo retiras de 3 a 5 días hábiles después de recibir la resolución
+                - combobox "Escoge la sucursal para retirar el documento físico" [disabled] [ref=f57e256] [cursor=pointer]:
+                  - option "Seleccionar" [selected]
+                  - option "Ahuachapán - 3ª Calle Oriente y 1ª Avenida Sur"
+                  - option "Apopa - Centro Comercial Plaza Mundo Apopa"
+                  - option "Centro - Calle Rubén Darío, entre 11 y 13 Avenida Sur"
+                  - option "Cojutepeque - Final Av. Raúl Contreras"
+                  - option "Galerías Escalón - Centro Comercial Galerías Escalón"
+                  - option "La Unión - Avenida General Cabañas, Centro de Gobierno"
+                  - option "Las Cascadas - Centro Comercial Las Cascadas, local 201"
+                  - option "Metrosur - Centro Comercial Metrosur, locales C-11 a C-13"
+                  - option "Quezaltepeque - 9ª Calle Oriente, costado sur de Parque Morán"
+                  - option "San Miguel - 8ª Avenida Sur y 15 Calle Oriente, Centro de Gobierno"
+                  - 'option "San Vicente - 3ª Calle Poniente #1, barrio El Calvario"'
+                  - option "Santa Ana 25 - 10ª Avenida Sur y 23ª Calle Poniente"
+                  - option "Santa Tecla - Calle Daniel Hernández, Plaza Concepción"
+                  - option "Sensuntepeque - Centro de Gobierno, 5ª Avenida Sur"
+                  - option "Sonsonate - Avenida Claudia Lars y 5ª Calle Poniente"
+                  - option "Soyapango - Centro Comercial Plaza Mundo, local 87"
+                  - option "Universitaria - Centro Urbano Libertad, Avenida Don Bosco"
+                  - option "Usulután - 4ª Avenida Norte, costado poniente de 6ª Brigada"
+                  - option "Zacatecoluca - Centro Comercial San Antonio, Carretera Litoral"
+                - text: 
+              - generic [ref=f57e257]:
+                - generic [ref=f57e258]: Número de Registro de Contribuyentes (NRC) *
+                - textbox "Número de Registro de Contribuyentes (NRC)" [disabled] [ref=f57e259]
+                - text: 
+              - generic [ref=f57e260]:
+                - generic [ref=f57e261]: Adjuntar imagen de NRC *
+                - generic [ref=f57e262] [cursor=pointer]:
+                  - 'button "Adjuntar imagen de NRC Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e263]'
+                  - generic [aria-hidden] [ref=f57e264]: 
+                  - generic [ref=f57e265]:
+                    - strong [ref=f57e266]: Seleccionar archivo
+                    - generic [ref=f57e267]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e268]:
+                - generic [ref=f57e269]: Razón y constancia o certificación extractada del CNR *
+                - generic [ref=f57e270] [cursor=pointer]:
+                  - 'button "Razón y constancia o certificación extractada del CNR Seleccionar archivo Formato permitido: PDF" [disabled] [ref=f57e271]'
+                  - generic [aria-hidden] [ref=f57e272]: 
+                  - generic [ref=f57e273]:
+                    - strong [ref=f57e274]: Seleccionar archivo
+                    - generic [ref=f57e275]: "Formato permitido: PDF"
+                - text: 
+              - generic:  
+              - generic [ref=f57e276]:
+                - generic [ref=f57e277]: Dirección *
+                - textbox "Dirección" [disabled] [ref=f57e278]
+                - text: 
+              - heading "Documentos del inmueble" [level=4] [ref=f57e279]
+              - generic [ref=f57e280]:
+                - generic [ref=f57e281]: Documento legal que demuestre la disponibilidad del inmueble *
+                - generic [ref=f57e282] [cursor=pointer]:
+                  - 'button "Documento legal que demuestre la disponibilidad del inmueble Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e283]'
+                  - generic [aria-hidden] [ref=f57e284]: 
+                  - generic [ref=f57e285]:
+                    - strong [ref=f57e286]: Seleccionar archivo
+                    - generic [ref=f57e287]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e288]:
+                - generic [ref=f57e289]: Croquis de ubicación del inmueble *
+                - generic [ref=f57e290] [cursor=pointer]:
+                  - 'button "Croquis de ubicación del inmueble Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e291]'
+                  - generic [aria-hidden] [ref=f57e292]: 
+                  - generic [ref=f57e293]:
+                    - strong [ref=f57e294]: Seleccionar archivo
+                    - generic [ref=f57e295]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - group "¿Quién realizará el trámite?" [ref=f57e296]:
+                - generic [ref=f57e297]: ¿Quién realizará el trámite? *
+                - generic [ref=f57e298]:
+                  - generic [ref=f57e299] [cursor=pointer]:
+                    - radio "Yo mismo" [disabled]
+                    - generic [aria-hidden] [ref=f57e301]: 
+                    - strong [ref=f57e303]: Yo mismo
+                    - generic [aria-hidden] [ref=f57e305]: 
+                  - generic [ref=f57e306] [cursor=pointer]:
+                    - radio "Voy a autorizar a un tercero" [disabled]
+                    - generic [aria-hidden] [ref=f57e308]: 
+                    - strong [ref=f57e310]: Voy a autorizar a un tercero
+                    - generic [aria-hidden] [ref=f57e312]: 
+                - text: 
+              - heading "Tercero autorizado" [level=4] [ref=f57e313]
+              - group "Tipo de documento del tercero" [ref=f57e314]:
+                - generic [ref=f57e315]: Tipo de documento del tercero *
+                - generic [ref=f57e316]:
+                  - generic [ref=f57e317] [cursor=pointer]:
+                    - radio "DUI" [disabled]
+                    - generic [aria-hidden] [ref=f57e319]: 
+                    - strong [ref=f57e321]: DUI
+                    - generic [aria-hidden] [ref=f57e323]: 
+                  - generic [ref=f57e324] [cursor=pointer]:
+                    - radio "Pasaporte" [disabled]
+                    - generic [aria-hidden] [ref=f57e326]: 
+                    - strong [ref=f57e328]: Pasaporte
+                    - generic [aria-hidden] [ref=f57e330]: 
+                  - generic [ref=f57e331] [cursor=pointer]:
+                    - radio "Carnet de residente" [disabled]
+                    - generic [aria-hidden] [ref=f57e333]: 
+                    - strong [ref=f57e335]: Carnet de residente
+                    - generic [aria-hidden] [ref=f57e337]: 
+                - text: 
+              - generic: 
+              - generic [ref=f57e338]:
+                - generic [ref=f57e339]: Adjuntar documento del tercero *
+                - generic [ref=f57e340] [cursor=pointer]:
+                  - 'button "Adjuntar documento del tercero Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e341]'
+                  - generic [aria-hidden] [ref=f57e342]: 
+                  - generic [ref=f57e343]:
+                    - strong [ref=f57e344]: Seleccionar archivo
+                    - generic [ref=f57e345]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e346]:
+                - generic [ref=f57e347]: Documento que autoriza al tercero a realizar el trámite *
+                - generic [ref=f57e348] [cursor=pointer]:
+                  - 'button "Documento que autoriza al tercero a realizar el trámite Seleccionar archivo Formatos permitidos: JPG, JPEG, PNG, PDF" [disabled] [ref=f57e349]'
+                  - generic [aria-hidden] [ref=f57e350]: 
+                  - generic [ref=f57e351]:
+                    - strong [ref=f57e352]: Seleccionar archivo
+                    - generic [ref=f57e353]: "Formatos permitidos: JPG, JPEG, PNG, PDF"
+                - text: 
+              - generic [ref=f57e354]:
+                - generic [aria-hidden] [ref=f57e355]: 
+                - generic [ref=f57e356]:
+                  - strong [ref=f57e357]: Declaración jurada
+                  - paragraph [ref=f57e358]: Declaro bajo juramento que los datos aquí proporcionados son fidedignos; asimismo, autorizo a la ANDA a que investigue la información que he proporcionado, sin que esto signifique la aprobación del servicio que solicito, y me obligo a firmar toda la documentación que sea necesaria al momento en que se me apruebe el servicio solicitado
+              - group "¿Aceptas la declaración?" [ref=f57e359]:
+                - generic [ref=f57e360]: ¿Aceptas la declaración? *
+                - generic [ref=f57e362] [cursor=pointer]:
+                  - radio "He leído y acepto" [checked] [disabled]
+                  - generic [aria-hidden] [ref=f57e364]: 
+                  - strong [ref=f57e366]: He leído y acepto
+                  - generic [aria-hidden] [ref=f57e368]: 
+                - text: 
+              - group [ref=f57e369]:
+                - generic "Ya elegido por ti Cambio de nombre" [ref=f57e370] [cursor=pointer]:
+                  - generic [aria-hidden] [ref=f57e372]: 
+                  - generic [ref=f57e373]:
+                    - generic [ref=f57e374]: Ya elegido por ti
+                    - generic [ref=f57e375]: Cambio de nombre
+                  - generic [aria-hidden] [ref=f57e376]: 
+                - text:      
+              - text:              
+            - text:            
+          - text: 
+          - generic [ref=f57e377]:
+            - link "Volver a trámites" [ref=f57e378] [cursor=pointer]:
+              - /url: ../index.html
+              - generic [aria-hidden] [ref=f57e379]: 
+              - text: Volver a trámites
+            - text: 
+            - button "Continuar" [ref=f57e380] [cursor=pointer]:
+              - text: Continuar
+              - generic [aria-hidden] [ref=f57e381]: 
+  - text:                   

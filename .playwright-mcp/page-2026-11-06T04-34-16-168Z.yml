@@ -1,0 +1,86 @@
+- generic [ref=f71e1]:
+  - banner [ref=f71e2]:
+    - generic [ref=f71e3]:
+      - link "Simple.sv, volver a Trámites" [ref=f71e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f71e18]:
+        - link "Trámites" [ref=f71e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f71e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f71e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f71e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f71e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f71e24]: 
+          - text: Contáctanos
+      - generic [ref=f71e25]:
+        - text:  
+        - button "Ver notificaciones" [ref=f71e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f71e28]: 
+          - generic "1 notificación nueva" [ref=f71e29]: "1"
+        - button "Abrir menú de usuario" [ref=f71e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f71e32]
+          - generic [aria-hidden] [ref=f71e33]: 
+        - text: 
+  - main [ref=f71e34]:
+    - generic [ref=f71e36]:
+      - heading "Constancia de antecedentes policiales" [level=1] [ref=f71e37]
+      - generic [ref=f71e38]:
+        - generic [ref=f71e39]:
+          - text:      
+          - note [ref=f71e40]:
+            - generic [aria-hidden] [ref=f71e41]: 
+            - paragraph [ref=f71e42]:
+              - strong [ref=f71e43]: "Importante:"
+              - text: no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura
+          - text:            
+        - generic [ref=f71e44]:
+          - generic [ref=f71e45]:
+            - generic [ref=f71e46]: "2"
+            - generic [ref=f71e47]:
+              - paragraph [ref=f71e48]: Paso 2 de 2
+              - heading "Pago" [active] [level=3] [ref=f71e49]
+              - paragraph [ref=f71e50]: Paga en línea para terminar tu solicitud
+          - generic [ref=f71e53]:
+            - text:          
+            - generic [ref=f71e54]:
+              - group [ref=f71e55]:
+                - generic "Tus datos 06245097-8 · María Fernanda · López García" [ref=f71e56] [cursor=pointer]:
+                  - generic [aria-hidden] [ref=f71e58]: 
+                  - generic [ref=f71e59]:
+                    - generic [ref=f71e60]: Tus datos
+                    - generic [ref=f71e61]: 06245097-8 · María Fernanda · López García
+                  - generic [aria-hidden] [ref=f71e62]: 
+                - text:      
+              - generic [ref=f71e63]:
+                - generic [ref=f71e64]:
+                  - generic [ref=f71e65]:
+                    - term [ref=f71e66]: Trámite
+                    - definition [ref=f71e67]: Constancia de antecedentes policiales
+                  - generic [ref=f71e68]:
+                    - term [ref=f71e69]: Institución
+                    - definition [ref=f71e70]: Unidad de Registro y Antecedentes Policiales
+                  - generic [ref=f71e71]:
+                    - term [ref=f71e72]: Solicitante
+                    - definition [ref=f71e73]: María Fernanda López García
+                - generic [ref=f71e74]:
+                  - generic [ref=f71e75]: Total a pagar
+                  - strong [ref=f71e76]: $3.50
+              - generic [ref=f71e77]:
+                - generic [aria-hidden] [ref=f71e78]: 
+                - generic [ref=f71e79]:
+                  - paragraph [ref=f71e80]: Pagas $3.50 con tarjeta de crédito o débito en la pasarela segura de SERFINSA. Te enviaremos una copia del comprobante a tu correo
+                  - paragraph [ref=f71e81]: Si tu solicitud no tiene observaciones, después de pagar descargas tu constancia. Si las tiene, pasa a revisión y verás el resultado en los próximos 5 días hábiles
+          - text: 
+          - generic [ref=f71e82]:
+            - text: 
+            - button "Anterior" [ref=f71e83] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f71e84]: 
+              - text: Anterior
+            - button "Pagar" [ref=f71e85] [cursor=pointer]:
+              - text: Pagar
+              - generic [aria-hidden] [ref=f71e86]: 
+  - text:                   

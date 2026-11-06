@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="src/styles/simple-light-vibrant.css">
-  <link rel="stylesheet" href="nuevoDiseño/asistente.css?v=3">
+  <link rel="stylesheet" href="nuevoDiseño/asistente.css?v=14">
   <script src="nuevoDiseño/transicion-vistas.js"></script>
   <script src="nuevoDiseño/cambio-vista.js"></script>
   <script src="nuevoDiseño/terminos.js" defer></script>
@@ -35,7 +35,7 @@
     .l2-btn-primary:hover { background: var(--color-blue-hover); }
     .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
     .l2-btn-outline:hover { background: var(--color-blue-soft); }
-    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
 
     /* Encabezado */
     .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
@@ -139,95 +139,28 @@
       .l2-nodo-halo { transition: none; }
     }
 
-    /* ===== Línea de tiempo "Cómo funciona" =====
-       Flotante sobre el botón del asistente. Primera visita: cada paso se enciende e irradia 3 s con su tarjeta.
-       Después se esconde (sin hover). En el chat va fija, sin animación. */
-    .l2-pasos { position: fixed; right: 16px; bottom: 84px; z-index: 59; padding: 0 12px 8px; }
-    /* Terminada la intro, los pasos se esconden y ya no reaparecen al pasar el cursor por el botón del asistente */
-    .l2-pasos.listo { opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s; }
-    .l2-pasos-linea { display: flex; gap: 40px; margin: 0; padding: 0; list-style: none; }
-    .l2-pasos-linea li { position: relative; }
-    .l2-pasos-linea li:not(:last-child)::after { content: '\2192'; position: absolute; left: calc(100% + 20px); top: 50%; transform: translate(-50%, -50%); font-size: 18px; line-height: 1; color: #94A3B8; pointer-events: none; transition: color 0.5s ease, text-shadow 0.5s ease; }
-    .l2-pasos-linea li:has(+ li > .hecho)::after { color: var(--color-blue-primary); text-shadow: 0 0 10px rgba(0, 102, 255, 0.45); }
-    .l2-paso.actual { transform: scale(1.12); animation: l2-paso-enciende 0.6s ease-out, l2-paso-pulso 1.5s ease-in-out 0.6s infinite; }
-    .l2-paso.actual::after { animation: l2-paso-onda 1.5s ease-out infinite; }
-    .listo .l2-paso { cursor: pointer; }
-    .listo .l2-paso:hover, .listo .l2-paso:focus-visible { transform: scale(1.12); }
-    .l2-paso:focus-visible { outline: 3px solid var(--color-blue-primary); outline-offset: 3px; }
-    @keyframes l2-paso-enciende { 0% { transform: scale(0.8); } 55% { transform: scale(1.3); } 100% { transform: scale(1.12); } }
-    @keyframes l2-paso-pulso {
-      0%, 100% { box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.18), 0 0 14px rgba(0, 102, 255, 0.45); }
-      50% { box-shadow: 0 0 0 9px rgba(0, 102, 255, 0.1), 0 0 22px rgba(0, 102, 255, 0.7); }
-    }
-    @keyframes l2-paso-onda { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(2.3); opacity: 0; } }
-
-    /* Tarjeta de cada paso: aparece sobre la línea (flotante) o debajo (chat), con la flecha apuntando al paso */
-    .l2-paso-card { position: absolute; display: block; padding: 14px 16px 18px; border-radius: 16px; background: #FFFFFF; color: var(--text-primary); box-shadow: 0 18px 40px rgba(14, 20, 40, 0.25); text-align: left; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s; --i: 0; }
-    .l2-paso-card.visible { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s; }
-    .l2-paso-card::after { content: ''; position: absolute; width: 12px; height: 12px; border-radius: 2px; background: #FFFFFF; transform: rotate(45deg); }
-    .l2-paso-card strong { display: block; margin-bottom: 2px; font-size: 16px; font-weight: 800; color: var(--color-blue-primary); }
-    .l2-paso-card-tiempo { position: absolute; left: 16px; right: 16px; bottom: 7px; display: none; height: 3px; overflow: hidden; border-radius: 3px; background: var(--color-blue-soft); }
-    .l2-paso-card-tiempo::after { content: ''; position: absolute; inset: 0; background: var(--color-blue-primary); transform-origin: left; transform: scaleX(0); }
-    .en-intro .l2-paso-card-tiempo { display: block; }
-    .l2-paso-card.contando .l2-paso-card-tiempo::after { animation: l2-tiempo 3s linear forwards; }
-    @keyframes l2-tiempo { to { transform: scaleX(1); } }
-
-    .l2-pasos .l2-paso-card { right: 0; bottom: calc(100% + 12px); width: min(280px, calc(100vw - 32px)); }
-    .l2-pasos .l2-paso-card::after { bottom: -6px; left: calc(100% - 186px + var(--i) * 72px); }
-
-    /* En el chat: mensaje inicial desplegable. Abierto (por defecto) muestra los pasos en vertical como tarjetas;
-       cerrado vuelve a la línea horizontal, con la tarjeta al pasar el cursor. */
+    /* Al entrar: la pantalla se oscurece y el chat se abre de una vez (se quita al cerrar el chat o al tocar el fondo) */
+    .l2-foco { position: fixed; inset: 0; z-index: 59; background: rgba(10, 14, 40, 0.72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s 0.4s; }
+    .l2-foco.visible { opacity: 1; visibility: visible; transition: opacity 0.4s ease; }
+    @media (prefers-reduced-motion: reduce) { .l2-foco, .l2-foco.visible { transition: none; } }
+    /* "Cómo funciona" va solo en el chat, como encabezado desplegable */
+    /* En el chat: encabezado "Cómo funciona" que despliega los pasos */
     .l2-bot.l2-pasos-chat { position: relative; z-index: 2; width: 270px; max-width: calc(100% - 44px); box-sizing: border-box; }
-    /* Encabezado "Cómo funciona": botón-tarjeta con acción visible para abrir o cerrar */
-    .l2-pasos-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin: 0 0 10px; padding: 0; border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
+    .l2-pasos-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin: 0; padding: 0; border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
     .l2-pasos-toggle:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; border-radius: 12px; }
-    /* Un título largo ("Cómo funciona por WhatsApp") pasa a dos líneas: la flecha siempre queda dentro de la card */
     .l2-pasos-chat .l2-pasos-titulo { min-width: 0; margin: 0; font-size: 13px; line-height: 1.35; }
     .l2-pasos-chat:not(.abierto) .l2-pasos-accion i { transform: rotate(180deg); }
-    .l2-pasos-chat .l2-pasos-linea[hidden], .l2-pasos-vert[hidden] { display: none; }
-    /* Cerrado: tarjeta emergente debajo de la línea, como antes */
-    .l2-pasos-chat .l2-paso-card { top: calc(100% + 10px); left: 0; right: 0; border: 1px solid var(--border-subtle); box-shadow: 0 14px 32px rgba(14, 20, 40, 0.18); transform: translateY(-8px); }
-    .l2-pasos-chat .l2-paso-card.visible { transform: none; }
-    .l2-pasos-chat .l2-paso-card::after { top: -7px; left: calc(25px + var(--i) * 72px); border-top: 1px solid var(--border-subtle); border-left: 1px solid var(--border-subtle); }
-    /* Abierto: sin burbuja contenedora; cada paso es una tarjeta-mensaje */
-    .l2-bot.l2-pasos-chat.abierto { padding: 0; border: 0; background: none; box-shadow: none; border-radius: 0; }
-    .l2-pasos-chat.abierto .l2-pasos-toggle { padding: 9px 10px 9px 14px; border: 1px solid var(--border-active); border-radius: 12px; background: #FFFFFF; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); }
-    /* Miniatura del video de antecedentes por WhatsApp, como primer mensaje del chat (arriba de "Cómo funciona"), del
-       mismo ancho que esa tarjeta. Igual que en la landing (index.html): al tocarla se abre el video en grande */
-    .l2-chat-video { position: relative; display: block; width: 270px; max-width: calc(100% - 44px); aspect-ratio: 16 / 9; padding: 0; border: 1px solid var(--border-subtle); border-radius: 14px; border-bottom-left-radius: 4px; overflow: hidden; background: #050B1F; cursor: pointer; box-shadow: 0 6px 16px rgba(14, 20, 40, 0.07); }
-    .l2-chat-video img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    /* El play va un poco a la derecha para no tapar el título "Busca tus antecedentes" */
-    .l2-chat-video-play { position: absolute; inset: 0 0 0 22%; margin: auto; width: 42px; height: 42px; border-radius: 50%; background: rgba(0, 102, 255, 0.92); color: #FFFFFF; font-size: 20px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0, 102, 255, 0.5); transition: transform 0.2s ease; }
-    .l2-chat-video-play i { margin-left: 3px; }     /* el triángulo de play se ve centrado al correrlo un poco */
-    .l2-chat-video-duracion { position: absolute; right: 6px; bottom: 6px; padding: 1px 6px; border-radius: 6px; background: rgba(10, 14, 40, 0.8); color: #FFFFFF; font-size: 11px; font-weight: 700; line-height: 1.5; }
-    .l2-chat-video:hover .l2-chat-video-play, .l2-chat-video:focus-visible .l2-chat-video-play { transform: scale(1.1); }
-    .l2-chat-video:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
-    /* Video en grande: horizontal en computadora y vertical en celular, con sonido y controles */
-    /* margin: auto lo centra (el reset global de simple-light-vibrant.css le quita el margen que trae el navegador) */
-    .l2-video-modal { overflow: visible; max-width: none; max-height: none; margin: auto; padding: 0; border: 0; background: transparent; }
-    .l2-video-modal::backdrop { background: rgba(5, 11, 31, 0.88); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
-    .l2-video-modal video { display: block; width: min(92vw, calc(85vh * 16 / 9)); width: min(92vw, calc(85dvh * 16 / 9)); aspect-ratio: 16 / 9; border-radius: 16px; background: #050B1F; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5); }
-    .l2-video-modal.vertical video { width: min(92vw, calc(85vh * 9 / 16)); width: min(92vw, calc(85dvh * 9 / 16)); aspect-ratio: 9 / 16; }
-    .l2-video-modal-cerrar { position: absolute; top: -12px; right: -12px; z-index: 1; width: 44px; height: 44px; border: 2px solid #FFFFFF; border-radius: 50%; background: var(--color-navy-deep); color: #FFFFFF; font-size: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4); }
-    .l2-video-modal-cerrar:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
-    @media (prefers-reduced-motion: reduce) {
-      .l2-pasos, .l2-pasos-linea li::after, .l2-paso, .l2-paso-card { transition: none; }
-      .l2-paso.actual, .l2-paso.actual::after { animation: none; }
-      .l2-chat-video-play { transition: none; }
-    }
+    .l2-pasos-texto { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .l2-pasos-texto[hidden] { display: none; }
+    .l2-pasos-texto li { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 3px solid var(--color-blue-primary); font-size: 13px; line-height: 1.4; color: var(--text-secondary); }
+    .l2-pasos-texto li strong { font-size: 14px; font-weight: 800; color: var(--color-blue-primary); }
     .l2-mensaje-intro { margin: 0 0 28px; text-align: center; }
     .l2-mensaje-intro h2 { margin: 0 0 8px; font-size: clamp(32px, 6vw, 42px); font-weight: 800; color: var(--text-primary); line-height: 1.2; letter-spacing: -0.02em; }
     .l2-mensaje-intro p { margin: 0; font-size: 16px; color: var(--text-secondary); line-height: 1.5; }
 
 
-    .l2-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; scrollbar-width: none; }
     /* El botón flotante del asistente no tapa el final de la lista en móvil/tablet */
     @media (max-width: 999px) { main { padding-bottom: 72px; } }
-    @media (max-width: 999px) { .l2-tabs { padding-right: 36px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); } }
-    .l2-tabs::-webkit-scrollbar { display: none; }
-    .l2-tab { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); background: #FFFFFF; color: var(--text-secondary); font-weight: 700; font-size: 15px; cursor: pointer; }
-    .l2-tab i { font-size: 16px; line-height: 1; }
-    .l2-tab[aria-selected="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
 
     /* Buscador de la lista: aro azul que se dibuja y sombra que se eleva al enfocar, como la barra de Google */
     .l2-search { position: relative; isolation: isolate; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; transition: border-color 0.25s ease, box-shadow 0.3s ease; animation: l2-search-in 0.35s ease; }
@@ -300,33 +233,8 @@
     .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
 
 
-    /* Vista "Categorías": tarjetas por tema y listado de sus trámites */
-    .l2-temas[hidden], .l2-tema-actual[hidden], .l2-carrusel[hidden] { display: none; }
-    .l2-tema { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 24px; text-align: left; font: inherit; color: inherit; background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-    .l2-tema:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-active); }
-    .l2-tema:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
-    .l2-tema-icono { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 14px; border-radius: 16px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 26px; transition: background 0.25s ease, color 0.25s ease; }
-    .l2-tema:hover .l2-tema-icono { background: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema strong { font-size: 19px; font-weight: 800; color: var(--color-blue-primary); }
-    .l2-tema-desc { color: var(--text-secondary); font-size: 15px; line-height: 1.45; }
-    .l2-tema-pie { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
-    .l2-tema-pie i { font-size: 18px; color: var(--color-blue-primary); transition: transform 0.25s ease; }
-    .l2-tema:hover .l2-tema-pie i { transform: translateX(5px); }
-    /* Fila de la categoría elegida; el buscador va aparte, encima de las pestañas */
-    .l2-barra { display: flex; align-items: stretch; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
-    .l2-barra[hidden] { display: none; }
+    .l2-carrusel[hidden] { display: none; }
     .l2-search-top { margin-bottom: 16px; }
-    /* Tarjeta de la categoría elegida: una sola línea, con la misma altura que el buscador */
-    .l2-tema-actual { display: flex; align-items: center; gap: 12px; flex: 1 1 100%; min-width: 0; min-height: 52px; padding: 0 6px; background: #FFFFFF; border: 1.5px solid var(--border-active); border-radius: var(--radius-pill); box-shadow: var(--shadow-sm); }
-    .l2-tema-actual .l2-tema-icono { width: 38px; height: 38px; margin: 0; flex-shrink: 0; border-radius: 50%; font-size: 19px; background: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema-actual-texto { display: flex; align-items: baseline; gap: 10px; min-width: 0; flex: 1; white-space: nowrap; }
-    .l2-tema-actual h3 { flex-shrink: 0; margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: var(--color-blue-primary); }
-    .l2-tema-actual h3:focus-visible { outline: none; }
-    .l2-tema-actual .l2-tema-desc { order: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
-    .l2-tema-total { order: 1; flex-shrink: 0; font-size: 13px; font-weight: 700; color: var(--color-blue-primary); }
-    .l2-tema-volver { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; flex-shrink: 0; border: 1.5px solid var(--border-active); border-radius: 50%; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; cursor: pointer; transition: background 0.2s, color 0.2s; }
-    .l2-tema-volver:hover { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema-volver:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
 
     /* Escritorio */
     @media (min-width: 720px) {
@@ -353,7 +261,6 @@
     @media (prefers-reduced-motion: reduce) {
       .l2-page.activa { animation: none; }
       .l2-track, .l2-panel { transition: none; }
-      .l2-tema, .l2-tema-icono, .l2-tema-pie i { transition: none; }
       .l2-search, .l2-search::before, .l2-search::after, .l2-search > i { transition: none; }
       .l2-search, .l2-search:focus-within::before, .l2-search:focus-within > i, .l2-search.tiene-texto .l2-search-borrar { animation: none; }
     }
@@ -418,29 +325,6 @@
           <button type="button" class="l2-search-borrar" id="buscador-borrar" aria-label="Borrar búsqueda"><i class="ph ph-x" aria-hidden="true"></i></button>
         </div>
 
-        <div class="l2-tabs" role="tablist" aria-label="Categorías de trámites">
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="empleo" aria-selected="false" tabindex="0"><i class="ph ph-briefcase" aria-hidden="true"></i>Judiciales</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="documentos" aria-selected="false" tabindex="-1"><i class="ph ph-identification-card" aria-hidden="true"></i>DUI y partidas</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="vivienda" aria-selected="false" tabindex="-1"><i class="ph ph-house-line" aria-hidden="true"></i>Agua y hogar</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="estudio" aria-selected="false" tabindex="-1"><i class="ph ph-graduation-cap" aria-hidden="true"></i>Educación y títulos</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="todos" aria-selected="false" tabindex="-1"><i class="ph ph-file-text" aria-hidden="true"></i>Todos</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="categorias" aria-selected="false" tabindex="-1"><i class="ph ph-squares-four" aria-hidden="true"></i>Categorías</button>
-        </div>
-
-        <div class="l2-barra" id="barra" hidden>
-          <div class="l2-tema-actual" id="tema-head" hidden>
-            <span class="l2-tema-icono"><i class="ph" id="tema-icono" aria-hidden="true"></i></span>
-            <div class="l2-tema-actual-texto">
-              <h3 id="tema-titulo" tabindex="-1"></h3>
-              <span class="l2-tema-desc" id="tema-desc"></span>
-              <span class="l2-tema-total" id="tema-total"></span>
-            </div>
-            <button type="button" class="l2-tema-volver" id="tema-volver" aria-label="Volver a Categorías" title="Volver a Categorías"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-          </div>
-
-        </div>
-
-        <div class="l2-grid l2-temas" id="temas" role="list" aria-label="Categorías de trámites" hidden></div>
         <div class="l2-visor" id="visor">
           <div class="l2-carrusel" id="grid" role="tabpanel" aria-roledescription="carrusel" aria-label="Trámites disponibles" tabindex="0"></div>
         </div>
@@ -458,123 +342,101 @@
     </div>
   </footer>
 
-  <!-- CÓMO FUNCIONA: línea de tiempo flotante sobre el botón del asistente -->
-  <div class="l2-pasos" id="pasos">
-    <ol class="l2-pasos-linea" aria-label="Cómo funciona"></ol>
-    <div class="l2-paso-card" id="paso-card" role="tooltip">
-      <span class="l2-paso-card-num"></span>
-      <strong></strong>
-      <span class="l2-paso-card-texto"></span>
-      <span class="l2-paso-card-tiempo" aria-hidden="true"></span>
-    </div>
+  <!-- Fondo oscuro de la presentación al entrar (se quita al cerrar el chat o al tocarlo) -->
+  <div class="l2-foco" id="foco" aria-hidden="true"></div>
+
+  <div class="l2-flotantes" id="flotantes">
+    <button class="l2-fab l2-fab-circulo" id="fab" onclick="alternarAsistente(true)" aria-controls="asistente" aria-expanded="false" aria-label="Chat bot: abre el asistente de Simple.sv">
+      <span class="l2-fab-icono"><img class="l2-fab-robot" src="src/assets/brand/simple-robot-asistente-sin-fondo-72.png" alt="" width="36" height="36"></span>
+      <span class="l2-fab-texto" aria-hidden="true">Chat bot</span>
+    </button>
   </div>
 
+  <aside class="l2-panel" id="asistente" role="complementary" aria-label="Asistente de Simple.sv">
+    <div class="l2-panel-head">
+      <div class="l2-panel-title">
+        <img class="l2-robot" src="src/assets/brand/simple-robot-asistente.svg" alt="" width="44" height="44">
+        <div>
+          <strong>Asistente de Simple.sv</strong>
+          <span>Automatizado · no reemplaza a la institución</span>
+        </div>
+      </div>
+      <button class="l2-panel-close" onclick="alternarAsistente(false)" aria-label="Cerrar asistente"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
 
-  <!-- Video de antecedentes por WhatsApp en grande: el script elige el horizontal (computadora) o el vertical (celular) -->
-  <dialog class="l2-video-modal" id="video-modal" aria-label="Video: saca tus antecedentes por WhatsApp">
-    <button type="button" class="l2-video-modal-cerrar" aria-label="Cerrar el video"><i class="ph ph-x" aria-hidden="true"></i></button>
-    <video playsinline controls preload="none"></video>
-  </dialog>
+    <div class="l2-msgs" id="mensajes" role="log" aria-live="polite" aria-label="Conversación con el asistente">
+      <div class="l2-fila-bot">
+        <img class="l2-avatar-bot" src="src/assets/brand/simple-robot-asistente-sin-fondo-72.png" alt="" width="36" height="36">
+        <div class="l2-bot l2-pasos-chat" id="pasos-chat">
+          <button type="button" class="l2-pasos-toggle" id="pasos-toggle" aria-expanded="false" aria-controls="pasos-vert" aria-label="Cómo funciona: ver pasos" title="Ver pasos">
+            <span class="l2-pasos-titulo" id="pasos-chat-titulo">Cómo funciona</span>
+            <span class="l2-pasos-accion"><i class="ph ph-caret-up" aria-hidden="true"></i></span>
+          </button>
+          <ul class="l2-pasos-texto" id="pasos-vert" aria-labelledby="pasos-chat-titulo" hidden></ul>
+        </div>
+      </div>
+      <div class="l2-fila-bot">
+        <img class="l2-avatar-bot" src="src/assets/brand/simple-robot-asistente-sin-fondo-72.png" alt="" width="36" height="36">
+        <div class="l2-bot">
+          ¡Hola! Soy el asistente de <strong>Simple.sv</strong>. ¿Qué trámite buscas?
+          <!-- Las categorías del catálogo (las pone asistente.js: botonesCategorias) -->
+          <div class="l2-options l2-options-grid" id="opciones-inicio"></div>
+        </div>
+      </div>
+    </div>
 
+    <form class="l2-form" onsubmit="event.preventDefault(); enviarMensaje();">
+      <label class="l2-sr" for="texto-asistente">Escribe tu duda</label>
+      <input type="text" id="texto-asistente" placeholder="Escribe tu duda aquí" autocomplete="off">
+      <div class="l2-grabando" role="status" aria-live="polite">
+        <span class="l2-grabando-punto" aria-hidden="true"></span>
+        <span class="l2-ondas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span id="grabando-texto">Escuchando…</span>
+        <span id="grabando-tiempo">0:00</span>
+      </div>
+      <button type="button" class="l2-mic" id="microfono" aria-label="Enviar audio" aria-pressed="false" onclick="alternarMicrofono()"><i class="ph ph-microphone" aria-hidden="true"></i></button>
+      <button type="submit" class="l2-btn l2-btn-primary" aria-label="Enviar"><i class="ph ph-paper-plane-right" aria-hidden="true"></i></button>
+    </form>
+  </aside>
 
   <script src="src/data/catalogo-landing.js"></script>
-  <script src="nuevoDiseño/formularios.js"></script>
+  <script src="nuevoDiseño/formularios.js?v=8"></script>
+  <script src="nuevoDiseño/flujo-corto.js"></script>
   <script src="nuevoDiseño/canales.js"></script>
   <script src="nuevoDiseño/citas.js"></script>
   <script src="nuevoDiseño/ciudadano.js"></script>
-  <script src="nuevoDiseño/pasos-tramite.js"></script>
+  <script src="nuevoDiseño/pasos-tramite.js?v=3"></script>
   <script>
-    /* ===== Cómo funciona: línea de tiempo (flotante y dentro del chat) ===== */
     const PASOS = [
-      { titulo: 'Dinos qué necesitas', texto: 'Elige una categoría o escribe tu trámite' },
-      { titulo: 'Revisa los requisitos', texto: 'Costo, tiempo de entrega e institución' },
-      { titulo: 'Recibe tu documento', texto: 'Sigue tu trámite y guarda tu comprobante' }
+      { titulo: 'Dinos qué necesitas', texto: 'Escríbelo como quieras, por ejemplo «antecedentes penales para un trabajo»' },
+      { titulo: 'Revisa y confirma', texto: 'Usamos los datos de tu Identidad Digital y solo te pedimos lo que falta' },
+      { titulo: 'Paga y listo', texto: 'Sin salir del chat; te avisamos cuando esté listo' }
     ];
     // Al llegar desde el botón de WhatsApp de la landing (?whatsapp), el chat muestra cómo se hace el trámite por WhatsApp
     // (asistente.js confirma el celular y lleva al chat de WhatsApp)
     const DESDE_WHATSAPP = new URLSearchParams(location.search).has('whatsapp');
     const PASOS_WHATSAPP = [
       { titulo: 'Confirma tu número', texto: 'Te escribimos al celular registrado en tu Identidad Digital' },
-      { titulo: 'Dinos qué trámite quieres', texto: 'En el WhatsApp de Simple.sv te pedimos los datos uno por uno' },
+      { titulo: 'Dinos qué trámite quieres', texto: 'En el WhatsApp de Simple.sv te pedimos solo lo que falta' },
       { titulo: 'Paga y espera el aviso', texto: 'Pagas con un enlace seguro y te avisamos cuando finalice' }
     ];
-    const SEGUNDOS_POR_PASO = 3;
-    const CLAVE_VISTO = 'simple-pasos-vistos-v2';
-    const espera = ms => new Promise(r => setTimeout(r, ms));
-
-    function crearPasos(raiz, pasos = PASOS) {
-      const linea = raiz.querySelector('.l2-pasos-linea');
-      const card = raiz.querySelector('.l2-paso-card');
-      linea.innerHTML = pasos.map((p, i) => `
-        <li><button type="button" class="l2-paso" aria-label="Paso ${i + 1}: ${p.titulo}" aria-describedby="${card.id}">${i + 1}</button></li>`).join('');
-      const botones = [...linea.querySelectorAll('.l2-paso')];
-      let pasoMostrado = -1;
-
-      function mostrar(i, contando) {
-        pasoMostrado = i;
-        card.querySelector('.l2-paso-card-num').textContent = `Paso ${i + 1} de ${pasos.length}`;
-        card.querySelector('strong').textContent = pasos[i].titulo;
-        card.querySelector('.l2-paso-card-texto').textContent = pasos[i].texto;
-        card.style.setProperty('--i', i);
-        card.classList.remove('contando');
-        void card.offsetWidth;
-        card.classList.add('visible');
-        card.classList.toggle('contando', !!contando);
-      }
-
-      function ocultar() {
-        pasoMostrado = -1;
-        card.classList.remove('visible', 'contando');
-      }
-
-      function dejarListo() {
-        botones.forEach(b => b.classList.remove('actual'));
-        botones.forEach(b => b.classList.add('hecho'));
-        raiz.classList.remove('en-intro');
-        raiz.classList.add('listo');
-      }
-
-      async function intro() {
-        raiz.classList.add('en-intro');
-        await espera(500);
-        for (let i = 0; i < pasos.length; i++) {
-          if (i > 0) botones[i - 1].classList.remove('actual');
-          botones[i].classList.add('hecho', 'actual');
-          mostrar(i, true);
-          await espera(SEGUNDOS_POR_PASO * 1000);
-        }
-        dejarListo();
-        ocultar();
-      }
-
-      // Tras la intro, la tarjeta aparece al pasar el cursor, con el foco o al tocar
-      const activo = () => raiz.classList.contains('listo');
-      botones.forEach((b, i) => {
-        b.addEventListener('mouseenter', () => { if (activo()) mostrar(i); });
-        b.addEventListener('mouseleave', () => { if (activo()) ocultar(); });
-        b.addEventListener('focus', () => { if (activo()) mostrar(i); });
-        b.addEventListener('blur', () => { if (activo()) ocultar(); });
-        b.addEventListener('click', () => {
-          if (!activo()) return;
-          pasoMostrado === i ? ocultar() : mostrar(i);
-        });
+    // Chat: cerrado por defecto (solo el encabezado); al abrirlo salen los pasos, solo con su texto
+    (() => {
+      const raiz = document.getElementById('pasos-chat');
+      const lista = document.getElementById('pasos-vert');
+      const toggle = document.getElementById('pasos-toggle');
+      const pasos = DESDE_WHATSAPP ? PASOS_WHATSAPP : PASOS;
+      if (DESDE_WHATSAPP) document.getElementById('pasos-chat-titulo').textContent = 'Cómo funciona por WhatsApp';
+      lista.innerHTML = pasos.map(p => `<li><strong>${p.titulo}</strong><span>${p.texto}</span></li>`).join('');
+      toggle.addEventListener('click', () => {
+        const abierto = !raiz.classList.contains('abierto');
+        raiz.classList.toggle('abierto', abierto);
+        lista.hidden = !abierto;
+        toggle.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        toggle.setAttribute('aria-label', abierto ? 'Cómo funciona: ocultar pasos' : 'Cómo funciona: ver pasos');
+        toggle.title = abierto ? 'Ocultar pasos' : 'Ver pasos';
       });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && activo()) ocultar(); });
-
-      return { intro, dejarListo, ocultar };
-    }
-
-    // Flotante: la intro corre solo la primera visita; después queda encendida
-    const pasosFlotante = crearPasos(document.getElementById('pasos'));
-    let pasosVistos = false;
-    try { pasosVistos = localStorage.getItem(CLAVE_VISTO) === '1'; } catch (e) {}
-    if (pasosVistos) {
-      pasosFlotante.dejarListo();
-    } else {
-      setTimeout(() => {
-        pasosFlotante.intro().then(() => { try { localStorage.setItem(CLAVE_VISTO, '1'); } catch (e) {} });
-      }, 800);
-    }
+    })();
 
     /* ===== Utilidades ===== */
     const CATEGORIAS = {
@@ -586,27 +448,9 @@
     const TRAMITES = window.CATALOGO_TRAMITES || [];
     const POR_PAGINA = 8;
 
-    // Categorías temáticas: cada trámite (por su número en el catálogo) pertenece a una sola
-    const TEMAS = [
-      { id: 'documentos', nombre: 'Documentos', icono: 'file-text', desc: 'Identidad, constancias y registros', numeros: [73, 74, 75, 95, 96, 99, 100, 104, 110, 112, 113, 114] },
-      { id: 'educacion', nombre: 'Educación', icono: 'graduation-cap', desc: 'Estudios, títulos y certificaciones', numeros: [[48, 55], [85, 87]] },
-      { id: 'trabajo', nombre: 'Trabajo y negocio', icono: 'briefcase', desc: 'Permisos, solvencias y actividad económica', numeros: [[18, 34], 68, 91, 92, 97, 98, 102, 107, 115, 118] },
-      { id: 'salud', nombre: 'Salud y bienestar', icono: 'heart', desc: 'Atención, rehabilitación y beneficios', numeros: [[76, 78], [88, 90], 108, 111] },
-      { id: 'vivienda', nombre: 'Vivienda y servicios', icono: 'house-line', desc: 'Tu hogar y servicios básicos', numeros: [[61, 64], 101, 103, 105, 109] },
-      { id: 'transporte', nombre: 'Transporte', icono: 'bus', desc: 'Vehículos, aviación y movilidad', numeros: [[1, 17], [35, 47], [79, 81], 106, 117] },
-      { id: 'ambiente', nombre: 'Medio ambiente', icono: 'leaf', desc: 'Recursos naturales y sostenibilidad', numeros: [[65, 67], [69, 72]] },
-      { id: 'familia', nombre: 'Familia', icono: 'users-three', desc: 'Protección social, niñez y adultos mayores', numeros: [[56, 60], [82, 84], 93, 94, 116] }
-    ];
     // Trámites con formulario en el nuevo diseño (formularios.js): su ícono acompaña la transición al abrir tramite.html
     const FORMULARIOS = window.FORMULARIOS_TRAMITES || {};
     const ICONO_CATEGORIA = { empleo: 'ph-briefcase', documentos: 'ph-identification-card', vivienda: 'ph-house-line', estudio: 'ph-graduation-cap' };
-    const TEMA_DE = {};
-    TEMAS.forEach(tema => tema.numeros.forEach(n => {
-      const [desde, hasta] = Array.isArray(n) ? n : [n, n];
-      for (let i = desde; i <= hasta; i++) TEMA_DE[i] = tema.id;
-    }));
-    let temaActivo = null;
-    let categoriaActiva = null;
     let busqueda = '';
 
     // Quita tildes y pasa a minúsculas para comparar
@@ -653,14 +497,19 @@
       return { texto: monto ? monto[0].replace(/\s/, '') : 'Ver costo', gratis: false };
     }
 
-    // Trámites de la pestaña (o de la categoría temática elegida), sin aplicar la búsqueda
-    function tramitesDelAmbito() {
-      if (categoriaActiva === 'categorias') return TRAMITES.filter(t => temaActivo && TEMA_DE[t.numero] === temaActivo);
-      if (categoriaActiva === 'todos') return TRAMITES;
-      return TRAMITES.filter(t => t.categoria === categoriaActiva);
+    // Primero van los más populares, en este orden; después el resto como viene
+    const ORDEN_POPULARES = ['empleo', 'documentos', 'vivienda', 'estudio'];
+    function prioridad(t) {
+      const i = ORDEN_POPULARES.indexOf(t.categoria);
+      return i === -1 ? ORDEN_POPULARES.length : i;
     }
 
-    // El buscador es independiente de las pestañas: con texto, busca en todos los trámites
+    // Todos los trámites, sin aplicar la búsqueda
+    function tramitesDelAmbito() {
+      return [...TRAMITES].sort((a, b) => prioridad(a) - prioridad(b));
+    }
+
+    // Con texto, el buscador filtra todos los trámites
     function buscando() {
       return busqueda.trim().length > 0;
     }
@@ -695,12 +544,6 @@
     function sincronizarBuscador() {
       if (buscadorInput.value !== busqueda) buscadorInput.value = busqueda;
       buscador.classList.toggle('tiene-texto', busqueda.length > 0);
-      actualizarBarra();
-    }
-
-    // La fila solo se muestra si tiene la tarjeta de la categoría elegida
-    function actualizarBarra() {
-      document.getElementById('barra').hidden = document.getElementById('tema-head').hidden;
     }
 
     const buscador = document.getElementById('buscador');
@@ -725,65 +568,10 @@
       buscadorInput.focus();
     });
 
-    function renderTemas() {
-      document.getElementById('temas').innerHTML = TEMAS.map(tema => {
-        const total = TRAMITES.filter(t => TEMA_DE[t.numero] === tema.id).length;
-        return `
-          <button type="button" class="l2-tema" role="listitem" onclick="abrirTema('${tema.id}')" aria-label="${escapar(tema.nombre)}, ${total} trámites">
-            <span class="l2-tema-icono"><i class="ph ph-${tema.icono}" aria-hidden="true"></i></span>
-            <strong>${escapar(tema.nombre)}</strong>
-            <span class="l2-tema-desc">${escapar(tema.desc)}</span>
-            <span class="l2-tema-pie">${total} trámite${total === 1 ? '' : 's'}<i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-          </button>`;
-      }).join('');
-    }
-
-    function abrirTema(id) {
-      temaActivo = id;
-      busqueda = '';
-      renderCatalogo();
-      const titulo = document.getElementById('tema-titulo');
-      titulo.focus({ preventScroll: true });
-      document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    document.getElementById('tema-volver').addEventListener('click', () => {
-      temaActivo = null;
-      busqueda = '';
-      renderCatalogo();
-      document.querySelector('.l2-tab[data-cat="categorias"]').focus({ preventScroll: true });
-    });
-
     function renderCatalogo() {
-      // Si no hay categoría seleccionada, no mostrar nada
-      if (!categoriaActiva && !buscando()) {
-        document.getElementById('temas').hidden = true;
-        document.getElementById('tema-head').hidden = true;
-        document.getElementById('visor').hidden = true;
-        document.getElementById('mas').innerHTML = '';
-        return;
-      }
-      const verTemas = categoriaActiva === 'categorias' && !temaActivo && !buscando();
-      const tema = TEMAS.find(x => x.id === temaActivo);
-      document.getElementById('temas').hidden = !verTemas;
-      document.getElementById('tema-head').hidden = !(categoriaActiva === 'categorias' && tema && !buscando());
-      document.getElementById('visor').hidden = verTemas;
-      if (tema) {
-        const total = tramitesDelAmbito().length;
-        document.getElementById('tema-titulo').textContent = tema.nombre;
-        document.getElementById('tema-desc').textContent = tema.desc;
-        document.getElementById('tema-total').textContent = `${total} trámite${total === 1 ? '' : 's'}`;
-        document.getElementById('tema-icono').className = `ph ph-${tema.icono}`;
-      }
       sincronizarBuscador();
       const grid = document.getElementById('grid');
       const mas = document.getElementById('mas');
-      if (verTemas) {
-        mas.innerHTML = '';
-        mas.classList.remove('activo');
-        renderTemas();
-        return;
-      }
       const lista = tramitesFiltrados();
 
       if (lista.length === 0) {
@@ -809,7 +597,7 @@
             </div>
             <div class="l2-card-body ${conCosto ? 'con-costo' : ''}">
               <p class="l2-card-inst"><i class="ph ph-buildings" aria-hidden="true"></i>${escapar(t.institucion)}</p>
-              <h3><a class="l2-card-link" href="nuevoDiseño/login.html?destino=tramite&n=${t.numero}" data-transicion="${escapar(t.nombre)}" data-transicion-icono="${FORMULARIOS[t.numero]?.icono || ICONO_CATEGORIA[t.categoria] || 'ph-file-text'}" data-transicion-rapida>${escapar(t.nombre)}</a></h3>
+              <h3><a class="l2-card-link" href="${window.FLUJO_CORTO?.aplica(t.numero) ? `nuevoDiseño/tramite.html?n=${t.numero}` : `nuevoDiseño/login.html?destino=tramite&n=${t.numero}`}" data-transicion="${escapar(t.nombre)}" data-transicion-icono="${FORMULARIOS[t.numero]?.icono || ICONO_CATEGORIA[t.categoria] || 'ph-file-text'}" data-transicion-rapida>${escapar(t.nombre)}</a></h3>
             </div>
           </article>`;
       };
@@ -860,27 +648,7 @@
       document.getElementById('visor').scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
 
-    function marcarPestana(cat) {
-      categoriaActiva = cat;
-      temaActivo = null;
-      document.querySelectorAll('.l2-tab').forEach(b => {
-        const activa = b.dataset.cat === cat;
-        b.setAttribute('aria-selected', activa ? 'true' : 'false');
-        b.tabIndex = activa ? 0 : -1;
-        if (activa) centrarPestana(b);
-      });
-    }
-
-    // En móvil las pestañas se desplazan: la activa siempre queda a la vista
-    function centrarPestana(pestana) {
-      const barra = pestana.parentElement;
-      if (barra.scrollWidth <= barra.clientWidth) return;
-      const izquierda = barra.scrollLeft + pestana.getBoundingClientRect().left - barra.getBoundingClientRect().left - (barra.clientWidth - pestana.offsetWidth) / 2;
-      barra.scrollTo({ left: Math.max(0, izquierda), behavior: 'smooth' });
-    }
-
-    function irACategoria(cat) {
-      marcarPestana(cat);
+    function irACategoria() {
       busqueda = '';
       renderCatalogo();
       document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
@@ -905,26 +673,6 @@
     });
 
     /* ===== Inicio ===== */
-    document.querySelectorAll('.l2-tab').forEach(b => {
-      b.addEventListener('click', () => {
-        busqueda = '';
-        marcarPestana(b.dataset.cat);
-        renderCatalogo();
-      });
-    });
-
-    // Flechas, Inicio y Fin entre pestañas (patrón de pestañas de WAI-ARIA)
-    document.querySelector('.l2-tabs').addEventListener('keydown', e => {
-      const pestanas = [...document.querySelectorAll('.l2-tab')];
-      const i = pestanas.indexOf(document.activeElement);
-      if (i < 0) return;
-      const destino = { ArrowRight: (i + 1) % pestanas.length, ArrowLeft: (i - 1 + pestanas.length) % pestanas.length, Home: 0, End: pestanas.length - 1 }[e.key];
-      if (destino === undefined) return;
-      e.preventDefault();
-      pestanas[destino].focus();
-      pestanas[destino].click();
-    });
-
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') cerrarMenusEncabezado();
     });
@@ -933,9 +681,52 @@
       if (!e.target.closest('.l2-profile-trigger')) cerrarMenusEncabezado();
     });
 
-    // Al abrir, Judiciales aparece seleccionada y con sus trámites cargados
-    marcarPestana('empleo');
     renderCatalogo();
+
+    /* ===== Asistente (asistente.js): sin sesión; "Ver en la lista" abre este catálogo ===== */
+    window.ASISTENTE_PAGINA = {
+      sesion: Boolean(document.documentElement.dataset.sesion),
+      verCategoria: irACategoria,
+      verTema: irACategoria,
+      verBusqueda: texto => {
+        busqueda = texto;
+        renderCatalogo();
+        document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
   </script>
+  <script>
+    /* Al entrar (cualquier dispositivo): la pantalla se oscurece y el chat bot se abre de una vez con su saludo.
+       No corre al volver atrás desde un trámite ni cuando la URL ya pide algo al asistente (?whatsapp, ?asistente, …),
+       porque ahí el chat se abre por su cuenta */
+    (() => {
+      const volviendo = (performance.getEntriesByType('navigation')[0] || {}).type === 'back_forward';
+      if (volviendo || location.search) return;
+
+      const foco = document.getElementById('foco');
+      const panel = document.getElementById('asistente');
+      let activo = true;
+
+      const terminar = () => { activo = false; foco.classList.remove('visible'); };
+      // Tocar el fondo oscuro cierra el chat y lo quita; cerrar el chat (X o Escape) también
+      foco.addEventListener('click', () => { alternarAsistente(false); terminar(); });
+      new MutationObserver(() => { if (activo && !panel.classList.contains('open')) terminar(); })
+        .observe(panel, { attributes: true, attributeFilter: ['class'] });
+
+      // asistente.js se carga después de este script: el chat se abre cuando ya está listo
+      document.addEventListener('DOMContentLoaded', () => {
+        if (panel.classList.contains('open')) return;
+        foco.classList.add('visible');
+        alternarAsistente(true, true);
+      });
+    })();
+  </script>
+  <script src="nuevoDiseño/mis-tramites.js"></script>
+  <script src="nuevoDiseño/motor-tramite.js?v=4"></script>
+  <script src="nuevoDiseño/interprete.js"></script>
+  <script src="nuevoDiseño/integraciones.js"></script>
+  <script src="nuevoDiseño/metricas-asistente.js"></script>
+  <script src="nuevoDiseño/asistente.js?v=22"></script>
 </body>
 </html>

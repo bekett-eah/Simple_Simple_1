@@ -1,0 +1,2 @@
+# Para el intérprete de IA del asistente (asistente_ia.py). servidor.py funciona sin él: el asistente usa su intérprete local.
+anthropic>=2.3.0

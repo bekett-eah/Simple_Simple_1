@@ -23,43 +23,32 @@
 .l2-paso-msg .l2-paso-card-texto { font-size: 12.5px; line-height: 1.35; }
 .l2-paso-msg strong { display: block; margin-bottom: 1px; font-size: 14px; font-weight: 800; color: var(--color-blue-primary); }
 
-/* Asistente lateral */
-.l2-fab { position: fixed; right: 16px; bottom: 16px; z-index: 60; min-height: 52px; padding: 8px 18px 8px 10px; border-radius: var(--radius-pill); border: none; background: var(--color-blue-primary); color: #FFFFFF; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: var(--shadow-hover); }
-.l2-fab-robot { width: 36px; height: 36px; display: block; flex-shrink: 0; }
-/* Landing e Indexlogin: el asistente y WhatsApp en una fila, abajo a la derecha (WhatsApp en la orilla). El asistente
-   es un círculo con el robot que se abre hacia la izquierda al pasar el cursor (o con el foco) y dice "¿Necesitas ayuda?" */
-.l2-flotantes { position: fixed; right: 16px; bottom: 16px; z-index: 60; display: flex; align-items: center; gap: 12px; }
-.l2-flotantes .l2-fab { position: static; }
-.l2-fab:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
-.l2-fab-circulo { height: 56px; min-height: 56px; padding: 0 10px; gap: 0; transition: padding 0.3s ease, gap 0.3s ease; }
-.l2-fab-texto { max-width: 0; overflow: hidden; white-space: nowrap; opacity: 0; transition: max-width 0.35s ease, opacity 0.25s ease; }
-.l2-fab-circulo:hover, .l2-fab-circulo:focus-visible, .presentando .l2-fab-circulo { padding-right: 18px; gap: 8px; }
-.l2-fab-circulo:hover .l2-fab-texto, .l2-fab-circulo:focus-visible .l2-fab-texto, .presentando .l2-fab-texto { max-width: 180px; opacity: 1; }
-/* WhatsApp: pide iniciar sesión y lleva al chat de WhatsApp. Igual que el asistente: un círculo con el logo que se abre
-   hacia la izquierda al pasar el cursor (o con el foco) y dice "Realizar trámite en WhatsApp" */
-.l2-fab-wa { display: inline-flex; align-items: center; flex-shrink: 0; height: 56px; padding: 0 13px; gap: 0; border-radius: var(--radius-pill); background: #00A884; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 12px 28px rgba(0, 168, 132, 0.35); transition: padding 0.3s ease, gap 0.3s ease, background 0.2s ease; }
-.l2-fab-wa i { flex-shrink: 0; font-size: 30px; }
-.l2-fab-wa:hover { background: #008F70; }
-.l2-fab-wa:hover, .l2-fab-wa:focus-visible, .presentando .l2-fab-wa { padding-right: 18px; gap: 8px; }
-.l2-fab-wa:hover .l2-fab-texto, .l2-fab-wa:focus-visible .l2-fab-texto, .presentando .l2-fab-wa .l2-fab-texto { max-width: 260px; opacity: 1; }
-.l2-fab-wa:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+/* Netlify (plan gratuito) pone su insignia "Powered by Netlify" abajo a la derecha de todas las páginas, encima de todo,
+   y no se puede quitar ni mover sin pagar. Ocupa hasta unos 55 px desde el borde inferior: los botones flotantes, los pasos
+   de Indexlogin y la barra de escribir del asistente dejan ese espacio libre para que la insignia no los tape.
+   Fuera de Netlify gratuito, 0px deja todo como estaba: ver docs/despliegue/insignia-netlify.md */
+:root { --espacio-insignia: 56px; }
 
-/* Presentación al entrar a la landing (.presentando): la página se oscurece, el asistente y WhatsApp se abren (los dos
-   con su texto) y el asistente saluda en un globo; el halo lo lleva la miniatura del video (index.html), para que resalte
-   más que los botones. Se queda así hasta que se toca fuera */
-.l2-foco { position: fixed; inset: 0; z-index: 59; background: rgba(10, 14, 40, 0.72); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0s linear 0.4s; }
-.l2-foco.visible { opacity: 1; visibility: visible; transition: opacity 0.4s ease; }
-/* El globo sale sobre el asistente, alineado con su borde izquierdo (WhatsApp, abierto, queda a su derecha) */
-.l2-fab-globo { position: absolute; left: 0; bottom: calc(100% + 14px); width: max-content; margin: 0; max-width: min(290px, calc(100vw - 100px)); padding: 14px 16px; border-radius: 18px 18px 18px 4px; background: #FFFFFF; color: var(--text-secondary); font-size: 15px; line-height: 1.45; box-shadow: 0 20px 40px rgba(10, 14, 40, 0.3); opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.96); transform-origin: bottom left; transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s; }
-.l2-fab-globo strong { display: block; margin-bottom: 2px; color: var(--color-blue-primary); font-size: 16px; }
-.presentando .l2-fab-globo { opacity: 1; visibility: visible; transform: none; transition: opacity 0.3s ease 0.25s, transform 0.3s ease 0.25s; }
-/* En el celular los dos abiertos no caben en una fila: durante la presentación van uno sobre otro, del mismo ancho,
-   y el globo se alinea con el borde derecho */
-@media (max-width: 560px) {
-  .l2-flotantes.presentando { flex-direction: column; align-items: stretch; }
-  .presentando .l2-fab-circulo, .presentando .l2-fab-wa { justify-content: center; }
-  .l2-fab-globo { left: auto; right: 0; border-radius: 18px 18px 4px 18px; transform-origin: bottom right; }
-}
+/* Asistente lateral */
+.l2-fab { position: fixed; right: 16px; bottom: calc(16px + var(--espacio-insignia)); z-index: 60; min-height: 52px; padding: 8px 18px 8px 10px; border-radius: var(--radius-pill); border: none; background: var(--color-blue-primary); color: #FFFFFF; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: var(--shadow-hover); }
+.l2-fab-robot { width: 36px; height: 36px; display: block; flex-shrink: 0; }
+/* Landing e Indexlogin: el asistente y WhatsApp en una fila, abajo a la derecha (WhatsApp en la orilla). Cada uno es un
+   círculo con su ícono y, debajo, su nombre siempre a la vista ("Ayuda" y "WhatsApp"): quien no lee bien no adivina qué
+   hace un robot, y en el celular no hay cursor que pasar encima para descubrirlo. Nada se abre ni se mueve solo */
+.l2-flotantes { position: fixed; right: 16px; bottom: calc(12px + var(--espacio-insignia)); z-index: 60; display: flex; align-items: flex-start; gap: 10px; }
+.l2-flotantes .l2-fab { position: static; }
+.l2-fab-circulo, .l2-fab-wa { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; min-height: 0; height: auto; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--text-primary); font: inherit; text-decoration: none; cursor: pointer; }
+.l2-fab-icono { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-blue-primary); color: #FFFFFF; box-shadow: var(--shadow-hover); transition: background 0.2s ease; }
+.l2-fab-wa .l2-fab-icono { background: #00A884; box-shadow: 0 12px 28px rgba(0, 168, 132, 0.35); }
+.l2-fab-wa .l2-fab-icono i { font-size: 30px; }
+.l2-fab-circulo:hover .l2-fab-icono { background: var(--color-blue-hover); }
+.l2-fab-wa:hover .l2-fab-icono { background: #008F70; }
+/* El nombre va en una pastilla blanca para que se lea encima de cualquier cosa de la página */
+.l2-fab-texto { padding: 1px 9px; border-radius: var(--radius-pill); background: #FFFFFF; color: var(--text-primary); font-size: 14px; font-weight: 800; line-height: 1.5; white-space: nowrap; box-shadow: 0 2px 8px rgba(14, 20, 40, 0.16); }
+.l2-fab-circulo:focus-visible, .l2-fab-wa:focus-visible { outline: none; }
+.l2-fab-circulo:focus-visible .l2-fab-icono, .l2-fab-wa:focus-visible .l2-fab-icono { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+.l2-fab:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; }
+
 .l2-panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 80; width: min(400px, 100%); background: #FFFFFF; box-shadow: -20px 0 50px rgba(14, 20, 40, 0.18); display: flex; flex-direction: column; transform: translateX(105%); transition: transform 0.3s ease; visibility: hidden; }
 .l2-panel.open { transform: translateX(0); visibility: visible; }
 .l2-panel-head { background: var(--color-navy-deep); color: #FFFFFF; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
@@ -75,11 +64,14 @@
 .l2-fila-bot .l2-bot { min-width: 0; }
 .l2-avatar-bot { width: 36px; height: 36px; border-radius: 50%; background: var(--color-blue-soft); padding: 3px; flex-shrink: 0; display: block; }
 .l2-me { background: var(--color-navy-deep); color: #FFFFFF; align-self: flex-end; border-bottom-right-radius: 4px; }
+/* Los dos primeros mensajes ("Cómo funciona" y el saludo con las categorías) ocupan el mismo ancho */
+.l2-fila-bot:has(> .l2-pasos-chat), .l2-fila-bot:has(#opciones-inicio) { align-self: stretch; }
+.l2-fila-bot > .l2-bot.l2-pasos-chat, .l2-fila-bot:has(#opciones-inicio) > .l2-bot { flex: 1; width: auto; max-width: none; }
 /* Opciones del chat: una debajo de otra y todas del mismo ancho, sin huecos (.l2-options-grid las pone en columnas) */
 .l2-options { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 10px; }
 .l2-option { min-height: 44px; padding: 8px 14px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-active); background: #FFFFFF; color: var(--color-blue-primary); font-weight: 700; font-size: 14px; cursor: pointer; }
 .l2-option:hover { background: var(--color-blue-soft); }
-.l2-form { display: flex; gap: 8px; padding: 14px 16px; border-top: 1px solid var(--border-subtle); background: #FFFFFF; }
+.l2-form { display: flex; gap: 8px; padding: 14px 16px calc(14px + var(--espacio-insignia)); border-top: 1px solid var(--border-subtle); background: #FFFFFF; }
 .l2-form input { flex: 1; min-width: 0; min-height: 44px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); padding: 8px 16px; font-size: 16px; outline: none; }
 .l2-form input:focus { border-color: var(--color-blue-primary); }
 .l2-form .l2-btn { min-width: 44px; padding: 8px 14px; }
@@ -102,6 +94,11 @@
 .l2-option-volver { border-color: transparent; background: transparent; color: var(--text-secondary); }
 .l2-option-volver:hover { background: var(--bg-subtle); color: var(--color-blue-primary); }
 .l2-option-wa:hover { background: #E9FBF0; }
+/* Opciones principales con más aire entre ellas (la etiqueta de la segunda sube sobre el borde) */
+.l2-options.l2-options-separadas { gap: 24px; margin-top: 14px; }
+/* Etiqueta en la esquina de una opción nueva (WhatsApp, "Propuesta nueva") */
+.l2-option-con-etiqueta { position: relative; overflow: visible; }
+.l2-etiqueta-propuesta { position: absolute; top: -10px; right: 14px; padding: 1px 9px; border-radius: var(--radius-pill); background: #0B7A55; color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: 0.03em; line-height: 1.6; text-transform: uppercase; pointer-events: none; }
 .l2-chat-nota { margin: 8px 0 0; color: var(--text-muted); font-size: 12.5px; line-height: 1.4; }
 /* Chat: opciones en cuadrícula (categorías, temas, días y horas), alineadas y sin huecos */
 .l2-options-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -146,6 +143,7 @@
 .l2-grabando-punto { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; background: #DC2626; animation: l2-parpadeo 1s ease-in-out infinite; }
 .l2-ondas { display: flex; align-items: center; gap: 3px; flex-shrink: 0; height: 20px; }
 .l2-ondas i { width: 3px; height: 6px; border-radius: 3px; background: #DC2626; animation: l2-ondita 0.9s ease-in-out infinite; }
+.l2-ondas.con-nivel i { animation: none; transition: height 0.08s linear; }
 .l2-ondas i:nth-child(2) { animation-delay: 0.15s; }
 .l2-ondas i:nth-child(3) { animation-delay: 0.3s; }
 .l2-ondas i:nth-child(4) { animation-delay: 0.45s; }
@@ -158,10 +156,64 @@
 @media (prefers-reduced-motion: reduce) {
   .l2-form.grabando .l2-mic::before, .l2-form.grabando .l2-mic::after, .l2-grabando-punto, .l2-ondas i, .l2-form.grabando .l2-grabando { animation: none; }
 }
+/* Cómo hacer el trámite: la forma recomendada a la vista y las demás plegadas en "Otras formas" (asistente.js, opcionesDe) */
+.l2-otras-formas { margin-top: 6px; }
+.l2-otras-formas > summary { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px; color: var(--color-blue-primary); font-size: 14px; font-weight: 700; cursor: pointer; list-style: none; }
+.l2-otras-formas > summary::-webkit-details-marker { display: none; }
+.l2-otras-formas > summary i { transition: transform 0.2s ease; }
+.l2-otras-formas[open] > summary i { transform: rotate(180deg); }
+.l2-otras-formas > summary:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 8px; }
+.l2-otras-formas .l2-options { margin-top: 2px; }
 /* Enlace de texto dentro de una nota del chat ("¿No la tienes?") */
 .l2-chat-enlace { padding: 0; border: 0; background: none; color: var(--color-blue-primary); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
 .l2-chat-enlace:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 4px; }
 @media (prefers-reduced-motion: reduce) {
-  .l2-panel, .l2-paso, .l2-fab-wa, .l2-fab-circulo, .l2-fab-texto, .l2-fab-globo, .l2-foco { transition: none; }
-  .l2-fab-globo { transform: none; }
+  .l2-panel, .l2-paso, .l2-fab-icono { transition: none; }
+}
+
+/* Asistente que hace el trámite: escribiendo, lo que falta, resumen para confirmar, avance, pago y avisos */
+.l2-escribiendo .l2-bot { padding: 14px 16px; }
+.l2-puntos { display: inline-flex; gap: 4px; }
+.l2-puntos i { width: 7px; height: 7px; border-radius: 50%; background: var(--text-muted); animation: l2-punto 1.2s ease-in-out infinite; }
+.l2-puntos i:nth-child(2) { animation-delay: 0.15s; }
+.l2-puntos i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes l2-punto { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-4px); opacity: 1; } }
+/* Lo que falta: cada dato en su tarjeta, con sus opciones, su lista, el clip o el campo seguro */
+.l2-chat-campos { display: grid; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.l2-campo-chat { padding: 10px 12px; border: 1px solid var(--border-subtle); border-radius: 14px; background: var(--bg-subtle); }
+.l2-campo-chat > strong { display: block; color: var(--color-blue-primary); font-size: 14px; line-height: 1.3; }
+.l2-campo-chat > small { display: block; margin-top: 2px; color: var(--text-muted); font-size: 12.5px; line-height: 1.35; }
+.l2-campo-chat .l2-options { margin-top: 8px; }
+/* Opciones de un dato: dos columnas solo si cada una mide al menos 9rem; en el chat angosto, una columna a todo el ancho para que palabras largas ("Administrativos") no se salgan del botón */
+.l2-campo-chat .l2-options-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, max(9rem, calc(50% - 4px))), 1fr)); }
+.l2-chat-select { width: 100%; min-height: 44px; margin-top: 8px; padding: 8px 12px; border: 1.5px solid var(--border-active); border-radius: 12px; background: #FFFFFF; color: var(--text-primary); font: inherit; font-size: 15px; }
+.l2-chat-select:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+.l2-campo-seguro { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.l2-campo-seguro input { flex: 1; min-width: 0; min-height: 44px; padding: 8px 14px; border: 1.5px solid var(--border-active); border-radius: var(--radius-pill); font: inherit; font-size: 16px; }
+.l2-campo-seguro input:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+.l2-campo-seguro .l2-option { min-width: 44px; margin: 0; padding: 8px 12px; }
+.l2-campo-error { flex-basis: 100%; color: #B91C1C; font-size: 12.5px; }
+.l2-campo-error:empty { display: none; }
+.l2-campo-listo { display: flex; align-items: center; gap: 6px; margin: 8px 0 0; color: #047857; font-size: 13.5px; font-weight: 700; }
+.l2-adjunto { display: inline-flex; align-items: center; gap: 6px; overflow-wrap: anywhere; }
+.l2-chat-avisos { margin: 8px 0; padding: 8px 12px 8px 28px; border-radius: 12px; background: #FEF3C7; color: #78350F; font-size: 13.5px; line-height: 1.4; }
+/* Avance: datos, confirmar, pago y revisión */
+.l2-progreso { display: flex; gap: 4px; margin: 12px 0 0; padding: 0; list-style: none; }
+.l2-progreso li { flex: 1; min-width: 0; padding-top: 6px; border-top: 4px solid var(--border-subtle); color: var(--text-muted); font-size: 11.5px; font-weight: 700; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.l2-progreso li.hecho { border-color: var(--color-blue-primary); color: var(--color-blue-primary); }
+.l2-progreso li.actual { border-color: var(--color-blue-primary); color: var(--text-primary); font-weight: 800; }
+/* Resumen: la etiqueta arriba y el dato abajo, porque las etiquetas de los formularios son largas */
+.l2-resumen div { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.l2-resumen dd { overflow-wrap: anywhere; }
+.l2-chat-datos { margin-top: 8px; }
+.l2-chat-datos summary { display: flex; align-items: center; gap: 8px; min-height: 40px; color: var(--color-blue-primary); font-size: 13.5px; font-weight: 800; cursor: pointer; }
+.l2-chat-datos summary:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 8px; }
+.l2-chat-declara { margin: 4px 0 0; padding-left: 18px; color: var(--text-secondary); font-size: 13px; line-height: 1.4; }
+.l2-chat-resumen { margin: 6px 0 0; padding: 10px 12px; border-radius: 12px; background: var(--bg-subtle); font-size: 13.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.l2-modo-basico { display: flex; align-items: flex-start; gap: 6px; }
+a.l2-chat-tramite { text-decoration: none; }
+/* La pasarela de pago (pago.html) sobre el chat, sin salir de la conversación */
+.l2-pago-marco { position: fixed; inset: 0; z-index: 200; width: 100%; height: 100%; border: 0; background: transparent; color-scheme: normal; }
+@media (prefers-reduced-motion: reduce) {
+  .l2-puntos i { animation: none; opacity: 0.7; }
 }

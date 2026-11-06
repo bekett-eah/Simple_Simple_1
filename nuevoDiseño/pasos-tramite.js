@@ -1,6 +1,6 @@
 /* Pasos a seguir de cada trámite, horarios de atención y citas, para el asistente (asistente.js) y el chat de WhatsApp
    (whatsapp.html). Los pasos se arman con la ficha del catálogo (costo, tiempo e institución), con si el trámite tiene
-   formulario en el nuevo diseño (formularios.js) o se hace en el portal de la institución, y con si permite cita (citas.js).
+   formulario en el nuevo diseño (formularios.js: se hace en el chat) o se hace en el portal de la institución, y con si permite cita (citas.js).
    canal: 'web' (el asistente, por defecto) o 'whatsapp', que cambia cómo se llena la solicitud, se paga y se recibe.
    Las citas ofrecen los próximos días hábiles y, de ejemplo, algunos horarios ya ocupados (siempre los mismos).
    Se carga después de formularios.js y citas.js. */
@@ -41,11 +41,14 @@ window.PASOS_TRAMITE = (() => {
     const tarda = /^(\d|hasta)/i.test(t.tiempo) ? `Tarda ${t.tiempo.charAt(0).toLowerCase()}${t.tiempo.slice(1)}` : `${t.tiempo}`;
     // Por WhatsApp los textos son más cortos: cada paso va en una sola línea del mensaje
     const llenar = whatsapp
-      ? { titulo: cita ? 'Responde las preguntas o agenda tu cita' : 'Responde las preguntas', texto: cita ? `Aquí mismo, uno por uno, o con cita presencial; atienden ${horarioLargo(cita.horario)}` : 'Te pedimos los datos aquí, uno por uno' }
-      : { titulo: cita ? 'Llena el formulario o agenda tu cita' : 'Llena el formulario', texto: cita ? `Hazlo en línea en Simple.sv o agenda una cita en la institución desde este chat; atienden ${horarioLargo(cita.horario)}` : 'Lo llenas en línea en Simple.sv, sin hacer filas' };
-    const pago = whatsapp
+      ? { titulo: cita ? 'Responde las preguntas o agenda tu cita' : 'Responde las preguntas', texto: cita ? `Aquí mismo, solo lo que falta, o con cita presencial; atienden ${horarioLargo(cita.horario)}` : 'Te pedimos aquí solo lo que falta' }
+      : { titulo: cita ? 'Hazlo aquí o agenda tu cita' : 'Hazlo aquí en el chat', texto: cita ? `Usamos los datos de tu Identidad Digital y solo confirmas; o agenda una cita en la institución desde este chat; atienden ${horarioLargo(cita.horario)}` : 'Usamos los datos de tu Identidad Digital, te pedimos solo lo que falta y confirmas' };
+    // Sin paso de pago en el formulario, el monto lo calcula la institución al revisar (la fianza o la póliza de la AAC)
+    const pagaDespues = enLinea && !(formularios[t.numero].pasos || []).some(p => p.tipo === 'pago');
+    const pago = pagaDespues ? `Cuando ${entrega} revise tu solicitud, te indica el monto`
+      : whatsapp
       ? `Con tarjeta, en un enlace seguro que te enviamos aquí${cita ? '; con cita, pagas en la sede' : ''}`
-      : `Pagas ${costo.pago} con tarjeta al terminar el formulario${cita ? '; si vas con cita, pagas en la sede' : ''}`;
+      : `Pagas ${costo.pago} con tarjeta al confirmar, sin salir del chat${cita ? '; si vas con cita, pagas en la sede' : ''}`;
     return [
       { titulo: 'Revisa lo que necesitas', texto: `${costo.resumen} y lo entrega ${entrega}${whatsapp ? '' : '. Los requisitos están en la ficha oficial del trámite'}` },
       enLinea ? llenar : { titulo: 'Inicia en el portal de la institución', texto: 'Este trámite se hace en el portal oficial de la institución; se abre en una pestaña nueva' },

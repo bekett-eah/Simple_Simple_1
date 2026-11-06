@@ -97,6 +97,33 @@
     .l2-tab-num { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: var(--radius-pill); background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 12px; font-weight: 800; }
     .l2-tab[aria-pressed="true"] .l2-tab-num { background: rgba(255, 255, 255, 0.22); color: #FFFFFF; }
 
+    /* Buscador de documentos (el mismo de Indexlogin.html) */
+    .l2-search { position: relative; isolation: isolate; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; transition: border-color 0.25s ease, box-shadow 0.3s ease; animation: l2-search-in 0.35s ease; }
+    .l2-search[hidden] { display: none; }
+    .l2-search::before { content: ''; position: absolute; inset: -3.5px; z-index: -1; border-radius: inherit; background: linear-gradient(90deg, var(--color-blue-primary), var(--border-active), var(--color-blue-sapphire), var(--color-blue-primary)); background-size: 300% 100%; opacity: 0; transition: opacity 0.25s ease; }
+    .l2-search::after { content: ''; position: absolute; inset: -1.5px; z-index: -1; border-radius: inherit; background: #FFFFFF; opacity: 0; transition: opacity 0.25s ease; }
+    .l2-search:focus-within::after { opacity: 1; }
+    .l2-search:hover { border-color: var(--border-active); box-shadow: var(--shadow-sm); }
+    .l2-search:focus-within { border-color: transparent; box-shadow: 0 8px 28px rgba(0, 102, 255, 0.2); }
+    .l2-search:focus-within::before { opacity: 1; animation: l2-aro 1.1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+    .l2-search > i { font-size: 20px; color: var(--text-muted); flex-shrink: 0; transition: color 0.25s ease; }
+    .l2-search:focus-within > i { color: var(--color-blue-primary); animation: l2-lupa 0.5s ease; }
+    .l2-search input { flex: 1; min-width: 0; min-height: 48px; padding: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 16px; color: var(--text-primary); }
+    .l2-search input::placeholder { color: var(--text-muted); }
+    .l2-search-borrar { display: none; align-items: center; justify-content: center; width: 36px; height: 36px; border: none; border-radius: 50%; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 16px; cursor: pointer; flex-shrink: 0; }
+    .l2-search-borrar:hover { background: var(--border-active); }
+    .l2-search-borrar:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-search.tiene-texto .l2-search-borrar { display: inline-flex; animation: l2-pop 0.2s ease; }
+    @keyframes l2-aro { from { background-position: 100% 0; } to { background-position: 0 0; } }
+    @keyframes l2-lupa { 0% { transform: scale(1) rotate(0); } 50% { transform: scale(1.3) rotate(-18deg); } 100% { transform: scale(1) rotate(0); } }
+    @keyframes l2-pop { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes l2-search-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+    .l2-search-top { margin: 0 0 16px; }
+    @media (prefers-reduced-motion: reduce) {
+      .l2-search, .l2-search::before, .l2-search::after, .l2-search > i { transition: none; animation: none; }
+      .l2-search:focus-within::before, .l2-search:focus-within > i, .l2-search.tiene-texto .l2-search-borrar { animation: none; }
+    }
+
     /* Filtros en una sola línea: pestañas de estado a la izquierda; fechas, orden y período a la derecha.
        Al abrir, las fechas van del 1 de enero de este año a hoy; la persona puede elegir cualquier rango. */
     .l2-filtros { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px; }
@@ -378,6 +405,13 @@
         <h1 class="l2-titulo">Mis documentos</h1>
         <p>Tus trámites en proceso y finalizados</p>
 
+        <!-- Busca por nombre del trámite, institución o número de solicitud, en todo el historial -->
+        <div class="l2-search l2-search-top" id="buscador" role="search">
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" id="buscador-input" placeholder="Buscar en mis documentos…" aria-label="Buscar en mis documentos" autocomplete="off" enterkeyhint="search">
+          <button type="button" class="l2-search-borrar" id="buscador-borrar" aria-label="Borrar búsqueda"><i class="ph ph-x" aria-hidden="true"></i></button>
+        </div>
+
         <!-- Filtros en una sola línea: lista de estado (el número de cada opción lo pone el script) y fechas
              (las iniciales, del 1 de enero de este año a hoy, también las pone el script) -->
         <div class="l2-filtros">
@@ -514,6 +548,7 @@
     const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let filtroActual = 'todos';
     let pagina = 0;
+    let busqueda = '';
 
     // Crea un elemento con texto (textContent evita inyectar HTML)
     function el(tag, clase, texto) {
@@ -574,9 +609,10 @@
       if (t.estado !== 'finalizado') {
         // En proceso: los mismos botones, apagados hasta que el trámite finalice
         [['l2-btn-outline', 'ph-seal-check', 'Apostillar'], ['l2-btn-primary', 'ph-download-simple', 'Descargar']].forEach(([clase, icon, texto]) => {
-          const b = boton(clase, icon, texto);
+          const b = boton(`${clase} l2-btn-redondo`, icon, '');
           b.disabled = true;
-          b.title = 'Disponible cuando tu trámite finalice';
+          b.title = `${texto}: disponible cuando tu trámite finalice`;
+          b.setAttribute('aria-label', b.title);
           caja.append(b);
         });
         // Ver detalle: redondo, solo con el ícono, al final de la fila
@@ -588,19 +624,22 @@
         return caja;
       }
       const apostilla = apostillaDe(t);
-      const apostillar = boton('l2-btn-outline', 'ph-seal-check', 'Apostillar');
+      // Solo íconos: el nombre va en el tooltip (title) y en aria-label
+      const apostillar = boton('l2-btn-outline l2-btn-redondo', 'ph-seal-check', '');
       if (apostilla) {
         apostillar.disabled = true;
         apostillar.title = apostilla === 'lista' ? 'Este documento ya está apostillado' : 'Tu apostilla está en proceso';
+        apostillar.setAttribute('aria-label', apostillar.title);
       } else {
+        apostillar.title = 'Apostillar';
         apostillar.setAttribute('aria-label', `Apostillar ${t.nombre}, trámite ${t.id}`);
         apostillar.addEventListener('click', () => abrirApostilla(t));
       }
       caja.append(apostillar);
       const apostillado = apostilla === 'lista';
-      const descargar = boton('l2-btn-primary', 'ph-download-simple', 'Descargar');
+      const descargar = boton('l2-btn-primary l2-btn-redondo', 'ph-download-simple', '');
       descargar.setAttribute('aria-label', `Descargar ${t.nombre}${apostillado ? ' apostillado' : ''}, trámite ${t.id}`);
-      if (apostillado) descargar.title = 'Descargar documento apostillado';
+      descargar.title = apostillado ? 'Descargar documento apostillado' : 'Descargar';
       descargar.addEventListener('click', () => avisar(`Descargando ${t.nombre}${apostillado ? ' (apostillado)' : ''}…`));
       caja.append(descargar);
       return caja;
@@ -782,11 +821,22 @@
       return apostillaDe(t) ? 2 : 1;
     }
 
+    // Quita tildes y pasa a minúsculas para comparar
+    const normalizar = texto => String(texto || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const buscando = () => busqueda.trim().length > 0;
+    // Todas las palabras escritas deben estar en el nombre, la institución, la dependencia o el número de solicitud
+    function coincideConBusqueda(t) {
+      const palabras = normalizar(busqueda).split(/\s+/).filter(Boolean);
+      const texto = normalizar([t.nombre, t.institucion, t.dependencia, t.id].join(' '));
+      return palabras.every(p => texto.includes(p));
+    }
+
     // Los trámites de la pestaña y las fechas elegidas: por prioridad de estado y, dentro de cada una, por fecha
     // (el más reciente primero, o el más antiguo si se cambió el orden)
     function listaFiltrada() {
       const antiguosPrimero = ordenBoton.dataset.orden === 'antiguos';
-      return delRango()
+      // Al buscar se mira todo el historial: el documento no se esconde por quedar fuera de las fechas elegidas
+      return (buscando() ? TRAMITES.filter(coincideConBusqueda) : delRango())
         .filter(t => enPestana(t, filtroActual))
         .sort((a, b) => prioridad(a) - prioridad(b) || (antiguosPrimero ? a.fecha.localeCompare(b.fecha) : b.fecha.localeCompare(a.fecha)));
     }
@@ -801,7 +851,14 @@
 
       if (!visibles.length) {
         const vacio = el('p', 'l2-vacio');
-        if (!rangoValido()) {
+        if (buscando()) {
+          vacio.append(icono('ph-magnifying-glass'), `No encontramos documentos con «${busqueda.trim()}»`);
+          if (filtroActual !== 'todos') {
+            const todos = boton('l2-btn-outline', 'ph-folder-open', 'Buscar en todos');
+            todos.addEventListener('click', () => { estadoLista.value = 'todos'; cambiarFiltro('todos'); });
+            vacio.append(todos);
+          }
+        } else if (!rangoValido()) {
           vacio.append(icono('ph-calendar-x'), 'Corrige las fechas para ver tus trámites');
         } else if (TRAMITES.some(t => enPestana(t, filtroActual))) {
           // Hay trámites, pero fuera de estas fechas
@@ -951,6 +1008,20 @@
       refrescar();
     });
     periodo.addEventListener('change', () => aplicarRango(periodo.value));
+
+    // Buscador: filtra mientras se escribe y vuelve a la primera página
+    const buscador = document.getElementById('buscador');
+    const buscadorInput = document.getElementById('buscador-input');
+    function buscar(texto) {
+      busqueda = texto;
+      buscador.classList.toggle('tiene-texto', busqueda.length > 0);
+      if (buscadorInput.value !== busqueda) buscadorInput.value = busqueda;
+      pagina = 0;
+      pintarLista();
+    }
+    buscadorInput.addEventListener('input', () => buscar(buscadorInput.value));
+    buscadorInput.addEventListener('keydown', e => { if (e.key === 'Escape' && busqueda) buscar(''); });
+    document.getElementById('buscador-borrar').addEventListener('click', () => { buscar(''); buscadorInput.focus(); });
     [desdeInput.value, hastaInput.value] = RANGOS.anio;
 
     // Desde un aviso: el trámite en su página de la lista, resaltado, con lo que pasa con él arriba

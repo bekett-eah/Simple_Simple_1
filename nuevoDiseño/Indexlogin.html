@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
 
   <link rel="stylesheet" href="../src/styles/simple-light-vibrant.css">
+  <link rel="stylesheet" href="asistente.css?v=14">
   <script src="transicion-vistas.js"></script>
   <script src="cambio-vista.js"></script>
   <script src="terminos.js" defer></script>
@@ -34,7 +35,7 @@
     .l2-btn-primary:hover { background: var(--color-blue-hover); }
     .l2-btn-outline { background: #FFFFFF; color: var(--color-blue-primary); border-color: var(--border-active); }
     .l2-btn-outline:hover { background: var(--color-blue-soft); }
-    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-tab:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
+    .l2-btn:focus-visible, .l2-link:focus-visible, .l2-dot:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
 
     /* Encabezado */
     .l2-header { position: sticky; top: 0; z-index: 50; background: #F4F8FE; border-bottom: 1px solid var(--border-subtle); }
@@ -92,12 +93,8 @@
     .l2-section h2 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; margin: 0 0 8px; }
     .l2-section > .l2-wrap > p { color: var(--text-secondary); margin: 0 0 24px; }
 
-    .l2-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 20px; scrollbar-width: none; }
-    @media (max-width: 999px) { .l2-tabs { padding-right: 36px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); } }
-    .l2-tabs::-webkit-scrollbar { display: none; }
-    .l2-tab { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex-shrink: 0; min-height: 44px; padding: 8px 16px; border-radius: var(--radius-pill); border: 1.5px solid var(--border-subtle); background: #FFFFFF; color: var(--text-secondary); font-weight: 700; font-size: 15px; cursor: pointer; }
-    .l2-tab i { font-size: 16px; line-height: 1; }
-    .l2-tab[aria-selected="true"] { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
+    /* El botón flotante del asistente no tapa el final de la lista en móvil/tablet */
+    @media (max-width: 999px) { main { padding-bottom: 72px; } }
 
     /* Buscador de la lista: aro azul que se dibuja y sombra que se eleva al enfocar, como la barra de Google */
     .l2-search { position: relative; isolation: isolate; display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border: 1.5px solid var(--border-subtle); border-radius: var(--radius-pill); background: #FFFFFF; transition: border-color 0.25s ease, box-shadow 0.3s ease; animation: l2-search-in 0.35s ease; }
@@ -170,33 +167,8 @@
     .l2-footer-enlaces a:focus-visible, .l2-footer-enlaces button:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; border-radius: 6px; }
 
 
-    /* Vista "Categorías": tarjetas por tema y listado de sus trámites */
-    .l2-temas[hidden], .l2-tema-actual[hidden], .l2-carrusel[hidden] { display: none; }
-    .l2-tema { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 24px; text-align: left; font: inherit; color: inherit; background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 20px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-    .l2-tema:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--border-active); }
-    .l2-tema:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
-    .l2-tema-icono { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin-bottom: 14px; border-radius: 16px; background: var(--color-blue-soft); color: var(--color-blue-primary); font-size: 26px; transition: background 0.25s ease, color 0.25s ease; }
-    .l2-tema:hover .l2-tema-icono { background: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema strong { font-size: 19px; font-weight: 800; color: var(--color-blue-primary); }
-    .l2-tema-desc { color: var(--text-secondary); font-size: 15px; line-height: 1.45; }
-    .l2-tema-pie { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--text-muted); }
-    .l2-tema-pie i { font-size: 18px; color: var(--color-blue-primary); transition: transform 0.25s ease; }
-    .l2-tema:hover .l2-tema-pie i { transform: translateX(5px); }
-    /* Fila de la categoría elegida; el buscador va aparte, encima de las pestañas */
-    .l2-barra { display: flex; align-items: stretch; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
-    .l2-barra[hidden] { display: none; }
+    .l2-carrusel[hidden] { display: none; }
     .l2-search-top { margin-bottom: 16px; }
-    /* Tarjeta de la categoría elegida: una sola línea, con la misma altura que el buscador */
-    .l2-tema-actual { display: flex; align-items: center; gap: 12px; flex: 1 1 100%; min-width: 0; min-height: 52px; padding: 0 6px; background: #FFFFFF; border: 1.5px solid var(--border-active); border-radius: var(--radius-pill); box-shadow: var(--shadow-sm); }
-    .l2-tema-actual .l2-tema-icono { width: 38px; height: 38px; margin: 0; flex-shrink: 0; border-radius: 50%; font-size: 19px; background: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema-actual-texto { display: flex; align-items: baseline; gap: 10px; min-width: 0; flex: 1; white-space: nowrap; }
-    .l2-tema-actual h3 { flex-shrink: 0; margin: 0; font-size: 16px; font-weight: 800; line-height: 1.25; color: var(--color-blue-primary); }
-    .l2-tema-actual h3:focus-visible { outline: none; }
-    .l2-tema-actual .l2-tema-desc { order: 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 13px; }
-    .l2-tema-total { order: 1; flex-shrink: 0; font-size: 13px; font-weight: 700; color: var(--color-blue-primary); }
-    .l2-tema-volver { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; flex-shrink: 0; border: 1.5px solid var(--border-active); border-radius: 50%; background: #FFFFFF; color: var(--color-blue-primary); font-size: 18px; cursor: pointer; transition: background 0.2s, color 0.2s; }
-    .l2-tema-volver:hover { background: var(--color-blue-primary); border-color: var(--color-blue-primary); color: #FFFFFF; }
-    .l2-tema-volver:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 2px; }
 
     /* Escritorio */
     @media (min-width: 720px) {
@@ -222,13 +194,23 @@
     @media (prefers-reduced-motion: reduce) {
       .l2-page.activa { animation: none; }
       .l2-track, .l2-panel { transition: none; }
-      .l2-tema, .l2-tema-icono, .l2-tema-pie i { transition: none; }
       .l2-search, .l2-search::before, .l2-search::after, .l2-search > i { transition: none; }
       .l2-search, .l2-search:focus-within::before, .l2-search:focus-within > i, .l2-search.tiene-texto .l2-search-borrar { animation: none; }
     }
     /* Contáctanos y Términos y condiciones van en el menú del encabezado */
     .l2-footer-enlaces, .l2-header-actions > a.l2-icon-button[href="contactanos.html"] { display: none; }
     .l2-footer:not(:has(> .l2-wrap > p)) { display: none; }
+    /* "Cómo funciona" va solo en el chat, como encabezado desplegable */
+    /* En el chat: encabezado "Cómo funciona" que despliega los pasos */
+    .l2-bot.l2-pasos-chat { position: relative; z-index: 2; width: 270px; max-width: calc(100% - 44px); box-sizing: border-box; }
+    .l2-pasos-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; margin: 0; padding: 0; border: 0; background: none; font: inherit; text-align: left; cursor: pointer; }
+    .l2-pasos-toggle:focus-visible { outline: 3px solid var(--border-focus); outline-offset: 3px; border-radius: 12px; }
+    .l2-pasos-chat .l2-pasos-titulo { min-width: 0; margin: 0; font-size: 13px; line-height: 1.35; }
+    .l2-pasos-chat:not(.abierto) .l2-pasos-accion i { transform: rotate(180deg); }
+    .l2-pasos-texto { display: flex; flex-direction: column; gap: 10px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .l2-pasos-texto[hidden] { display: none; }
+    .l2-pasos-texto li { display: flex; flex-direction: column; gap: 2px; padding-left: 12px; border-left: 3px solid var(--color-blue-primary); font-size: 13px; line-height: 1.4; color: var(--text-secondary); }
+    .l2-pasos-texto li strong { font-size: 14px; font-weight: 800; color: var(--color-blue-primary); }
   </style>
   <link rel="stylesheet" href="modulos.css">
   <script src="sesion.js"></script>
@@ -305,29 +287,6 @@
           <button type="button" class="l2-search-borrar" id="buscador-borrar" aria-label="Borrar búsqueda"><i class="ph ph-x" aria-hidden="true"></i></button>
         </div>
 
-        <div class="l2-tabs" role="tablist" aria-label="Categorías de trámites">
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="empleo" aria-selected="true" tabindex="0"><i class="ph ph-briefcase" aria-hidden="true"></i>Judiciales</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="documentos" aria-selected="false" tabindex="-1"><i class="ph ph-identification-card" aria-hidden="true"></i>DUI y partidas</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="vivienda" aria-selected="false" tabindex="-1"><i class="ph ph-house-line" aria-hidden="true"></i>Agua y hogar</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="estudio" aria-selected="false" tabindex="-1"><i class="ph ph-graduation-cap" aria-hidden="true"></i>Educación y títulos</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="todos" aria-selected="false" tabindex="-1"><i class="ph ph-file-text" aria-hidden="true"></i>Todos</button>
-          <button class="l2-tab" role="tab" aria-controls="grid" data-cat="categorias" aria-selected="false" tabindex="-1"><i class="ph ph-squares-four" aria-hidden="true"></i>Categorías</button>
-        </div>
-
-        <div class="l2-barra" id="barra" hidden>
-          <div class="l2-tema-actual" id="tema-head" hidden>
-            <span class="l2-tema-icono"><i class="ph" id="tema-icono" aria-hidden="true"></i></span>
-            <div class="l2-tema-actual-texto">
-              <h3 id="tema-titulo" tabindex="-1"></h3>
-              <span class="l2-tema-desc" id="tema-desc"></span>
-              <span class="l2-tema-total" id="tema-total"></span>
-            </div>
-            <button type="button" class="l2-tema-volver" id="tema-volver" aria-label="Volver a Categorías" title="Volver a Categorías"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
-          </div>
-
-        </div>
-
-        <div class="l2-grid l2-temas" id="temas" role="list" aria-label="Categorías de trámites" hidden></div>
         <div class="l2-visor" id="visor">
           <div class="l2-carrusel" id="grid" role="tabpanel" aria-roledescription="carrusel" aria-label="Trámites disponibles" tabindex="0"></div>
         </div>
@@ -346,12 +305,101 @@
   </footer>
 
 
+  <!-- BOTÓN FLOTANTE: el chat bot. Los trámites se hacen por WhatsApp, pero siempre desde el chat bot (asistente.js:
+       "Hacerlo por WhatsApp"), por eso no hay un botón de WhatsApp aparte -->
+  <div class="l2-flotantes" data-transicion-contenido>
+    <button class="l2-fab l2-fab-circulo" id="fab" onclick="alternarAsistente(true)" aria-controls="asistente" aria-expanded="false" aria-label="Chat bot: abre el asistente de Simple.sv">
+      <span class="l2-fab-icono"><img class="l2-fab-robot" src="../src/assets/brand/simple-robot-asistente-sin-fondo.png" alt="" width="36" height="36"></span>
+      <span class="l2-fab-texto" aria-hidden="true">Chat bot</span>
+    </button>
+  </div>
+
+  <aside class="l2-panel" id="asistente" role="complementary" aria-label="Asistente de Simple.sv">
+    <div class="l2-panel-head">
+      <div class="l2-panel-title">
+        <img class="l2-robot" src="../src/assets/brand/simple-robot-asistente.svg" alt="" width="44" height="44">
+        <div>
+          <strong>Asistente de Simple.sv</strong>
+          <span>Automatizado · no reemplaza a la institución</span>
+        </div>
+      </div>
+      <button class="l2-panel-close" onclick="alternarAsistente(false)" aria-label="Cerrar asistente"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+
+    <div class="l2-msgs" id="mensajes" role="log" aria-live="polite" aria-label="Conversación con el asistente">
+      <div class="l2-fila-bot">
+        <img class="l2-avatar-bot" src="../src/assets/brand/simple-robot-asistente-sin-fondo.png" alt="" width="36" height="36">
+        <div class="l2-bot l2-pasos-chat" id="pasos-chat">
+          <button type="button" class="l2-pasos-toggle" id="pasos-toggle" aria-expanded="false" aria-controls="pasos-vert" aria-label="Cómo funciona: ver pasos" title="Ver pasos">
+            <span class="l2-pasos-titulo" id="pasos-chat-titulo">Cómo funciona</span>
+            <span class="l2-pasos-accion"><i class="ph ph-caret-up" aria-hidden="true"></i></span>
+          </button>
+          <ul class="l2-pasos-texto" id="pasos-vert" aria-labelledby="pasos-chat-titulo" hidden></ul>
+        </div>
+      </div>
+      <div class="l2-fila-bot">
+        <img class="l2-avatar-bot" src="../src/assets/brand/simple-robot-asistente-sin-fondo.png" alt="" width="36" height="36">
+        <div class="l2-bot">
+          ¡Hola! Soy el asistente de <strong>Simple.sv</strong>. ¿Qué trámite buscas?
+          <!-- Las categorías del catálogo (las pone asistente.js: botonesCategorias) -->
+          <div class="l2-options l2-options-grid" id="opciones-inicio"></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="l2-form" onsubmit="event.preventDefault(); enviarMensaje();">
+      <label class="l2-sr" for="texto-asistente">Escribe tu duda</label>
+      <input type="text" id="texto-asistente" placeholder="Escribe tu duda aquí" autocomplete="off">
+      <div class="l2-grabando" role="status" aria-live="polite">
+        <span class="l2-grabando-punto" aria-hidden="true"></span>
+        <span class="l2-ondas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span id="grabando-texto">Escuchando…</span>
+        <span id="grabando-tiempo">0:00</span>
+      </div>
+      <button type="button" class="l2-mic" id="microfono" aria-label="Enviar audio" aria-pressed="false" onclick="alternarMicrofono()"><i class="ph ph-microphone" aria-hidden="true"></i></button>
+      <button type="submit" class="l2-btn l2-btn-primary" aria-label="Enviar"><i class="ph ph-paper-plane-right" aria-hidden="true"></i></button>
+    </form>
+  </aside>
+
+
   <script src="../src/data/catalogo-landing.js"></script>
-  <script src="formularios.js"></script>
+  <script src="formularios.js?v=8"></script>
   <script src="canales.js"></script>
   <script src="citas.js"></script>
   <script src="ciudadano.js"></script>
+  <script src="pasos-tramite.js?v=3"></script>
   <script>
+    const PASOS = [
+      { titulo: 'Dinos qué necesitas', texto: 'Escríbelo como quieras, por ejemplo «antecedentes penales para un trabajo»' },
+      { titulo: 'Revisa y confirma', texto: 'Usamos los datos de tu Identidad Digital y solo te pedimos lo que falta' },
+      { titulo: 'Paga y listo', texto: 'Sin salir del chat; te avisamos cuando esté listo' }
+    ];
+    // Al llegar desde el botón de WhatsApp de la landing (?whatsapp), el chat muestra cómo se hace el trámite por WhatsApp
+    // (asistente.js confirma el celular y lleva al chat de WhatsApp)
+    const DESDE_WHATSAPP = new URLSearchParams(location.search).has('whatsapp');
+    const PASOS_WHATSAPP = [
+      { titulo: 'Confirma tu número', texto: 'Te escribimos al celular registrado en tu Identidad Digital' },
+      { titulo: 'Dinos qué trámite quieres', texto: 'En el WhatsApp de Simple.sv te pedimos solo lo que falta' },
+      { titulo: 'Paga y espera el aviso', texto: 'Pagas con un enlace seguro y te avisamos cuando finalice' }
+    ];
+    // Chat: cerrado por defecto (solo el encabezado); al abrirlo salen los pasos, solo con su texto
+    (() => {
+      const raiz = document.getElementById('pasos-chat');
+      const lista = document.getElementById('pasos-vert');
+      const toggle = document.getElementById('pasos-toggle');
+      const pasos = DESDE_WHATSAPP ? PASOS_WHATSAPP : PASOS;
+      if (DESDE_WHATSAPP) document.getElementById('pasos-chat-titulo').textContent = 'Cómo funciona por WhatsApp';
+      lista.innerHTML = pasos.map(p => `<li><strong>${p.titulo}</strong><span>${p.texto}</span></li>`).join('');
+      toggle.addEventListener('click', () => {
+        const abierto = !raiz.classList.contains('abierto');
+        raiz.classList.toggle('abierto', abierto);
+        lista.hidden = !abierto;
+        toggle.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+        toggle.setAttribute('aria-label', abierto ? 'Cómo funciona: ocultar pasos' : 'Cómo funciona: ver pasos');
+        toggle.title = abierto ? 'Ocultar pasos' : 'Ver pasos';
+      });
+    })();
+
     /* ===== Utilidades ===== */
     const CATEGORIAS = {
       empleo: 'Judiciales',
@@ -362,27 +410,9 @@
     const TRAMITES = window.CATALOGO_TRAMITES || [];
     const POR_PAGINA = 8;
 
-    // Categorías temáticas: cada trámite (por su número en el catálogo) pertenece a una sola
-    const TEMAS = [
-      { id: 'documentos', nombre: 'Documentos', icono: 'file-text', desc: 'Identidad, constancias y registros', numeros: [73, 74, 75, 95, 96, 99, 100, 104, 110, 112, 113, 114] },
-      { id: 'educacion', nombre: 'Educación', icono: 'graduation-cap', desc: 'Estudios, títulos y certificaciones', numeros: [[48, 55], [85, 87]] },
-      { id: 'trabajo', nombre: 'Trabajo y negocio', icono: 'briefcase', desc: 'Permisos, solvencias y actividad económica', numeros: [[18, 34], 68, 91, 92, 97, 98, 102, 107, 115, 118] },
-      { id: 'salud', nombre: 'Salud y bienestar', icono: 'heart', desc: 'Atención, rehabilitación y beneficios', numeros: [[76, 78], [88, 90], 108, 111] },
-      { id: 'vivienda', nombre: 'Vivienda y servicios', icono: 'house-line', desc: 'Tu hogar y servicios básicos', numeros: [[61, 64], 101, 103, 105, 109] },
-      { id: 'transporte', nombre: 'Transporte', icono: 'bus', desc: 'Vehículos, aviación y movilidad', numeros: [[1, 17], [35, 47], [79, 81], 106, 117] },
-      { id: 'ambiente', nombre: 'Medio ambiente', icono: 'leaf', desc: 'Recursos naturales y sostenibilidad', numeros: [[65, 67], [69, 72]] },
-      { id: 'familia', nombre: 'Familia', icono: 'users-three', desc: 'Protección social, niñez y adultos mayores', numeros: [[56, 60], [82, 84], 93, 94, 116] }
-    ];
     // Trámites con formulario en el nuevo diseño (formularios.js): su ícono acompaña la transición al abrir tramite.html
     const FORMULARIOS = window.FORMULARIOS_TRAMITES || {};
     const ICONO_CATEGORIA = { empleo: 'ph-briefcase', documentos: 'ph-identification-card', vivienda: 'ph-house-line', estudio: 'ph-graduation-cap' };
-    const TEMA_DE = {};
-    TEMAS.forEach(tema => tema.numeros.forEach(n => {
-      const [desde, hasta] = Array.isArray(n) ? n : [n, n];
-      for (let i = desde; i <= hasta; i++) TEMA_DE[i] = tema.id;
-    }));
-    let temaActivo = null;
-    let categoriaActiva = 'empleo';
     let busqueda = '';
 
     // Quita tildes y pasa a minúsculas para comparar
@@ -429,21 +459,19 @@
       return { texto: monto ? monto[0].replace(/\s/, '') : 'Ver costo', gratis: false };
     }
 
-    // En «Todos» van primero los más populares, en el orden de las pestañas; después el resto como viene
+    // Primero van los más populares, en este orden; después el resto como viene
     const ORDEN_POPULARES = ['empleo', 'documentos', 'vivienda', 'estudio'];
     function prioridad(t) {
       const i = ORDEN_POPULARES.indexOf(t.categoria);
       return i === -1 ? ORDEN_POPULARES.length : i;
     }
 
-    // Trámites de la pestaña (o de la categoría temática elegida), sin aplicar la búsqueda
+    // Todos los trámites, sin aplicar la búsqueda
     function tramitesDelAmbito() {
-      if (categoriaActiva === 'categorias') return TRAMITES.filter(t => temaActivo && TEMA_DE[t.numero] === temaActivo);
-      if (categoriaActiva === 'todos') return [...TRAMITES].sort((a, b) => prioridad(a) - prioridad(b));
-      return TRAMITES.filter(t => t.categoria === categoriaActiva);
+      return [...TRAMITES].sort((a, b) => prioridad(a) - prioridad(b));
     }
 
-    // El buscador es independiente de las pestañas: con texto, busca en todos los trámites
+    // Con texto, el buscador filtra todos los trámites
     function buscando() {
       return busqueda.trim().length > 0;
     }
@@ -478,12 +506,6 @@
     function sincronizarBuscador() {
       if (buscadorInput.value !== busqueda) buscadorInput.value = busqueda;
       buscador.classList.toggle('tiene-texto', busqueda.length > 0);
-      actualizarBarra();
-    }
-
-    // La fila solo se muestra si tiene la tarjeta de la categoría elegida
-    function actualizarBarra() {
-      document.getElementById('barra').hidden = document.getElementById('tema-head').hidden;
     }
 
     const buscador = document.getElementById('buscador');
@@ -508,57 +530,10 @@
       buscadorInput.focus();
     });
 
-    function renderTemas() {
-      document.getElementById('temas').innerHTML = TEMAS.map(tema => {
-        const total = TRAMITES.filter(t => TEMA_DE[t.numero] === tema.id).length;
-        return `
-          <button type="button" class="l2-tema" role="listitem" onclick="abrirTema('${tema.id}')" aria-label="${escapar(tema.nombre)}, ${total} trámites">
-            <span class="l2-tema-icono"><i class="ph ph-${tema.icono}" aria-hidden="true"></i></span>
-            <strong>${escapar(tema.nombre)}</strong>
-            <span class="l2-tema-desc">${escapar(tema.desc)}</span>
-            <span class="l2-tema-pie">${total} trámite${total === 1 ? '' : 's'}<i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-          </button>`;
-      }).join('');
-    }
-
-    function abrirTema(id) {
-      temaActivo = id;
-      busqueda = '';
-      renderCatalogo();
-      const titulo = document.getElementById('tema-titulo');
-      titulo.focus({ preventScroll: true });
-      document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    document.getElementById('tema-volver').addEventListener('click', () => {
-      temaActivo = null;
-      busqueda = '';
-      renderCatalogo();
-      document.querySelector('.l2-tab[data-cat="categorias"]').focus({ preventScroll: true });
-    });
-
     function renderCatalogo() {
-      const verTemas = categoriaActiva === 'categorias' && !temaActivo && !buscando();
-      const tema = TEMAS.find(x => x.id === temaActivo);
-      document.getElementById('temas').hidden = !verTemas;
-      document.getElementById('tema-head').hidden = !(categoriaActiva === 'categorias' && tema && !buscando());
-      document.getElementById('visor').hidden = verTemas;
-      if (tema) {
-        const total = tramitesDelAmbito().length;
-        document.getElementById('tema-titulo').textContent = tema.nombre;
-        document.getElementById('tema-desc').textContent = tema.desc;
-        document.getElementById('tema-total').textContent = `${total} trámite${total === 1 ? '' : 's'}`;
-        document.getElementById('tema-icono').className = `ph ph-${tema.icono}`;
-      }
       sincronizarBuscador();
       const grid = document.getElementById('grid');
       const mas = document.getElementById('mas');
-      if (verTemas) {
-        mas.innerHTML = '';
-        mas.classList.remove('activo');
-        renderTemas();
-        return;
-      }
       const lista = tramitesFiltrados();
 
       if (lista.length === 0) {
@@ -639,31 +614,24 @@
       document.getElementById('visor').scrollIntoView({ block: 'nearest', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
 
-    function marcarPestana(cat) {
-      categoriaActiva = cat;
-      temaActivo = null;
-      document.querySelectorAll('.l2-tab').forEach(b => {
-        const activa = b.dataset.cat === cat;
-        b.setAttribute('aria-selected', activa ? 'true' : 'false');
-        b.tabIndex = activa ? 0 : -1;
-        if (activa) centrarPestana(b);
-      });
-    }
-
-    // En móvil las pestañas se desplazan: la activa siempre queda a la vista
-    function centrarPestana(pestana) {
-      const barra = pestana.parentElement;
-      if (barra.scrollWidth <= barra.clientWidth) return;
-      const izquierda = barra.scrollLeft + pestana.getBoundingClientRect().left - barra.getBoundingClientRect().left - (barra.clientWidth - pestana.offsetWidth) / 2;
-      barra.scrollTo({ left: Math.max(0, izquierda), behavior: 'smooth' });
-    }
-
-    function irACategoria(cat) {
-      marcarPestana(cat);
+    function irACategoria() {
       busqueda = '';
       renderCatalogo();
       document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
     }
+
+    /* ===== Asistente (asistente.js): con sesión; "Ver en la lista" abre este catálogo ===== */
+    window.ASISTENTE_PAGINA = {
+      sesion: true,
+      verCategoria: irACategoria,
+      verTema: irACategoria,
+      verBusqueda: texto => {
+        busqueda = texto;
+        renderCatalogo();
+        document.getElementById('tramites').scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
 
     /* ===== Menús del encabezado ===== */
     const notificacionesBoton = document.getElementById('notificaciones-boton');
@@ -697,26 +665,6 @@
     });
 
     /* ===== Inicio ===== */
-    document.querySelectorAll('.l2-tab').forEach(b => {
-      b.addEventListener('click', () => {
-        busqueda = '';
-        marcarPestana(b.dataset.cat);
-        renderCatalogo();
-      });
-    });
-
-    // Flechas, Inicio y Fin entre pestañas (patrón de pestañas de WAI-ARIA)
-    document.querySelector('.l2-tabs').addEventListener('keydown', e => {
-      const pestanas = [...document.querySelectorAll('.l2-tab')];
-      const i = pestanas.indexOf(document.activeElement);
-      if (i < 0) return;
-      const destino = { ArrowRight: (i + 1) % pestanas.length, ArrowLeft: (i - 1 + pestanas.length) % pestanas.length, Home: 0, End: pestanas.length - 1 }[e.key];
-      if (destino === undefined) return;
-      e.preventDefault();
-      pestanas[destino].focus();
-      pestanas[destino].click();
-    });
-
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') cerrarMenusEncabezado();
     });
@@ -725,19 +673,18 @@
       if (!e.target.closest('.l2-notifications, .l2-profile-trigger')) cerrarMenusEncabezado();
     });
 
-    /* Al volver de un trámite, el catálogo sigue en la pestaña, categoría, búsqueda y página donde estaba */
+    /* Al volver de un trámite, el catálogo sigue en la búsqueda y página donde estaba */
     const CLAVE_CATALOGO = 'simple-catalogo-sesion';
 
     window.addEventListener('pagehide', () => {
-      try { sessionStorage.setItem(CLAVE_CATALOGO, JSON.stringify({ categoria: categoriaActiva, tema: temaActivo, busqueda, pagina: paginaVisible() })); } catch (e) {}
+      try { sessionStorage.setItem(CLAVE_CATALOGO, JSON.stringify({ busqueda, pagina: paginaVisible() })); } catch (e) {}
     });
 
     function recuperarCatalogo() {
       let estado = null;
       try { estado = JSON.parse(sessionStorage.getItem(CLAVE_CATALOGO)); } catch (e) {}
-      if (!estado || ![...document.querySelectorAll('.l2-tab')].some(b => b.dataset.cat === estado.categoria)) return 0;
-      marcarPestana(estado.categoria);
-      if (TEMAS.some(t => t.id === estado.tema)) temaActivo = estado.tema;
+      // Solo al volver atrás desde un trámite; al entrar o recargar, la lista empieza completa
+      if (!estado || (performance.getEntriesByType('navigation')[0] || {}).type !== 'back_forward') return 0;
       if (typeof estado.busqueda === 'string') busqueda = estado.busqueda;
       return Number(estado.pagina) || 0;
     }
@@ -747,5 +694,11 @@
     if (paginaGuardada) mostrarPagina(paginaGuardada);
 
   </script>
+  <script src="mis-tramites.js"></script>
+  <script src="motor-tramite.js?v=4"></script>
+  <script src="interprete.js"></script>
+  <script src="integraciones.js"></script>
+  <script src="metricas-asistente.js"></script>
+  <script src="asistente.js?v=22"></script>
 </body>
 </html>

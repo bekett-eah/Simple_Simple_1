@@ -5,19 +5,51 @@ Safari, en Mac y en iPhone, las necesita para reproducir videos, y todos los
 navegadores las usan para adelantar o reiniciar un video sin volver a bajarlo.
 
 Sirve la carpeta desde donde se ejecuta, como `python3 -m http.server`.
+Además atiende POST /api/asistente, el intérprete de IA del asistente (asistente_ia.py). Sin el paquete anthropic
+o sin credenciales responde 503 y el asistente sigue con su intérprete local (modo básico).
 Uso: python3 servidor.py [puerto] [dirección]   (por defecto 8080 y 0.0.0.0)
 """
+import functools
+import json
 import os
 import re
 import sys
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
+import asistente_ia
+
 RANGO = re.compile(r"bytes=(\d*)-(\d*)$")
+# La bitácora del asistente no se sirve como archivo estático
+PRIVADA = os.path.realpath(asistente_ia.REGISTRO.parent)
 
 
 class ConRangos(SimpleHTTPRequestHandler):
+    def do_POST(self):
+        if self.path.split("?")[0] != "/api/asistente":
+            self.send_error(HTTPStatus.NOT_FOUND, "Ruta no encontrada")
+            return
+        try:
+            largo = int(self.headers.get("Content-Length", ""))
+        except ValueError:
+            largo = -1
+        if largo < 0 or largo > asistente_ia.MAX_CUERPO:
+            estado, datos = HTTPStatus.REQUEST_ENTITY_TOO_LARGE, {"error": "tamano"}
+        else:
+            estado, datos = asistente_ia.responder(self.rfile.read(largo), self.headers, self.client_address[0])
+        cuerpo = json.dumps(datos, ensure_ascii=False).encode("utf-8")
+        self.send_response(estado)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(cuerpo)))
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.end_headers()
+        self.wfile.write(cuerpo)
+
     def send_head(self):
+        if (os.path.realpath(self.translate_path(self.path)) + os.sep).startswith(PRIVADA + os.sep):
+            self.send_error(HTTPStatus.NOT_FOUND, "Archivo no encontrado")
+            return None
         rango = RANGO.match(self.headers.get("Range", "").strip())
         ruta = self.translate_path(self.path)
         if not rango or os.path.isdir(ruta):
@@ -71,4 +103,4 @@ if __name__ == "__main__":
     puerto = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
     direccion = sys.argv[2] if len(sys.argv) > 2 else "0.0.0.0"
     print(f"Sirviendo {os.getcwd()} en http://{direccion}:{puerto}/ (Ctrl + C para detener)")
-    ThreadingHTTPServer((direccion, puerto), ConRangos).serve_forever()
+    ThreadingHTTPServer((direccion, puerto), functools.partial(ConRangos, directory=os.getcwd())).serve_forever()

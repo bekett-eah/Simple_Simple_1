@@ -1,0 +1,111 @@
+- generic [active] [ref=f19e1]:
+  - banner [ref=f19e2]:
+    - generic [ref=f19e3]:
+      - link "Simple.sv, volver a Trámites" [ref=f19e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f19e18]:
+        - link "Trámites" [ref=f19e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f19e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f19e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f19e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f19e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f19e24]: 
+          - text: Contáctanos
+      - generic [ref=f19e25]:
+        - text: 
+        - button "Ver notificaciones" [ref=f19e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f19e28]: 
+          - generic "1 notificación nueva" [ref=f19e29]: "1"
+        - button "Abrir menú de usuario" [ref=f19e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f19e32]
+          - generic [aria-hidden] [ref=f19e33]: 
+        - text: 
+  - main [ref=f19e34]:
+    - generic [ref=f19e36]:
+      - heading "Constancia de homónimo" [level=1] [ref=f19e37]
+      - generic [ref=f19e38]:
+        - generic [ref=f19e39]:
+          - complementary [ref=f19e40]:
+            - generic [ref=f19e41]:
+              - heading "Sobre este trámite" [level=3] [ref=f19e42]:
+                - generic [aria-hidden] [ref=f19e44]: 
+                - text: Sobre este trámite
+              - text: 
+            - generic [ref=f19e45]:
+              - paragraph [ref=f19e46]: Documento en el que se expresa la existencia o no de más de un registro con el mismo nombre en los sistemas que el RNPN administra
+              - generic [ref=f19e47]:
+                - generic [ref=f19e48]:
+                  - generic [aria-hidden] [ref=f19e49]: 
+                  - generic [ref=f19e50]:
+                    - term [ref=f19e51]: Dependencia
+                    - definition [ref=f19e52]: Unidad Jurídica Registral
+                - generic [ref=f19e53]:
+                  - generic [aria-hidden] [ref=f19e54]: 
+                  - generic [ref=f19e55]:
+                    - term [ref=f19e56]: Costo
+                    - definition [ref=f19e57]: $10.00
+                - generic [ref=f19e58]:
+                  - generic [aria-hidden] [ref=f19e59]: 
+                  - generic [ref=f19e60]:
+                    - term [ref=f19e61]: Tiempo de respuesta
+                    - definition [ref=f19e62]: 1 hora hábil
+                - generic [ref=f19e63]:
+                  - generic [aria-hidden] [ref=f19e64]: 
+                  - generic [ref=f19e65]:
+                    - term [ref=f19e66]: Dirigido a
+                    - definition [ref=f19e67]: Ciudadano
+          - note [ref=f19e68]:
+            - generic [aria-hidden] [ref=f19e69]: 
+            - paragraph [ref=f19e70]:
+              - strong [ref=f19e71]: "Importante:"
+              - text: no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura
+        - generic [ref=f19e72]:
+          - generic [ref=f19e73]:
+            - generic [ref=f19e74]: "1"
+            - generic [ref=f19e75]:
+              - paragraph [ref=f19e76]: Paso 1 de 3
+              - heading "Datos requeridos" [level=3] [ref=f19e77]
+              - paragraph [ref=f19e78]: Solo lo que necesitamos de ti; lo demás ya lo tenemos
+          - generic [ref=f19e81]:
+            - generic [ref=f19e82]:
+              - generic [ref=f19e83]:
+                - generic [aria-hidden] [ref=f19e84]: 
+                - generic [ref=f19e85]:
+                  - strong [ref=f19e86]: ¡Hola!
+                  - paragraph [ref=f19e87]: Este trámite que estás a punto de iniciar genera un costo de $10.00 por el servicio brindado; asegúrate de tener una tarjeta de crédito o débito para realizar el pago
+                  - paragraph [ref=f19e88]: Este valor únicamente constituye un arancel por la prestación del servicio, por lo que no existe devolución del mismo
+              - generic [ref=f19e89]:
+                - generic [aria-hidden] [ref=f19e90]: 
+                - generic [ref=f19e91]:
+                  - strong [ref=f19e92]: ¡Nota importante!
+                  - paragraph [ref=f19e93]: "Para realizar el trámite, ten en cuenta los siguientes términos:"
+                  - list [ref=f19e94]:
+                    - listitem [ref=f19e95]: El trámite solicitado consiste en la búsqueda y validación de la información proporcionada. Una vez ingresado y procesado, no será posible la devolución del costo del servicio, independientemente del resultado
+                    - listitem [ref=f19e96]: Si la información ingresada es incorrecta o inexacta, el documento será desfavorable y no procede la devolución
+                    - listitem [ref=f19e97]: Eres responsable del uso de tarjetas de crédito o débito para el pago del trámite
+                    - listitem [ref=f19e98]: Eres responsable de la información que ingresas en la etapa de identificación del trámite
+              - group "¿Aceptas los términos antes mencionados?" [ref=f19e99]:
+                - generic [ref=f19e100]: ¿Aceptas los términos antes mencionados? *
+                - generic [ref=f19e102] [cursor=pointer]:
+                  - radio "Acepto los términos" [checked]
+                  - generic [aria-hidden] [ref=f19e104]: 
+                  - strong [ref=f19e106]: Acepto los términos
+                  - generic [aria-hidden] [ref=f19e108]: 
+                - text: 
+            - text:        
+          - text: 
+          - generic [ref=f19e109]:
+            - link "Volver a trámites" [ref=f19e110] [cursor=pointer]:
+              - /url: Indexlogin.html
+              - generic [aria-hidden] [ref=f19e111]: 
+              - text: Volver a trámites
+            - text: 
+            - button "Siguiente" [ref=f19e112] [cursor=pointer]:
+              - text: Siguiente
+              - generic [aria-hidden] [ref=f19e113]: 
+  - text:                   

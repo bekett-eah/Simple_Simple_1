@@ -1,0 +1,371 @@
+- generic [active] [ref=f37e1]:
+  - banner [ref=f37e2]:
+    - generic [ref=f37e3]:
+      - link "Simple.sv, volver a Trámites" [ref=f37e4] [cursor=pointer]:
+        - /url: Indexlogin.html
+      - navigation "Menú principal" [ref=f37e18]:
+        - link "Trámites" [ref=f37e19] [cursor=pointer]:
+          - /url: Indexlogin.html
+          - generic [aria-hidden] [ref=f37e20]: 
+          - text: Trámites
+        - link "Mis documentos" [ref=f37e21] [cursor=pointer]:
+          - /url: mis-tramites.html
+          - generic [aria-hidden] [ref=f37e22]: 
+          - text: Mis documentos
+        - link "Contáctanos" [ref=f37e23] [cursor=pointer]:
+          - /url: contactanos.html
+          - generic [aria-hidden] [ref=f37e24]: 
+          - text: Contáctanos
+      - generic [ref=f37e25]:
+        - text:  
+        - button "Ver notificaciones" [ref=f37e27] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f37e28]: 
+          - generic "1 notificación nueva" [ref=f37e29]: "1"
+        - button "Abrir menú de usuario" [ref=f37e31] [cursor=pointer]:
+          - img "Foto de perfil de usuario" [ref=f37e32]
+          - generic [aria-hidden] [ref=f37e33]: 
+        - text: 
+  - main [ref=f37e34]:
+    - generic [ref=f37e36]:
+      - heading "Constancia de antecedentes penales" [level=1] [ref=f37e37]
+      - generic [ref=f37e38]:
+        - generic [ref=f37e39]:
+          - complementary [ref=f37e40]:
+            - generic [ref=f37e41]:
+              - heading "Sobre este trámite" [level=3] [ref=f37e42]:
+                - generic [aria-hidden] [ref=f37e44]: 
+                - text: Sobre este trámite
+              - text: 
+            - generic [ref=f37e45]:
+              - paragraph [ref=f37e46]: Constancia para comprobar que las personas naturales de origen salvadoreño no poseen registros de antecedentes penales por sentencia condenatoria ejecutoriada en su contra por imputársele un delito
+              - generic [ref=f37e47]:
+                - generic [ref=f37e48]:
+                  - generic [aria-hidden] [ref=f37e49]: 
+                  - generic [ref=f37e50]:
+                    - term [ref=f37e51]: Dependencia
+                    - definition [ref=f37e52]: Dirección General de Centros Penales
+                - generic [ref=f37e53]:
+                  - generic [aria-hidden] [ref=f37e54]: 
+                  - generic [ref=f37e55]:
+                    - term [ref=f37e56]: Costo
+                    - definition [ref=f37e57]: $3.00
+                - generic [ref=f37e58]:
+                  - generic [aria-hidden] [ref=f37e59]: 
+                  - generic [ref=f37e60]:
+                    - term [ref=f37e61]: Tiempo de respuesta
+                    - definition [ref=f37e62]: 12 horas hábiles (máximo 20 días hábiles, según el caso)
+                - generic [ref=f37e63]:
+                  - generic [aria-hidden] [ref=f37e64]: 
+                  - generic [ref=f37e65]:
+                    - term [ref=f37e66]: Dirigido a
+                    - definition [ref=f37e67]: Ciudadano
+          - note [ref=f37e68]:
+            - generic [aria-hidden] [ref=f37e69]: 
+            - paragraph [ref=f37e70]:
+              - strong [ref=f37e71]: "Importante:"
+              - text: no cierres esta página hasta terminar tu trámite. Tu información se procesa de forma segura
+          - group [ref=f37e72]:
+            - generic "Requisitos, detalles y leyes Lo que debes saber antes de empezar" [ref=f37e73] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f37e75]: 
+              - generic [ref=f37e76]:
+                - strong [ref=f37e77]: Requisitos, detalles y leyes
+                - generic [ref=f37e78]: Lo que debes saber antes de empezar
+              - generic [aria-hidden] [ref=f37e79]: 
+            - text:       
+        - generic [ref=f37e80]:
+          - generic [ref=f37e81]:
+            - generic [ref=f37e82]: "1"
+            - generic [ref=f37e83]:
+              - paragraph [ref=f37e84]: Paso 1 de 2
+              - heading "Tu solicitud" [level=3] [ref=f37e85]
+              - paragraph [ref=f37e86]: Completa lo que falta; lo demás ya está listo
+          - generic [ref=f37e89]:
+            - generic [ref=f37e90]:
+              - heading "Datos de la constancia" [level=4] [ref=f37e93]
+              - generic [ref=f37e94]:
+                - generic [ref=f37e97]:
+                  - generic [ref=f37e98]: Tipo de trámite *
+                  - paragraph [ref=f37e99]: Para qué usarás la constancia
+                  - combobox "Tipo de trámite" [ref=f37e100] [cursor=pointer]:
+                    - option "Seleccionar" [selected]
+                    - option "Administrativos"
+                    - option "De empleo"
+                    - option "De estudio"
+                    - option "Migratorios"
+                    - option "Ministerio de la Defensa Nacional"
+                    - option "De visita a centro penitenciario"
+                    - option "Instituciones de seguridad pública"
+                  - text: 
+                - generic [ref=f37e103]:
+                  - generic [ref=f37e104]: Lugar donde presentarás la constancia *
+                  - paragraph [ref=f37e105]: Empresa o institución que te la pide
+                  - textbox "Lugar donde presentarás la constancia" [ref=f37e106]
+                  - text: 
+              - generic [ref=f37e109]:
+                - generic [ref=f37e110]: Tipo de certificación *
+                - combobox "Tipo de certificación" [ref=f37e111] [cursor=pointer]:
+                  - option "Seleccionar"
+                  - option "Constancia personal de ciudadano residente en El Salvador" [selected]
+                - text: 
+              - heading "Cómo harás tu trámite" [level=4] [ref=f37e112]
+              - group [ref=f37e113]:
+                - generic [ref=f37e114]:
+                  - text: Modalidad del trámite *
+                  - 'button "Más información: Modalidad del trámite" [ref=f37e115] [cursor=pointer]':
+                    - generic [aria-hidden] [ref=f37e116]: 
+                - text: 
+                - generic [ref=f37e117]:
+                  - generic [ref=f37e118] [cursor=pointer]:
+                    - radio "Realizar el trámite en línea Requiere pago en línea" [checked]
+                    - generic [aria-hidden] [ref=f37e120]: 
+                    - generic [ref=f37e121]:
+                      - strong [ref=f37e122]: Realizar el trámite en línea
+                      - generic [ref=f37e123]: Requiere pago en línea
+                    - generic [aria-hidden] [ref=f37e125]: 
+                  - generic [ref=f37e126] [cursor=pointer]:
+                    - radio "Programar una cita para el trámite presencial No requiere pago en línea"
+                    - generic [aria-hidden] [ref=f37e128]: 
+                    - generic [ref=f37e129]:
+                      - strong [ref=f37e130]: Programar una cita para el trámite presencial
+                      - generic [ref=f37e131]: No requiere pago en línea
+                    - generic [aria-hidden] [ref=f37e133]: 
+                - text: 
+              - heading "Apostilla" [level=4] [ref=f37e136]
+              - group [ref=f37e139]:
+                - generic [ref=f37e140]:
+                  - text: ¿Deseas enviarla a apostillar? *
+                  - 'button "Más información: Apostillado de documento" [ref=f37e141] [cursor=pointer]':
+                    - generic [aria-hidden] [ref=f37e142]: 
+                - text: 
+                - generic [ref=f37e143]:
+                  - generic [ref=f37e144] [cursor=pointer]:
+                    - radio "Sí, enviar Para presentarla en otro país"
+                    - generic [aria-hidden] [ref=f37e146]: 
+                    - generic [ref=f37e147]:
+                      - strong [ref=f37e148]: Sí, enviar
+                      - generic [ref=f37e149]: Para presentarla en otro país
+                    - generic [aria-hidden] [ref=f37e151]: 
+                  - generic [ref=f37e152] [cursor=pointer]:
+                    - radio "No enviar" [checked]
+                    - generic [aria-hidden] [ref=f37e154]: 
+                    - strong [ref=f37e156]: No enviar
+                    - generic [aria-hidden] [ref=f37e158]: 
+                - text: 
+              - generic [ref=f37e159]:
+                - generic [ref=f37e160]: País donde presentarás el documento *
+                - combobox "País donde presentarás el documento" [disabled] [ref=f37e161] [cursor=pointer]:
+                  - option "Seleccionar" [selected]
+                  - option "Albania"
+                  - option "Alemania"
+                  - option "Andorra"
+                  - option "Antigua y Barbuda"
+                  - option "Argentina"
+                  - option "Armenia"
+                  - option "Australia"
+                  - option "Austria"
+                  - option "Azerbaiyán"
+                  - option "Bahamas"
+                  - option "Bahrein"
+                  - option "Barbados"
+                  - option "Belarús"
+                  - option "Bélgica"
+                  - option "Belice"
+                  - option "Benín"
+                  - option "Bolivia"
+                  - option "Bosnia y Herzegovina"
+                  - option "Botsuana"
+                  - option "Brasil"
+                  - option "Brunéi"
+                  - option "Bulgaria"
+                  - option "Burundi"
+                  - option "Cabo Verde"
+                  - option "Canadá"
+                  - option "Chile"
+                  - option "Chipre"
+                  - option "Colombia"
+                  - option "Cook, Islas"
+                  - option "Corea del Sur"
+                  - option "Costa Rica"
+                  - option "Croacia"
+                  - option "Dinamarca"
+                  - option "Dominica"
+                  - option "Ecuador"
+                  - option "El Salvador"
+                  - option "Eslovaquia"
+                  - option "Eslovenia"
+                  - option "España"
+                  - option "Estados Unidos de América"
+                  - option "Estonia"
+                  - option "Eswatini"
+                  - option "Fiji"
+                  - option "Filipinas"
+                  - option "Finlandia"
+                  - option "Francia"
+                  - option "Georgia"
+                  - option "Granada"
+                  - option "Grecia"
+                  - option "Guatemala"
+                  - option "Holanda"
+                  - option "Honduras"
+                  - option "Hong Kong"
+                  - option "Hungría"
+                  - option "India"
+                  - option "Indonesia"
+                  - option "Irlanda"
+                  - option "Islandia"
+                  - option "Israel"
+                  - option "Italia"
+                  - option "Japón"
+                  - option "Kazajstán"
+                  - option "Kirguistán"
+                  - option "Kosovo"
+                  - option "Lesoto"
+                  - option "Letonia"
+                  - option "Liberia"
+                  - option "Liechtenstein"
+                  - option "Lituania"
+                  - option "Luxemburgo"
+                  - option "Macao"
+                  - option "Macedonia"
+                  - option "Malasia"
+                  - option "Malawi"
+                  - option "Malta"
+                  - option "Marruecos"
+                  - option "Marshall, Islas"
+                  - option "Mauricio (Isla)"
+                  - option "México"
+                  - option "Moldavia"
+                  - option "Mónaco"
+                  - option "Mongolia"
+                  - option "Montenegro"
+                  - option "Namibia"
+                  - option "Nicaragua"
+                  - option "Niue"
+                  - option "Noruega"
+                  - option "Nueva Zelandia"
+                  - option "Omán"
+                  - option "Países Bajos"
+                  - option "Panamá"
+                  - option "Paraguay"
+                  - option "Perú"
+                  - option "Polonia"
+                  - option "Portugal"
+                  - option "Reino Unido"
+                  - option "República Checa"
+                  - option "República Dominicana"
+                  - option "Rumania"
+                  - option "Rusia"
+                  - option "Saint Kitts y Nevis"
+                  - option "Samoa"
+                  - option "San Cristóbal y Nieves"
+                  - option "San Marino"
+                  - option "San Vicente y las Granadinas"
+                  - option "Santa Lucía"
+                  - option "Santo Tomé y Príncipe"
+                  - option "Senegal"
+                  - option "Serbia"
+                  - option "Seychelles"
+                  - option "Sri Lanka"
+                  - option "Suazilandia"
+                  - option "Sudáfrica"
+                  - option "Suecia"
+                  - option "Suiza"
+                  - option "Surinam"
+                  - option "Tailandia"
+                  - option "Tayikistán"
+                  - option "Tonga"
+                  - option "Trinidad y Tabago"
+                  - option "Túnez"
+                  - option "Turquía"
+                  - option "Ucrania"
+                  - option "Unión Europea"
+                  - option "Uruguay"
+                  - option "Uzbekistán"
+                  - option "Vanuatu"
+                  - option "Venezuela"
+                  - option "Viet Nam"
+                  - option "Zambia"
+                - text: 
+              - generic: 
+              - group "Sede a la que te acercarás" [ref=f37e162]:
+                - generic [ref=f37e163]: Sede a la que te acercarás *
+                - generic [ref=f37e164]:
+                  - generic [ref=f37e165] [cursor=pointer]:
+                    - radio "San Salvador Oficina central · Lun a vie, 8:00 a. m. a 3:00 p. m." [disabled]
+                    - generic [aria-hidden] [ref=f37e167]: 
+                    - generic [ref=f37e168]:
+                      - strong [ref=f37e169]: San Salvador
+                      - generic [ref=f37e170]: Oficina central · Lun a vie, 8:00 a. m. a 3:00 p. m.
+                    - generic [aria-hidden] [ref=f37e172]: 
+                  - generic [ref=f37e173] [cursor=pointer]:
+                    - radio "Santa Ana Oficina regional de occidente · Lun a vie, 8:00 a. m. a 3:00 p. m." [disabled]
+                    - generic [aria-hidden] [ref=f37e175]: 
+                    - generic [ref=f37e176]:
+                      - strong [ref=f37e177]: Santa Ana
+                      - generic [ref=f37e178]: Oficina regional de occidente · Lun a vie, 8:00 a. m. a 3:00 p. m.
+                    - generic [aria-hidden] [ref=f37e180]: 
+                  - generic [ref=f37e181] [cursor=pointer]:
+                    - radio "San Miguel Oficina regional de oriente · Lun a vie, 8:00 a. m. a 3:00 p. m." [disabled]
+                    - generic [aria-hidden] [ref=f37e183]: 
+                    - generic [ref=f37e184]:
+                      - strong [ref=f37e185]: San Miguel
+                      - generic [ref=f37e186]: Oficina regional de oriente · Lun a vie, 8:00 a. m. a 3:00 p. m.
+                    - generic [aria-hidden] [ref=f37e188]: 
+                - text: 
+              - group "Fecha de retiro" [ref=f37e189]:
+                - generic [ref=f37e190]: Fecha de retiro *
+                - generic [ref=f37e191]:
+                  - generic [ref=f37e192] [cursor=pointer]:
+                    - radio "Vie 6 nov" [disabled]
+                    - strong [ref=f37e194]: Vie 6 nov
+                    - text: 
+                  - generic [ref=f37e195] [cursor=pointer]:
+                    - radio "Lun 9 nov" [disabled]
+                    - strong [ref=f37e197]: Lun 9 nov
+                    - text: 
+                  - generic [ref=f37e198] [cursor=pointer]:
+                    - radio "Mar 10 nov" [disabled]
+                    - strong [ref=f37e200]: Mar 10 nov
+                    - text: 
+                  - generic [ref=f37e201] [cursor=pointer]:
+                    - radio "Mié 11 nov" [disabled]
+                    - strong [ref=f37e203]: Mié 11 nov
+                    - text: 
+                  - generic [ref=f37e204] [cursor=pointer]:
+                    - radio "Jue 12 nov" [disabled]
+                    - strong [ref=f37e206]: Jue 12 nov
+                    - text: 
+                - text: 
+              - group "Hora de llegada" [ref=f37e207]:
+                - generic [ref=f37e208]: Hora de llegada *
+                - paragraph [ref=f37e209]: Estos horarios están libres en la sede y el día que elegiste
+                - text: 
+              - group "Cantidad de constancias" [ref=f37e210]:
+                - generic [ref=f37e211]: Cantidad de constancias *
+                - paragraph [ref=f37e212]: Puedes pedir hasta 3
+                - generic [ref=f37e213]:
+                  - generic [ref=f37e214] [cursor=pointer]:
+                    - radio "1 constancia" [disabled]
+                    - strong [ref=f37e216]: 1 constancia
+                    - text: 
+                  - generic [ref=f37e217] [cursor=pointer]:
+                    - radio "2 constancias" [disabled]
+                    - strong [ref=f37e219]: 2 constancias
+                    - text: 
+                  - generic [ref=f37e220] [cursor=pointer]:
+                    - radio "3 constancias" [disabled]
+                    - strong [ref=f37e222]: 3 constancias
+                    - text: 
+                - text: 
+            - text:                      
+          - text: 
+          - generic [ref=f37e223]:
+            - link "Volver a trámites" [ref=f37e224] [cursor=pointer]:
+              - /url: Indexlogin.html
+              - generic [aria-hidden] [ref=f37e225]: 
+              - text: Volver a trámites
+            - text: 
+            - button "Continuar" [ref=f37e226] [cursor=pointer]:
+              - text: Continuar
+              - generic [aria-hidden] [ref=f37e227]: 
+  - text:                    
